@@ -146,8 +146,8 @@
       <div class="image-container {% if block.settings.enable_slider %}slider{% endif %}">
         {% if block.settings.enable_slider %}
           {% if fundraiser_popup %}
-            <div><img src="{{ 'fundraiser-family-support-center.jpg' | asset_url }}" alt="Family Support Center fundraiser flyer" width="768" height="1024"></div>
             <div><img src="{{ 'fundraiser-humane-society.jpg' | asset_url }}" alt="Humane Society of Utah fundraiser flyer" width="768" height="1024"></div>
+            <div><img src="{{ 'fundraiser-family-support-center.jpg' | asset_url }}" alt="Family Support Center fundraiser flyer" width="768" height="1024"></div>
           {% else %}
             {% if block.settings.slide_image_1 != blank %}
               <div><img src="{{ block.settings.slide_image_1 | img_url: '1024x1024' }}" alt="slide image 1"></div>
