@@ -14,6 +14,7 @@
       "blocks": {
         "popup_phCgHP": {
           "type": "popup",
+          "disabled": true,
           "settings": {
             "popup_image": "shopify://shop_images/619260336_1415567550028965_6869084206404700581_n.jpg",
             "button_text": "Add to Calendar",
