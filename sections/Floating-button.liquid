@@ -1,0 +1,407 @@
+{% comment %}
+Sticky CTA Button — multi-position + auto-hide on popup + center vertical adjust
+Adds:
+• Hide at top until scrolling (uses body.is-scrolling with JS fallback)
+• Auto-hide when your .image-popup gets .visible
+{% endcomment %}
+
+<section id="sticky-cta-{{ section.id }}" class="sticky-cta-wrapper" data-section-id="{{ section.id }}">
+  {% liquid
+    assign vp = section.settings.vertical_position
+    assign btn_text = section.settings.button_text
+    assign text_color = section.settings.text_color
+    assign bg_color = section.settings.bg_color
+    assign border_color = section.settings.border_color
+    assign border_width = section.settings.border_width
+    assign hover_bg = section.settings.hover_bg_color
+    assign hover_text = section.settings.hover_text_color
+    assign size = section.settings.button_size
+    assign offset_x = section.settings.offset_x
+    assign offset_y = section.settings.offset_y
+    assign center_adjust = section.settings.center_y_adjust
+    assign radius = section.settings.border_radius
+    assign z = section.settings.z_index
+    assign custom_class = section.settings.custom_class
+    assign href_final = section.settings.link_url_pick | default: section.settings.link_url
+  %}
+
+  <style>
+    #sticky-cta-{{ section.id }} .sticky-cta-btn {
+      position: fixed;
+      z-index: {{ z }};
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 600;
+      line-height: 1;
+      border-radius: {{ radius }}px;
+      border: {{ border_width }}px solid {{ border_color }};
+      background: {{ bg_color }};
+      color: {{ text_color }};
+      box-shadow: 0 8px 18px rgba(0,0,0,.12);
+      transition: opacity .25s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+      -webkit-tap-highlight-color: transparent;
+      transform-origin: center center;
+      opacity: 1; /* default visible */
+    }
+
+    #sticky-cta-{{ section.id }} .sticky-cta-btn:hover {
+      background: {{ hover_bg }};
+      color: {{ hover_text }};
+      box-shadow: 0 10px 22px rgba(0,0,0,.16);
+    }
+
+    /* Size variants */
+    #sticky-cta-{{ section.id }} .size-sm { font-size: 14px; padding: 10px 14px; min-height: 44px; }
+    #sticky-cta-{{ section.id }} .size-md { font-size: 15px; padding: 12px 16px; min-height: 46px; }
+    #sticky-cta-{{ section.id }} .size-lg { font-size: 16px; padding: 14px 20px; min-height: 48px; }
+
+    /* ===== Position variants ===== */
+
+    /* Bottom-right */
+    #sticky-cta-{{ section.id }} .pos-bottom-right {
+      right: {{ offset_x }}px;
+      bottom: {{ offset_y }}px;
+    }
+
+    /* Middle-right (side, horizontal) */
+    #sticky-cta-{{ section.id }} .pos-middle-right {
+      right: {{ offset_x }}px;
+      top: calc(50% + {{ center_adjust }}px);
+      transform: translateY(-50%);
+    }
+
+    /* Right (rotated 90°) — vertical tab */
+    #sticky-cta-{{ section.id }} .pos-right-rotated {
+      right: {{ offset_x }}px;
+      top: calc(50% + {{ center_adjust }}px);
+      transform: translateY(-50%) rotate(-90deg);
+    }
+
+    /* Bottom-center */
+    #sticky-cta-{{ section.id }} .pos-bottom-center {
+      left: 50%;
+      bottom: {{ offset_y }}px;
+      transform: translateX(-50%);
+    }
+
+    /* Middle-left (side, horizontal) */
+    #sticky-cta-{{ section.id }} .pos-middle-left {
+      left: {{ offset_x }}px;
+      top: calc(50% + {{ center_adjust }}px);
+      transform: translateY(-50%);
+    }
+
+    /* Left rotated (vertical tab) */
+    #sticky-cta-{{ section.id }} .pos-left-rotated {
+      left: {{ offset_x }}px;
+      top: calc(50% + {{ center_adjust }}px);
+      transform: translateY(-50%) rotate(90deg);
+    }
+
+    /* Hide on device toggles */
+    {% if section.settings.hide_on_desktop %}
+      @media (min-width: 750px) { #sticky-cta-{{ section.id }} .sticky-cta-btn { display: none !important; } }
+    {% endif %}
+    {% if section.settings.hide_on_mobile %}
+      @media (max-width: 749px) { #sticky-cta-{{ section.id }} .sticky-cta-btn { display: none !important; } }
+    {% endif %}
+
+    /* Auto-hide when popup is open (MutationObserver below toggles html.popup-open) */
+    {% if section.settings.auto_hide_on_popup %}
+      html.popup-open #sticky-cta-{{ section.id }} .sticky-cta-btn { display: none !important; }
+    {% endif %}
+
+    /* Hide at very top; fade in when body.has(.is-scrolling) */
+    {% if section.settings.show_only_when_scrolling %}
+      body:not(.is-scrolling) #sticky-cta-{{ section.id }} .sticky-cta-btn {
+        opacity: 0;
+        pointer-events: none;
+      }
+    {% endif %}
+  </style>
+
+  {% if href_final != blank %}
+    <a
+      class="sticky-cta-btn {{ custom_class | escape }} size-{{ size }} pos-{{ vp }}"
+      href="{{ href_final }}"
+      {% if section.settings.open_in_new_tab %}target="_blank"{% endif %}
+      {% if section.settings.no_follow or section.settings.open_in_new_tab %}rel="{% if section.settings.no_follow %}nofollow {% endif %}noopener noreferrer"{% endif %}
+      aria-label="{{ btn_text | escape }}"
+      data-sticky-cta
+    >
+      {{ btn_text }}
+    </a>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Sticky CTA Button",
+  "tag": "section",
+  "class": "section--sticky-cta",
+  "settings": [
+    {
+      "type": "select",
+      "id": "vertical_position",
+      "label": "Position",
+      "default": "bottom-right",
+      "options": [
+        { "value": "bottom-right", "label": "Bottom right" },
+        { "value": "middle-right", "label": "Middle right (side)" },
+        { "value": "right-rotated", "label": "Right (rotated 90°)" },
+        { "value": "bottom-center", "label": "Bottom center" },
+        { "value": "middle-left", "label": "Middle left (side)" },
+        { "value": "left-rotated", "label": "Left (rotated 90°)" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Contact Us"
+    },
+    {
+      "type": "url",
+      "id": "link_url_pick",
+      "label": "Link (picker, overrides manual)",
+      "default": "/"
+    },
+    {
+      "type": "text",
+      "id": "link_url",
+      "label": "Manual link (fallback)",
+      "default": "/"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_in_new_tab",
+      "label": "Open link in a new tab",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "no_follow",
+      "label": "Set rel=\"nofollow\"",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "button_size",
+      "label": "Button size",
+      "default": "md",
+      "options": [
+        { "value": "sm", "label": "Small" },
+        { "value": "md", "label": "Medium" },
+        { "value": "lg", "label": "Large" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "offset_x",
+      "label": "Horizontal offset (px)",
+      "min": -100,
+      "max": 100,
+      "step": 2,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "offset_y",
+      "label": "Vertical offset (px) — for bottom positions",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "center_y_adjust",
+      "label": "Center vertical adjust (±px) — for side/rotated positions",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius (px)",
+      "min": 0,
+      "max": 1000,
+      "step": 10,
+      "default": 1000
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "label": "Border width (px)",
+      "min": 0,
+      "max": 6,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "hover_bg_color",
+      "label": "Hover background color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "hover_text_color",
+      "label": "Hover text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_on_mobile",
+      "label": "Hide on mobile",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_on_desktop",
+      "label": "Hide on desktop",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_hide_on_popup",
+      "label": "Auto-hide when popup is open (.image-popup.visible)",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_only_when_scrolling",
+      "label": "Hide at top; fade in when body.has('.is-scrolling')",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Optional extra CSS class",
+      "default": "dvs-sticky-cta"
+    },
+    {
+      "type": "range",
+      "id": "z_index",
+      "label": "Z-index",
+      "min": 0,
+      "max": 9900,
+      "step": 100,
+      "default": 9900
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sticky CTA Button (Multi-Position)",
+      "category": "Buttons",
+      "settings": {
+        "vertical_position": "bottom-right",
+        "button_text": "Contact Us",
+        "link_url_pick": "/",
+        "link_url": "/",
+        "open_in_new_tab": true,
+        "no_follow": false,
+        "button_size": "md",
+        "offset_x": 24,
+        "offset_y": 24,
+        "center_y_adjust": 0,
+        "border_radius": 1000,
+        "border_width": 2,
+        "bg_color": "#ffffff",
+        "text_color": "#000000",
+        "border_color": "#000000",
+        "hover_bg_color": "#111111",
+        "hover_text_color": "#ffffff",
+        "hide_on_mobile": false,
+        "hide_on_desktop": false,
+        "auto_hide_on_popup": true,
+        "show_only_when_scrolling": true,
+        "custom_class": "dvs-sticky-cta",
+        "z_index": 9900
+      }
+    }
+  ]
+}
+{% endschema %}
+
+{% javascript %}
+(function() {
+  var root = document.documentElement;
+  var body = document.body;
+
+  /* === A) Toggle html.popup-open when any .image-popup.visible exists === */
+  function syncPopupOpenFlag() {
+    var anyOpen = !!document.querySelector('.image-popup.visible');
+    if (anyOpen) { root.classList.add('popup-open'); }
+    else { root.classList.remove('popup-open'); }
+  }
+  syncPopupOpenFlag();
+
+  try {
+    var mo = new MutationObserver(function() {
+      if (!syncPopupOpenFlag._scheduled) {
+        syncPopupOpenFlag._scheduled = true;
+        requestAnimationFrame(function() {
+          syncPopupOpenFlag();
+          syncPopupOpenFlag._scheduled = false;
+        });
+      }
+    });
+    mo.observe(document.body, { attributes: true, childList: true, subtree: true, attributeFilter: ['class'] });
+  } catch (e) {
+    setInterval(syncPopupOpenFlag, 500);
+  }
+
+  /* === B) Ensure body.has('is-scrolling') when scrolled past top (fallback) ===
+     Many themes add this already; this just guarantees the class exists when scrollY > 0. */
+  var SHOW_ON_SCROLL = {{ section.settings.show_only_when_scrolling | json }};
+
+  function applyIsScrolling() {
+    if (!SHOW_ON_SCROLL) return;
+    var scrolled = window.scrollY > 0;
+    if (scrolled) body.classList.add('is-scrolling');
+    else body.classList.remove('is-scrolling');
+  }
+
+  // rAF-throttled scroll handler
+  var ticking = false;
+  function onScroll() {
+    if (!SHOW_ON_SCROLL) return;
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        applyIsScrolling();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  // Initial + listeners
+  applyIsScrolling();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('pageshow', applyIsScrolling);
+  window.addEventListener('resize', applyIsScrolling);
+})();
+{% endjavascript %}

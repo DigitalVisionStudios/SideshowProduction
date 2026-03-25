@@ -1,0 +1,22 @@
+{%- comment -%}
+Simple dev inventory logger section (schema name <= 25 chars)
+{%- endcomment -%}
+
+<div class="dev-inv-logger">
+	{% render 'console-inventory' %}
+	<noscript>Open the console to see inventory logs.</noscript>
+	<style>
+		.dev-inv-logger{ font-size:12px;color:#666;padding:6px 0; }
+	</style>
+</div>
+
+{% schema %}
+{
+	"name": "Dev Inv Logger",
+	"settings": [],
+	"blocks": [],
+	"presets": [
+		{ "name": "Dev Inv Logger" }
+	]
+}
+{% endschema %}

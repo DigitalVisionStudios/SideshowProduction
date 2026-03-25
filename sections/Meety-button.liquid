@@ -1,0 +1,459 @@
+{% comment %}
+Meety Pop-Up Buttons — dual-calendar + parsed dropdown + piercings categories UI
+- Adds Service UI mode: "piercings-categories"
+- Detects categories by "(Ear|Facial|Oral|Body|Vulvar|Penile)" anywhere in text (prefix/suffix/middle)
+- Builds two selects: Type + Piercing (display name stripped of category; value = exact Meety option text)
+- Optional promotion filter (include-only or highlight) via simple keyword list
+
+Notes:
+- Exact-text match used to click Meety’s hidden popover item.
+- If no category is detected, falls back to buttons.
+{% endcomment %}
+
+<section id="meety-popup-section-{{ section.id }}">
+  <div class="meety-buttons">
+    {% for block in section.blocks %}
+      <a
+        id="meety-open-btn-{{ block.id }}"
+        class="meety-open-btn btn"
+        data-block-id="{{ block.id }}"
+        data-meety-data="{{ block.settings.meety_data | strip_newlines | escape }}"
+        data-meety-data-2="{{ block.settings.meety_data_2 | strip_newlines | escape }}"
+        data-extra-hrefs="{{ block.settings.additional_triggers | strip_newlines | escape }}"
+
+  data-booking-flow-mode="{{ block.settings.booking_flow_mode | escape }}"
+
+        data-cal1-label="{{ block.settings.calendar1_label | escape }}"
+        data-cal2-label="{{ block.settings.calendar2_label | escape }}"
+        data-chooser-mode="{{ block.settings.chooser_mode | escape }}"
+  data-service-ui="{{ block.settings.service_ui_mode | escape }}"
+  data-cal1-parser="{{ block.settings.primary_parser_mode | default: block.settings.service_ui_mode | escape }}"
+  data-cal2-parser="{{ block.settings.secondary_parser_mode | default: block.settings.service_ui_mode | escape }}"
+
+        data-chooser-title="{{ block.settings.chooser_title | escape }}"
+        data-chooser-note="{{ block.settings.chooser_note | escape }}"
+        data-service-title="{{ block.settings.service_prompt | escape }}"
+        data-service-note="{{ block.settings.service_note | escape }}"
+
+        data-piercing-cats="{{ block.settings.piercing_categories | escape }}"
+        data-piercing-promo-mode="{{ block.settings.piercing_promo_filter | escape }}"
+        data-piercing-promo-keys="{{ block.settings.piercing_promo_keywords | escape }}"
+
+        data-gift-variant-1="{{ block.settings.gift_card_variant_1 | escape }}"
+        data-gift-variant-2="{{ block.settings.gift_card_variant_2 | escape }}"
+        data-gift-variant-3="{{ block.settings.gift_card_variant_3 | escape }}"
+        data-gift-calendar-1="{{ block.settings.gift_calendar_1 | strip_newlines | escape }}"
+        data-gift-calendar-2="{{ block.settings.gift_calendar_2 | strip_newlines | escape }}"
+        data-gift-calendar-3="{{ block.settings.gift_calendar_3 | strip_newlines | escape }}"
+        data-gift-label-1="{{ block.settings.gift_duration_label_1 | escape }}"
+        data-gift-label-2="{{ block.settings.gift_duration_label_2 | escape }}"
+        data-gift-label-3="{{ block.settings.gift_duration_label_3 | escape }}"
+
+        data-bogo-gift-piercing-calendar="{{ block.settings.bogo_gift_piercing_calendar | strip_newlines | escape }}"
+        data-bogo-gift-tooth-gems-calendar="{{ block.settings.bogo_gift_tooth_gems_calendar | strip_newlines | escape }}"
+        data-bogo-gift-teeth-whitening-calendar="{{ block.settings.bogo_gift_teeth_whitening_calendar | strip_newlines | escape }}"
+
+        data-promo-title="{{ block.settings.promo_title | escape }}"
+        data-promo-description="{{ block.settings.promo_description | strip_newlines | escape }}"
+  data-promo-enabled="{{ block.settings.enable_promo | default: false }}"
+
+        data-bogo-category="{{ block.settings.bogo_category | escape }}"
+        data-bogo-product-handle="{{ all_products[block.settings.bogo_product].handle | escape }}"
+  data-bogo-product-id="{{ block.settings.bogo_product | escape }}"
+        data-bogo-whitening-product-handle="{{ all_products[block.settings.bogo_whitening_product].handle | escape }}"
+  data-bogo-whitening-product-id="{{ block.settings.bogo_whitening_product | escape }}"
+  data-tattoo-calendar-json="{{ block.settings.tattoo_calendar_json | strip_newlines | escape }}"
+        
+        data-piercing-calendar-json="{{ block.settings.piercing_calendar_json | strip_newlines | escape }}"
+  data-teeth-gems-calendar-json="{{ block.settings.teeth_gems_calendar_json | strip_newlines | escape }}"
+  data-teeth-whitening-calendar-json="{{ block.settings.teeth_whitening_calendar_json | strip_newlines | escape }}"
+        data-downpay-enabled="{{ block.settings.enable_downpayment_split | default: false }}"
+        data-downpay-base-label="{{ block.settings.downpayment_base_label | default: 'Booking price' | escape }}"
+        data-downpay-fee-label="{{ block.settings.downpayment_fee_label | default: 'Card Fee' | escape }}"
+        data-downpay-percent="{{ block.settings.downpayment_percent | default: '2.9' }}"
+        data-downpay-flat="{{ block.settings.downpayment_flat | default: '0.30' }}"
+        data-downpay-floor="{{ block.settings.downpayment_floor_to_whole | default: true }}"
+        data-downpay-disclaimer="{{ block.settings.downpayment_fee_disclaimer | default: '' | strip_newlines | escape }}"
+  {%- comment -%}
+    Tracking product handles: all_products[] has a 20-product object hydration limit.
+    If the product object isn't in scope, the handle lookup returns blank. We fallback to the raw setting value.
+  {%- endcomment -%}
+  {%- assign _tp = all_products[block.settings.bogo_tracking_product_piercings] -%}
+  {%- comment -%} Try using handle string if product object not found in all_products[] cache {%- endcomment -%}
+  {%- if _tp == blank -%}
+    {%- assign _tp_handle = block.settings.bogo_tracking_product_piercings -%}
+    {%- assign _tp = collections.all.products[_tp_handle] -%}
+  {%- endif -%}
+  {%- assign _tg = all_products[block.settings.bogo_tracking_product_tooth_gems] -%}
+  {%- assign _tw = all_products[block.settings.bogo_tracking_product_teeth_whitening] -%}
+  {%- assign _tt = block.settings.bogo_tracking_product_tattoo -%}
+  {%- assign _tt_liquid_total = 0 -%}
+  {%- if _tt -%}
+    {%- for __vtt in _tt.variants -%}
+      {%- assign __q = __vtt.inventory_quantity -%}
+      {%- if __q == blank -%}{%- assign __q = 0 -%}{%- endif -%}
+      {%- assign _tt_liquid_total = _tt_liquid_total | plus: __q -%}
+    {%- endfor -%}
+  {%- endif -%}
+  {%- assign _tp_liquid_total = 0 -%}
+  {%- if _tp -%}
+    {%- for __vtp in _tp.variants -%}
+      {%- assign __q = __vtp.inventory_quantity -%}
+      {%- if __q == blank -%}{%- assign __q = 0 -%}{%- endif -%}
+      {%- assign _tp_liquid_total = _tp_liquid_total | plus: __q -%}
+    {%- endfor -%}
+  {%- endif -%}
+  {%- assign _tw_liquid_total = 0 -%}
+  {%- if _tw -%}
+    {%- for __vtw in _tw.variants -%}
+      {%- assign __q = __vtw.inventory_quantity -%}
+      {%- if __q == blank -%}{%- assign __q = 0 -%}{%- endif -%}
+      {%- assign _tw_liquid_total = _tw_liquid_total | plus: __q -%}
+    {%- endfor -%}
+  {%- endif -%}
+  {%- assign _tg_liquid_total = 0 -%}
+  {%- if _tg -%}
+    {%- for __vtg in _tg.variants -%}
+      {%- assign __q = __vtg.inventory_quantity -%}
+      {%- if __q == blank -%}{%- assign __q = 0 -%}{%- endif -%}
+      {%- assign _tg_liquid_total = _tg_liquid_total | plus: __q -%}
+    {%- endfor -%}
+  {%- endif -%}
+  {%- comment -%} Debug: piercings tracking {{ block.settings.bogo_tracking_product_piercings }} -> {{ _tp.handle | default: 'NOT_FOUND' }} -> {{ _tp_liquid_total }} {%- endcomment -%}
+  data-bogo-track-piercings="{{ _tp.handle | default: block.settings.bogo_tracking_product_piercings | escape }}"
+  data-bogo-track-piercings-raw="{{ block.settings.bogo_tracking_product_piercings | escape }}"
+  data-bogo-track-tooth-gems="{{ _tg.handle | default: block.settings.bogo_tracking_product_tooth_gems | escape }}"
+  data-bogo-track-tooth-gems-raw="{{ block.settings.bogo_tracking_product_tooth_gems | escape }}"
+  data-bogo-track-teeth-whitening="{{ _tw.handle | default: block.settings.bogo_tracking_product_teeth_whitening | escape }}"
+  data-bogo-track-teeth-whitening-raw="{{ block.settings.bogo_tracking_product_teeth_whitening | escape }}"
+  data-bogo-track-tattoo="{{ _tt.handle | default: block.settings.bogo_tracking_product_tattoo.handle | default: block.settings.bogo_tracking_product_tattoo | escape }}"
+  data-bogo-track-tattoo-raw="{{ _tt.handle | default: block.settings.bogo_tracking_product_tattoo.handle | default: block.settings.bogo_tracking_product_tattoo | escape }}"
+  data-bogo-tattoo-liquid-total="{{ _tt_liquid_total }}"
+  data-bogo-piercings-liquid-total="{{ _tp_liquid_total }}"
+  data-bogo-tooth-gems-liquid-total="{{ _tg_liquid_total }}"
+  data-bogo-teeth-whitening-liquid-total="{{ _tw_liquid_total }}"
+  data-bogo-no-calendar="{{ block.settings.no_calendar_mode | default: false }}"
+  data-bogo-instagram-url="{{ block.settings.instagram_url | escape }}"
+  data-instagram-booking-product="{{ block.settings.instagram_booking_product }}"
+  data-instagram-redeem-product="{{ block.settings.instagram_redeem_product }}"
+      >
+        {{ block.settings.button_text }}
+      </a>
+      
+      {%- comment -%} Debug Shopify Settings Configuration {%- endcomment -%}
+      <script>
+        console.log("%c[Shopify Settings Debug]", "color:#ff6b6b;font-weight:600", {
+          block_id: {{ block.id | json }},
+          bogo_category: {{ block.settings.bogo_category | json }},
+          tracking_products: {
+            piercings: {{ block.settings.bogo_tracking_product_piercings | json }},
+            tooth_gems: {{ block.settings.bogo_tracking_product_tooth_gems | json }},
+            teeth_whitening: {{ block.settings.bogo_tracking_product_teeth_whitening | json }},
+            tattoo: {{ block.settings.bogo_tracking_product_tattoo | json }}
+          },
+          resolved_handles: {
+            piercings: {{ _tp.handle | default: 'NOT_FOUND' | json }},
+            tooth_gems: {{ _tg.handle | default: 'NOT_FOUND' | json }},
+            teeth_whitening: {{ _tw.handle | default: 'NOT_FOUND' | json }},
+            tattoo: {{ _tt.handle | default: 'NOT_FOUND' | json }}
+          },
+          liquid_totals: {
+            piercings: {{ _tp_liquid_total | json }},
+            tooth_gems: {{ _tg_liquid_total | json }},
+            teeth_whitening: {{ _tw_liquid_total | json }},
+            tattoo: {{ _tt_liquid_total | json }}
+          }
+        });
+      </script>
+
+      {%- comment -%} Optional debug: inline inventory logger for the tracking product handle associated with this block. {%- endcomment -%}
+      {%- assign __dbg_handle = nil -%}
+      {%- case block.settings.bogo_category -%}
+        {%- when 'piercings' -%}
+          {%- assign __dbg_handle = _tp.handle | default: block.settings.bogo_tracking_product_piercings -%}
+        {%- when 'tooth-gems' -%}
+          {%- assign __dbg_handle = _tg.handle | default: block.settings.bogo_tracking_product_tooth_gems -%}
+        {%- when 'teeth-whitening' -%}
+          {%- assign __dbg_handle = _tw.handle | default: block.settings.bogo_tracking_product_teeth_whitening -%}
+        {%- when 'tattoo' -%}
+          {%- assign __dbg_handle = _tt.handle | default: block.settings.bogo_tracking_product_tattoo -%}
+        {%- else -%}
+          {%- assign __dbg_handle = nil -%}
+      {%- endcase -%}
+      {%- if __dbg_handle and __dbg_handle != '' -%}
+        {%- assign __p = all_products[__dbg_handle] -%}
+        {%- if __p -%}
+          {%- assign __total_qty = 0 -%}
+          {%- for __v in __p.variants -%}
+            {%- assign __q = __v.inventory_quantity -%}
+            {%- if __q == blank -%}{%- assign __q = 0 -%}{%- endif -%}
+            {%- assign __total_qty = __total_qty | plus: __q -%}
+          {%- endfor -%}
+          <script>
+            (function(){
+              const payload = {
+                product_handle: {{ __dbg_handle | json }},
+                product_id: {{ __p.id | json }},
+                title: {{ __p.title | json }},
+                has_only_default_variant: {{ __p.has_only_default_variant | json }},
+                variants: [
+                  {%- for __v in __p.variants -%}
+                  {
+                    id: {{ __v.id | json }},
+                    title: {{ __v.title | json }},
+                    sku: {{ __v.sku | json }},
+                    available: {{ __v.available | json }},
+                    inventory_management: {{ __v.inventory_management | json }},
+                    inventory_policy: {{ __v.inventory_policy | json }},
+                    /* Note: null here means “not tracked” */
+                    inventory_quantity: {{ __v.inventory_quantity | json }}
+                  }{%- if forloop.last == false -%},{%- endif -%}
+                  {%- endfor -%}
+                ],
+                /* Sum treats untracked (null) as 0 for convenience */
+                total_inventory_quantity: {{ __total_qty | json }}
+              };
+
+              console.log("%c[Inventory]", "color:#8ab4f8;font-weight:600", payload);
+              try {
+                console.table(payload.variants.map(v => ({
+                  variantId: v.id,
+                  title: v.title,
+                  qty: v.inventory_quantity,
+                  available: v.available
+                })));
+              } catch(_) {}
+              console.log("%c[Inventory] Total:", "color:#8ab4f8", payload.total_inventory_quantity);
+            })();
+          </script>
+        {%- else -%}
+          <script>console.log("%c[Inventory]", "color:#8ab4f8;font-weight:600", "No product found for handle:", {{ __dbg_handle | json }});</script>
+        {%- endif -%}
+      {%- endif -%}
+
+    {% endfor %}
+  </div>
+
+  {% render 'meety-button-styles' %}
+
+</section>
+
+{%- comment -%} Load externalized Meety/BOGO logic from assets {%- endcomment -%}
+{{ 'meetybutton.js' | asset_url | script_tag }}
+
+{% schema %}
+{
+  "name": "🎯 Meety Booking System",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Book Button",
+      "settings": [
+        { "type": "text", "id": "button_text", "label": "Button text", "default": "Book Now" },
+
+        { "type": "header", "content": "🎯 Main Booking Configuration" },
+        {
+          "type": "select",
+          "id": "booking_flow_mode",
+          "label": "Booking Flow",
+          "info": "This single dropdown controls the entire user experience for this button.",
+          "default": "standard",
+          "options": [
+            { "value": "standard", "label": "Standard Booking (1 or 2 Calendars)" },
+            { "value": "multi_step_chooser", "label": "Multi-Step Promotional Chooser" },
+            { "value": "bogo_piercings", "label": "Direct to BOGO Piercings (with Categories)" },
+            { "value": "bogo_tooth_gems", "label": "Direct to BOGO Tooth Gems" },
+            { "value": "bogo_teeth_whitening", "label": "Direct to BOGO Teeth Whitening" },
+            { "value": "bogo_gems_whitening", "label": "Direct to BOGO Gems or Whitening (Chooser)" },
+            { "value": "bogo_tattoo", "label": "Direct to BOGO Tattoo" }
+          ]
+        },
+
+        { "type": "header", "content": "🗓️ Calendar Settings" },
+        {
+          "type": "paragraph",
+          "content": "Configure the Meety calendar JSONs. The 'Primary Calendar' is used for all standard bookings and as the base for BOGO promotions."
+        },
+        {
+          "type": "textarea",
+          "id": "meety_data",
+          "label": "Primary Calendar JSON",
+          "info": "Main Meety calendar widget JSON. For BOGO mode, this calendar will be used with the selected higher-priced variant.",
+          "default": "{\"template\":\"page.artist-portfolio\",\"assignedProduct\":1,\"productId\":\"8872430010625\",\"variantId\":\"46585387450625\"}"
+        },
+        {
+          "type": "text",
+          "id": "calendar1_label",
+          "label": "Primary Calendar Label",
+          "default": "Standard Booking"
+        },
+        {
+          "type": "textarea",
+          "id": "meety_data_2",
+          "label": "Secondary Calendar JSON (Optional)",
+          "info": "A second calendar option, shown in 'Standard Booking' or as an option in the 'Multi-Step Chooser'.",
+          "default": "#"
+        },
+        {
+          "type": "text",
+          "id": "calendar2_label",
+          "label": "Secondary Calendar Label",
+          "default": "Specialized Booking"
+        },
+        { "type": "header", "content": "🧩 Per-Calendar Parser Overrides" },
+        { "type": "select", "id": "primary_parser_mode", "label": "Primary Calendar Parser", "default": "buttons", "options": [
+            { "value": "buttons", "label": "Buttons" },
+            { "value": "parsed-dropdown", "label": "Parsed Dropdown" },
+            { "value": "piercings-categories", "label": "Piercings Categories" },
+            { "value": "bogo", "label": "BOGO (forces buttons for selection)" }
+        ], "info": "Overrides the global Service UI for the primary calendar path." },
+        { "type": "select", "id": "secondary_parser_mode", "label": "Secondary Calendar Parser", "default": "buttons", "options": [
+            { "value": "buttons", "label": "Buttons" },
+            { "value": "parsed-dropdown", "label": "Parsed Dropdown" },
+            { "value": "piercings-categories", "label": "Piercings Categories" },
+            { "value": "bogo", "label": "BOGO (forces buttons for selection)" }
+        ], "info": "Overrides the global Service UI for the secondary calendar path." },
+
+        { "type": "header", "content": "💎 BOGO (Buy One Get One) Setup" },
+        {
+          "type": "paragraph",
+          "content": "These settings are used when the 'Booking Flow' is set to a BOGO mode or included in the Multi-Step chooser. Users select 2 services, pay for the higher-priced one, and get the lower-priced one FREE."
+        },
+        { "type": "select", "id": "bogo_category", "label": "BOGO Category", "default": "none", "options": [
+            { "value": "none", "label": "None / Not BOGO" },
+            { "value": "piercings", "label": "Piercings" },
+            { "value": "tooth-gems", "label": "Tooth Gems" },
+            { "value": "teeth-whitening", "label": "Teeth Whitening" },
+            { "value": "gems-whitening", "label": "Tooth Gems or Whitening (Chooser)" },
+            { "value": "tattoo", "label": "Tattoo" }
+          ], "info": "Select the BOGO promotion category (also auto-set by BOGO booking flow modes)." },
+        {
+          "type": "product",
+          "id": "bogo_product",
+          "label": "BOGO Product - Tooth Gems (Required for tooth-gems BOGO)",
+          "info": "Select the Shopify product containing all tooth gems service variants for the BOGO selection UI."
+        },
+        {
+          "type": "product",
+          "id": "bogo_whitening_product",
+          "label": "BOGO Product - Teeth Whitening (Required for teeth-whitening BOGO)",
+          "info": "Select the Shopify product containing all teeth whitening service variants for the BOGO selection UI."
+        },
+        {
+          "type": "textarea",
+          "id": "piercing_calendar_json",
+          "label": "Piercing BOGO Calendar JSON",
+          "info": "OVERRIDE: Use this specific calendar for Piercing BOGO. If blank, the Primary Calendar is used.",
+          "default": "#"
+        },
+        {
+          "type": "textarea",
+          "id": "teeth_gems_calendar_json",
+          "label": "Teeth Gems BOGO Calendar JSON", 
+          "info": "OVERRIDE: Use this specific calendar for Teeth Gems BOGO. If blank, the Primary Calendar is used.",
+          "default": "#"
+        },
+        {
+          "type": "textarea",
+          "id": "teeth_whitening_calendar_json",
+          "label": "Teeth Whitening BOGO Calendar JSON", 
+          "info": "OVERRIDE: Use this specific calendar for Teeth Whitening BOGO. If blank, the Primary Calendar is used.",
+          "default": "#"
+        },
+        { "type": "header", "content": "🧮 BOGO Gift Card Inventory Tracking" },
+        { "type": "paragraph", "content": "Select tracking products (inventory managed). A hidden line item is added when a gift card is purchased to decrement inventory." },
+        { "type": "product", "id": "bogo_tracking_product_piercings", "label": "Tracking Product – Piercings" },
+        { "type": "product", "id": "bogo_tracking_product_tooth_gems", "label": "Tracking Product – Tooth Gems" },
+        { "type": "product", "id": "bogo_tracking_product_teeth_whitening", "label": "Tracking Product – Teeth Whitening" },
+        { "type": "product", "id": "bogo_tracking_product_tattoo", "label": "Tracking Product – Tattoo" },
+        {
+          "type": "textarea",
+          "id": "tattoo_calendar_json",
+          "label": "Tattoo BOGO Calendar JSON",
+          "info": "OVERRIDE: Use this specific calendar for Tattoo BOGO. If blank, the Primary Calendar is used.",
+          "default": "#"
+        },
+        
+        { "type": "header", "content": "📅 No-Calendar Mode (Instagram Scheduling)" },
+        {
+          "type": "paragraph",
+          "content": "For artists without set schedules (e.g., Ashley), enable Instagram scheduling mode. Customers will be directed to Instagram to check availability instead of seeing a calendar."
+        },
+        { "type": "checkbox", "id": "no_calendar_mode", "label": "Enable No-Calendar Mode (Instagram Scheduling)", "default": false, "info": "Skip calendar step, show Instagram redirect option" },
+        { "type": "text", "id": "instagram_url", "label": "Instagram Profile URL", "info": "Artist's Instagram URL for scheduling (e.g., https://instagram.com/ashley_tattoo)", "default": "#" },
+        
+        { "type": "header", "content": "🛒 Instagram Mode - Product Configuration" },
+        {
+          "type": "paragraph",
+          "content": "Configure which products get added to cart for different flows when using Instagram scheduling mode. These are ONLY used when No-Calendar Mode is enabled."
+        },
+        { "type": "product", "id": "instagram_booking_product", "label": "Product for 'Book for Myself' Flow", "info": "Product added when customer books a service for themselves in Instagram mode" },
+        { "type": "product", "id": "instagram_redeem_product", "label": "Product for 'Redeem Gift Card' Flow", "info": "Product added when customer redeems a gift card in Instagram mode" },
+        
+        { "type": "header", "content": "🎁 Gift Card & Promotion Setup" },
+        {
+          "type": "paragraph",
+          "content": "These settings configure the 'Promo' option in the 'Multi-Step Promotional Chooser' flow."
+        },
+  { "type": "checkbox", "id": "enable_promo", "label": "Enable Black Friday / Promo Option (3rd path)", "default": true },
+  { "type": "text", "id": "promo_title", "label": "Promo Button Title", "default": "Black Friday Deals" },
+        { "type": "textarea", "id": "promo_description", "label": "Promo Button Description", "info": "HTML allowed. This appears in the Multi-Step chooser.", "default": "🎉 <strong>BOGO deals, gift cards, and special promotions</strong>" },
+
+        { "type": "header", "content": "🎁 Gift Card Purchase Tiers" },
+        {
+          "type": "paragraph",
+          "content": "Configure gift cards that users can purchase. These appear in the 'Multi-Step' flow."
+        },
+        { "type": "header", "content": "Tier 1" },
+        { "type": "text", "id": "gift_duration_label_1", "label": "Display name", "default": "1 Hour Session" },
+        { "type": "text", "id": "gift_card_variant_1", "label": "Shopify variant ID", "info": "Find in product admin URL: /variants/[ID_HERE]" },
+        { "type": "textarea", "id": "gift_calendar_1", "label": "Booking calendar JSON for redemption", "info": "Meety calendar for redeeming this specific gift card", "default": "#" },
+
+        { "type": "header", "content": "Tier 2" },
+        { "type": "text", "id": "gift_duration_label_2", "label": "Display name", "default": "2 Hour Session" },
+        { "type": "text", "id": "gift_card_variant_2", "label": "Shopify variant ID" },
+        { "type": "textarea", "id": "gift_calendar_2", "label": "Booking calendar JSON for redemption", "default": "#" },
+
+        { "type": "header", "content": "Tier 3" },
+        { "type": "text", "id": "gift_duration_label_3", "label": "Display name", "default": "3 Hour Session" },
+        { "type": "text", "id": "gift_card_variant_3", "label": "Shopify variant ID" },
+        { "type": "textarea", "id": "gift_calendar_3", "label": "Booking calendar JSON for redemption", "default": "#" },
+
+        { "type": "header", "content": "🎁 BOGO Gift Card Redemption Calendars" },
+        {
+          "type": "paragraph",
+          "content": "These calendars are used when someone redeems a gift card for BOGO services. Since gift cards can't be used to purchase other gift cards, these should point to separate products/variants for the redemption flow."
+        },
+        { "type": "textarea", "id": "bogo_gift_piercing_calendar", "label": "BOGO Piercing Gift Redemption Calendar JSON", "info": "Calendar for redeeming gift cards for BOGO piercing services", "default": "#" },
+        { "type": "textarea", "id": "bogo_gift_tooth_gems_calendar", "label": "BOGO Tooth Gems Gift Redemption Calendar JSON", "info": "Calendar for redeeming gift cards for BOGO tooth gems services", "default": "#" },
+        { "type": "textarea", "id": "bogo_gift_teeth_whitening_calendar", "label": "BOGO Teeth Whitening Gift Redemption Calendar JSON", "info": "Calendar for redeeming gift cards for BOGO teeth whitening services", "default": "#" },
+
+  { "type": "header", "content": "💳 Payment Split & Card Processing Fee" },
+  { "type": "paragraph", "content": "Optionally inject a line-item split into added cart items (Booking price vs Card Fee) based on the observed Meety Total. This separates the base booking cost from card processing fees for transparency." },
+  { "type": "checkbox", "id": "enable_downpayment_split", "label": "Enable Booking/Fee Split (line-item properties)", "default": false },
+  { "type": "text", "id": "downpayment_base_label", "label": "Booking Price Property Label", "default": "Booking price", "info": "The label for the base booking amount (before card processing fees). Works for both downpayments and full-price bookings." },
+  { "type": "text", "id": "downpayment_fee_label", "label": "Fee Property Label", "default": "Card Fee" },
+  { "type": "text", "id": "downpayment_percent", "label": "Card Fee % (e.g. 2.9)", "default": "2.9" },
+  { "type": "text", "id": "downpayment_flat", "label": "Card Fee Flat (e.g. 0.30)", "default": "0.30" },
+  { "type": "checkbox", "id": "downpayment_floor_to_whole", "label": "Floor Booking Price to Whole Dollar", "default": true },
+  { "type": "textarea", "id": "downpayment_fee_disclaimer", "label": "Fee Disclaimer Text (optional)", "info": "Shown at bottom of calendar step; set to '#auto' (default) to auto-generate from % + flat.", "default": "#auto" },
+
+        { "type": "header", "content": "⚙️ Advanced & Deprecated" },
+        {
+          "type": "text",
+          "id": "additional_triggers",
+          "label": "Additional trigger hrefs",
+          "info": "Comma-separated hrefs (e.g. \"/contact,#openSean,#book-yari\"). Any <a href> matching these will open THIS button's popup.",
+          "default": "#open-meety"
+        },
+        { "type": "text", "id": "chooser_title", "label": "[Legacy] Chooser title", "default": "What kind of services would you like?", "info": "This is now dynamically generated." },
+        { "type": "text", "id": "chooser_note", "label": "[Legacy] Chooser note", "default": "Select your preferred service type.", "info": "This is now dynamically generated." }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Meety Pop-Up Section", "category": "Custom" }
+  ]
+}
+{% endschema %}

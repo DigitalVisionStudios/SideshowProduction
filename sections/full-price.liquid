@@ -1,0 +1,627 @@
+<div id="product-customization-section" data-debug="{{ section.settings.show_debug | json }}">
+  {% for block in section.blocks %}
+    <div class="product-block"
+         data-product-id="{{ block.settings.product }}"
+         data-override-full-price="{{ block.settings.override_full_price | json }}"
+         data-full-price="{{ block.settings.full_price | default: '0' }}"
+         data-show-full-price="{{ block.settings.show_full_price | json }}"
+         data-treat-price-as-downpayment="{{ block.settings.treat_price_as_downpayment | json }}"
+         data-down-payment-percentage="{{ block.settings.down_payment_percentage | default: '30' }}"
+         data-apply-card-fee="{{ block.settings.apply_card_fee | json }}"
+         data-card-fee-percent="{{ block.settings.card_fee_percent | default: '2.90' }}"
+         data-card-fee-fixed="{{ block.settings.card_fee_fixed | default: '0.30' }}"
+         data-dynamic-full-price="{{ block.settings.dynamic_full_price | json }}"
+         data-initial-down-payment="{{ block.settings.initial_down_payment | default: '0' }}"
+         data-show-breakdown="{{ block.settings.show_breakdown | json }}"
+         data-show-small-text="{{ block.settings.show_small_text | json }}"
+         data-small-text="{{ block.settings.small_text | default: '#' }}"
+         data-show-down-payment="{{ block.settings.show_down_payment | json }}"
+         data-show-small-text-down-payment="{{ block.settings.show_small_text_down_payment | json }}"
+         data-small-text-down-payment="{{ block.settings.small_text_down_payment | default: '#' }}"
+         data-hide-down-payment-price="{{ block.settings.hide_down_payment_price | json }}"
+         data-notice-text="{{ block.settings.notice_text | escape }}"
+         data-enable-discount="{{ block.settings.enable_discount | json }}"
+         data-discount-percent="{{ block.settings.discount_percent | default: '30' }}"
+         data-override-full-price-richtext="{{ block.settings.override_full_price_richtext | json }}"
+         data-full-price-richtext="{{ block.settings.full_price_richtext | escape | strip_newlines }}"
+         data-override-down-payment-richtext="{{ block.settings.override_down_payment_richtext | json }}"
+         data-down-payment-richtext="{{ block.settings.down_payment_richtext | escape | strip_newlines }}"
+         data-hide-full-label-when-rich="{{ block.settings.hide_full_label_when_rich | json }}"
+         data-hide-down-label-when-rich="{{ block.settings.hide_down_label_when_rich | json }}"
+         data-round-full-nearest-dollar="{{ block.settings.round_full_price_nearest_dollar | json }}"
+    >
+      {% if section.settings.show_debug %}
+        <!-- Debugging outputs -->
+        <p>Product ID: {{ block.settings.product }}</p>
+        <p>Override Full Price (number): {{ block.settings.override_full_price | json }}</p>
+        <p>Override Full Price (rich text): {{ block.settings.override_full_price_richtext | json }}</p>
+        <p>Hide Full label when rich: {{ block.settings.hide_full_label_when_rich | json }}</p>
+        <p>Override Down Payment (rich text): {{ block.settings.override_down_payment_richtext | json }}</p>
+        <p>Hide DP label when rich: {{ block.settings.hide_down_label_when_rich | json }}</p>
+        <p>Round Full to $1: {{ block.settings.round_full_price_nearest_dollar | json }}</p>
+        <p>Full Price (setting): {{ block.settings.full_price }}</p>
+        <p>Treat Price As Downpayment: {{ block.settings.treat_price_as_downpayment | json }}</p>
+        <p>Down Payment Percentage: {{ block.settings.down_payment_percentage }}</p>
+        <p>Apply Card Fee: {{ block.settings.apply_card_fee | json }}</p>
+        <p>Card Fee %: {{ block.settings.card_fee_percent }} | Fixed: {{ block.settings.card_fee_fixed }}</p>
+        <p>Dynamic Full Price: {{ block.settings.dynamic_full_price | json }}</p>
+        <p>Initial Down Payment: {{ block.settings.initial_down_payment }}</p>
+        <p>Show Breakdown: {{ block.settings.show_breakdown | json }}</p>
+        <p>Show Small Text: {{ block.settings.show_small_text | json }}</p>
+        <p>Small Text: {{ block.settings.small_text }}</p>
+        <p>Show Full Price: {{ block.settings.show_full_price | json }}</p>
+        <p>Show Down Payment: {{ block.settings.show_down_payment | json }}</p>
+        <p>Show Small Text Down Payment: {{ block.settings.show_small_text_down_payment | json }}</p>
+        <p>Small Text Down Payment: {{ block.settings.small_text_down_payment }}</p>
+        <p>Hide Down Payment Price: {{ block.settings.hide_down_payment_price | json }}</p>
+        <p>Notice Text: {{ block.settings.notice_text }}</p>
+        <p>Enable Discount: {{ block.settings.enable_discount | json }}</p>
+        <p>Discount %: {{ block.settings.discount_percent }}</p>
+        <p class="debug-message">Script Ran: False</p>
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      setTimeout(function () {
+        function updateTitleForVisuals() {
+          const productTitleElement = document.querySelector('.product-single__title');
+          if (!productTitleElement) return false;
+
+          let productTitleHTML = productTitleElement.innerHTML;
+          const asteriskTextRegex = /\*(.*?)\*/g;
+          if (!asteriskTextRegex.test(productTitleHTML)) return false;
+
+          asteriskTextRegex.lastIndex = 0;
+          productTitleHTML = productTitleHTML.replace(asteriskTextRegex, '<span class="hidden-text" style="font-size:0px;">*$1*</span>');
+          productTitleElement.innerHTML = productTitleHTML;
+          return true;
+        }
+
+        function parseMoney(text) {
+          if (!text) return 0;
+          const cleaned = text.replace(/[^0-9.,-]/g, '').replace(',', '.');
+          const num = parseFloat(cleaned);
+          return isNaN(num) ? 0 : num;
+        }
+
+        function formatMoney(num) {
+          const n = Number(num || 0);
+          return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+
+        function getPriceNode() {
+          return (
+            document.querySelector('.price-container-wrapper .product-single__price .money') ||
+            document.querySelector('.product-single__price .money') ||
+            document.querySelector('[data-product-price] .money') ||
+            document.querySelector('.price .money')
+          );
+        }
+
+        function sanitizeNote(val) {
+          const t = (val || '').trim();
+          return (t === '#' || t === '') ? '' : t;
+        }
+
+        function decodeHTML(str) {
+          const txt = document.createElement('textarea');
+          txt.innerHTML = str || '';
+          return txt.value;
+        }
+
+        function roundDollar(n) {
+          return Math.round(Number(n || 0));
+        }
+
+        function updatePriceInfo() {
+          updateTitleForVisuals();
+
+          const currentURL = window.location.href;
+          const productBlocks = document.querySelectorAll('.product-block');
+          const debug = document.getElementById('product-customization-section').getAttribute('data-debug') === 'true';
+
+          let scriptRan = false;
+
+          productBlocks.forEach(function (block) {
+            const blockProductId = block.getAttribute('data-product-id');
+            if (!blockProductId || !currentURL.includes(blockProductId)) return;
+
+            scriptRan = true;
+
+            const priceElement = getPriceNode();
+            if (!priceElement) return;
+
+            const rawDownPaymentText = priceElement.textContent || '';
+            const grossDownPayment = parseMoney(rawDownPaymentText);
+
+            const overrideFullPrice = block.getAttribute('data-override-full-price') === 'true';
+            const overrideFullRich = block.getAttribute('data-override-full-price-richtext') === 'true';
+            const hideFullLabelWhenRich = block.getAttribute('data-hide-full-label-when-rich') === 'true';
+            const hideDpLabelWhenRich = block.getAttribute('data-hide-down-label-when-rich') === 'true';
+            const roundNearestDollar = block.getAttribute('data-round-full-nearest-dollar') === 'true';
+
+            const fullPriceSetting = parseFloat(block.getAttribute('data-full-price')) || 0;
+            const showFullPrice = block.getAttribute('data-show-full-price') === 'true';
+
+            const fullRichHTML = decodeHTML(block.getAttribute('data-full-price-richtext') || '');
+
+            const overrideDpRich = block.getAttribute('data-override-down-payment-richtext') === 'true';
+            const dpRichHTML = decodeHTML(block.getAttribute('data-down-payment-richtext') || '');
+
+            const treatAsDown = block.getAttribute('data-treat-price-as-downpayment') === 'true';
+            let downPaymentPct = parseFloat(block.getAttribute('data-down-payment-percentage'));
+            if (isNaN(downPaymentPct)) downPaymentPct = 30;
+            downPaymentPct = Math.min(Math.max(downPaymentPct, 1), 99);
+
+            const applyCardFee = block.getAttribute('data-apply-card-fee') === 'true';
+            const cardPct = Math.max(0, parseFloat(block.getAttribute('data-card-fee-percent')) || 0);
+            const cardFixed = Math.max(0, parseFloat(block.getAttribute('data-card-fee-fixed')) || 0);
+
+            const dynamicFullPrice = block.getAttribute('data-dynamic-full-price') === 'true';
+            const initialDownPayment = Math.max(0, parseFloat(block.getAttribute('data-initial-down-payment')) || 0);
+
+            const showBreakdown = block.getAttribute('data-show-breakdown') === 'true';
+            const showSmallText = block.getAttribute('data-show-small-text') === 'true';
+            const smallText = sanitizeNote(block.getAttribute('data-small-text'));
+            const showDownPayment = block.getAttribute('data-show-down-payment') === 'true';
+            const showSmallTextDownPayment = block.getAttribute('data-show-small-text-down-payment') === 'true';
+            const smallTextDownPayment = sanitizeNote(block.getAttribute('data-small-text-down-payment'));
+            const hideDownPaymentPrice = block.getAttribute('data-hide-down-payment-price') === 'true';
+            const noticeText = block.getAttribute('data-notice-text') || 'Processing fee for all non-cash payments.';
+
+            // Discount settings
+            const enableDiscount = block.getAttribute('data-enable-discount') === 'true';
+            let discountPct = parseFloat(block.getAttribute('data-discount-percent'));
+            if (isNaN(discountPct)) discountPct = 30;
+            discountPct = Math.min(Math.max(discountPct, 0), 100);
+
+            // Fees and net
+            const feeAmount = applyCardFee ? (grossDownPayment * (cardPct / 100) + cardFixed) : 0;
+            const netDownPayment = Math.max(0, grossDownPayment - feeAmount);
+
+            // Full price calc (pre-discount)
+            let fullPriceComputed = 0;
+            if (overrideFullPrice && !overrideFullRich) {
+              fullPriceComputed = fullPriceSetting;
+            } else if (treatAsDown && !overrideFullRich) {
+              const denom = downPaymentPct / 100;
+              fullPriceComputed = denom > 0 ? (netDownPayment / denom) : 0;
+            } else if (dynamicFullPrice && !overrideFullRich) {
+              fullPriceComputed = initialDownPayment > 0
+                ? fullPriceSetting * (grossDownPayment / initialDownPayment)
+                : fullPriceSetting;
+            } else if (!overrideFullRich) {
+              fullPriceComputed = fullPriceSetting;
+            }
+
+            // Apply discount (if enabled and not using full rich override)
+            let discountedFull = (!overrideFullRich && enableDiscount)
+              ? Math.max(0, fullPriceComputed * (1 - discountPct / 100))
+              : fullPriceComputed;
+
+            // Optional rounding (only affects displayed full/discounted amounts)
+            let fullDisplay = fullPriceComputed;
+            let discountedDisplay = discountedFull;
+            if (roundNearestDollar && !overrideFullRich) {
+              fullDisplay = roundDollar(fullDisplay);
+              discountedDisplay = enableDiscount ? roundDollar(discountedDisplay) : discountedDisplay;
+            }
+
+            // Labels
+            const labelFull = "Full Price";
+            const labelDp = "Down payment";
+
+            // Container
+            let additionalPriceInfo = document.querySelector('.price-container-wrapper .additional-price-info');
+            if (!additionalPriceInfo) {
+              additionalPriceInfo = document.createElement('div');
+              additionalPriceInfo.className = 'additional-price-info';
+              priceElement.parentNode.insertBefore(additionalPriceInfo, priceElement.nextSibling);
+            }
+
+            // Build Full Price line
+            let fullPriceLine = '';
+            const useFullRich = (overrideFullRich && fullRichHTML.trim() !== '');
+            const fullLabelMarkup = (useFullRich && hideFullLabelWhenRich) ? '' : `<span class="label">${labelFull}:</span>`;
+
+            if (showFullPrice) {
+              if (useFullRich) {
+                fullPriceLine = `
+                  <div class="line-full line-full-rich">
+                    ${fullLabelMarkup}
+                    <div class="full-richtext">${fullRichHTML}</div>
+                  </div>
+                `;
+              } else if (enableDiscount) {
+                fullPriceLine = `
+                  <div class="line-full">
+                    <span class="label">${labelFull}:</span>
+                    <span class="price-discounted">${formatMoney(discountedDisplay)}</span>
+                    <span class="price-original-rotated">${formatMoney(fullDisplay)}</span>
+                  </div>
+                `;
+              } else {
+                fullPriceLine = `
+                  <div class="line-full">
+                    <span class="label">${labelFull}:</span>
+                    <span class="price-normal">${formatMoney(fullDisplay)}</span>
+                  </div>
+                `;
+              }
+            }
+
+            const smallTextHTML = (showSmallText && smallText)
+              ? `<div class="small-text">${smallText}</div>` : '';
+
+            // Build Down Payment line
+            let downPaymentLine = '';
+            const useDpRich = (overrideDpRich && dpRichHTML.trim() !== '');
+            const dpLabelMarkup = (useDpRich && hideDpLabelWhenRich) ? '' : `<span class="label">${labelDp}:</span>`;
+
+            if (showDownPayment) {
+              if (useDpRich) {
+                downPaymentLine = `
+                  <div class="line-dp line-dp-rich">
+                    ${dpLabelMarkup}
+                    <div class="dp-richtext">${dpRichHTML}</div>
+                  </div>
+                `;
+              } else {
+                const dpText = hideDownPaymentPrice ? '' : `${formatMoney(grossDownPayment)}`;
+                const sdp = (showSmallTextDownPayment && smallTextDownPayment)
+                  ? `<span class="small-text-down-payment">${smallTextDownPayment}</span>` : '';
+                downPaymentLine = `<div class="line-dp"><strong>${labelDp}:</strong> ${dpText} ${sdp}</div>`;
+              }
+            }
+
+            // Breakdown (hide if either rich override is active to avoid confusion)
+            let breakdownHTML = '';
+            if (showBreakdown && !useFullRich && !useDpRich) {
+              breakdownHTML = `
+                <div class="calc-breakdown">
+                  <div><span>Card rate:</span> ${cardPct.toFixed(2)}% + ${formatMoney(cardFixed)}</div>
+                  <div><span>Processing fee on down payment:</span> ${formatMoney(feeAmount)}</div>
+                  <div><span>Net down payment captured:</span> ${formatMoney(netDownPayment)}</div>
+                  <div><span>Down payment % of full:</span> ${downPaymentPct}%</div>
+                  ${enableDiscount ? `<div><span>Discount applied:</span> ${discountPct}%</div>` : ''}
+                </div>
+              `;
+            }
+
+            additionalPriceInfo.innerHTML = `
+              <div class="notice-box">${noticeText}</div>
+              ${fullPriceLine}
+              ${smallTextHTML}
+              ${downPaymentLine}
+              ${breakdownHTML}
+            `;
+
+            // Hide theme price text
+            document.querySelectorAll('.price-container-wrapper .money').forEach(el => { el.style.fontSize = '0px'; });
+
+            // Debug
+            if (debug) {
+              console.log('[PricingCalc]', {
+                blockProductId,
+                grossDownPayment,
+                applyCardFee,
+                cardPct,
+                cardFixed,
+                feeAmount,
+                netDownPayment,
+                downPaymentPct,
+                overrideFullPrice,
+                overrideFullRich,
+                hideFullLabelWhenRich,
+                hideDpLabelWhenRich,
+                roundNearestDollar,
+                fullPriceComputed,
+                discountedFull,
+                fullDisplay,
+                discountedDisplay
+              });
+            }
+
+            if (debug) {
+              const dbg = block.querySelector('.debug-message');
+              if (dbg) dbg.textContent = 'Script Ran: True';
+            }
+          });
+
+          if (!scriptRan) {
+            const debug = document.getElementById('product-customization-section').getAttribute('data-debug') === 'true';
+            if (debug) {
+              document.querySelectorAll('.debug-message').forEach(function (debugElement) {
+                debugElement.textContent = 'Script Ran: False';
+              });
+            }
+          }
+        }
+
+        updatePriceInfo();
+        document.querySelectorAll('select[id^="SingleOptionSelector-"], [name="id"]').forEach(selector => {
+          selector.addEventListener('change', updatePriceInfo);
+        });
+        document.addEventListener('variant:change', updatePriceInfo);
+        setTimeout(updatePriceInfo, 500);
+      }, 100);
+    });
+  </script>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Product Pricing",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_debug",
+      "label": "Show Debug Info",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+        {
+          "type": "checkbox",
+          "id": "override_full_price_richtext",
+          "label": "Override Full Price with Rich Text",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_full_label_when_rich",
+          "label": "Hide 'Full Price' label when rich text",
+          "default": false
+        },
+        {
+          "type": "richtext",
+          "id": "full_price_richtext",
+          "label": "Rich Text to display as Full Price",
+          "default": "<p>#</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "override_full_price",
+          "label": "Override Full Price (number) and ignore calculations",
+          "default": false
+        },
+        {
+          "type": "number",
+          "id": "full_price",
+          "label": "Full Price (numeric override & ratio base)",
+          "default": 0
+        },
+        {
+          "type": "checkbox",
+          "id": "show_full_price",
+          "label": "Show Full Price",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "treat_price_as_downpayment",
+          "label": "Treat current product price as the DOWN PAYMENT",
+          "default": true
+        },
+        {
+          "type": "number",
+          "id": "down_payment_percentage",
+          "label": "Down Payment Percentage (e.g. 20 for 20%)",
+          "default": 30
+        },
+        {
+          "type": "checkbox",
+          "id": "apply_card_fee",
+          "label": "Subtract card fee before full-price math",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "card_fee_percent",
+          "label": "Card fee percent (e.g. 2.90 for 2.9%)",
+          "default": "2.90"
+        },
+        {
+          "type": "text",
+          "id": "card_fee_fixed",
+          "label": "Card fixed fee (e.g. 0.30 for $0.30)",
+          "default": "0.30"
+        },
+        {
+          "type": "checkbox",
+          "id": "dynamic_full_price",
+          "label": "Legacy: scale full price by ratio",
+          "default": false
+        },
+        {
+          "type": "number",
+          "id": "initial_down_payment",
+          "label": "Legacy: initial down payment (ratio base)",
+          "default": 0
+        },
+        {
+          "type": "checkbox",
+          "id": "show_breakdown",
+          "label": "Show calculation breakdown under prices",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "show_small_text",
+          "label": "Show Small Text After Full Price",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "small_text",
+          "label": "Small Text for Full Price",
+          "default": "#"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_down_payment",
+          "label": "Show Down Payment Line",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "override_down_payment_richtext",
+          "label": "Override Down Payment with Rich Text",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_down_label_when_rich",
+          "label": "Hide 'Down payment' label when rich text",
+          "default": false
+        },
+        {
+          "type": "richtext",
+          "id": "down_payment_richtext",
+          "label": "Rich Text to display as Down Payment",
+          "default": "<p>#</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_small_text_down_payment",
+          "label": "Show Small Text After Down Payment",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "small_text_down_payment",
+          "label": "Small Text for Down Payment",
+          "default": "#"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_down_payment_price",
+          "label": "Hide Down Payment Price Amount",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "notice_text",
+          "label": "Notice text",
+          "default": "Processing fee for all non-cash payments."
+        },
+        { "type": "header", "content": "Discount on Full Price" },
+        {
+          "type": "checkbox",
+          "id": "enable_discount",
+          "label": "Enable discount on calculated full price",
+          "default": true
+        },
+        {
+          "type": "number",
+          "id": "discount_percent",
+          "label": "Discount percent (e.g. 30 for 30%)",
+          "default": 30
+        },
+        { "type": "header", "content": "Rounding" },
+        {
+          "type": "checkbox",
+          "id": "round_full_price_nearest_dollar",
+          "label": "Round full price to nearest dollar",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Product",
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "override_full_price_richtext": false,
+            "hide_full_label_when_rich": false,
+            "full_price_richtext": "<p>#</p>",
+            "override_full_price": false,
+            "full_price": 0,
+            "show_full_price": true,
+            "treat_price_as_downpayment": true,
+            "down_payment_percentage": 30,
+            "apply_card_fee": true,
+            "card_fee_percent": "2.90",
+            "card_fee_fixed": "0.30",
+            "dynamic_full_price": false,
+            "initial_down_payment": 0,
+            "show_breakdown": false,
+            "show_small_text": false,
+            "small_text": "#",
+            "show_down_payment": true,
+            "override_down_payment_richtext": false,
+            "hide_down_label_when_rich": false,
+            "down_payment_richtext": "<p>#</p>",
+            "show_small_text_down_payment": false,
+            "small_text_down_payment": "#",
+            "hide_down_payment_price": false,
+            "notice_text": "Processing fee for all non-cash payments.",
+            "enable_discount": true,
+            "discount_percent": 30,
+            "round_full_price_nearest_dollar": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+<style>
+  .hidden-text { font-size: 0px; }
+  .additional-price-info { margin-top: 10px; }
+
+  .notice-box { font-size: 12px; margin: 6px 0 8px; color: #c0392b; }
+
+  .line-full, .line-dp { margin: 6px 0; display: flex; align-items: center; gap: 8px; }
+  .line-full .label, .line-dp .label { font-weight: 600; font-size: 14px; }
+
+  /* Rich text alignments */
+  .line-full-rich, .line-dp-rich { align-items: flex-start; }
+  .line-full-rich .full-richtext p,
+  .line-dp-rich .dp-richtext p { margin: 0; }
+
+  .price-normal { font-size: 16px; font-weight: 600; }
+
+  /* Discounted presentation */
+  .price-discounted {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .price-original-rotated {
+    font-size: 12px;
+    opacity: 0.95;
+    display: inline-block;
+    transform: rotate(-6deg);
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #fff; /* white slash */
+    color: #fff; /* original text also white */
+  }
+
+  .small-text, .small-text-down-payment {
+    font-size: 10px;
+    opacity: .8;
+  }
+
+  .calc-breakdown { margin-top: 6px; font-size: 12px; line-height: 1.4; opacity: .9; }
+  .calc-breakdown span { opacity: .9; }
+</style>
+{% endstylesheet %}

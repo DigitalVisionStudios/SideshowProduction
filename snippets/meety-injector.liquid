@@ -1,0 +1,97 @@
+/* =============================================================
+ * Combined BOGO + Downpayment Line-Item Property Injection
+ * Adds (configurable) Downpayment + Fee split AND BOGO free-service properties
+ * to any /cart/add or /cart/add.js POST request.
+ * ============================================================= */
+(function(){
+  const TAG = '[MeetyGiftDebug][BOGO-LINE]';
+  if (window.__meetyBogoLinePatched) return; // idempotent
+  window.__meetyBogoLinePatched = true;
+
+  // Harvest downpayment config from first enabled button (implements enable toggle & labels)
+  function harvestDownpay(){
+    if (window.__meetyDownpayConfig && window.__meetyDownpayConfig.locked) return;
+    const btn = document.querySelector('.meety-open-btn[data-downpay-enabled="true"]');
+    if (!btn) return;
+    let rawDisclaimer = btn.getAttribute('data-downpay-disclaimer') || '';
+    if (rawDisclaimer === '#auto') rawDisclaimer = '';
+    window.__meetyDownpayConfig = {
+      enabled: true,
+      baseLabel: btn.getAttribute('data-downpay-base-label') || 'Downpayment price',
+      feeLabel: btn.getAttribute('data-downpay-fee-label') || 'Card Fee',
+      percent: parseFloat(btn.getAttribute('data-downpay-percent')||'2.9') || 0,
+      flat: parseFloat(btn.getAttribute('data-downpay-flat')||'0.30') || 0,
+      floorBase: (btn.getAttribute('data-downpay-floor') === 'true'),
+      disclaimer: rawDisclaimer,
+      lastTotal: null
+    };
+    try {
+      if (window.__meetyDownpayConfig.disclaimer) {
+        document.querySelectorAll('.meety-fees-disclaimer').forEach(el=>{ el.textContent = window.__meetyDownpayConfig.disclaimer; });
+      } else if (document.querySelector('.meety-fees-disclaimer')) {
+        document.querySelectorAll('.meety-fees-disclaimer').forEach(el=>{ if(!el.dataset.defaultSet){ el.dataset.defaultSet='1'; el.textContent = `Card rates starting at ${window.__meetyDownpayConfig.percent}% + $${window.__meetyDownpayConfig.flat.toFixed(2)}`; } });
+      }
+    } catch(e){ console.warn(TAG,'Fee disclaimer update failed', e); }
+  }
+  harvestDownpay();
+  document.addEventListener('click', e=>{ if (e.target.closest('.meety-open-btn')) setTimeout(harvestDownpay, 50); });
+
+  function isCartAdd(url, method){
+    if (!url) return false; const m = String(method||'GET').toUpperCase(); if (m !== 'POST') return false; return /\/cart\/(add|add\.js)(\?|$)/i.test(url);
+  }
+  function ensureContextFresh(){ const ctx = window.__meetyBogoContext; if (!ctx) return null; if (Date.now() - (ctx.at||0) > 10*60*1000) return null; return ctx; }
+  function parseCurrencySimple(text){ if (!text) return null; const m=text.replace(/\s+/g,' ').match(/([$€£])\s*([\d.,]+)\b/); if(!m) return null; let num=m[2]; const lastDot=num.lastIndexOf('.'); const lastComma=num.lastIndexOf(','); if(lastComma>lastDot){ num=num.replace(/\./g,'').replace(',', '.'); } else { num=num.replace(/,/g,''); } const val=Number(num); if(!isFinite(val)) return null; return { symbol:m[1], value:val }; }
+  function toCents(n){ return Math.round((Number(n)||0)*100 + Number.EPSILON); }
+  function readPopupTotalNode(){ const pr=document.getElementById('popup-root'); if(!pr) return null; const labs=Array.from(pr.querySelectorAll('.meety-text')).filter(el=>{ const t=(el.textContent||'').trim().toLowerCase(); return t==='total:'||t==='total'; }); for(const l of labs){ let sib=l.parentElement && l.parentElement.nextElementSibling ? l.parentElement.nextElementSibling : l.nextElementSibling; const roots=[sib,l.parentElement,l.closest('.meety-inline-grid')].filter(Boolean); for(const r of roots){ const cands=r.querySelectorAll('.meety-text'); for(const c of cands){ if(c.closest('svg')) continue; const p=parseCurrencySimple(c.textContent); if(p) return { symbol:p.symbol, cents: toCents(p.value) }; } } } const all=Array.from(pr.querySelectorAll('.meety-text')); for(let i=all.length-1;i>=0;i--){ const p=parseCurrencySimple(all[i].textContent); if(p) return { symbol:p.symbol, cents: toCents(p.value) }; } return null; }
+  function computeSplit(totalCents, cfg){ const flatC=Math.round(cfg.flat*100); const mult=1+cfg.percent/100; let base=Math.max(0, Math.round((totalCents - flatC)/mult)); if(cfg.floorBase){ base=Math.floor(base/100)*100; if(base>totalCents) base=totalCents; } const fee=Math.max(0, totalCents-base); return { baseCents:base, feeCents:fee }; }
+  function refreshTotal(){ const cfg=window.__meetyDownpayConfig; if(!cfg?.enabled) return; const hit=readPopupTotalNode(); if(hit) cfg.lastTotal=hit; }
+  if (window.__meetyDownpayConfig?.enabled){ const moTarget=document.getElementById('popup-root'); if(moTarget){ const mo=new MutationObserver(()=>refreshTotal()); mo.observe(moTarget,{childList:true,subtree:true,characterData:true}); refreshTotal(); } }
+
+  function injectBogoPropsIntoFormData(fd, ctx){ if(!fd||!ctx) return fd; try { fd.set('properties[BOGO Charged Service]', ctx.charged.title); fd.set('properties[BOGO Free Service]', ctx.free.title+' (FREE)'); if(ctx.free2) fd.set('properties[BOGO Free Service 2]', ctx.free2.title+' (FREE)'); fd.set('properties[BOGO Total Savings]', `$${(ctx.savingsCents/100).toFixed(2)}`); if(ctx.category) fd.set('properties[BOGO Category]', ctx.category); ctx.injected=true; console.log(TAG,'Injected BOGO props (FormData) multiFree?', !!ctx.free2); } catch(e){ console.warn(TAG,'FormData inject failed', e); } return fd; }
+  function injectBogoPropsIntoJson(obj, ctx){
+    if(!obj||!ctx) return obj;
+    const shouldSkip = (t)=>{
+      if(!t) return true;
+      const p=t.properties||{};
+      if(p['BOGO Inventory Tracker']==='true' || p['Hidden']==='true') return true;
+      return false;
+    };
+    const add=(t)=>{
+      if(shouldSkip(t)) return;
+      const base={
+        'BOGO Charged Service': ctx.charged.title,
+        'BOGO Free Service': ctx.free.title+' (FREE)',
+        'BOGO Total Savings': `$${(ctx.savingsCents/100).toFixed(2)}`,
+        'BOGO Category': ctx.category||''
+      };
+      if(ctx.free2) base['BOGO Free Service 2']=ctx.free2.title+' (FREE)';
+      t.properties=Object.assign({}, t.properties||{}, base);
+    };
+    if(Array.isArray(obj.items)) obj.items.forEach(add); else add(obj);
+    ctx.injected=true;
+    console.log(TAG,'Injected BOGO props (JSON) multiFree?', !!ctx.free2);
+    return obj;
+  }
+
+  function addDownpayProps(target, cfg){
+    if(!cfg?.enabled) return;
+    if(!target) return;
+    const p=target.properties||{};
+    if(p['BOGO Inventory Tracker']==='true' || p['Hidden']==='true') return;
+    refreshTotal();
+    const t=cfg.lastTotal; if(!t) return; const split=computeSplit(t.cents, cfg);
+    target.properties = Object.assign({}, target.properties||{}, {
+      [cfg.baseLabel]: `${t.symbol}${(split.baseCents/100).toFixed(2)}`,
+      [cfg.feeLabel]: `${t.symbol}${(split.feeCents/100).toFixed(2)}`
+    });
+  }
+
+  function transformBody(body){ const ctx=ensureContextFresh(); const cfg=window.__meetyDownpayConfig && window.__meetyDownpayConfig.enabled ? window.__meetyDownpayConfig : null; try { if(body instanceof FormData){ if(ctx) injectBogoPropsIntoFormData(body, ctx); if(cfg){ refreshTotal(); const t=cfg.lastTotal; if(t){ const split=computeSplit(t.cents, cfg); body.set(`properties[${cfg.baseLabel}]`, `${t.symbol}${(split.baseCents/100).toFixed(2)}`); body.set(`properties[${cfg.feeLabel}]`, `${t.symbol}${(split.feeCents/100).toFixed(2)}`); } } return body; } if(typeof URLSearchParams!=='undefined' && body instanceof URLSearchParams){ if(ctx){ body.set('properties[BOGO Charged Service]', ctx.charged.title); body.set('properties[BOGO Free Service]', ctx.free.title+' (FREE)'); if(ctx.free2) body.set('properties[BOGO Free Service 2]', ctx.free2.title+' (FREE)'); body.set('properties[BOGO Total Savings]', `$${(ctx.savingsCents/100).toFixed(2)}`); if(ctx.category) body.set('properties[BOGO Category]', ctx.category); ctx.injected=true; console.log(TAG,'Injected BOGO props (URLSearchParams) multiFree?', !!ctx.free2); } if(cfg){ refreshTotal(); const t=cfg.lastTotal; if(t){ const split=computeSplit(t.cents, cfg); body.set(`properties[${cfg.baseLabel}]`, `${t.symbol}${(split.baseCents/100).toFixed(2)}`); body.set(`properties[${cfg.feeLabel}]`, `${t.symbol}${(split.feeCents/100).toFixed(2)}`); } } return body; } if(typeof body==='string'){ const s=body.trim(); const isJSON=(s.startsWith('{')&&s.endsWith('}'))||(s.startsWith('[')&&s.endsWith(']')); if(isJSON){ const parsed=JSON.parse(s||'{}'); if(ctx) injectBogoPropsIntoJson(parsed, ctx); if(cfg){ if(Array.isArray(parsed.items)) parsed.items.forEach(it=>addDownpayProps(it, cfg)); else addDownpayProps(parsed, cfg); } return JSON.stringify(parsed); } else { const usp=new URLSearchParams(s); transformBody(usp); return usp.toString(); } } if(body && typeof body==='object' && !(body instanceof Blob)){ if(ctx) injectBogoPropsIntoJson(body, ctx); if(cfg){ if(Array.isArray(body.items)) body.items.forEach(it=>addDownpayProps(it, cfg)); else addDownpayProps(body, cfg); } return body; } } catch(e){ console.warn(TAG,'transformBody error', e); } return body; }
+
+  const _fetch = window.fetch;
+  window.fetch = function(resource, init){ try { const url=(typeof resource==='string')?resource:(resource&&resource.url); const method=(init&&init.method)||(resource&&resource.method)||'GET'; if(isCartAdd(url, method)){ if(resource instanceof Request){ return (async()=>{ const cloned=resource.clone(); let bodyTxt=(init && 'body' in init)?init.body:await cloned.text(); const newInit=Object.assign({}, init||{}); newInit.method=cloned.method||method; newInit.headers=new Headers(newInit.headers||cloned.headers||{}); newInit.body=transformBody(bodyTxt); console.log(TAG,'fetch injection applied (Request)'); return _fetch(new Request(url, newInit)); })(); } else if (init && 'body' in init){ init.body=transformBody(init.body); console.log(TAG,'fetch injection applied (init.body)'); } } } catch(e){ console.warn(TAG,'fetch patch error', e); } return _fetch.apply(this, arguments); };
+
+  const _open = XMLHttpRequest.prototype.open; const _send = XMLHttpRequest.prototype.send; XMLHttpRequest.prototype.open = function(method, url){ this.__bogoHook = isCartAdd(url, method); this.__bogoUrl=url; return _open.apply(this, arguments); }; XMLHttpRequest.prototype.send = function(body){ try { if (this.__bogoHook){ body = transformBody(body); console.log(TAG,'XHR injection applied', this.__bogoUrl); } } catch(e){ console.warn(TAG,'XHR patch error', e); } return _send.call(this, body); };
+
+  console.log(TAG,'Combined BOGO + Downpayment injector ready');
+})();

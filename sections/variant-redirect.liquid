@@ -1,0 +1,244 @@
+<div id="variant-redirect">
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Function to check product title and allow redirection based on dropdown selection
+      function checkProductTitle() {
+        const productTitleElement = document.querySelector('.product-single__title');
+        if (!productTitleElement) {
+          console.log('Product title element not found.');
+          return false;
+        }
+
+        let productTitleText = productTitleElement.textContent.trim();
+        let titleCheck = "{{ section.settings.title_check }}";
+        let titleCheck2 = "{{ section.settings.title_check_2 }}"; // NEW second title check
+
+        // Extract first part of title for comparison,
+        // based on how many words are in "titleCheck"
+        let firstCheckWordCount = titleCheck.split(' ').length;
+        // We'll compare the first portion of the productTitleText with the same number of words
+        let cleanTitle = productTitleText.split(' ').slice(0, firstCheckWordCount).join(' ');
+
+        console.log('Product title:', productTitleText);
+        console.log('Clean title (first check portion):', cleanTitle);
+        console.log('Title check 1:', titleCheck);
+        console.log('Title check 2:', titleCheck2);
+
+        // Return true if cleanTitle matches either "titleCheck" OR "titleCheck2"
+        return cleanTitle === titleCheck || cleanTitle === titleCheck2;
+      }
+
+      // Function to get URL parameter
+      function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        const results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      // Function to create the dropdown dynamically
+      function createDropdown() {
+        const additionalPriceInfo = document.querySelector('.product-form__item');
+        if (!additionalPriceInfo) {
+          console.log('Additional price info element not found.');
+          return;
+        }
+
+        const wrapperDiv = document.createElement('div');
+        wrapperDiv.className = 'grid__item radio-wrapper product-form__item custom-variant-wrapper';
+        wrapperDiv.style.width = '100%';
+
+        const dropdownContainer = document.createElement('div');
+        dropdownContainer.className = 'product-form__item custom-variant-container';
+        dropdownContainer.style.marginTop = '20px';
+        dropdownContainer.style.width = '100%';
+
+        const label = document.createElement('label');
+        label.className = 'custom-single-option-radio__label';
+        label.innerHTML = "{{ section.settings.dropdown_label }}:";
+        label.style.display = 'inline-block';
+        label.style.marginRight = '10px';
+
+        const selectedOptionSpan = document.createElement('span');
+        selectedOptionSpan.id = 'custom-selected-option-span';
+        selectedOptionSpan.style.fontWeight = 'bold';
+        selectedOptionSpan.style.marginRight = '10px';
+        selectedOptionSpan.style.display = 'inline-block';
+
+        const dropdown = document.createElement('select');
+        dropdown.id = 'custom-dynamic-variant-dropdown';
+        dropdown.name = 'custom-dynamic-variant-dropdown';
+        dropdown.className = 'custom-single-option-list-type custom-single-option-selector__radio custom-single-option-selector-template--17861481267457__main custom-product-form__input custom-select--small custom-js-single-option-selector';
+        dropdown.style.display = 'inline-block';
+        dropdown.style.width = '100%';
+
+        const options = [
+          { name: "{{ section.settings.variant_1_name }}", url: "{{ section.settings.variant_1_url }}" },
+          { name: "{{ section.settings.variant_2_name }}", url: "{{ section.settings.variant_2_url }}" },
+          { name: "{{ section.settings.variant_3_name }}", url: "{{ section.settings.variant_3_url }}" },
+          { name: "{{ section.settings.variant_4_name }}", url: "{{ section.settings.variant_4_url }}" }
+        ];
+
+        options.forEach(option => {
+          if (option.name.trim() !== "") { // Check if the name is not empty
+            const opt = document.createElement('option');
+            opt.value = option.url;
+            opt.text = option.name;
+            dropdown.add(opt);
+          }
+        });
+
+        if (dropdown.options.length === 0) {
+          console.log('No valid options available for the dropdown.');
+          return; // Exit if no valid options
+        }
+
+        dropdown.addEventListener('change', function() {
+          const selectedOption = this.options[this.selectedIndex].text;
+          selectedOptionSpan.textContent = selectedOption;
+          if (this.value) {
+            console.log('Redirecting to:', this.value);
+            const scrollPosition = window.scrollY;
+            window.location.href = `${this.value}?service=${selectedOption}&scrollPosition=${scrollPosition}`;
+          }
+        });
+
+        dropdownContainer.appendChild(label);
+        dropdownContainer.appendChild(selectedOptionSpan);
+        dropdownContainer.appendChild(dropdown);
+        wrapperDiv.appendChild(dropdownContainer);
+        additionalPriceInfo.parentNode.insertBefore(wrapperDiv, additionalPriceInfo);
+        console.log('Dropdown added to the top of the page.');
+
+        // Set selected option from URL parameter or set the first option as default
+        const selectedVariantOption = getUrlParameter('service');
+        if (selectedVariantOption) {
+          for (let i = 0; i < dropdown.options.length; i++) {
+            if (dropdown.options[i].text === selectedVariantOption) {
+              dropdown.selectedIndex = i;
+              selectedOptionSpan.textContent = selectedVariantOption;
+              break;
+            }
+          }
+        } else {
+          dropdown.selectedIndex = 0;
+          selectedOptionSpan.textContent = dropdown.options[0].text;
+        }
+      }
+
+      // Check the product title and create dropdown if it matches and checkbox is checked
+      if (checkProductTitle() && {{ section.settings.enable_dropdown }}) {
+        console.log('Title matches (or) and dropdown enabled.');
+        createDropdown();
+      } else {
+        console.log('Title does not match or dropdown not enabled.');
+      }
+
+      // Restore scroll position if available via URL parameter
+      const scrollPosition = getUrlParameter('scrollPosition');
+      if (scrollPosition) {
+        window.scrollTo(0, parseInt(scrollPosition));
+      }
+    });
+  </script>
+</div>
+
+{% schema %}
+{
+  "name": "Variant Redirect",
+  "settings": [
+    {
+      "type": "text",
+      "id": "variant_1_name",
+      "label": "Variant 1 Name",
+      "default": "Tattoos"
+    },
+    {
+      "type": "url",
+      "id": "variant_1_url",
+      "label": "Variant 1 URL",
+      "default": "/"
+    },
+    {
+      "type": "text",
+      "id": "variant_2_name",
+      "label": "Variant 2 Name",
+      "default": "Piercings"
+    },
+    {
+      "type": "url",
+      "id": "variant_2_url",
+      "label": "Variant 2 URL",
+      "default": "/"
+    },
+    {
+      "type": "text",
+      "id": "variant_3_name",
+      "label": "Variant 3 Name",
+      "default": "Tooth Gems"
+    },
+    {
+      "type": "url",
+      "id": "variant_3_url",
+      "label": "Variant 3 URL",
+      "default": "/"
+    },
+    {
+      "type": "text",
+      "id": "variant_4_name",
+      "label": "Variant 4 Name",
+      "default": "Teeth Whitening"
+    },
+    {
+      "type": "url",
+      "id": "variant_4_url",
+      "label": "Variant 4 URL",
+      "default": "/"
+    },
+    {
+      "type": "text",
+      "id": "title_check",
+      "label": "Title Check",
+      "default": "National Mental Health Awareness Month"
+    },
+    {
+      "type": "text",
+      "id": "title_check_2",
+      "label": "Alternate Title Check",
+      "default": "/"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_dropdown",
+      "label": "Enable Dropdown",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "dropdown_label",
+      "label": "Dropdown Label",
+      "default": "What Services Would You Like?"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default Variant Redirect",
+      "category": "Custom",
+      "settings": {
+        "variant_1_name": "Tattoos",
+        "variant_1_url": "/",
+        "variant_2_name": "Piercings",
+        "variant_2_url": "/",
+        "variant_3_name": "Tooth Gems",
+        "variant_3_url": "/",
+        "variant_4_name": "Teeth Whitening",
+        "variant_4_url": "/",
+        "title_check": "National Mental Health Awareness Month",
+        "title_check_2": "/",
+        "enable_dropdown": false,
+        "dropdown_label": "What Services Would You Like?"
+      }
+    }
+  ]
+}
+{% endschema %}

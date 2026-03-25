@@ -1,0 +1,111 @@
+<div id="{{ block.settings.lottie_id }}"></div>
+
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  #{{ block.settings.lottie_id }} {
+    width: 256%;
+    height: 124%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: {{ block.settings.animation_opacity | default: 0.3 }};
+    transform: scale({{ block.settings.animation_scale | default: 1.4 }});
+  }
+
+  @keyframes shadowAnimation {
+    0%, 100% {
+      filter: drop-shadow(10px 10px 0px rgba(255, 255, 255, 1));
+    }
+    50% {
+      filter: drop-shadow(-10px -10px 15px rgba(255, 255, 255, .5));
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    #{{ block.settings.lottie_id }} {
+      width: 130%;
+      height: 110%;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    #{{ block.settings.lottie_id }} {
+      width: 135%;
+      height: 115%;
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    #{{ block.settings.lottie_id }} {
+      width: 145%;
+      height: 155%;
+      transform: translateX(-30%) translateY(-20%) scale(3);
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var animation = bodymovin.loadAnimation({
+      container: document.getElementById('{{ block.settings.lottie_id }}'),
+      renderer: 'svg',
+      loop: false,
+      autoplay: true,
+      path: '{{ block.settings.json_file_url }}'
+    });
+
+    animation.addEventListener('complete', function() {
+      animation.setDirection(animation.playDirection === -1 ? 1 : -1);
+      animation.play();
+    });
+});
+</script>
+
+
+{% schema %}
+
+  
+{
+  "name": "Custom Lottie Animation",
+  "settings": [
+    {
+      "type": "text",
+      "id": "lottie_id",
+      "label": "Lottie Container ID",
+      "default": "lottie-fullscreen"
+    },
+    {
+      "type": "url",
+      "id": "json_file_url",
+      "label": "Lottie JSON File URL"
+      // Removed the default value
+    },
+    {
+      "type": "range",
+      "id": "animation_opacity",
+      "label": "Animation Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.3
+    },
+    {
+      "type": "range",
+      "id": "animation_scale",
+      "label": "Animation Scale",
+      "min": 0.5,
+      "max": 3,
+      "step": 0.1,
+      "default": 1.4
+    }
+    // Additional settings can be added here
+  ]
+}
+{% endschema %}
+

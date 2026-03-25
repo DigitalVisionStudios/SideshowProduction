@@ -1,0 +1,107 @@
+<div id="lottie-fullscreen"></div>
+
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  #lottie-fullscreen {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: {{ section.settings.opacity | default: 0.15 }};
+    transform: scale({{ section.settings.scale | default: 1.4 }});
+    pointer-events: none;
+  }
+
+  @keyframes shadowAnimation {
+    0%, 100% {
+      filter: drop-shadow(10px 10px 0px rgba(255, 255, 255, 1));
+    }
+    50% {
+      filter: drop-shadow(-10px -10px 15px rgba(255, 255, 255, .5));
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    #lottie-fullscreen {
+      width: 130%;
+      height: 110%;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    #lottie-fullscreen {
+      width: 135%;
+      height: 115%;
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    #lottie-fullscreen {
+      width: 100%;
+      height: 100%;
+      transform: translateX(-80%) translateY(-50%) scale(10);
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var animation = bodymovin.loadAnimation({
+      container: document.getElementById('lottie-fullscreen'),
+      renderer: 'svg',
+      loop: false,
+      autoplay: true,
+      path: '{{ section.settings.animation_json_url }}'
+    });
+
+    animation.addEventListener('complete', function() {
+      animation.setDirection(animation.playDirection === -1 ? 1 : -1);
+      animation.play();
+    });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Lottie Animation",
+  "settings": [
+    {
+      "type": "text",
+      "id": "animation_json_url",
+      "label": "Animation JSON URL",
+      "default": "https://cdn.shopify.com/s/files"
+    },
+  {
+  "type": "range",
+  "id": "opacity",
+  "label": "Opacity",
+  "min": 0,
+  "max": 1,
+  "step": 0.1,
+  "default": 0.1
+},
+    {
+      "type": "range",
+      "id": "scale",
+      "label": "Scale",
+      "min": 0.5,
+      "max": 10,
+      "step": 0.1,
+      "default": 1.4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default Marquee",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

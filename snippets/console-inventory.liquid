@@ -1,0 +1,78 @@
+{%- assign _h = handle -%}
+{%- if _h -%}
+  {%- assign _p = all_products[_h] -%}
+  {%- if _p -%}
+    {%- assign __total_qty = 0 -%}
+    {%- for __v in _p.variants -%}
+      {%- assign __q = __v.inventory_quantity -%}
+      {%- if __q == blank -%}{%- assign __q = 0 -%}{%- endif -%}
+      {%- assign __total_qty = __total_qty | plus: __q -%}
+    {%- endfor -%}
+    <script>
+      (function(){
+        const payload = {
+          product_handle: {{ _h | json }},
+          product_id: {{ _p.id | json }},
+          title: {{ _p.title | json }},
+          has_only_default_variant: {{ _p.has_only_default_variant | json }},
+          variants: [
+            {%- for __v in _p.variants -%}
+            {
+              id: {{ __v.id | json }},
+              title: {{ __v.title | json }},
+              sku: {{ __v.sku | json }},
+              available: {{ __v.available | json }},
+              inventory_management: {{ __v.inventory_management | json }},
+              inventory_policy: {{ __v.inventory_policy | json }},
+              inventory_quantity: {{ __v.inventory_quantity | json }}
+            }{%- if forloop.last == false -%},{%- endif -%}
+            {%- endfor -%}
+          ],
+          total_inventory_quantity: {{ __total_qty | json }}
+        };
+        console.log("%c[Inventory]", "color:#8ab4f8;font-weight:600", payload);
+        try {
+          console.table(payload.variants.map(v => ({ variantId: v.id, title: v.title, qty: v.inventory_quantity, available: v.available })));
+        } catch(_) {}
+        console.log("%c[Inventory] Total:", "color:#8ab4f8", payload.total_inventory_quantity);
+      })();
+    </script>
+  {%- else -%}
+    <script>
+      (function(){
+        try {
+          var handle = {{ _h | json }};
+          if(!handle) return;
+          fetch('/products/' + handle + '.js?inv=' + Date.now(), { cache: 'no-store' })
+            .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+            .then(function(p){
+              var variants = (p.variants||[]).map(function(v){
+                return {
+                  id: v.id,
+                  title: v.title,
+                  sku: v.sku || null,
+                  available: v.available,
+                  inventory_management: (typeof v.inventory_management === 'undefined') ? null : v.inventory_management,
+                  inventory_policy: (typeof v.inventory_policy === 'undefined') ? null : v.inventory_policy,
+                  inventory_quantity: (typeof v.inventory_quantity === 'number') ? v.inventory_quantity : null
+                };
+              });
+              var total = variants.reduce(function(sum,v){ return sum + (typeof v.inventory_quantity === 'number' ? Math.max(0, v.inventory_quantity) : 0); }, 0);
+              var payload = {
+                product_handle: handle,
+                product_id: p.id,
+                title: p.title,
+                has_only_default_variant: p.has_only_default_variant,
+                variants: variants,
+                total_inventory_quantity: total
+              };
+              console.log('%c[Inventory]', 'color:#8ab4f8;font-weight:600', payload);
+              try { console.table(variants.map(function(v){ return ({ variantId: v.id, title: v.title, qty: v.inventory_quantity, available: v.available }); })); } catch(_){ }
+              console.log('%c[Inventory] Total:', 'color:#8ab4f8', total);
+            })
+            .catch(function(e){ console.warn('[Inventory] Fetch failed for handle:', handle, e); });
+        } catch(e){ console.warn('[Inventory] logger fallback error', e); }
+      })();
+    </script>
+  {%- endif -%}
+{%- endif -%}

@@ -1,0 +1,278 @@
+<div id="variant-redirect">
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // ===== Build options from Variant blocks =====
+      const variantOptions = [
+        {% for block in section.blocks %}
+          {% if block.type == 'variant' %}
+            {
+              name: {{ block.settings.name | json }},
+              url: {{ block.settings.url | default: "/" | json }}
+            }{% unless forloop.last %},{% endunless %}
+          {% endif %}
+        {% endfor %}
+      ].filter(Boolean);
+
+      // ===== Build target handles from Target Product blocks =====
+      const targetHandles = [
+        {% for block in section.blocks %}
+          {% if block.type == 'target_product' and block.settings.product != blank %}
+            {{ block.settings.product.handle | json }}{% unless forloop.last %},{% endunless %}
+          {% endif %}
+        {% endfor %}
+      ].filter(Boolean);
+
+      const visibilityMode = {{ section.settings.visibility_mode | json }};
+
+      // ===== Utilities =====
+      function extractProductHandle(url) {
+        if (!url) return "";
+        let cleanUrl = url.split('?')[0];
+        if (cleanUrl.slice(-1) === '/') cleanUrl = cleanUrl.slice(0, -1);
+        const parts = cleanUrl.split('/').filter(function (item) { return item.trim() !== ""; });
+        return parts.length > 0 ? parts[parts.length - 1] : "";
+      }
+
+      function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        const results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      // Build list of product handles from variant option URLs
+      const productHandlesList = variantOptions
+        .map(opt => (opt && typeof opt.url === 'string' && opt.url.trim() !== "") ? extractProductHandle(opt.url) : null)
+        .filter(Boolean);
+
+      function shouldShow() {
+        if (!({{ section.settings.enable_dropdown }})) return false;
+        const current = "{{ product.handle }}";
+        switch (visibilityMode) {
+          case 'all':
+            return true;
+          case 'targets':
+            return targetHandles.length ? targetHandles.includes(current) : false;
+          case 'options':
+          default:
+            return productHandlesList.includes(current);
+        }
+      }
+
+      // ===== UI creation =====
+      function createDropdown() {
+        const anchors = [
+          '.product-form__item',
+          'form[action*="/cart/add"]',
+          '.product-form',
+          '.product__info-wrapper'
+        ];
+        let mountAt = null;
+        for (const sel of anchors) {
+          const el = document.querySelector(sel);
+          if (el) { mountAt = el; break; }
+        }
+        if (!mountAt) {
+          console.log('[Variant Redirect] Mount anchor not found.');
+          return;
+        }
+
+        const wrapperDiv = document.createElement('div');
+        wrapperDiv.className = 'grid__item radio-wrapper product-form__item custom-variant-wrapper';
+        wrapperDiv.style.width = '100%';
+
+        const dropdownContainer = document.createElement('div');
+        dropdownContainer.className = 'product-form__item custom-variant-container';
+        dropdownContainer.style.marginTop = '20px';
+        dropdownContainer.style.width = '100%';
+
+        const label = document.createElement('label');
+        label.className = 'custom-single-option-radio__label';
+        label.innerHTML = {{ section.settings.dropdown_label | json }} + ':';
+        label.style.display = 'inline-block';
+        label.style.marginRight = '10px';
+
+        const selectedOptionSpan = document.createElement('span');
+        selectedOptionSpan.id = 'custom-selected-option-span';
+        selectedOptionSpan.style.fontWeight = 'bold';
+        selectedOptionSpan.style.marginRight = '10px';
+        selectedOptionSpan.style.display = 'inline-block';
+
+        const dropdown = document.createElement('select');
+        dropdown.id = 'custom-dynamic-variant-dropdown';
+        dropdown.name = 'custom-dynamic-variant-dropdown';
+        dropdown.className = 'custom-single-option-list-type custom-single-option-selector__radio custom-product-form__input custom-select--small';
+        dropdown.style.display = 'inline-block';
+        dropdown.style.width = '100%';
+
+        // Populate options
+        variantOptions.forEach(option => {
+          if (option && typeof option.name === 'string' && option.name.trim() !== "") {
+            const opt = document.createElement('option');
+            opt.value = option.url || '/';
+            opt.text = option.name;
+            dropdown.add(opt);
+          }
+        });
+
+        if (dropdown.options.length === 0) {
+          console.log('[Variant Redirect] No valid options found.');
+          return;
+        }
+
+        // Change handler => redirect
+        dropdown.addEventListener('change', function() {
+          const selectedOption = this.options[this.selectedIndex].text;
+          selectedOptionSpan.textContent = selectedOption;
+          if (this.value) {
+            const scrollPosition = window.scrollY;
+            const sep = this.value.includes('?') ? '&' : '?';
+            const target = `${this.value}${sep}service=${encodeURIComponent(selectedOption)}&scrollPosition=${scrollPosition}`;
+            window.location.href = target;
+          }
+        });
+
+        // Assemble + mount
+        dropdownContainer.appendChild(label);
+        dropdownContainer.appendChild(selectedOptionSpan);
+        dropdownContainer.appendChild(dropdown);
+        wrapperDiv.appendChild(dropdownContainer);
+
+        if (mountAt.parentNode) {
+          mountAt.parentNode.insertBefore(wrapperDiv, mountAt);
+        } else {
+          mountAt.appendChild(wrapperDiv);
+        }
+
+        // Initial selection
+        const fromParam = getUrlParameter('service');
+        const currentHandle = "{{ product.handle }}";
+        let set = false;
+
+        if (fromParam) {
+          for (let i = 0; i < dropdown.options.length; i++) {
+            if (dropdown.options[i].text === fromParam) {
+              dropdown.selectedIndex = i;
+              selectedOptionSpan.textContent = fromParam;
+              set = true;
+              break;
+            }
+          }
+        }
+
+        if (!set) {
+          for (let i = 0; i < dropdown.options.length; i++) {
+            const handle = extractProductHandle(dropdown.options[i].value);
+            if (handle && handle === currentHandle) {
+              dropdown.selectedIndex = i;
+              selectedOptionSpan.textContent = dropdown.options[i].text;
+              set = true;
+              break;
+            }
+          }
+        }
+
+        if (!set) {
+          dropdown.selectedIndex = 0;
+          selectedOptionSpan.textContent = dropdown.options[0].text;
+        }
+
+        console.log('[Variant Redirect] Dropdown mounted with', dropdown.options.length, 'options.');
+      }
+
+      if (shouldShow()) {
+        createDropdown();
+      } else {
+        console.log('[Variant Redirect] Not shown (mode:', visibilityMode, ')');
+      }
+
+      // Restore scroll position if present
+      const scrollPosition = getUrlParameter('scrollPosition');
+      if (scrollPosition) {
+        const y = parseInt(scrollPosition, 10);
+        if (!Number.isNaN(y)) window.scrollTo(0, y);
+      }
+    });
+  </script>
+</div>
+
+{% schema %}
+{
+  "name": "Variant Redirect",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_dropdown",
+      "label": "Enable Dropdown",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "visibility_mode",
+      "label": "Show on",
+      "default": "options",
+      "options": [
+        { "value": "options", "label": "Products in Variant URLs" },
+        { "value": "targets", "label": "Products in Target blocks" },
+        { "value": "all", "label": "All products" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "dropdown_label",
+      "label": "Dropdown Label",
+      "default": "What Services Would You Like?"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "variant",
+      "name": "Variant",
+      "limit": 50,
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Variant Name",
+          "default": "Tattoos"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Variant URL",
+          "default": "/"
+        }
+      ]
+    },
+    {
+      "type": "target_product",
+      "name": "Target Product",
+      "limit": 50,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Show on this product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Variant Redirect",
+      "category": "Custom",
+      "settings": {
+        "enable_dropdown": true,
+        "visibility_mode": "options",
+        "dropdown_label": "What Services Would You Like?"
+      },
+      "blocks": [
+        { "type": "variant", "settings": { "name": "Tattoos", "url": "/" } },
+        { "type": "variant", "settings": { "name": "Piercings", "url": "/" } },
+        { "type": "variant", "settings": { "name": "Tooth Gems", "url": "/" } },
+        { "type": "variant", "settings": { "name": "Teeth Whitening", "url": "/" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

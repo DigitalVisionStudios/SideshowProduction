@@ -1,0 +1,12 @@
+{%- comment -%}
+Loads the Meety runtime script from assets and defines a global LOG_PREFIX if not already set.
+This snippet is referenced by the Meety section and should be loaded once per page.
+{%- endcomment -%}
+<script>
+  window.LOG_PREFIX = window.LOG_PREFIX || '[Meety]';
+  // Guard against duplicate execution if snippet is rendered multiple times
+  if (!window.__meetyRuntimeLoaded) {
+    window.__meetyRuntimeLoaded = true;
+  }
+</script>
+<script src="{{ 'meety-button(OLD).js' | asset_url }}" defer></script>

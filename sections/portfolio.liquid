@@ -1,0 +1,770 @@
+{% comment %}
+Section: Authors Teasers (30-image gallery + optional 18+ blur/gate)
+- Age gate resets on reload / close / tab switch (no persistence).
+- 6 per-author RICHTEXT titles that render ABOVE chosen portfolio images.
+{% endcomment %}
+
+<!-- Include Webflow CSS -->
+<link href="{{ section.settings.css_url }}" rel="stylesheet" type="text/css">
+
+<div class="section-authors-teasers" data-section-id="{{ section.id }}">
+  <div class="teasers-wrapper">
+    <div class="collection-list-2">
+      {% for block in section.blocks %}
+        <div class="collection-item"{% if block.settings.html_id != blank %} id="{{ block.settings.html_id | escape }}"{% endif %}>
+          <div class="author-wrapper" data-w-id="e8a3cb15-7a04-d16d-6771-cfcf8206fd6e" data-block-id="{{ block.id }}">
+
+            <!-- Circle avatar (inline background from OPENED profile image) -->
+            <div class="author-profile-image--circle"
+                 style="background-image:url({{ block.settings.profile_image | img_url: '900x' }}) !important; background-size:cover!important; background-position:center!important; background-repeat:no-repeat!important;">
+            </div>
+
+            {% if block.settings.background_image != blank %}
+              <img
+                class="background-image-artist"
+                src="{{ block.settings.background_image | img_url: '1080x' }}"
+                alt="{{ block.settings.author_name | escape }}"
+                loading="lazy"
+                data-aos="fade"
+                data-aos-duration="400"
+                data-aos-delay="15">
+            {% endif %}
+
+            <!-- Top-right social icon badge (per-author) -->
+            {% if block.settings.icon_svg != blank %}
+            <div class="div-block-5">
+              <div class="social-icon w-embed">
+                {% if block.settings.icon_url != blank %}
+                  <a href="{{ block.settings.icon_url }}" target="_blank" rel="noopener">
+                    {{ block.settings.icon_svg | raw }}
+                  </a>
+                {% else %}
+                  {{ block.settings.icon_svg | raw }}
+                {% endif %}
+              </div>
+            </div>
+            {% endif %}
+
+            <!-- Teaser -->
+            <div class="author-teaser-content">
+              <h1 class="heading">{{ block.settings.author_name }}</h1>
+              <div class="divider-65"></div>
+
+              <div class="description-texts">
+                <div class="rte description-left">
+                  {{ block.settings.author_bio }}
+                </div>
+                <div class="rte description-right">
+                  {{ block.settings.author_price }}
+                </div>
+              </div>
+
+              <div class="button-wrapper">
+                {% if block.settings.book_url != blank %}
+                  <a {% if block.settings.book_id != blank %}id="{{ block.settings.book_id | escape }}"{% endif %}
+                     href="{{ block.settings.book_url }}" class="btn w-button">
+                    {{ block.settings.book_label }}
+                  </a>
+                {% endif %}
+                {% if block.settings.portfolio_url != blank %}
+                  <a {% if block.settings.portfolio_id != blank %}id="{{ block.settings.portfolio_id | escape }}"{% endif %}
+                     href="{{ block.settings.portfolio_url }}" class="btn w-button">
+                    {{ block.settings.portfolio_label }}
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+
+            <!-- Circle anim -->
+            <div id="circle" data-w-id="e8a3cb15-7a04-d16d-6771-cfcf8206fd75" class="circle-animation" style="width:0vw; height:0vw;"></div>
+
+            <!-- OPENED PANEL -->
+            <div class="author-opened-wrapper" style="display:none;">
+              <div data-w-id="e8a3cb15-7a04-d16d-6771-cfcf8206fd79" class="author-close-button"></div>
+
+              <div class="button-wrapper-center fixed-middle">
+                {% if block.settings.book_url != blank %}
+                  <a {% if block.settings.book_id != blank %}id="{{ block.settings.book_id | escape }}"{% endif %}
+                     href="{{ block.settings.book_url }}" class="btn w-button">
+                    {{ block.settings.book_label }}
+                  </a>
+                {% endif %}
+              </div>
+
+              <!-- LEFT -->
+              <div id="w-node-e8a3cb15-7a04-d16d-6771-cfcf8206fd77-178303b5"
+                   data-w-id="e8a3cb15-7a04-d16d-6771-cfcf8206fd77"
+                   class="author-opened-left" style="opacity:0;">
+
+                <div class="author-opened-left-content-wrapper"
+                     style="background-color:#000!important; background-image:var(--mobile-left-gradient, none), var(--mobile-left-image, none) !important; background-size:cover, cover!important; background-position:center, center!important; background-repeat:no-repeat, no-repeat!important;">
+
+                  <div class="author-profile-image"
+                       style="background-image:url({{ block.settings.profile_image | img_url: '900x' }}) !important; background-size:cover!important; background-position:center!important; background-repeat:no-repeat!important;">
+                  </div>
+
+                  <div data-w-id="e8a3cb15-7a04-d16d-6771-cfcf8206fd87" class="author-social-media-wrapper">
+                    {% if block.settings.instagram_url != blank %}
+                      <a href="{{ block.settings.instagram_url }}" class="instagram-popup w-inline-block" target="_blank" rel="noopener"></a>
+                    {% endif %}
+                  </div>
+
+                  <h1 class="heading-2">{{ block.settings.opened_heading }}</h1>
+                  <div class="rte text-block">
+                    {{ block.settings.opened_text }}
+                  </div>
+
+                  {% if block.settings.left_button_show %}
+                    <div class="button-wrapper-center">
+                      <a {% if block.settings.book_id != blank %}id="{{ block.settings.book_id | escape }}"{% endif %}
+                         href="{{ block.settings.book_url }}" class="btn w-button">
+                        {{ block.settings.book_label }}
+                      </a>
+                    </div>
+                  {% endif %}
+                </div>
+
+                <style>
+                  @media (max-width: 991px) {
+                    .author-wrapper[data-block-id="{{ block.id }}"] .author-opened-left-content-wrapper {
+                      --mobile-left-gradient: linear-gradient(black, rgb(0 0 0 / 36%) 52%, rgb(0, 0, 0));
+                      --mobile-left-image: url({{ block.settings.profile_image | img_url: '900x' }});
+                    }
+                    .author-wrapper[data-block-id="{{ block.id }}"] .author-opened-left-content-wrapper .author-profile-image{
+                      display:none;
+                    }
+                  }
+                  @media (min-width: 992px) {
+                    .author-wrapper[data-block-id="{{ block.id }}"] .author-opened-left-content-wrapper{
+                      --mobile-left-gradient: none;
+                      --mobile-left-image: none;
+                      background-color:#000 !important;
+                    }
+                    .author-wrapper[data-block-id="{{ block.id }}"] .author-opened-left-content-wrapper .author-profile-image{
+                      display:block;
+                    }
+                  }
+                </style>
+              </div>
+
+              <!-- RIGHT -->
+              <div data-w-id="e8a3cb15-7a04-d16d-6771-cfcf8206fd7f"
+                   class="author-opened-right"
+                   style="transform:translate3d(0,0,0) scale3d(1,1,1);transform-style:preserve-3d;">
+                <div class="author-opened-content-wrapper">
+                  <div class="author-description-wrapper">
+                    <h2 data-w-id="e8a3cb15-7a04-d16d-6771-cfcf8206fd82" class="heading-3">
+                      {{ block.settings.description_title }}
+                    </h2>
+                    <div data-w-id="e8a3cb15-7a04-d16d-6771-cfcf8206fd84" class="divider-65 black"></div>
+
+                    <div data-w-id="e8a3cb15-7a04-d16d-6771-cfcf8206fd85" class="rte paragraph-2">
+                      {{ block.settings.description_text }}
+                    </div>
+
+                    {% if block.settings.description_title_2 != blank %}
+                      <h2 class="heading-3" style="margin-top:24px;">
+                        {{ block.settings.description_title_2 }}
+                      </h2>
+                      <div class="divider-65 black"></div>
+                    {% endif %}
+
+                    {% if block.settings.description_text_2 != blank %}
+                      <div class="rte paragraph-2">
+                        {{ block.settings.description_text_2 }}
+                      </div>
+                    {% endif %}
+                  </div>
+
+                  {% assign ai1 = section.settings.adult_image_1_index | default: '#' %}
+                  {% assign ai2 = section.settings.adult_image_2_index | default: '#' %}
+                  {% assign ai3 = section.settings.adult_image_3_index | default: '#' %}
+                  {% assign adult_csv = ',' | append: ai1 | append: ',' | append: ai2 | append: ',' | append: ai3 | append: ',' %}
+
+                  {% assign t1 = block.settings.title_1_index | default: '#' %}
+                  {% assign t2 = block.settings.title_2_index | default: '#' %}
+                  {% assign t3 = block.settings.title_3_index | default: '#' %}
+                  {% assign t4 = block.settings.title_4_index | default: '#' %}
+                  {% assign t5 = block.settings.title_5_index | default: '#' %}
+                  {% assign t6 = block.settings.title_6_index | default: '#' %}
+
+                  <div class="w-layout-grid grid-2">
+                    {% assign gallery = (1..30) %}
+                    {% for i in gallery %}
+                      {% assign key = 'portfolio_image_' | append: i %}
+                      {% if block.settings[key] %}
+                        {% assign i_str = i | append: '' %}
+                        {% assign token = ',' | append: i_str | append: ',' %}
+
+                        <div class="portfolio-image-item _{{ i }}">
+                          {% if t1 == i_str %}<div class="portfolio-image-title rte">{{ block.settings.title_1_text }}</div>{% endif %}
+                          {% if t2 == i_str %}<div class="portfolio-image-title rte">{{ block.settings.title_2_text }}</div>{% endif %}
+                          {% if t3 == i_str %}<div class="portfolio-image-title rte">{{ block.settings.title_3_text }}</div>{% endif %}
+                          {% if t4 == i_str %}<div class="portfolio-image-title rte">{{ block.settings.title_4_text }}</div>{% endif %}
+                          {% if t5 == i_str %}<div class="portfolio-image-title rte">{{ block.settings.title_5_text }}</div>{% endif %}
+                          {% if t6 == i_str %}<div class="portfolio-image-title rte">{{ block.settings.title_6_text }}</div>{% endif %}
+
+                          <div class="portfolio-image{% if adult_csv contains token %} is-adult{% endif %}"
+                               role="img"
+                               aria-label="{{ block.settings.author_name | escape }} portfolio image {{ i }}"
+                               style="background-image:url({{ block.settings[key] | img_url: '900x' }});">
+                          </div>
+
+                          {% if adult_csv contains token %}
+                            <button type="button"
+                                    class="age-gate-overlay"
+                                    data-section="{{ section.id }}"
+                                    data-block="{{ block.id }}"
+                                    data-idx="{{ i }}"
+                                    aria-label="This image is 18+, tap to verify age">
+                              <span class="age-badge">{{ section.settings.adult_badge_text }}</span>
+                              <span class="age-instruction">{{ section.settings.adult_badge_subtext }}</span>
+                            </button>
+                          {% endif %}
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div><!-- /.author-opened-wrapper -->
+
+          </div><!-- /.author-wrapper -->
+        </div><!-- /.collection-item -->
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- AGE-GATE MODAL (once per section) -->
+  <div class="age-modal" id="age-modal-{{ section.id }}" hidden>
+    <div class="age-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="age-modal-title-{{ section.id }}">
+      <h3 id="age-modal-title-{{ section.id }}">{{ section.settings.adult_modal_title }}</h3>
+      <p class="age-modal__desc">{{ section.settings.adult_modal_text }}</p>
+
+      <label class="age-modal__label">
+        <span>{{ section.settings.adult_modal_label }}</span>
+        <input type="date"
+               id="age-date-{{ section.id }}"
+               class="age-modal__date"
+               max="{{ 'now' | date: '%Y-%m-%d' }}">
+      </label>
+
+      <p class="age-modal__error" id="age-error-{{ section.id }}" hidden>{{ section.settings.adult_error_text }}</p>
+
+      <div class="age-modal__actions">
+        <button type="button" class="btn age-cancel">{{ section.settings.adult_cancel_text }}</button>
+        <button type="button" class="btn age-submit">{{ section.settings.adult_submit_text }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Age-gate logic (scoped to this section) — NO persistence (always ask again) */
+(function() {
+  var root = document.querySelector('.section-authors-teasers[data-section-id="{{ section.id }}"]');
+  if (!root) return;
+
+  var isEditor = document.documentElement.classList.contains('shopify-design-mode');
+  var modal = document.getElementById('age-modal-{{ section.id }}');
+  var input = document.getElementById('age-date-{{ section.id }}');
+  var err = document.getElementById('age-error-{{ section.id }}');
+  var minAge = {{ section.settings.adult_min_age | json }};
+  var UNDERAGE_MSG = {{ section.settings.adult_error_text | json }};
+  var INVALID_MSG = "Please enter a valid birthdate.";
+  var verified = false;
+
+  // set input[min] = today - 130 years (prevents >130yo)
+  if (input) {
+    var today = new Date();
+    var oldest = new Date(today.getFullYear() - 130, today.getMonth(), today.getDate());
+    input.setAttribute('min', oldest.toISOString().slice(0,10));
+  }
+
+  function markVerified() { verified = true; root.classList.add('adult-verified'); }
+  function markUnverified() { verified = false; root.classList.remove('adult-verified'); if (input) input.value = ''; if (err) err.hidden = true; }
+
+  // Always start unverified (unless explicitly bypassed in editor)
+  markUnverified();
+  if (isEditor && {{ section.settings.adult_disable_in_editor | json }}) {
+    markVerified();
+  }
+
+  function openModal() {
+    if (!modal) return;
+    modal.hidden = false;
+    requestAnimationFrame(function(){ modal.classList.add('open'); });
+    if (input) input.focus({ preventScroll: true });
+  }
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('open');
+    setTimeout(function(){ modal.hidden = true; }, 150);
+    if (err) err.hidden = true;
+  }
+  function showError(msg) {
+    if (!err) return;
+    err.textContent = msg;
+    err.hidden = false;
+  }
+  function clearError() { if (err) err.hidden = true; }
+
+  // Click: any 18+ image overlay
+  root.addEventListener('click', function(ev) {
+    var btn = ev.target.closest('.age-gate-overlay');
+    if (!btn) return;
+    if (verified) return;
+    ev.preventDefault();
+    openModal();
+  });
+
+  // Reset verification when portfolio panel closes
+  root.addEventListener('click', function(ev) {
+    var closeBtn = ev.target.closest('.author-close-button');
+    if (!closeBtn) return;
+    markUnverified();
+  });
+
+  // Extra safety: if the tab/app is backgrounded or page is being hidden, reset
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'hidden') markUnverified();
+  });
+
+  if (modal) {
+    var cancelBtn = modal.querySelector('.age-cancel');
+    var submitBtn = modal.querySelector('.age-submit');
+    if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+    if (input) input.addEventListener('input', clearError);
+
+    function getAgeFromDateString(s) {
+      var d = new Date(s);
+      if (isNaN(d.getTime())) return NaN;
+      var t = new Date();
+      var age = t.getFullYear() - d.getFullYear();
+      var m = t.getMonth() - d.getMonth();
+      if (m < 0 || (m === 0 && t.getDate() < d.getDate())) age--;
+      return age;
+    }
+
+    function handleSubmit() {
+      var val = (input && input.value || '').trim();
+      if (!val) { showError(INVALID_MSG); return; }
+
+      var age = getAgeFromDateString(val);
+
+      // sanity checks: invalid date, ≤0 years old, or >130 years old
+      if (isNaN(age) || age <= 0 || age > 130) {
+        showError(INVALID_MSG);
+        return;
+      }
+
+      if (age >= minAge) {
+        markVerified();
+        closeModal();
+      } else {
+        showError(UNDERAGE_MSG);
+      }
+    }
+
+    if (submitBtn) submitBtn.addEventListener('click', handleSubmit);
+    if (input) input.addEventListener('keydown', function(e){
+      if (e.key === 'Enter') { e.preventDefault(); handleSubmit(); }
+      if (e.key === 'Escape') { e.preventDefault(); closeModal(); }
+    });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Authors Teasers",
+  "settings": [
+    { "type": "text", "id": "css_url", "label": "Webflow CSS URL", "default": "https://cdn.shopify.com/s/files/your.css" },
+    { "type": "text", "id": "adult_badge_text", "label": "18+ Badge Text", "default": "18+" },
+    { "type": "text", "id": "adult_badge_subtext", "label": "18+ Overlay Subtext", "default": "Tap to verify" },
+    { "type": "text", "id": "adult_modal_title", "label": "Modal Title", "default": "Age Restricted Content" },
+    { "type": "text", "id": "adult_modal_text", "label": "Modal Description", "default": "Please input your birthday to continue." },
+    { "type": "text", "id": "adult_modal_label", "label": "Birthday Label", "default": "Birthdate" },
+    { "type": "text", "id": "adult_submit_text", "label": "Submit Button Text", "default": "Continue" },
+    { "type": "text", "id": "adult_cancel_text", "label": "Cancel Button Text", "default": "Cancel" },
+    { "type": "text", "id": "adult_error_text", "label": "Error Message (Under 18)", "default": "Sorry — 18+ only." },
+    { "type": "range", "id": "adult_min_age", "label": "Minimum Age", "min": 13, "max": 21, "step": 1, "default": 18 },
+    { "type": "checkbox", "id": "adult_disable_in_editor", "label": "Disable Age Gate in Theme Editor", "default": true },
+    {
+      "type": "select",
+      "id": "adult_image_1_index",
+      "label": "Adult Image 1 (index)",
+      "default": "#",
+      "options": [
+        { "value": "#", "label": "None" },
+        { "value": "1", "label": "Image 1" },
+        { "value": "2", "label": "Image 2" },
+        { "value": "3", "label": "Image 3" },
+        { "value": "4", "label": "Image 4" },
+        { "value": "5", "label": "Image 5" },
+        { "value": "6", "label": "Image 6" },
+        { "value": "7", "label": "Image 7" },
+        { "value": "8", "label": "Image 8" },
+        { "value": "9", "label": "Image 9" },
+        { "value": "10", "label": "Image 10" },
+        { "value": "11", "label": "Image 11" },
+        { "value": "12", "label": "Image 12" },
+        { "value": "13", "label": "Image 13" },
+        { "value": "14", "label": "Image 14" },
+        { "value": "15", "label": "Image 15" },
+        { "value": "16", "label": "Image 16" },
+        { "value": "17", "label": "Image 17" },
+        { "value": "18", "label": "Image 18" },
+        { "value": "19", "label": "Image 19" },
+        { "value": "20", "label": "Image 20" },
+        { "value": "21", "label": "Image 21" },
+        { "value": "22", "label": "Image 22" },
+        { "value": "23", "label": "Image 23" },
+        { "value": "24", "label": "Image 24" },
+        { "value": "25", "label": "Image 25" },
+        { "value": "26", "label": "Image 26" },
+        { "value": "27", "label": "Image 27" },
+        { "value": "28", "label": "Image 28" },
+        { "value": "29", "label": "Image 29" },
+        { "value": "30", "label": "Image 30" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "adult_image_2_index",
+      "label": "Adult Image 2 (index)",
+      "default": "#",
+      "options": [
+        { "value": "#", "label": "None" },
+        { "value": "1", "label": "Image 1" },
+        { "value": "2", "label": "Image 2" },
+        { "value": "3", "label": "Image 3" },
+        { "value": "4", "label": "Image 4" },
+        { "value": "5", "label": "Image 5" },
+        { "value": "6", "label": "Image 6" },
+        { "value": "7", "label": "Image 7" },
+        { "value": "8", "label": "Image 8" },
+        { "value": "9", "label": "Image 9" },
+        { "value": "10", "label": "Image 10" },
+        { "value": "11", "label": "Image 11" },
+        { "value": "12", "label": "Image 12" },
+        { "value": "13", "label": "Image 13" },
+        { "value": "14", "label": "Image 14" },
+        { "value": "15", "label": "Image 15" },
+        { "value": "16", "label": "Image 16" },
+        { "value": "17", "label": "Image 17" },
+        { "value": "18", "label": "Image 18" },
+        { "value": "19", "label": "Image 19" },
+        { "value": "20", "label": "Image 20" },
+        { "value": "21", "label": "Image 21" },
+        { "value": "22", "label": "Image 22" },
+        { "value": "23", "label": "Image 23" },
+        { "value": "24", "label": "Image 24" },
+        { "value": "25", "label": "Image 25" },
+        { "value": "26", "label": "Image 26" },
+        { "value": "27", "label": "Image 27" },
+        { "value": "28", "label": "Image 28" },
+        { "value": "29", "label": "Image 29" },
+        { "value": "30", "label": "Image 30" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "adult_image_3_index",
+      "label": "Adult Image 3 (index)",
+      "default": "#",
+      "options": [
+        { "value": "#", "label": "None" },
+        { "value": "1", "label": "Image 1" },
+        { "value": "2", "label": "Image 2" },
+        { "value": "3", "label": "Image 3" },
+        { "value": "4", "label": "Image 4" },
+        { "value": "5", "label": "Image 5" },
+        { "value": "6", "label": "Image 6" },
+        { "value": "7", "label": "Image 7" },
+        { "value": "8", "label": "Image 8" },
+        { "value": "9", "label": "Image 9" },
+        { "value": "10", "label": "Image 10" },
+        { "value": "11", "label": "Image 11" },
+        { "value": "12", "label": "Image 12" },
+        { "value": "13", "label": "Image 13" },
+        { "value": "14", "label": "Image 14" },
+        { "value": "15", "label": "Image 15" },
+        { "value": "16", "label": "Image 16" },
+        { "value": "17", "label": "Image 17" },
+        { "value": "18", "label": "Image 18" },
+        { "value": "19", "label": "Image 19" },
+        { "value": "20", "label": "Image 20" },
+        { "value": "21", "label": "Image 21" },
+        { "value": "22", "label": "Image 22" },
+        { "value": "23", "label": "Image 23" },
+        { "value": "24", "label": "Image 24" },
+        { "value": "25", "label": "Image 25" },
+        { "value": "26", "label": "Image 26" },
+        { "value": "27", "label": "Image 27" },
+        { "value": "28", "label": "Image 28" },
+        { "value": "29", "label": "Image 29" },
+        { "value": "30", "label": "Image 30" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "author",
+      "name": "Author",
+      "settings": [
+        { "type": "text", "id": "html_id", "label": "HTML ID", "default": "author-block-1" },
+        { "type": "image_picker", "id": "background_image", "label": "Teaser Background Image" },
+        { "type": "image_picker", "id": "profile_image", "label": "Opened Profile Image" },
+        { "type": "text", "id": "author_name", "label": "Name", "default": "Max" },
+        { "type": "richtext", "id": "author_bio", "label": "Teaser Bio Left (Rich Text)", "default": "<p>Bio goes here.</p>" },
+        { "type": "richtext", "id": "author_price", "label": "Teaser Bio Right (Rich Text)", "default": "<p>Rates &amp; booking info.</p>" },
+        { "type": "url", "id": "book_url", "label": "Book Now URL" },
+        { "type": "text", "id": "book_label", "label": "Book Now Label", "default": "Book Now" },
+        { "type": "text", "id": "book_id", "label": "Book Button ID", "default": "book-btn" },
+        { "type": "checkbox", "id": "left_button_show", "label": "Show Extra Left Button", "default": false },
+        { "type": "url", "id": "portfolio_url", "label": "Teaser Secondary Button URL" },
+        { "type": "text", "id": "portfolio_label", "label": "Teaser Secondary Button Label", "default": "Button Text" },
+        { "type": "text", "id": "portfolio_id", "label": "Teaser Secondary Button ID", "default": "portfolio-btn" },
+        { "type": "text", "id": "opened_heading", "label": "Opened Heading", "default": "Heading" },
+        { "type": "richtext", "id": "opened_text", "label": "Opened Text (Rich)", "default": "<p>Opened description rich text.</p>" },
+        { "type": "text", "id": "description_title", "label": "Right Title", "default": "Biography" },
+        { "type": "richtext", "id": "description_text", "label": "Right Text (Rich)", "default": "<p>Lorem ipsum dolor sit amet...</p>" },
+        { "type": "text", "id": "description_title_2", "label": "Right Title (2nd)", "default": "More details" },
+        { "type": "richtext", "id": "description_text_2", "label": "Right Text (Rich 2)", "default": "<p>More info goes here.</p>" },
+        { "type": "url", "id": "instagram_url", "label": "Instagram URL" },
+        { "type": "textarea", "id": "icon_svg", "label": "Top-right Badge SVG (per author)", "default": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='currentColor'><path d='M12 2a10 10 0 100 20 10 10 0 000-20z'/></svg>" },
+        { "type": "url", "id": "icon_url", "label": "Top-right Badge Link (per author)" },
+
+        { "type": "image_picker", "id": "portfolio_image_1", "label": "Portfolio Image 1" },
+        { "type": "image_picker", "id": "portfolio_image_2", "label": "Portfolio Image 2" },
+        { "type": "image_picker", "id": "portfolio_image_3", "label": "Portfolio Image 3" },
+        { "type": "image_picker", "id": "portfolio_image_4", "label": "Portfolio Image 4" },
+        { "type": "image_picker", "id": "portfolio_image_5", "label": "Portfolio Image 5" },
+        { "type": "image_picker", "id": "portfolio_image_6", "label": "Portfolio Image 6" },
+        { "type": "image_picker", "id": "portfolio_image_7", "label": "Portfolio Image 7" },
+        { "type": "image_picker", "id": "portfolio_image_8", "label": "Portfolio Image 8" },
+        { "type": "image_picker", "id": "portfolio_image_9", "label": "Portfolio Image 9" },
+        { "type": "image_picker", "id": "portfolio_image_10", "label": "Portfolio Image 10" },
+        { "type": "image_picker", "id": "portfolio_image_11", "label": "Portfolio Image 11" },
+        { "type": "image_picker", "id": "portfolio_image_12", "label": "Portfolio Image 12" },
+        { "type": "image_picker", "id": "portfolio_image_13", "label": "Portfolio Image 13" },
+        { "type": "image_picker", "id": "portfolio_image_14", "label": "Portfolio Image 14" },
+        { "type": "image_picker", "id": "portfolio_image_15", "label": "Portfolio Image 15" },
+        { "type": "image_picker", "id": "portfolio_image_16", "label": "Portfolio Image 16" },
+        { "type": "image_picker", "id": "portfolio_image_17", "label": "Portfolio Image 17" },
+        { "type": "image_picker", "id": "portfolio_image_18", "label": "Portfolio Image 18" },
+        { "type": "image_picker", "id": "portfolio_image_19", "label": "Portfolio Image 19" },
+        { "type": "image_picker", "id": "portfolio_image_20", "label": "Portfolio Image 20" },
+        { "type": "image_picker", "id": "portfolio_image_21", "label": "Portfolio Image 21" },
+        { "type": "image_picker", "id": "portfolio_image_22", "label": "Portfolio Image 22" },
+        { "type": "image_picker", "id": "portfolio_image_23", "label": "Portfolio Image 23" },
+        { "type": "image_picker", "id": "portfolio_image_24", "label": "Portfolio Image 24" },
+        { "type": "image_picker", "id": "portfolio_image_25", "label": "Portfolio Image 25" },
+        { "type": "image_picker", "id": "portfolio_image_26", "label": "Portfolio Image 26" },
+        { "type": "image_picker", "id": "portfolio_image_27", "label": "Portfolio Image 27" },
+        { "type": "image_picker", "id": "portfolio_image_28", "label": "Portfolio Image 28" },
+        { "type": "image_picker", "id": "portfolio_image_29", "label": "Portfolio Image 29" },
+        { "type": "image_picker", "id": "portfolio_image_30", "label": "Portfolio Image 30" },
+
+        { "type": "select", "id": "title_1_index", "label": "Title 1 — Image Index", "default": "#",
+          "options": [
+            { "value": "#", "label": "None" },
+            { "value": "1", "label": "Image 1" }, { "value": "2", "label": "Image 2" }, { "value": "3", "label": "Image 3" },
+            { "value": "4", "label": "Image 4" }, { "value": "5", "label": "Image 5" }, { "value": "6", "label": "Image 6" },
+            { "value": "7", "label": "Image 7" }, { "value": "8", "label": "Image 8" }, { "value": "9", "label": "Image 9" },
+            { "value": "10", "label": "Image 10" }, { "value": "11", "label": "Image 11" }, { "value": "12", "label": "Image 12" },
+            { "value": "13", "label": "Image 13" }, { "value": "14", "label": "Image 14" }, { "value": "15", "label": "Image 15" },
+            { "value": "16", "label": "Image 16" }, { "value": "17", "label": "Image 17" }, { "value": "18", "label": "Image 18" },
+            { "value": "19", "label": "Image 19" }, { "value": "20", "label": "Image 20" }, { "value": "21", "label": "Image 21" },
+            { "value": "22", "label": "Image 22" }, { "value": "23", "label": "Image 23" }, { "value": "24", "label": "Image 24" },
+            { "value": "25", "label": "Image 25" }, { "value": "26", "label": "Image 26" }, { "value": "27", "label": "Image 27" },
+            { "value": "28", "label": "Image 28" }, { "value": "29", "label": "Image 29" }, { "value": "30", "label": "Image 30" }
+          ]
+        },
+        { "type": "richtext", "id": "title_1_text", "label": "Title 1 Text", "default": "<p>Title One</p>" },
+
+        { "type": "select", "id": "title_2_index", "label": "Title 2 — Image Index", "default": "#",
+          "options": [
+            { "value": "#", "label": "None" },
+            { "value": "1", "label": "Image 1" }, { "value": "2", "label": "Image 2" }, { "value": "3", "label": "Image 3" },
+            { "value": "4", "label": "Image 4" }, { "value": "5", "label": "Image 5" }, { "value": "6", "label": "Image 6" },
+            { "value": "7", "label": "Image 7" }, { "value": "8", "label": "Image 8" }, { "value": "9", "label": "Image 9" },
+            { "value": "10", "label": "Image 10" }, { "value": "11", "label": "Image 11" }, { "value": "12", "label": "Image 12" },
+            { "value": "13", "label": "Image 13" }, { "value": "14", "label": "Image 14" }, { "value": "15", "label": "Image 15" },
+            { "value": "16", "label": "Image 16" }, { "value": "17", "label": "Image 17" }, { "value": "18", "label": "Image 18" },
+            { "value": "19", "label": "Image 19" }, { "value": "20", "label": "Image 20" }, { "value": "21", "label": "Image 21" },
+            { "value": "22", "label": "Image 22" }, { "value": "23", "label": "Image 23" }, { "value": "24", "label": "Image 24" },
+            { "value": "25", "label": "Image 25" }, { "value": "26", "label": "Image 26" }, { "value": "27", "label": "Image 27" },
+            { "value": "28", "label": "Image 28" }, { "value": "29", "label": "Image 29" }, { "value": "30", "label": "Image 30" }
+          ]
+        },
+        { "type": "richtext", "id": "title_2_text", "label": "Title 2 Text", "default": "<p>Title Two</p>" },
+
+        { "type": "select", "id": "title_3_index", "label": "Title 3 — Image Index", "default": "#",
+          "options": [
+            { "value": "#", "label": "None" },
+            { "value": "1", "label": "Image 1" }, { "value": "2", "label": "Image 2" }, { "value": "3", "label": "Image 3" },
+            { "value": "4", "label": "Image 4" }, { "value": "5", "label": "Image 5" }, { "value": "6", "label": "Image 6" },
+            { "value": "7", "label": "Image 7" }, { "value": "8", "label": "Image 8" }, { "value": "9", "label": "Image 9" },
+            { "value": "10", "label": "Image 10" }, { "value": "11", "label": "Image 11" }, { "value": "12", "label": "Image 12" },
+            { "value": "13", "label": "Image 13" }, { "value": "14", "label": "Image 14" }, { "value": "15", "label": "Image 15" },
+            { "value": "16", "label": "Image 16" }, { "value": "17", "label": "Image 17" }, { "value": "18", "label": "Image 18" },
+            { "value": "19", "label": "Image 19" }, { "value": "20", "label": "Image 20" }, { "value": "21", "label": "Image 21" },
+            { "value": "22", "label": "Image 22" }, { "value": "23", "label": "Image 23" }, { "value": "24", "label": "Image 24" },
+            { "value": "25", "label": "Image 25" }, { "value": "26", "label": "Image 26" }, { "value": "27", "label": "Image 27" },
+            { "value": "28", "label": "Image 28" }, { "value": "29", "label": "Image 29" }, { "value": "30", "label": "Image 30" }
+          ]
+        },
+        { "type": "richtext", "id": "title_3_text", "label": "Title 3 Text", "default": "<p>Title Three</p>" },
+
+        { "type": "select", "id": "title_4_index", "label": "Title 4 — Image Index", "default": "#",
+          "options": [
+            { "value": "#", "label": "None" },
+            { "value": "1", "label": "Image 1" }, { "value": "2", "label": "Image 2" }, { "value": "3", "label": "Image 3" },
+            { "value": "4", "label": "Image 4" }, { "value": "5", "label": "Image 5" }, { "value": "6", "label": "Image 6" },
+            { "value": "7", "label": "Image 7" }, { "value": "8", "label": "Image 8" }, { "value": "9", "label": "Image 9" },
+            { "value": "10", "label": "Image 10" }, { "value": "11", "label": "Image 11" }, { "value": "12", "label": "Image 12" },
+            { "value": "13", "label": "Image 13" }, { "value": "14", "label": "Image 14" }, { "value": "15", "label": "Image 15" },
+            { "value": "16", "label": "Image 16" }, { "value": "17", "label": "Image 17" }, { "value": "18", "label": "Image 18" },
+            { "value": "19", "label": "Image 19" }, { "value": "20", "label": "Image 20" }, { "value": "21", "label": "Image 21" },
+            { "value": "22", "label": "Image 22" }, { "value": "23", "label": "Image 23" }, { "value": "24", "label": "Image 24" },
+            { "value": "25", "label": "Image 25" }, { "value": "26", "label": "Image 26" }, { "value": "27", "label": "Image 27" },
+            { "value": "28", "label": "Image 28" }, { "value": "29", "label": "Image 29" }, { "value": "30", "label": "Image 30" }
+          ]
+        },
+        { "type": "richtext", "id": "title_4_text", "label": "Title 4 Text", "default": "<p>Title Four</p>" },
+
+        { "type": "select", "id": "title_5_index", "label": "Title 5 — Image Index", "default": "#",
+          "options": [
+            { "value": "#", "label": "None" },
+            { "value": "1", "label": "Image 1" }, { "value": "2", "label": "Image 2" }, { "value": "3", "label": "Image 3" },
+            { "value": "4", "label": "Image 4" }, { "value": "5", "label": "Image 5" }, { "value": "6", "label": "Image 6" },
+            { "value": "7", "label": "Image 7" }, { "value": "8", "label": "Image 8" }, { "value": "9", "label": "Image 9" },
+            { "value": "10", "label": "Image 10" }, { "value": "11", "label": "Image 11" }, { "value": "12", "label": "Image 12" },
+            { "value": "13", "label": "Image 13" }, { "value": "14", "label": "Image 14" }, { "value": "15", "label": "Image 15" },
+            { "value": "16", "label": "Image 16" }, { "value": "17", "label": "Image 17" }, { "value": "18", "label": "Image 18" },
+            { "value": "19", "label": "Image 19" }, { "value": "20", "label": "Image 20" }, { "value": "21", "label": "Image 21" },
+            { "value": "22", "label": "Image 22" }, { "value": "23", "label": "Image 23" }, { "value": "24", "label": "Image 24" },
+            { "value": "25", "label": "Image 25" }, { "value": "26", "label": "Image 26" }, { "value": "27", "label": "Image 27" },
+            { "value": "28", "label": "Image 28" }, { "value": "29", "label": "Image 29" }, { "value": "30", "label": "Image 30" }
+          ]
+        },
+        { "type": "richtext", "id": "title_5_text", "label": "Title 5 Text", "default": "<p>Title Five</p>" },
+
+        { "type": "select", "id": "title_6_index", "label": "Title 6 — Image Index", "default": "#",
+          "options": [
+            { "value": "#", "label": "None" },
+            { "value": "1", "label": "Image 1" }, { "value": "2", "label": "Image 2" }, { "value": "3", "label": "Image 3" },
+            { "value": "4", "label": "Image 4" }, { "value": "5", "label": "Image 5" }, { "value": "6", "label": "Image 6" },
+            { "value": "7", "label": "Image 7" }, { "value": "8", "label": "Image 8" }, { "value": "9", "label": "Image 9" },
+            { "value": "10", "label": "Image 10" }, { "value": "11", "label": "Image 11" }, { "value": "12", "label": "Image 12" },
+            { "value": "13", "label": "Image 13" }, { "value": "14", "label": "Image 14" }, { "value": "15", "label": "Image 15" },
+            { "value": "16", "label": "Image 16" }, { "value": "17", "label": "Image 17" }, { "value": "18", "label": "Image 18" },
+            { "value": "19", "label": "Image 19" }, { "value": "20", "label": "Image 20" }, { "value": "21", "label": "Image 21" },
+            { "value": "22", "label": "Image 22" }, { "value": "23", "label": "Image 23" }, { "value": "24", "label": "Image 24" },
+            { "value": "25", "label": "Image 25" }, { "value": "26", "label": "Image 26" }, { "value": "27", "label": "Image 27" },
+            { "value": "28", "label": "Image 28" }, { "value": "29", "label": "Image 29" }, { "value": "30", "label": "Image 30" }
+          ]
+        },
+        { "type": "richtext", "id": "title_6_text", "label": "Title 6 Text", "default": "<p>Title Six</p>" }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    { "name": "Authors Teasers", "category": "Custom" }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+  @media (min-width: 992px) {
+    .author-opened-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      overflow: auto;
+    }
+    .author-opened-left,
+    .author-opened-right { width: auto; }
+    .author-opened-left-content-wrapper {
+      position: sticky;
+      top: 0;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  .rte { line-height: 1.6; }
+  .rte p { margin: 0 0 0.75em; }
+  .rte ul, .rte ol { margin: 0 0 1em 1.25em; }
+  .description-texts { display: grid; gap: 12px; }
+  @media (min-width: 768px){
+    .description-texts { grid-template-columns: 1fr 1fr; align-items: start; }
+  }
+  .fixed-middle { position: fixed; left: 50%; top: 50%; transform: translate(-50%,-50%); z-index: 40; pointer-events: none; }
+  .fixed-middle .btn { pointer-events: auto; }
+
+  .portfolio-image-item { position: relative; width: 100%; }
+  .portfolio-image-title { margin: 4px 2px 8px; color: #fff; }
+  .portfolio-image-title p { margin: 0; font-size: 14px; font-weight: 700; line-height: 1.25; }
+  .portfolio-image {
+    width: 100%;
+    padding-top: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
+    transition: filter .2s ease;
+  }
+
+  .section-authors-teasers:not(.adult-verified) .portfolio-image.is-adult { filter: blur(18px) saturate(0.85); }
+  .section-authors-teasers.adult-verified .portfolio-image.is-adult { filter: none; }
+
+  .age-gate-overlay {
+    display: none;
+    position: absolute; inset: 0;
+    align-items: center; justify-content: center; gap: 6px;
+    background: rgba(0,0,0,.45);
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: .02em;
+    cursor: pointer;
+    border: 0;
+    color: #fff;
+  }
+  .age-gate-overlay .age-badge { font-size: 18px; line-height: 1; }
+  .age-gate-overlay .age-instruction { font-size: 12px; opacity: .85; display: block; }
+  .section-authors-teasers:not(.adult-verified) .age-gate-overlay { display: flex; }
+  .section-authors-teasers.adult-verified .age-gate-overlay { display: none; }
+
+  .age-modal[hidden] { display: none !important; }
+  .age-modal {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,.65);
+    display: grid; place-items: center;
+    opacity: 0; transition: opacity .15s ease;
+  }
+  .age-modal.open { opacity: 1; }
+  .age-modal__dialog {
+    background: #0b0b0b; color: #fff; border-radius: 10px;
+    width: min(92vw, 420px);
+    padding: 20px 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.45);
+  }
+  .age-modal__desc { margin: 8px 0 12px; opacity: .9; }
+  .age-modal__label { display: grid; gap: 6px; margin: 10px 0 6px; }
+  .age-modal__date {
+    width: 100%;
+    background: #111; color: #fff; border: 1px solid #2a2a2a;
+    border-radius: 8px; padding: 10px 12px;
+  }
+  .age-modal__actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 14px; }
+  .age-modal .btn {
+    background: #fff; color: #000; border-radius: 8px; padding: 8px 12px; border: 0; font-weight: 700; cursor: pointer;
+  }
+  .age-modal .btn:hover { filter: brightness(.9); }
+  .age-modal__error { color: #ff6b6b; margin: 8px 0 0; font-size: 13px; }
+{% endstylesheet %}

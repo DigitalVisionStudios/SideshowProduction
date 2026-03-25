@@ -1,0 +1,1119 @@
+{% comment %}
+Meety Pop-Up (Calendars + Details + Debug) — FAST SKIP
+- Up to 4 calendars per button
+- Per-calendar: Service UI mode + Skip Service + Force Details
+- Details step: Attending / Each (line-item properties bridge)
+- Override native Meety buttons
+- Fast product-level mount when skipping service (or variantId missing)
+{% endcomment %}
+
+<section id="meety-popup-section-{{ section.id }}">
+  <div class="meety-buttons">
+    {% for block in section.blocks %}
+      <a
+        href="#"
+        id="meety-open-btn-{{ block.id }}"
+        class="meety-open-btn btn"
+        data-block-id="{{ block.id }}"
+
+        data-meety-data="{{ block.settings.meety_data | strip_newlines | escape }}"
+        data-meety-data-2="{{ block.settings.meety_data_2 | strip_newlines | escape }}"
+        data-meety-data-3="{{ block.settings.meety_data_3 | strip_newlines | escape }}"
+        data-meety-data-4="{{ block.settings.meety_data_4 | strip_newlines | escape }}"
+
+        data-extra-hrefs="{{ block.settings.additional_triggers | strip_newlines | escape }}"
+
+        data-cal1-label="{{ block.settings.calendar1_label | escape }}"
+        data-cal2-label="{{ block.settings.calendar2_label | escape }}"
+        data-cal3-label="{{ block.settings.calendar3_label | escape }}"
+        data-cal4-label="{{ block.settings.calendar4_label | escape }}"
+        data-chooser-mode="{{ block.settings.chooser_mode | escape }}"
+
+        data-service-ui-global="{{ block.settings.service_ui_mode | escape }}"
+        data-service-ui-1="{{ block.settings.service_ui_mode_1 | escape }}"
+        data-service-ui-2="{{ block.settings.service_ui_mode_2 | escape }}"
+        data-service-ui-3="{{ block.settings.service_ui_mode_3 | escape }}"
+        data-service-ui-4="{{ block.settings.service_ui_mode_4 | escape }}"
+
+        data-service-skip-1="{{ block.settings.service_skip_1 | json }}"
+        data-service-skip-2="{{ block.settings.service_skip_2 | json }}"
+        data-service-skip-3="{{ block.settings.service_skip_3 | json }}"
+        data-service-skip-4="{{ block.settings.service_skip_4 | json }}"
+
+        data-details-force-1="{{ block.settings.details_force_1 | json }}"
+        data-details-force-2="{{ block.settings.details_force_2 | json }}"
+        data-details-force-3="{{ block.settings.details_force_3 | json }}"
+        data-details-force-4="{{ block.settings.details_force_4 | json }}"
+
+        data-chooser-title="{{ block.settings.chooser_title | escape }}"
+        data-chooser-note="{{ block.settings.chooser_note | escape }}"
+        data-service-title="{{ block.settings.service_prompt | escape }}"
+        data-service-note="{{ block.settings.service_note | escape }}"
+
+        data-piercing-cats="{{ block.settings.piercing_categories | escape }}"
+        data-piercing-promo-mode="{{ block.settings.piercing_promo_filter | escape }}"
+        data-piercing-promo-keys="{{ block.settings.piercing_promo_keywords | escape }}"
+      >
+        {{ block.settings.button_text }}
+      </a>
+    {% endfor %}
+  </div>
+
+  <style>
+    @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeInContainer { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
+
+    #meety-popup-overlay-{{ section.id }}{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:10000; justify-content:center; align-items:center; opacity:0; }
+    #meety-popup-overlay-{{ section.id }}.open{ display:flex; animation:fadeInOverlay .25s ease forwards; }
+    #meety-popup-container-{{ section.id }}{ background:#fff; border-radius:10px; max-width:900px; width:92%; max-height:85%; overflow:hidden; position:relative; opacity:0; transform:scale(.96); box-shadow:0 10px 30px rgba(0,0,0,.25); display:flex; flex-direction:column; }
+    #meety-popup-container-{{ section.id }}.open{ animation:fadeInContainer .25s ease forwards; }
+    #meety-popup-header-{{ section.id }}{ display:flex; align-items:center; justify-content:flex-end; padding:.5rem .75rem; border-bottom:1px solid #eee; flex:0 0 auto; }
+    #meety-popup-close-{{ section.id }}{ background:none; border:none; font-size:1.5rem; cursor:pointer; line-height:1; padding:.25rem .5rem; }
+    #meety-popup-body-{{ section.id }}{ padding:1rem; overflow:auto; max-height:calc(85vh - 50px); position:relative; }
+
+    .meety-step { transition: transform .28s ease, opacity .28s ease; will-change: transform, opacity; }
+    .meety-step.hidden { position:absolute; inset:1rem; opacity:0; transform: translateX(-6%); pointer-events:none; }
+
+    .meety-step-chooser, .meety-step-details, .meety-step-service { max-width:680px; margin:0 auto; padding:12px 12px 16px; border:1px solid #eee; border-radius:8px; background:#fff; }
+    .meety-step-chooser h3, .meety-step-details h3, .meety-step-service h3 { margin:.25rem 0 10px; font-size:1.125rem; color:#000; }
+    .meety-chooser-row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+    .meety-chooser-select, .meety-chooser-btn, .meety-select, .meety-continue-btn { padding:.5rem .6rem; border:1px solid #e3e3e3; border-radius:6px; background:#fff; cursor:pointer; }
+    .meety-chooser-btn.primary, .meety-continue-btn.primary { background:#111; color:#fff; border-color:#111; }
+
+    .meety-step-details .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:6px; }
+    .meety-step-details label { font-size:.9rem; color:#333; min-width:180px; }
+    .meety-step-details .note { margin-top:8px; font-size:.9rem; color:#555; }
+
+    .meety-step-service .menu-slot { margin-top:8px; display:grid; gap:8px; }
+    .meety-step-calendar { max-width:900px; margin:0 auto; }
+
+    .meety-owned-popover { position:relative!important; inset:auto!important; left:auto!important; top:auto!important; transform:none!important; z-index:auto!important; box-shadow:0 10px 26px rgba(0,0,0,.15); border-radius:10px; border:1px solid rgba(24,28,50,0.08); max-width:100%!important; }
+    .meety-owned-popover .meety-select-item { padding:10px 12px; cursor:pointer; }
+    .meety-fees-disclaimer { margin-top:12px; padding-top:10px; border-top:1px solid #eee; font-size:.85rem; color:#666; text-align:center; display:none; }
+  </style>
+
+  <div id="meety-popup-overlay-{{ section.id }}" role="dialog" aria-modal="true" aria-hidden="true">
+    <div id="meety-popup-container-{{ section.id }}">
+      <div id="meety-popup-header-{{ section.id }}">
+        <button id="meety-popup-close-{{ section.id }}" aria-label="Close popup">&times;</button>
+      </div>
+      <div id="meety-popup-body-{{ section.id }}">
+        <!-- Step 0: chooser -->
+        <div id="meety-step-chooser-{{ section.id }}" class="meety-step meety-step-chooser hidden">
+          <h3 id="meety-chooser-title-{{ section.id }}">What kind of services would you like?</h3>
+          <div class="meety-chooser-row" id="meety-chooser-row-{{ section.id }}"></div>
+          <div class="meety-note" id="meety-chooser-note-{{ section.id }}"></div>
+        </div>
+
+        <!-- Step 1: details -->
+        <div id="meety-step-details-{{ section.id }}" class="meety-step meety-step-details hidden">
+          <h3 id="meety-details-title-{{ section.id }}">{{ section.settings.details_title | default: 'Who’s coming?' }}</h3>
+          <div class="row" id="meety-row-attending-{{ section.id }}" style="display:none;">
+            <label for="meety-attending-{{ section.id }}" id="meety-attending-label-{{ section.id }}">{{ section.settings.attending_label }}</label>
+            <select id="meety-attending-{{ section.id }}" class="meety-select"></select>
+          </div>
+          <div class="row" id="meety-row-each-{{ section.id }}" style="display:none;">
+            <label for="meety-each-{{ section.id }}" id="meety-each-label-{{ section.id }}">{{ section.settings.each_label }}</label>
+            <select id="meety-each-{{ section.id }}" class="meety-select"></select>
+          </div>
+          <button class="meety-continue-btn primary" id="meety-details-continue-{{ section.id }}">Continue</button>
+          <div class="note" id="meety-details-note-{{ section.id }}">{{ section.settings.details_note }}</div>
+        </div>
+
+        <!-- Step 2: service -->
+        <div id="meety-step-service-{{ section.id }}" class="meety-step meety-step-service hidden">
+          <h3 id="meety-service-title-{{ section.id }}">Select service to continue</h3>
+          <div class="menu-slot" id="meety-menu-slot-{{ section.id }}"></div>
+          <div class="meety-note" id="meety-service-note-{{ section.id }}">Pick a service above.</div>
+        </div>
+
+        <!-- Step 3: calendar -->
+        <div id="meety-step-calendar-{{ section.id }}" class="meety-step meety-step-calendar hidden"></div>
+        <div class="meety-fees-disclaimer" id="meety-fees-{{ section.id }}">Card rates starting at 2.9% + $0.30</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const DEBUG = {{ section.settings.debug | json }};
+  const D = (...a) => { if (DEBUG) console.log('[MEETY]', ...a); };
+  const DG = (label, obj) => { if (!DEBUG) return; console.group(label); console.log(obj); console.groupEnd(); };
+
+  D('init FAST SKIP build. Debug:', DEBUG);
+
+  /* Section-wide settings */
+  const DETAILS_ENABLED       = {{ section.settings.details_enable | json }};
+  const ATT_ENABLE            = {{ section.settings.details_attending_enable | json }};
+  const EACH_ENABLE           = {{ section.settings.details_each_enable | json }};
+  const ATT_LABEL             = {{ section.settings.attending_label | json }};
+  const EACH_LABEL            = {{ section.settings.each_label | json }};
+  const ATT_OPTS_RAW          = {{ section.settings.attending_options | json }};
+  const EACH_OPTS_RAW         = {{ section.settings.each_options | json }};
+  const DETAILS_TITLE         = {{ section.settings.details_title | json }};
+  const DETAILS_NOTE          = {{ section.settings.details_note | json }};
+
+  const OVERRIDE_ENABLED      = {{ section.settings.override_meety_buttons | json }};
+  const OVERRIDE_SELECTOR     = {{ section.settings.override_button_selector | json }} || '.meety-block-schedule-button';
+  const OVERRIDE_LABEL        = {{ section.settings.override_button_label | json }};
+  const OVERRIDE_FALLBACK_RAW = {{ section.settings.override_fallback_texts | json }};
+
+  /* Helpers */
+  const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+  async function waitFor(testFn, tries=20, intervalMs=100){ for (let i=0;i<tries;i++){ if (testFn()) return true; await sleep(intervalMs); } return false; }
+  function decodeEntities(s){ if (s == null) return ''; const t=document.createElement('textarea'); t.innerHTML=s; return t.value; }
+  function parseJSONSafe(s){ try { return JSON.parse(s); } catch { return null; } }
+  function normalizeTxt(s){ return (s||'').replace(/\s+/g,' ').trim(); }
+  function parseList(raw){ if(!raw) return []; const arr = raw.split(/[\n,]/).map(s=>s.trim()).filter(Boolean); return (arr.length===1 && arr[0]==='#') ? [] : Array.from(new Set(arr)); }
+  function parsePairs(raw){ return String(raw||'').split(',').map(s=>{ const p=s.split('|'); const v=(p[0]||'').trim(); const t=((p[1]||'').trim() || v); return v?{v,t}:null; }).filter(Boolean); }
+
+  function getAnyOpenMeetyPopup(){ return document.querySelector('.popup-content.meety-popover-content[role="tooltip"]'); }
+  function getMeetyOverlay(){ return document.querySelector('.popup-overlay.meety-popover-overlay'); }
+  const anyOverlayOpen = () => Array.from(document.querySelectorAll('[id^="meety-popup-overlay-"]')).some(el => el.style.display !== 'none');
+
+  /* Display registry */
+  const displayRegistry = new Map();
+  function setTempDisplay(el, value){ if (!displayRegistry.has(el)) displayRegistry.set(el, el.getAttribute('style')); el.style.display = value; }
+  function restoreAllDisplays(){ for (const [el, prev] of displayRegistry.entries()){ if (!el) continue; if (prev == null) el.removeAttribute('style'); else el.setAttribute('style', prev); } displayRegistry.clear(); }
+
+  /* Hide calendars outside overlays */
+  function isInsideOurOverlay(el){ return !!el.closest('.meety-step-calendar'); }
+  function hideAllCalendarsOutsideOverlays(){ document.querySelectorAll('.meety-inline-widget').forEach(w => { if (!isInsideOurOverlay(w)) w.style.display = 'none'; }); }
+  hideAllCalendarsOutsideOverlays(); requestAnimationFrame(hideAllCalendarsOutsideOverlays); setTimeout(hideAllCalendarsOutsideOverlays, 400);
+
+  const moInitialHide = new MutationObserver(muts => {
+    if (anyOverlayOpen()) return;
+    for (const m of muts){
+      for (const n of m.addedNodes){
+        if (n && n.nodeType === 1){
+          if (n.matches?.('.meety-inline-widget') && !isInsideOurOverlay(n)) n.style.display = 'none';
+          n.querySelectorAll?.('.meety-inline-widget')?.forEach(el => { if (!isInsideOurOverlay(el)) el.style.display = 'none'; });
+        }
+      }
+    }
+  });
+  moInitialHide.observe(document.documentElement, { childList:true, subtree:true });
+
+  /* Matching */
+  function widgetMatchesStrict(widgetEl, btnData){
+    const wJson = parseJSONSafe(widgetEl.getAttribute('meety-data'));
+    if (!wJson) return false;
+    const sameTemplate  = String(wJson.template)        === String(btnData.template);
+    const sameAssigned  = String(wJson.assignedProduct) === String(btnData.assignedProduct);
+    const sameProduct   = String(wJson.productId)       === String(btnData.productId);
+    const bothNoVariant = (wJson.variantId == null && btnData.variantId == null);
+    const sameVariant   = String(wJson.variantId)       === String(btnData.variantId);
+    const ok = sameTemplate && sameAssigned && sameProduct && (bothNoVariant || sameVariant);
+    if (DEBUG) DG('widgetMatches.compare', {wJson, btnData, sameTemplate, sameAssigned, sameProduct, bothNoVariant, sameVariant, ok});
+    return ok;
+  }
+  function widgetMatchesByProduct(widgetEl, btnData){
+    const wJson = parseJSONSafe(widgetEl.getAttribute('meety-data'));
+    return !!(wJson && String(wJson.productId) === String(btnData.productId));
+  }
+  function visibleScore(el){
+    const r = el.getBoundingClientRect();
+    const vh = Math.max(document.documentElement.clientHeight, window.innerHeight||0);
+    const cy = vh/2; const y = r.top + r.height/2;
+    const dist = Math.abs(y - cy);
+    const disp = window.getComputedStyle(el).display !== 'none';
+    return (disp ? 100000 : 0) - dist; // prefer displayed & near center
+  }
+  function bestByProduct(btnData){
+    const cands = Array.from(document.querySelectorAll('.meety-inline-widget')).filter(el => widgetMatchesByProduct(el, btnData));
+    if (!cands.length) return null;
+    cands.sort((a,b)=>visibleScore(b)-visibleScore(a));
+    return cands[0];
+  }
+
+  async function findOrWaitMatchingWidget(btnData, opts={}){
+    const preferProduct = !!opts.preferProduct;
+    if (preferProduct){
+      const prodHit = bestByProduct(btnData);
+      D('useProductFastPath:', !!prodHit);
+      if (prodHit) return prodHit;
+    }
+
+    const strictHit = Array.from(document.querySelectorAll('.meety-inline-widget')).find(el => widgetMatchesStrict(el, btnData)) || null;
+    D('strictHit:', !!strictHit);
+    if (strictHit) return strictHit;
+
+    // Immediate product fallback before waiting
+    const prodHitImmediate = bestByProduct(btnData);
+    D('prodHitImmediate:', !!prodHitImmediate);
+    if (prodHitImmediate) return prodHitImmediate;
+
+    // Short observer wait, then final product fallback
+    D('Waiting briefly for matching widget…');
+    const node = await new Promise(resolve=>{
+      let resolved = false;
+      const done = (n)=>{ if (resolved) return; resolved=true; clearTimeout(timer); obs.disconnect(); resolve(n); };
+      const obs = new MutationObserver(muts=>{
+        for (const m of muts){
+          for (const n of m.addedNodes){
+            if (n && n.nodeType===1){
+              if (n.matches?.('.meety-inline-widget') && (widgetMatchesStrict(n, btnData) || widgetMatchesByProduct(n, btnData))) return done(n);
+              const q = n.querySelector?.('.meety-inline-widget');
+              if (q && (widgetMatchesStrict(q, btnData) || widgetMatchesByProduct(q, btnData))) return done(q);
+            }
+          }
+        }
+      });
+      obs.observe(document.documentElement, { childList:true, subtree:true });
+      const timer = setTimeout(()=> done(null), 1200); // much shorter
+    });
+    if (node) return node;
+
+    const prodHitAfter = bestByProduct(btnData);
+    D('prodHitAfterMO:', !!prodHitAfter);
+    return prodHitAfter || null;
+  }
+
+  function getServiceTriggerIn(widgetEl){
+    const candidates = widgetEl.querySelectorAll('[aria-describedby^="popup-"], [aria-haspopup="listbox"], [data-popup-target], [data-popup], .meety-select-trigger, .meety-trigger, .select-trigger, button, [role="button"]');
+    for (const el of candidates){ if (el.querySelector?.('.meety-text') || el.classList?.contains('meety-select-trigger')) return el; }
+    return candidates[0] || null;
+  }
+
+  /* Overlay state */
+  const states = new Map();
+
+  function buildOverlayForButton(btn){
+    const btnId = btn.id;
+    const overlayId = `meety-popup-overlay-${btnId}`;
+    if (document.getElementById(overlayId)) return states.get(btnId);
+
+    const chooserTitleTxt = btn.getAttribute('data-chooser-title') || 'What kind of services would you like?';
+    const chooserNoteTxt  = btn.getAttribute('data-chooser-note')  || '#';
+    const serviceTitleTxt = btn.getAttribute('data-service-title') || 'Select service to continue';
+    const serviceNoteTxt  = btn.getAttribute('data-service-note')  || 'Pick a service above.';
+
+    const overlay = document.createElement('div'); overlay.id = overlayId; overlay.setAttribute('role','dialog'); overlay.setAttribute('aria-modal','true');
+    Object.assign(overlay.style, { position:'fixed', inset:'0', display:'none', alignItems:'center', justifyContent:'center', background:'rgba(0,0,0,.6)', zIndex:10000 });
+
+    const container = document.createElement('div'); container.id = `meety-popup-container-${btnId}`;
+    Object.assign(container.style, { background:'#fff', borderRadius:'8px', maxWidth:'900px', width:'92%', maxHeight:'85vh', overflow:'hidden', boxShadow:'0 10px 30px rgba(0,0,0,.25)' });
+
+    const header = document.createElement('div'); header.id = `meety-popup-header-${btnId}`; header.style.cssText = 'display:flex;justify-content:flex-end;border-bottom:1px solid #eee;padding:.5rem .75rem;';
+    const close = document.createElement('button'); close.id = `meety-popup-close-${btnId}`; close.textContent = '×'; close.setAttribute('aria-label','Close popup');
+    close.style.cssText = 'background:none;border:none;font-size:1.5rem;cursor:pointer;line-height:1;padding:.25rem .5rem;';
+    header.appendChild(close);
+
+    const body = document.createElement('div'); body.id = `meety-popup-body-${btnId}`; body.style.cssText = 'padding:1rem;overflow:auto;max-height:calc(85vh - 50px);';
+
+    const stepChooser = document.createElement('div'); stepChooser.id = `meety-step-chooser-${btnId}`; stepChooser.className = 'meety-step meety-step-chooser'; stepChooser.style.display='none';
+    const chooserTitle = document.createElement('h3'); chooserTitle.id = `meety-chooser-title-${btnId}`; chooserTitle.textContent = chooserTitleTxt; chooserTitle.style.color = '#000';
+    const chooserRow = document.createElement('div'); chooserRow.id = `meety-chooser-row-${btnId}`; chooserRow.className = 'meety-chooser-row';
+    const chooserNote = document.createElement('div'); chooserNote.id = `meety-chooser-note-${btnId}`; chooserNote.className='meety-note'; chooserNote.textContent = chooserNoteTxt;
+    stepChooser.append(chooserTitle, chooserRow, chooserNote);
+
+    const stepDetails = document.createElement('div'); stepDetails.id = `meety-step-details-${btnId}`; stepDetails.className = 'meety-step meety-step-details'; stepDetails.style.display='none';
+    const detailsH3 = document.createElement('h3'); detailsH3.id = `meety-details-title-${btnId}`; detailsH3.textContent = DETAILS_TITLE || 'Who’s coming?';
+    const rowAtt = document.createElement('div'); rowAtt.className = 'row'; rowAtt.id = `meety-row-attending-${btnId}`; rowAtt.style.display='none';
+    const labAtt = document.createElement('label'); labAtt.htmlFor = `meety-attending-${btnId}`; labAtt.id = `meety-attending-label-${btnId}`; labAtt.textContent = ATT_LABEL || 'How many are attending?';
+    const selAtt = document.createElement('select'); selAtt.className = 'meety-select'; selAtt.id = `meety-attending-${btnId}`;
+    rowAtt.append(labAtt, selAtt);
+    const rowEach = document.createElement('div'); rowEach.className = 'row'; rowEach.id = `meety-row-each-${btnId}`; rowEach.style.display='none';
+    const labEach = document.createElement('label'); labEach.htmlFor = `meety-each-${btnId}`; labEach.id = `meety-each-label-${btnId}`; labEach.textContent = EACH_LABEL || 'How many of each?';
+    const selEach = document.createElement('select'); selEach.className = 'meety-select'; selEach.id = `meety-each-${btnId}`;
+    rowEach.append(labEach, selEach);
+    const detailsGo = document.createElement('button'); detailsGo.className = 'meety-continue-btn primary'; detailsGo.id = `meety-details-continue-${btnId}`; detailsGo.textContent = 'Continue';
+    const detailsNote = document.createElement('div'); detailsNote.className = 'note'; detailsNote.id = `meety-details-note-${btnId}`; detailsNote.textContent = DETAILS_NOTE || '#';
+    stepDetails.append(detailsH3, rowAtt, rowEach, detailsGo, detailsNote);
+
+    const stepService = document.createElement('div'); stepService.id = `meety-step-service-${btnId}`; stepService.className = 'meety-step meety-step-service'; stepService.style.display='none';
+    const h3 = document.createElement('h3'); h3.id = `meety-service-title-${btnId}`; h3.textContent = serviceTitleTxt; h3.style.color = '#000';
+    const menuSlot = document.createElement('div'); menuSlot.id = `meety-menu-slot-${btnId}`; menuSlot.className = 'menu-slot';
+    const note = document.createElement('div'); note.className = 'meety-note'; note.id = `meety-service-note-${btnId}`; note.textContent = serviceNoteTxt;
+    stepService.append(h3, menuSlot, note);
+
+    const stepCalendar = document.createElement('div'); stepCalendar.id = `meety-step-calendar-${btnId}`; stepCalendar.className = 'meety-step meety-step-calendar'; stepCalendar.style.display='none';
+    const fees = document.createElement('div'); fees.className = 'meety-fees-disclaimer'; fees.id = `meety-fees-${btnId}`; fees.textContent = 'Card rates starting at 2.9% + $0.30'; fees.style.display='none';
+
+    body.append(stepChooser, stepDetails, stepService, stepCalendar, fees);
+    container.append(header, body); overlay.appendChild(container); document.body.appendChild(overlay);
+
+    const state = {
+      overlay, container, body,
+      stepChooser, chooserRow, chooserTitle, chooserNote,
+      stepDetails, rowAtt, selAtt, rowEach, selEach, detailsGo, detailsNote, detailsH3,
+      stepService, stepCalendar, menuSlot, serviceTitle: h3, serviceNote: note,
+      fees, active: null,
+      serviceUiModeDefault: (btn.getAttribute('data-service-ui-global')||'buttons').toLowerCase(),
+      currentServiceUiMode: 'buttons',
+      currentSkipService: false,
+      currentForceDetails: false,
+      piercingCatsRaw: (btn.getAttribute('data-piercing-cats')||'Ear|Facial|Oral|Body|Vulvar|Penile'),
+      promoMode: (btn.getAttribute('data-piercing-promo-mode')||'off').toLowerCase(),
+      promoKeysRaw: (btn.getAttribute('data-piercing-promo-keys')||'#'),
+      selectedProps: { Attending: '', Each: '' }
+    };
+    states.set(btnId, state);
+
+    const closeOverlay = () => {
+      D('closeOverlay');
+      cleanupActive(state);
+      state.overlay.classList.remove('open');
+      state.overlay.style.display = 'none';
+      document.documentElement.style.overflow='';
+      if (window.__meetyProps) window.__meetyProps = { Attending:'', Each:'' };
+    };
+    close.addEventListener('click', closeOverlay);
+    overlay.addEventListener('click', (e)=>{ if (e.target === overlay) closeOverlay(); });
+    document.addEventListener('keydown', (e)=>{ const open = overlay.style.display!=='none'; if (open && e.key==='Escape') closeOverlay(); });
+
+    return state;
+  }
+  function openOverlay(st){ D('show overlay'); st.overlay.style.display = 'flex'; st.overlay.classList.add('open'); document.documentElement.style.overflow='hidden'; }
+  function showStepChooser(st){ D('STEP → Chooser'); st.stepChooser.style.display=''; st.stepDetails.style.display='none'; st.stepService.style.display='none'; st.stepCalendar.style.display='none'; st.fees.style.display='none'; }
+  function showStepDetails(st){ D('STEP → Details'); st.stepChooser.style.display='none'; st.stepDetails.style.display=''; st.stepService.style.display='none'; st.stepCalendar.style.display='none'; st.fees.style.display='none'; }
+  function showStepService(st){ D('STEP → Service'); st.stepChooser.style.display='none'; st.stepDetails.style.display='none'; st.stepService.style.display=''; st.stepCalendar.style.display='none'; st.fees.style.display='none'; }
+  function showStepCalendar(st){ D('STEP → Calendar'); st.stepChooser.style.display='none'; st.stepDetails.style.display='none'; st.stepService.style.display='none'; st.stepCalendar.style.display=''; st.fees.style.display='block'; }
+
+  function cleanupActive(st){
+    if (st.active) {
+      D('cleanupActive: restoring widget to original section');
+      const { sectionEl, placeholder } = st.active;
+      if (placeholder && placeholder.parentNode) { placeholder.parentNode.insertBefore(sectionEl, placeholder); placeholder.remove(); }
+      sectionEl.style.display = '';
+      st.active = null;
+    }
+    const o = getMeetyOverlay(); if (o) { o.click?.(); }
+    restoreAllDisplays(); hideAllCalendarsOutsideOverlays();
+  }
+
+  /* Calendars from button */
+  function collectCalendarsFromBtn(btn){
+    const raws   = [ btn.getAttribute('data-meety-data'), btn.getAttribute('data-meety-data-2'), btn.getAttribute('data-meety-data-3'), btn.getAttribute('data-meety-data-4') ];
+    const labels = [ btn.getAttribute('data-cal1-label') || 'Calendar 1', btn.getAttribute('data-cal2-label') || 'Calendar 2', btn.getAttribute('data-cal3-label') || 'Calendar 3', btn.getAttribute('data-cal4-label') || 'Calendar 4' ];
+    const modes  = [ btn.getAttribute('data-service-ui-1') || '', btn.getAttribute('data-service-ui-2') || '', btn.getAttribute('data-service-ui-3') || '', btn.getAttribute('data-service-ui-4') || '' ];
+    const skips  = [ btn.getAttribute('data-service-skip-1') === 'true', btn.getAttribute('data-service-skip-2') === 'true', btn.getAttribute('data-service-skip-3') === 'true', btn.getAttribute('data-service-skip-4') === 'true' ];
+    const forces = [ btn.getAttribute('data-details-force-1') === 'true', btn.getAttribute('data-details-force-2') === 'true', btn.getAttribute('data-details-force-3') === 'true', btn.getAttribute('data-details-force-4') === 'true' ];
+    const globalDefault = (btn.getAttribute('data-service-ui-global')||'buttons').toLowerCase();
+
+    const out = [];
+    raws.forEach((raw, i)=>{
+      const j = parseJSONSafe(decodeEntities(raw));
+      if (j) out.push({
+        json: j,
+        label: labels[i],
+        idx: i+1,
+        mode: (modes[i]||globalDefault).toLowerCase(),
+        skipService: !!skips[i],
+        forceDetails: !!forces[i]
+      });
+    });
+    DG('collectCalendarsFromBtn', out);
+    return out;
+  }
+
+  /* Open from button */
+  async function handleOpenFromButton(buttonEl){
+    const btnId = buttonEl.id;
+    D('handleOpenFromButton:', btnId);
+    const st = buildOverlayForButton(buttonEl);
+
+    st.chooserTitle.textContent = buttonEl.getAttribute('data-chooser-title') || 'What kind of services would you like?';
+    st.chooserNote.textContent  = buttonEl.getAttribute('data-chooser-note')  || '#';
+    st.serviceTitle.textContent = buttonEl.getAttribute('data-service-title') || 'Select service to continue';
+    st.serviceNote.textContent  = buttonEl.getAttribute('data-service-note')  || 'Pick a service above.';
+    st.detailsH3.textContent    = DETAILS_TITLE || 'Who’s coming?';
+    st.detailsNote.textContent  = DETAILS_NOTE  || '#';
+
+    st.serviceUiModeDefault = (buttonEl.getAttribute('data-service-ui-global')||'buttons').toLowerCase();
+    st.piercingCatsRaw = (buttonEl.getAttribute('data-piercing-cats')||'Ear|Facial|Oral|Body|Vulvar|Penile');
+    st.promoMode = (buttonEl.getAttribute('data-piercing-promo-mode')||'off').toLowerCase();
+    st.promoKeysRaw = (buttonEl.getAttribute('data-piercing-promo-keys')||'#');
+
+    openOverlay(st);
+
+    const chooserMode = (buttonEl.getAttribute('data-chooser-mode') || 'auto').toLowerCase();
+    const calendars = collectCalendarsFromBtn(buttonEl);
+
+    cleanupActive(st);
+
+    D('chooserMode:', chooserMode, 'calendars:', calendars.length, 'serviceUiDefault:', st.serviceUiModeDefault);
+
+    if (calendars.length > 1 && (chooserMode === 'dropdown' || chooserMode === 'buttons' || chooserMode === 'auto')) {
+      renderChooser(st, buttonEl, { calendars, chooserMode });
+      showStepChooser(st);
+    } else {
+      const chosen = calendars[0] || null;
+      if (!chosen) { D('No calendar JSON present; closing.'); st.overlay.style.display='none'; return; }
+      st.currentServiceUiMode = chosen.mode || st.serviceUiModeDefault;
+      st.currentSkipService   = !!chosen.skipService;
+      st.currentForceDetails  = !!chosen.forceDetails;
+      DG('calendarChosen(single)', chosen);
+      await proceedWithChosenCalendar(st, chosen.json);
+    }
+  }
+
+  /* Step 0 UI */
+  function renderChooser(st, btn, { calendars, chooserMode }){
+    D('renderChooser mode=', chooserMode);
+    st.chooserRow.innerHTML = '';
+    const mode = (chooserMode === 'auto') ? 'dropdown' : chooserMode;
+
+    if (mode === 'dropdown') {
+      const select = document.createElement('select'); select.className = 'meety-chooser-select';
+      const ph = document.createElement('option'); ph.value = ''; ph.textContent = 'Select a calendar…'; select.appendChild(ph);
+      calendars.forEach((c, i) => { const o = document.createElement('option'); o.value = String(i); o.textContent = c.label || `Calendar ${i+1}`; o.dataset.mode=c.mode; o.dataset.skip=c.skipService?'1':'0'; o.dataset.force=c.forceDetails?'1':'0'; select.appendChild(o); });
+      const go = document.createElement('button'); go.className = 'meety-chooser-btn primary'; go.textContent = 'Continue';
+      go.addEventListener('click', async ()=>{
+        const idx = parseInt(select.value, 10);
+        if (Number.isNaN(idx)) { D('Chooser: no selection'); return; }
+        const chosen = calendars[idx];
+        st.currentServiceUiMode = chosen.mode || st.serviceUiModeDefault;
+        st.currentSkipService   = !!chosen.skipService;
+        st.currentForceDetails  = !!chosen.forceDetails;
+        DG('calendarChosen(dropdown)', chosen);
+        await proceedWithChosenCalendar(st, chosen.json);
+      });
+      st.chooserRow.append(select, go);
+    }
+
+    if (mode === 'buttons') {
+      calendars.forEach((c)=>{
+        const b = document.createElement('button'); b.className = 'meety-chooser-btn primary'; b.textContent = c.label || 'Calendar';
+        b.addEventListener('click', async ()=>{
+          st.currentServiceUiMode = c.mode || st.serviceUiModeDefault;
+          st.currentSkipService   = !!c.skipService;
+          st.currentForceDetails  = !!c.forceDetails;
+          DG('calendarChosen(button)', c);
+          await proceedWithChosenCalendar(st, c.json);
+        });
+        st.chooserRow.append(b);
+      });
+    }
+  }
+
+  /* Proceed after calendar choice (FAST SKIP aware) */
+  async function proceedWithChosenCalendar(st, btnData){
+    DG('proceedWithChosenCalendar.input', {btnData, currentServiceUiMode:st.currentServiceUiMode, currentSkipService:st.currentSkipService, currentForceDetails:st.currentForceDetails, detailsEnabled:DETAILS_ENABLED, attEnabled:ATT_ENABLE, eachEnabled:EACH_ENABLE});
+
+    const preferProduct = st.currentSkipService || (btnData && (btnData.variantId == null || btnData.variantId === '' || btnData.variantId === '0'));
+    const match = await findOrWaitMatchingWidget(btnData, { preferProduct });
+    if (!match) { D('No widget found → show Service as fallback'); showStepService(st); return; }
+
+    hideAllCalendarsOutsideOverlays(); setTempDisplay(match, 'block');
+
+    const sectionEl = match.closest('.shopify-section, [id^="shopify-section-"]');
+    if (!sectionEl) { D('Widget found but no parent section → fallback to Service'); showStepService(st); return; }
+    const placeholder = document.createComment('meety-placeholder:' + (sectionEl.id || 'no-id'));
+    sectionEl.parentNode.insertBefore(placeholder, sectionEl);
+
+    st.stepCalendar.innerHTML = '';
+    st.stepCalendar.appendChild(sectionEl);
+    sectionEl.style.display = 'block';
+    st.active = { sectionEl, placeholder, widgetEl: match };
+    D('Widget mounted into overlay');
+
+    const hasDetailRows = (ATT_ENABLE || EACH_ENABLE);
+    const wantDetails =
+      st.currentSkipService
+        ? (hasDetailRows || st.currentForceDetails)   // skip service → prefer details if any or forced
+        : (DETAILS_ENABLED && hasDetailRows);         // normal path
+
+    DG('proceedWithChosenCalendar.decisions', { hasDetailRows, wantDetails, preferProduct });
+
+    if (wantDetails) {
+      buildDetailsUI(st);
+      showStepDetails(st);
+      return;
+    }
+
+    if (st.currentSkipService) {
+      D('SkipService=true and no details → Calendar immediately');
+      showStepCalendar(st);
+      return;
+    }
+
+    D('SkipService=false → run Service step');
+    await runMirroredServiceStepRobust(st, match);
+  }
+
+  /* Details step (Attending / Each) */
+  function buildDetailsUI(st){
+    D('buildDetailsUI');
+    if (ATT_ENABLE){
+      st.rowAtt.style.display = '';
+      st.selAtt.innerHTML = '';
+      const opts = parsePairs(ATT_OPTS_RAW || '1|1 Attendee,2|2 Attendees,3|3 Attendees,4|4 Attendees,5|5 Attendees');
+      opts.forEach((p, i)=> st.selAtt.add(new Option(p.t, p.v, i===0, i===0)));
+      st.selectedProps.Attending = st.selAtt.value || '';
+      st.selAtt.addEventListener('change', ()=>{ st.selectedProps.Attending = st.selAtt.value || ''; updateLiveProps(st.selectedProps); });
+    } else {
+      st.rowAtt.style.display = 'none';
+      st.selectedProps.Attending = '';
+    }
+
+    if (EACH_ENABLE){
+      st.rowEach.style.display = '';
+      st.selEach.innerHTML = '';
+      const opts = parsePairs(EACH_OPTS_RAW || '1|1 each,2|2 each,3|3 each,4|4 each,5|5 each');
+      opts.forEach((p, i)=> st.selEach.add(new Option(p.t, p.v, i===0, i===0)));
+      st.selectedProps.Each = st.selEach.value || '';
+      st.selEach.addEventListener('change', ()=>{ st.selectedProps.Each = st.selEach.value || ''; updateLiveProps(st.selectedProps); });
+    } else {
+      st.rowEach.style.display = 'none';
+      st.selectedProps.Each = '';
+    }
+
+    installPropsBridgeOnce();
+    updateLiveProps(st.selectedProps);
+    ensureHiddenInProductForm(st.selectedProps);
+
+    st.detailsGo.onclick = async () => {
+      D('Details → Continue clicked', {skipService:st.currentSkipService});
+      if (st.currentSkipService){
+        showStepCalendar(st); // skip service entirely
+      } else {
+        showStepService(st);
+        await runMirroredServiceStepRobust(st, st.active?.widgetEl);
+      }
+    };
+  }
+
+  function ensureHiddenInProductForm(props){
+    const form = (
+      document.querySelector('product-form form') ||
+      document.querySelector('form[action^="/cart/add"]') ||
+      document.querySelector('form[id^="AddToCartForm"]') ||
+      document.querySelector('form[id^="product-form"]') ||
+      null
+    );
+    if (!form) { D('ensureHiddenInProductForm: no form found'); return; }
+    ['Attending','Each'].forEach(k=>{
+      const name = `properties[${k}]`;
+      let input = form.querySelector(`input[type="hidden"][name="${name}"]`);
+      if (!input){ input = document.createElement('input'); input.type='hidden'; input.name=name; form.appendChild(input); D('created hidden input', name); }
+      input.value = props[k] || '';
+    });
+  }
+
+  function updateLiveProps(props){
+    window.__meetyProps = { Attending: String(props.Attending||''), Each: String(props.Each||'') };
+    D('updateLiveProps', window.__meetyProps);
+    ensureHiddenInProductForm(window.__meetyProps);
+  }
+
+  /* Cart bridge (fetch + XHR) */
+  function installPropsBridgeOnce(){
+    if (window.__meetyPropsBridgeInstalled) return;
+    window.__meetyPropsBridgeInstalled = true;
+    window.__meetyProps = window.__meetyProps || { Attending:'', Each:'' };
+    D('installPropsBridgeOnce');
+
+    function isCartAdd(url, method){
+      if (!url) return false; const m = String(method||'GET').toUpperCase(); if (m!=='POST') return false;
+      return /\/cart\/(add|add\.js|update|update\.js)(\?|$)/i.test(url);
+    }
+    function injectPropsObj(obj){
+      const props = window.__meetyProps || {};
+      if (Array.isArray(obj?.items)) {
+        obj.items = obj.items.map(it => { it = it || {}; it.properties = Object.assign({}, it.properties||{}, props); return it; });
+      } else {
+        obj.properties = Object.assign({}, obj.properties||{}, props);
+      }
+      return obj;
+    }
+    function transformBody(body){
+      const props = window.__meetyProps || { Attending:'', Each:'' };
+      try{
+        if (body instanceof FormData){ body.set('properties[Attending]', props.Attending); body.set('properties[Each]', props.Each); return body; }
+        if (typeof URLSearchParams!=='undefined' && body instanceof URLSearchParams){ body.set('properties[Attending]', props.Attending); body.set('properties[Each]', props.Each); return body; }
+        if (typeof body === 'string'){
+          const t = body.trim(); const jsonish = (t.startsWith('{')&&t.endsWith('}'))||(t.startsWith('[')&&t.endsWith(']'));
+          if (jsonish) return JSON.stringify(injectPropsObj(JSON.parse(t||'{}')));
+          const extra = 'properties%5BAttending%5D='+encodeURIComponent(props.Attending)+'&properties%5BEach%5D='+encodeURIComponent(props.Each);
+          return t ? (t+'&'+extra) : extra;
+        }
+        if (body && typeof body === 'object' && !(body instanceof Blob)) return injectPropsObj(body);
+      } catch(e){ console.warn('[Meety Props Bridge] transform error:', e); }
+      return body;
+    }
+
+    const _fetch = window.fetch;
+    window.fetch = function(resource, init){
+      try{
+        const url = (typeof resource==='string') ? resource : (resource && resource.url);
+        const method = (init && init.method) || (resource && resource.method) || 'GET';
+        if (isCartAdd(url, method)) {
+          D('fetch intercept', url);
+          if (resource instanceof Request){
+            const req = resource.clone(); const newInit = Object.assign({}, init||{});
+            const apply = async ()=>{
+              let bodyTxt = newInit.body; if (typeof bodyTxt==='undefined') bodyTxt = await req.text();
+              newInit.method = req.method || method;
+              newInit.headers = new Headers(newInit.headers || req.headers || {});
+              newInit.credentials = newInit.credentials || req.credentials;
+              newInit.mode = newInit.mode || req.mode;
+              newInit.redirect = newInit.redirect || req.redirect;
+              newInit.referrer = newInit.referrer || req.referrer;
+              newInit.integrity = newInit.integrity || req.integrity;
+              return _fetch(new Request(url, Object.assign({}, newInit, { body: transformBody(bodyTxt) })));
+            };
+            return apply();
+          } else if (init && 'body' in init) {
+            init.body = transformBody(init.body);
+          }
+        }
+      } catch(e){ console.warn('[Meety Props Bridge] fetch patch error:', e); }
+      return _fetch.apply(this, arguments);
+    };
+
+    const _open = XMLHttpRequest.prototype.open;
+    const _send = XMLHttpRequest.prototype.send;
+    XMLHttpRequest.prototype.open = function(method, url){ this.__meety_is_cart_add = isCartAdd(url, method); this.__meety_url = url; return _open.apply(this, arguments); };
+    XMLHttpRequest.prototype.send = function(body){
+      try{ if (this.__meety_is_cart_add){ D('XHR intercept', this.__meety_url); body = transformBody(body); } }
+      catch(e){ console.warn('[Meety Props Bridge] XHR patch error:', e); }
+      return _send.call(this, body);
+    };
+
+    // Prime hidden inputs before common clicks
+    function primeHidden(){ ensureHiddenInProductForm(window.__meetyProps || {}); }
+    const primeSelectors = [OVERRIDE_SELECTOR, '.meety-block-schedule-button', '#meety-button-confirm-schedule', 'button[name="add"]'];
+    document.addEventListener('click', (e)=>{
+      const hit = primeSelectors.some(sel => e.target.closest?.(sel));
+      if (hit) { D('primeHidden due to click'); primeHidden(); }
+    }, true);
+  }
+
+  /* Service step */
+  function showLoadingSkeleton(st, label='Loading services…'){
+    st.menuSlot.innerHTML = '';
+    const r = document.createElement('div'); r.style.cssText = 'display:flex;align-items:center;gap:10px;';
+    const d = document.createElement('div'); d.style.cssText = 'width:10px;height:10px;border-radius:50%;background:#ddd;animation:meetyPulse 1s infinite;';
+    const t = document.createElement('div'); t.textContent = label; t.style.cssText = 'font-size:.95rem;color:#666;';
+    const sk1 = document.createElement('div'); sk1.style.cssText = 'height:40px;border-radius:6px;background:#f4f4f4;margin-top:10px;';
+    const sk2 = document.createElement('div'); sk2.style.cssText = 'height:40px;border-radius:6px;background:#f4f4f4;margin-top:8px;';
+    r.append(d,t); st.menuSlot.append(r, sk1, sk2);
+  }
+
+  async function runMirroredServiceStepRobust(st, matchedWidgetEl){
+    D('runMirroredServiceStepRobust start');
+    showStepService(st); showLoadingSkeleton(st);
+
+    const ok = await waitFor(()=>!!getServiceTriggerIn(matchedWidgetEl), 60, 50);
+    if (!ok){ D('No trigger found → Calendar'); showStepCalendar(st); return; }
+
+    const trigger = getServiceTriggerIn(matchedWidgetEl);
+    D('Service trigger found:', !!trigger);
+    trigger.click();
+    const popupReady = await waitFor(()=>getAnyOpenMeetyPopup(), 25, 80);
+    D('Popup ready:', popupReady);
+    if (!popupReady){ showStepCalendar(st); return; }
+
+    const popup = getAnyOpenMeetyPopup();
+    popup.style.opacity = '0'; popup.style.visibility = 'hidden'; popup.style.pointerEvents = 'none';
+
+    const collected = [];
+    const pump = () => {
+      const items = Array.from(popup.querySelectorAll('.meety-select-item'));
+      let added = false;
+      items.forEach((el, i) => {
+        const text = normalizeTxt(el.textContent);
+        if (text && !collected.some(o=>o.text===text)){
+          collected.push({ text, index:i });
+          added = true;
+        }
+      });
+      if (added) { DG('Service items collected', collected); renderServiceUI(st, trigger, collected); }
+    };
+    pump();
+    const mo = new MutationObserver(pump);
+    mo.observe(popup, { childList:true, subtree:true });
+    await sleep(300);
+    mo.disconnect();
+
+    if (!collected.length){ D('No service items → Calendar'); showStepCalendar(st); }
+  }
+
+  function renderServiceUI(st, trigger, options){
+    D('renderServiceUI mode=', st.currentServiceUiMode, 'options=', options.length);
+    st.menuSlot.innerHTML = '';
+    const mode = (st.currentServiceUiMode || st.serviceUiModeDefault || 'buttons');
+
+    if (mode === 'piercings-categories') {
+      const cats = parseCats(st.piercingCatsRaw);
+      const parsed = analyzePiercings(options, cats, st);
+      if (parsed.anyFound) return renderPiercingsUI(st, trigger, parsed, cats);
+      D('Piercings mode found no matches → fallback to buttons');
+    }
+
+    if (mode !== 'parsed-dropdown') {
+      options.forEach(opt=>{
+        const b = document.createElement('button');
+        b.textContent = opt.text;
+        b.style.cssText = 'padding:.6rem .9rem;border-radius:6px;border:1px solid #111;background:#111;color:#fff;cursor:pointer;text-align:left;';
+        b.addEventListener('click', async () => { D('Service click →', opt.text); const ok = await chooseServiceByText(trigger, opt.text); if (ok) showStepCalendar(st); });
+        st.menuSlot.appendChild(b);
+      });
+      return;
+    }
+
+    const parsed = options.map(o => ({ raw:o.text, groups: parseParentheticalGroups(o.text) })).filter(x=>x.groups.length);
+    if (!parsed.length){ D('Parsed-dropdown: no groups found → fallback to buttons'); st.currentServiceUiMode = 'buttons'; return renderServiceUI(st, trigger, options); }
+
+    const order = parsed[0].groups.map(g => g.key);
+    const valueArrays = new Map(); order.forEach(k => valueArrays.set(k, []));
+    parsed.forEach(p => { p.groups.forEach(g => { if (!valueArrays.has(g.key)) valueArrays.set(g.key, []); const arr = valueArrays.get(g.key); if (!arr.includes(g.val)) arr.push(g.val); }); });
+
+    const controls = document.createElement('div'); controls.className = 'meety-chooser-row';
+    const selects = [];
+
+    order.forEach(key => {
+      const label = document.createElement('label'); label.textContent = key + ':'; label.style.marginRight='6px';
+      const sel = document.createElement('select'); sel.className = 'meety-select'; sel.dataset.key = key;
+      const vals = valueArrays.get(key) || [];
+      vals.forEach(v => { const o = document.createElement('option'); o.value = v; o.textContent = v; sel.appendChild(o); });
+      const wrap = document.createElement('div'); wrap.style.display='flex'; wrap.style.alignItems='center'; wrap.style.gap='6px'; wrap.append(label, sel);
+      controls.append(wrap);
+      selects.push(sel);
+    });
+
+    (function setDropdownDefaults(){
+      const toMap = (raw) => { const groups = parseParentheticalGroups(raw || ''); return new Map(groups.map(g => [g.key, g.val])); };
+      const currentRaw = normalizeTxt(trigger.querySelector('.meety-text')?.textContent || '');
+      const firstRaw   = (options && options.length ? options[0].text : '') || '';
+      const sourceMap  = (currentRaw && parseParentheticalGroups(currentRaw).length) ? toMap(currentRaw) : (firstRaw && parseParentheticalGroups(firstRaw).length) ? toMap(firstRaw) : null;
+      if (sourceMap) { selects.forEach(sel => { const want = sourceMap.get(sel.dataset.key); if (!want) return; const opt = Array.from(sel.options).find(o => normalizeTxt(o.value) === normalizeTxt(want)); if (opt) sel.value = opt.value; }); }
+    })();
+
+    const go = document.createElement('button'); go.className = 'meety-continue-btn primary'; go.textContent = 'Continue';
+    go.addEventListener('click', async ()=>{ const pick = order.map(k => `(${k}) ${selects.find(s=>s.dataset.key===k).value}`).join(' / '); D('Parsed-dropdown pick →', pick); const ok = await chooseServiceByText(trigger, pick); if (ok) showStepCalendar(st); });
+    st.menuSlot.append(controls, go);
+  }
+
+  /* Piercings parsing */
+  function parseCats(raw){ return String(raw||'').split('|').map(s => normalizeTxt(s)).filter(Boolean); }
+  function buildCatRegex(cats){ const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); return new RegExp(`\\((?:${cats.map(esc).join('|')})\\)`, 'i'); }
+  function findFirstCat(text, cats){ const re = buildCatRegex(cats); const m = re.exec(text); if (!m) return null; const token=m[0]; const inner=token.slice(1,-1); const catCanon = cats.find(c => c.toLowerCase() === inner.toLowerCase()) || inner; return { cat: catCanon, token, index: m.index }; }
+  function stripToken(text, token){ return normalizeTxt(text.replace(token, '').replace(/\s{2,}/g,' ')); }
+  function splitPromoKeys(raw){ const arr = (raw||'').split(',').map(s => normalizeTxt(s)).filter(Boolean); return (arr.length && arr[0] !== '#') ? arr : []; }
+  function hasPromo(text, keys){ if (!keys.length) return false; const low = text.toLowerCase(); return keys.some(k => low.includes(k.toLowerCase())); }
+  function analyzePiercings(options, cats, st){ const keys = splitPromoKeys(st.promoKeysRaw); const out = []; let anyFound = false; options.forEach(o => { const t = o.text; const hit = findFirstCat(t, cats); if (!hit){ out.push({ original: t, base: t, cat: 'Other', promo: hasPromo(t, keys) }); return; } anyFound = true; const base = stripToken(t, hit.token); out.push({ original: t, base, cat: hit.cat, promo: hasPromo(t, keys) }); }); return { items: out, anyFound, promoKeys: keys }; }
+  function renderPiercingsUI(st, trigger, parsed, cats){
+    D('renderPiercingsUI');
+    st.menuSlot.innerHTML = '';
+    const present = []; cats.forEach(c => { if (parsed.items.some(it => it.cat.toLowerCase() === c.toLowerCase())) present.push(c); }); if (parsed.items.some(it => it.cat === 'Other')) present.push('Other');
+
+    const row1 = document.createElement('div'); row1.className = 'meety-chooser-row';
+    const lab1 = document.createElement('label'); lab1.textContent = 'Piercing Type:'; lab1.style.marginRight='6px';
+    const selType = document.createElement('select'); selType.className = 'meety-select'; selType.id = 'piercing-type';
+    selType.innerHTML = '<option value="all">All</option>';
+    present.forEach(c => { const o = document.createElement('option'); o.value = c; o.textContent = c; selType.appendChild(o); });
+    row1.append(lab1, selType);
+
+    const row2 = document.createElement('div'); row2.className = 'meety-chooser-row';
+    const lab2 = document.createElement('label'); lab2.textContent = 'Piercing:'; lab2.style.marginRight='6px';
+    const selOpt = document.createElement('select'); selOpt.className = 'meety-select'; selOpt.id = 'piercing-option';
+    row2.append(lab2, selOpt);
+
+    const promoMode = st.promoMode; const keys = parsed.promoKeys;
+    let note = null;
+    if (promoMode !== 'off' && keys.length){ note = document.createElement('div'); note.className = 'meety-note'; note.textContent = (promoMode === 'include-only') ? `Showing promo-eligible items (${keys.join(', ')})` : `Promo items highlighted (${keys.join(', ')})`; }
+
+    function meetsPromo(it){ if (promoMode !== 'include-only') return true; if (!keys.length) return true; return !!it.promo; }
+    function formatDisplay(it, isAll){ let label = it.base; if (promoMode === 'highlight' && it.promo) label = `★ ${label}`; if (isAll) label = `${label} (${it.cat})`; return label; }
+    function refreshOptions(){
+      const type = selType.value; const isAll = type === 'all';
+      const filtered = parsed.items.filter(it => (isAll || it.cat === type) && meetsPromo(it));
+      selOpt.innerHTML = ''; filtered.forEach(it => { const o = document.createElement('option'); o.value = it.original; o.textContent = formatDisplay(it, isAll); selOpt.appendChild(o); });
+      if (!filtered.length){ const o = document.createElement('option'); o.value = ''; o.textContent = 'No options'; selOpt.appendChild(o); }
+    }
+    selType.addEventListener('change', refreshOptions); refreshOptions();
+
+    const go = document.createElement('button'); go.className = 'meety-continue-btn primary'; go.textContent = 'Continue';
+    go.addEventListener('click', async ()=>{ const val = selOpt.value; if (!val) return; D('Piercings pick →', val); const ok = await chooseServiceByText(trigger, val); if (ok) showStepCalendar(st); });
+
+    if (note) { st.menuSlot.append(row1, row2, go, note); } else { st.menuSlot.append(row1, row2, go); }
+  }
+
+  function parseParentheticalGroups(text){
+    const groups = []; const re = /\(([^)]+)\)\s*([^/]+?)(\s*\/|\s*$)/g; let m;
+    while ((m = re.exec(text)) !== null) { const key = normalizeTxt(m[1]); const val = normalizeTxt(m[2]); if (key && val) groups.push({key, val}); }
+    return groups;
+  }
+
+  async function chooseServiceByText(trigger, targetText){
+    D('chooseServiceByText target=', targetText);
+    if (!getAnyOpenMeetyPopup()){
+      trigger.click();
+      const ok = await waitFor(()=>getAnyOpenMeetyPopup(), 10, 80);
+      D('Re-open popup for selection:', ok);
+      if(!ok) return false;
+      const p = getAnyOpenMeetyPopup(); p.style.opacity = '0'; p.style.visibility='hidden'; p.style.pointerEvents='none';
+    }
+    const popup = getAnyOpenMeetyPopup();
+    const items = Array.from(popup.querySelectorAll('.meety-select-item'));
+    if (!items.length) { D('No items in popup'); return false; }
+    const item = items.find(el => normalizeTxt(el.textContent) === normalizeTxt(targetText)) || items[0];
+
+    item.click();
+    const closed = await waitFor(()=>!getAnyOpenMeetyPopup(), 12, 100);
+    const labelUpdated = await waitFor(()=>{ const txtEl = trigger.querySelector('.meety-text'); return txtEl && normalizeTxt(txtEl.textContent) === normalizeTxt(targetText); }, 40, 50);
+    D('chooseServiceByText result', {closed, labelUpdated});
+    return closed || labelUpdated;
+  }
+
+  /* Delegated openers */
+  document.addEventListener('click', (e)=>{
+    const opener = e.target.closest?.('.meety-open-btn');
+    if (!opener) return;
+    e.preventDefault();
+    handleOpenFromButton(opener);
+  }, true);
+
+  /* Extra href triggers */
+  function splitHrefList(raw){ if (!raw) return []; const div = document.createElement('div'); div.innerHTML = raw; const decoded = div.textContent || div.innerText || raw; return decoded.split(',').map(s => s.trim()).filter(Boolean); }
+  document.addEventListener('click', (e)=>{
+    const a = e.target.closest?.('a[href]');
+    if (!a) return;
+    const allBtns = Array.from(document.querySelectorAll('.meety-open-btn'));
+    for (const btn of allBtns){
+      const hrefs = splitHrefList(btn.getAttribute('data-extra-hrefs'));
+      if (hrefs.includes(a.getAttribute('href'))){
+        D('extra trigger by href →', a.getAttribute('href'));
+        e.preventDefault();
+        handleOpenFromButton(btn);
+        break;
+      }
+    }
+  }, true);
+
+  window.MeetyPopup = {
+    openFirst: () => { const opener = document.querySelector('.meety-open-btn'); if (opener) { opener.click(); return true; } D('No .meety-open-btn found'); return false; },
+    openByBlockId: (blockId) => { const opener = document.querySelector(`#meety-open-btn-${blockId}`); if (opener) { opener.click(); return true; } D('opener for blockId not found', blockId); return false; }
+  };
+
+  /* Override native Meety buttons */
+  const FALLBACK_TEXTS = parseList(OVERRIDE_FALLBACK_RAW);
+  function findPreferredOpener(fromEl){
+    const sect = fromEl?.closest?.('.shopify-section, [id^="shopify-section-"]');
+    let btn = sect?.querySelector?.('.meety-open-btn') || null;
+    if (btn) return btn;
+
+    const widget = (fromEl?.closest?.('.product-single__add-to-cart') || document).querySelector('.meety-inline-widget');
+    const wj = widget ? parseJSONSafe(widget.getAttribute('meety-data')) : null;
+    const pid = wj?.productId;
+    if (pid){
+      btn = Array.from(document.querySelectorAll('.meety-open-btn')).find(b=>{
+        const j1 = parseJSONSafe(decodeEntities(b.getAttribute('data-meety-data')));
+        const j2 = parseJSONSafe(decodeEntities(b.getAttribute('data-meety-data-2')));
+        const j3 = parseJSONSafe(decodeEntities(b.getAttribute('data-meety-data-3')));
+        const j4 = parseJSONSafe(decodeEntities(b.getAttribute('data-meety-data-4')));
+        return (j1 && String(j1.productId)===String(pid))
+            || (j2 && String(j2.productId)===String(pid))
+            || (j3 && String(j3.productId)===String(pid))
+            || (j4 && String(j4.productId)===String(pid));
+      }) || null;
+      if (btn) return btn;
+    }
+    return document.querySelector('.meety-open-btn');
+  }
+  function maybeOverrideText(root=document){
+    if (!OVERRIDE_ENABLED) return;
+    if (!OVERRIDE_LABEL || OVERRIDE_LABEL === '#') return;
+    root.querySelectorAll(OVERRIDE_SELECTOR).forEach(el=>{
+      const txtEl = el.querySelector('.btn__add-to-cart-text, .meety-block-button, .meety-visible, span, strong') || el;
+      txtEl.textContent = OVERRIDE_LABEL;
+    });
+  }
+  maybeOverrideText();
+  new MutationObserver((muts)=>{ muts.forEach(m=>{ m.addedNodes.forEach(n=>{ if (n.nodeType===1) { maybeOverrideText(n); } }); }); }).observe(document.body, { childList:true, subtree:true });
+
+  if (OVERRIDE_ENABLED){
+    D('Meety override enabled. Selector:', OVERRIDE_SELECTOR, 'Fallback texts:', FALLBACK_TEXTS);
+    document.addEventListener('click', (e)=>{
+      const btn = e.target.closest?.(OVERRIDE_SELECTOR) || null;
+      let hit = btn;
+      if (!hit && FALLBACK_TEXTS.length){
+        const anyBtn = e.target.closest?.('.meety-block-button, .meety-visible button, button, a');
+        const txt = anyBtn ? normalizeTxt(anyBtn.textContent||'') : '';
+        const textMatches = anyBtn && FALLBACK_TEXTS.some(t => new RegExp(`^${t}$`, 'i').test(txt));
+        if (textMatches) hit = anyBtn;
+      }
+      if (!hit) return;
+
+      const opener = findPreferredOpener(hit);
+      D('override click caught. opener found?', !!opener, {hit, opener});
+      if (opener){
+        e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
+        opener.click();
+      }
+    }, true);
+  } else {
+    D('[Meety Override] Disabled by setting.');
+  }
+
+  window.addEventListener('hashchange', ()=>{ const o=getMeetyOverlay(); o && o.click?.(); });
+  window.addEventListener('scroll', ()=>{ const o=getMeetyOverlay(); o && o.click?.(); }, { passive:true });
+});
+
+/* Hide stray '#' notes */
+document.addEventListener('DOMContentLoaded', () => {
+  const hideHashNote = (el) => { if (!el) return; const t = (el.textContent || '').trim(); if (!t || t === '#') { el.style.display = 'none'; el.textContent = ''; } };
+  const sweep = (root = document) => root.querySelectorAll('.meety-note, .note').forEach(hideHashNote);
+  sweep();
+  document.addEventListener('click', (e) => { if (!e.target.closest('.meety-open-btn')) return; setTimeout(() => sweep(document.body), 0); setTimeout(() => sweep(document.body), 200); });
+  new MutationObserver((muts) => { muts.forEach((m) => { m.addedNodes.forEach((n) => { if (n.nodeType !== 1) return; if (n.matches?.('.meety-note, .note')) hideHashNote(n); n.querySelectorAll?.('.meety-note, .note').forEach(hideHashNote); }); }); }).observe(document.body, { childList: true, subtree: true });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Meety Pop-Up",
+  "settings": [
+    { "type": "checkbox", "id": "debug", "label": "Debug logs", "default": true },
+
+    { "type": "checkbox", "id": "override_meety_buttons", "label": "Override native Meety button", "default": true },
+    { "type": "text", "id": "override_button_selector", "label": "Button selector to hijack", "info": "e.g. .meety-block-schedule-button", "default": ".meety-block-schedule-button" },
+    { "type": "text", "id": "override_button_label", "label": "Override Meety button text", "info": "Use # to leave as-is", "default": "#" },
+    { "type": "textarea", "id": "override_fallback_texts", "label": "Also hijack by button text", "info": "Comma/newline. Example: Schedule your time, Book now", "default": "Schedule your time, Book now, Schedule, Book" },
+
+    { "type": "header", "content": "Details step" },
+    { "type": "checkbox", "id": "details_enable", "label": "Show Details step (after calendar pick)", "default": true },
+    { "type": "text", "id": "details_title", "label": "Details title", "default": "Who’s coming?" },
+    { "type": "text", "id": "details_note", "label": "Details note (optional)", "default": "#" },
+
+    { "type": "checkbox", "id": "details_attending_enable", "label": "Show “Attending” select", "default": true },
+    { "type": "text", "id": "attending_label", "label": "Attending label", "default": "How many are attending?" },
+    { "type": "text", "id": "attending_options", "label": "Attending options (value|Label)", "default": "1|1 Attendee,2|2 Attendees,3|3 Attendees,4|4 Attendees,5|5 Attendees" },
+
+    { "type": "checkbox", "id": "details_each_enable", "label": "Show “Each” select", "default": true },
+    { "type": "text", "id": "each_label", "label": "Each label", "default": "How many of each?" },
+    { "type": "text", "id": "each_options", "label": "Each options (value|Label)", "default": "1|1 each,2|2 each,3|3 each,4|4 each,5|5 each" }
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Book Button",
+      "settings": [
+        { "type": "text", "id": "button_text", "label": "Button text", "default": "Book Now" },
+
+        { "type": "header", "content": "Primary widget" },
+        { "type": "textarea", "id": "meety_data", "label": "Primary Meety Widget JSON", "default": "{\"template\":\"page.artist-portfolio\",\"assignedProduct\":1,\"productId\":\"8872430010625\",\"variantId\":\"46585387450625\"}" },
+        {
+          "type": "select",
+          "id": "service_ui_mode_1",
+          "label": "Service UI for Primary",
+          "default": "buttons",
+          "options": [
+            { "value": "buttons", "label": "Buttons (original)" },
+            { "value": "parsed-dropdown", "label": "Parsed dropdown (from parentheses)" },
+            { "value": "piercings-categories", "label": "Piercings: Type + Piercing dropdowns" }
+          ]
+        },
+        { "type": "checkbox", "id": "service_skip_1", "label": "Skip Service for Primary", "default": false },
+        { "type": "checkbox", "id": "details_force_1", "label": "Force Details for Primary", "default": false },
+        { "type": "text", "id": "calendar1_label", "label": "Calendar 1 label", "default": "Calendar 1" },
+
+        { "type": "header", "content": "Second widget (optional)" },
+        { "type": "textarea", "id": "meety_data_2", "label": "Second Meety JSON", "default": "#" },
+        {
+          "type": "select",
+          "id": "service_ui_mode_2",
+          "label": "Service UI for Second",
+          "default": "buttons",
+          "options": [
+            { "value": "buttons", "label": "Buttons (original)" },
+            { "value": "parsed-dropdown", "label": "Parsed dropdown (from parentheses)" },
+            { "value": "piercings-categories", "label": "Piercings: Type + Piercing dropdowns" }
+          ]
+        },
+        { "type": "checkbox", "id": "service_skip_2", "label": "Skip Service for Second", "default": false },
+        { "type": "checkbox", "id": "details_force_2", "label": "Force Details for Second", "default": false },
+        { "type": "text", "id": "calendar2_label", "label": "Calendar 2 label", "default": "Calendar 2" },
+
+        { "type": "header", "content": "Third widget (optional)" },
+        { "type": "textarea", "id": "meety_data_3", "label": "Third Meety JSON", "default": "#" },
+        {
+          "type": "select",
+          "id": "service_ui_mode_3",
+          "label": "Service UI for Third",
+          "default": "buttons",
+          "options": [
+            { "value": "buttons", "label": "Buttons (original)" },
+            { "value": "parsed-dropdown", "label": "Parsed dropdown (from parentheses)" },
+            { "value": "piercings-categories", "label": "Piercings: Type + Piercing dropdowns" }
+          ]
+        },
+        { "type": "checkbox", "id": "service_skip_3", "label": "Skip Service for Third", "default": false },
+        { "type": "checkbox", "id": "details_force_3", "label": "Force Details for Third", "default": false },
+        { "type": "text", "id": "calendar3_label", "label": "Calendar 3 label", "default": "Calendar 3" },
+
+        { "type": "header", "content": "Fourth widget (optional)" },
+        { "type": "textarea", "id": "meety_data_4", "label": "Fourth Meety JSON", "default": "#" },
+        {
+          "type": "select",
+          "id": "service_ui_mode_4",
+          "label": "Service UI for Fourth",
+          "default": "buttons",
+          "options": [
+            { "value": "buttons", "label": "Buttons (original)" },
+            { "value": "parsed-dropdown", "label": "Parsed dropdown (from parentheses)" },
+            { "value": "piercings-categories", "label": "Piercings: Type + Piercing dropdowns" }
+          ]
+        },
+        { "type": "checkbox", "id": "service_skip_4", "label": "Skip Service for Fourth", "default": false },
+        { "type": "checkbox", "id": "details_force_4", "label": "Force Details for Fourth", "default": false },
+        { "type": "text", "id": "calendar4_label", "label": "Calendar 4 label", "default": "Calendar 4" },
+
+        { "type": "header", "content": "Step 0 — Calendar chooser" },
+        {
+          "type": "select",
+          "id": "chooser_mode",
+          "label": "Chooser UI mode",
+          "default": "auto",
+          "options": [
+            { "value": "auto", "label": "Auto (chooser if 2+ calendars)" },
+            { "value": "dropdown", "label": "Dropdown + Continue" },
+            { "value": "buttons", "label": "Buttons" }
+          ]
+        },
+        { "type": "text", "id": "chooser_title", "label": "Chooser title (Step 0)", "default": "What kind of services would you like?" },
+        { "type": "text", "id": "chooser_note", "label": "Chooser bottom note (Step 0)", "default": "#" },
+
+        { "type": "header", "content": "Step 1 — Default Service UI fallback" },
+        {
+          "type": "select",
+          "id": "service_ui_mode",
+          "label": "Default Service UI mode",
+          "default": "buttons",
+          "options": [
+            { "value": "buttons", "label": "Buttons (original)" },
+            { "value": "parsed-dropdown", "label": "Parsed dropdown (from parentheses)" },
+            { "value": "piercings-categories", "label": "Piercings: Type + Piercing dropdowns" }
+          ]
+        },
+        { "type": "text", "id": "service_prompt", "label": "Service title (Step 1)", "default": "Select service to continue" },
+        { "type": "text", "id": "service_note", "label": "Service bottom note (Step 1)", "default": "Pick a service above." },
+
+        { "type": "header", "content": "Piercings parser (only if mode = Piercings)" },
+        { "type": "text", "id": "piercing_categories", "label": "Piercing categories (| separated)", "default": "Ear|Facial|Oral|Body|Vulvar|Penile" },
+        {
+          "type": "select",
+          "id": "piercing_promo_filter",
+          "label": "Promotion filter",
+          "default": "off",
+          "options": [
+            { "value": "off", "label": "Off" },
+            { "value": "include-only", "label": "Include only keyword items" },
+            { "value": "highlight", "label": "Highlight keyword items" }
+          ]
+        },
+        { "type": "text", "id": "piercing_promo_keywords", "label": "Promo keywords (comma-separated)", "default": "#" },
+
+        { "type": "header", "content": "Extra triggers" },
+        { "type": "text", "id": "additional_triggers", "label": "Additional trigger hrefs", "info": "Comma-separated (e.g. /contact,#openSean)", "default": "#open-meety" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Meety Pop-Up (Calendars + Details + Debug)", "category": "Custom" }
+  ]
+}
+{% endschema %}

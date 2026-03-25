@@ -1,0 +1,366 @@
+{% comment %}
+  Section: Custom Product Pricing with Optional Piercing Dropdowns
+{% endcomment %}
+
+<style>
+  /* Dropdown & pricing widget styles */
+  #piercing-pricing-widget {
+    max-width: 400px;
+    font-family: sans-serif;
+    margin-bottom: 1rem;
+  }
+  #piercing-pricing-widget label {
+    display: block;
+    margin: 8px 0 4px;
+    font-weight: 500;
+  }
+  #piercing-pricing-widget select {
+    width: 100%;
+    padding: 6px;
+    font-size: 1rem;
+  }
+  #pricing-container {
+    margin-top: 12px;
+    font-size: 1.1rem;
+  }
+  #pricing-container .original {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 8px;
+  }
+  #pricing-container .discounted {
+    font-weight: bold;
+  }
+</style>
+
+<div id="product-customization-section"
+     data-debug="{{ section.settings.show_debug | json }}"
+     data-show-location-dropdown="{{ section.settings.show_location_dropdown | json }}"
+     data-show-piercing-dropdown="{{ section.settings.show_piercing_dropdown | json }}">
+
+  {% if section.settings.show_location_dropdown %}
+    <div id="piercing-pricing-widget">
+      <label for="piercing-location-select">Piercing Location:</label>
+      <select id="piercing-location-select">
+        <option value="">Select location</option>
+        <option value="Ear">Ear</option>
+        <option value="Facial">Facial</option>
+        <option value="Oral">Oral</option>
+        <option value="Body">Body</option>
+      </select>
+  {% endif %}
+
+  {% if section.settings.show_piercing_dropdown %}
+      <label for="piercing-select">Piercing:</label>
+      <select id="piercing-select" disabled>
+        <option value="">Select piercing</option>
+      </select>
+
+      <div id="pricing-container"></div>
+    </div>
+  {% endif %}
+
+  {% for block in section.blocks %}
+    <div class="product-block"
+         data-product-id="{{ block.settings.product }}"
+         data-override-full-price="{{ block.settings.override_full_price | json }}"
+         data-full-price="{{ block.settings.full_price | default: '0' }}"
+         data-down-payment-percentage="{{ block.settings.down_payment_percentage | default: '30' }}"
+         data-dynamic-full-price="{{ block.settings.dynamic_full_price | json }}"
+         data-initial-down-payment="{{ block.settings.initial_down_payment | default: '0' }}"
+         data-show-small-text="{{ block.settings.show_small_text | json }}"
+         data-small-text="{{ block.settings.small_text | default: '' }}"
+         data-show-full-price="{{ block.settings.show_full_price | json }}"
+         data-show-down-payment="{{ block.settings.show_down_payment | json }}"
+         data-show-small-text-down-payment="{{ block.settings.show_small_text_down_payment | json }}"
+         data-small-text-down-payment="{{ block.settings.small_text_down_payment | default: '' }}"
+         data-hide-down-payment-price="{{ block.settings.hide_down_payment_price | json }}">
+      {% if section.settings.show_debug %}
+        <p>Product ID: {{ block.settings.product }}</p>
+        <p>Override Full Price: {{ block.settings.override_full_price | json }}</p>
+        <p>Full Price: {{ block.settings.full_price }}</p>
+        <p>Down Payment %: {{ block.settings.down_payment_percentage }}</p>
+        <p>Initial Down Payment: {{ block.settings.initial_down_payment }}</p>
+        <p>Dynamic Full Price: {{ block.settings.dynamic_full_price | json }}</p>
+        <p>Show Small Text: {{ block.settings.show_small_text | json }}</p>
+        <p>Small Text: {{ block.settings.small_text }}</p>
+        <p>Show Full Price: {{ block.settings.show_full_price | json }}</p>
+        <p>Show Down Payment: {{ block.settings.show_down_payment | json }}</p>
+        <p>Show Small Text Down Payment: {{ block.settings.show_small_text_down_payment | json }}</p>
+        <p>Small Text Down Payment: {{ block.settings.small_text_down_payment }}</p>
+        <p>Hide Down Payment Price: {{ block.settings.hide_down_payment_price | json }}</p>
+        <p class="debug-message">Script Ran: False</p>
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      setTimeout(function() {
+        var wrapper        = document.getElementById('product-customization-section');
+        var debug          = wrapper.getAttribute('data-debug') === 'true';
+        var showLocation   = wrapper.getAttribute('data-show-location-dropdown') === 'true';
+        var showPiercing   = wrapper.getAttribute('data-show-piercing-dropdown') === 'true';
+
+        // Pricing data
+        var pricing = {
+          "Ear": {
+            "Standard Lobe (Single)":      { original: 50,  discounted: 34.50 },
+            "Standard Lobe (Double)":      { original: 80,  discounted: 55.20 },
+            "Transverse Lobe":             { original: 50,  discounted: 34.50 },
+            "Tragus":                      { original: 60,  discounted: 41.40 },
+            "Snug":                        { original: 60,  discounted: 41.40 },
+            "Forward Helix":               { original: 60,  discounted: 41.40 },
+            "Auricle (Cartilage)":         { original: 60,  discounted: 41.40 },
+            "Anti Tragus":                 { original: 60,  discounted: 41.40 },
+            "Helix":                       { original: 60,  discounted: 41.40 },
+            "Rook":                        { original: 60,  discounted: 41.40 },
+            "Daith":                       { original: 60,  discounted: 41.40 },
+            "Conch":                       { original: 60,  discounted: 41.40 },
+            "Orbital":                     { original: 60,  discounted: 41.40 }
+          },
+          "Facial": {
+            "Eyebrow":                     { original: 50,  discounted: 34.50 },
+            "Nostril":                     { original: 60,  discounted: 41.40 },
+            "High Nostril":                { original: 70,  discounted: 48.30 },
+            "Septum":                      { original: 70,  discounted: 48.30 },
+            "Bridge":                      { original: 70,  discounted: 48.30 },
+            "Snake Bites (Single)":        { original: 70,  discounted: 48.30 },
+            "Snake Bites (Double)":        { original: 90,  discounted: 62.10 }
+          },
+          "Oral": {
+            "Lip/Monroe":                  { original: 70,  discounted: 48.30 },
+            "Labret":                      { original: 70,  discounted: 48.30 },
+            "Vertical Labret":             { original: 70,  discounted: 48.30 },
+            "Philtrum":                    { original: 70,  discounted: 48.30 },
+            "Lip/Tongue Frenulums (Single)": { original: 70, discounted: 48.30 },
+            "Lip/Tongue Frenulums (Double)": { original: 90, discounted: 62.10 }
+          },
+          "Body": {
+            "Nipple (Single)":             { original: 60,  discounted: 41.40 },
+            "Nipple (Double)":             { original:100, discounted: 69.00 }
+          }
+        };
+
+        var locSelect    = document.getElementById('piercing-location-select');
+        var pierceSelect = document.getElementById('piercing-select');
+        var priceContainer = document.getElementById('pricing-container');
+
+        if (showLocation && locSelect) {
+          locSelect.addEventListener('change', function() {
+            var loc = locSelect.value;
+            pierceSelect.innerHTML = '<option value="">Select piercing</option>';
+            priceContainer.innerHTML = '';
+            if (pricing[loc]) {
+              Object.keys(pricing[loc]).forEach(function(name) {
+                var opt = document.createElement('option');
+                opt.value = name;
+                opt.textContent = name;
+                pierceSelect.appendChild(opt);
+              });
+              if (showPiercing) pierceSelect.disabled = false;
+            } else {
+              pierceSelect.disabled = true;
+            }
+          });
+        }
+
+        if (showPiercing && pierceSelect) {
+          pierceSelect.addEventListener('change', function() {
+            var loc  = locSelect.value;
+            var name = pierceSelect.value;
+            priceContainer.innerHTML = '';
+            if (pricing[loc] && pricing[loc][name]) {
+              var data = pricing[loc][name];
+              priceContainer.innerHTML =
+                '<span class="original">$' + data.original.toFixed(2) + '</span>' +
+                '<span class="discounted">$' + data.discounted.toFixed(2) + '</span>';
+            }
+          });
+        }
+
+        function updatePriceInfo() {
+          if (!updateTitleForVisuals()) return;
+
+          const currentURL = window.location.href;
+          const productBlocks = document.querySelectorAll('.product-block');
+          const debug = document.getElementById('product-customization-section').getAttribute('data-debug') === 'true';
+
+          let scriptRan = false;
+
+          productBlocks.forEach(function(block) {
+            const blockProductId = block.getAttribute('data-product-id');
+            if (!currentURL.includes(blockProductId)) return;
+
+            scriptRan = true;
+            const priceElement = document.querySelector('.price-container-wrapper .product-single__price .money');
+            if (!priceElement) return;
+
+            const downPayment = parseFloat(priceElement.textContent.replace(/[^\d.]/g, ''));
+            let fullPrice;
+            const fullPriceSetting = parseFloat(block.getAttribute('data-full-price'));
+            const downPaymentPercentage = parseFloat(block.getAttribute('data-down-payment-percentage'));
+            const initialDownPayment = parseFloat(block.getAttribute('data-initial-down-payment'));
+            const dynamicFullPrice = block.getAttribute('data-dynamic-full-price') === 'true';
+            const showSmallText = block.getAttribute('data-show-small-text') === 'true';
+            const smallText = block.getAttribute('data-small-text');
+            const showFullPrice = block.getAttribute('data-show-full-price') === 'true';
+            const showDownPayment = block.getAttribute('data-show-down-payment') === 'true';
+            const showSmallTextDownPayment = block.getAttribute('data-show-small-text-down-payment') === 'true';
+            const smallTextDownPayment = block.getAttribute('data-small-text-down-payment');
+            const hideDownPaymentPrice = block.getAttribute('data-hide-down-payment-price') === 'true';
+
+            if (dynamicFullPrice) {
+              fullPrice = (fullPriceSetting * (downPayment / initialDownPayment)).toFixed(2);
+            } else {
+              fullPrice = fullPriceSetting;
+            }
+
+            const label = document.querySelector('.product-single__title').textContent.includes("Tattoo Services") ? "Hourly Rate Starts At" : "Full Price";
+
+            let additionalPriceInfo = document.querySelector('.price-container-wrapper .additional-price-info');
+            if (!additionalPriceInfo) {
+              additionalPriceInfo = document.createElement('div');
+              additionalPriceInfo.className = 'additional-price-info';
+              priceElement.parentNode.insertBefore(additionalPriceInfo, priceElement.nextSibling);
+            }
+
+            let fullPriceHTML = showFullPrice ? `$${fullPrice}` : '';
+            let smallTextHTML = showSmallText ? `<span class="small-text" style="font-size: 10px;">${smallText}</span>` : '';
+            let downPaymentHTML = showDownPayment ? `Downpayment: ${hideDownPaymentPrice ? '' : `$${downPayment.toFixed(2)}`}` : '';
+            let smallTextDownPaymentHTML = showSmallTextDownPayment ? `<span class="small-text-down-payment" style="font-size: 10px;">${smallTextDownPayment}</span>` : '';
+
+            additionalPriceInfo.innerHTML = `<div style="font-size: 12px; margin-top: 8px;">${label}: ${fullPriceHTML}${smallTextHTML}</div>
+                                              <div style="font-size: 16px; font-weight: bold;">${downPaymentHTML} ${smallTextDownPaymentHTML}</div>`;
+
+            document.querySelectorAll('.price-container-wrapper .money').forEach(element => {
+              element.style.fontSize = '0px';
+            });
+
+            showNoticeBox();
+
+            if (debug) {
+              block.querySelector('.debug-message').textContent = 'Script Ran: True';
+            }
+          });
+
+          if (!scriptRan && debug) {
+            document.querySelectorAll('.debug-message').forEach(function(debugElement) {
+              debugElement.textContent = 'Script Ran: False';
+            });
+          }
+        }
+
+        function showNoticeBox() {
+          const additionalPriceInfos = document.querySelectorAll('.additional-price-info');
+          additionalPriceInfos.forEach(additionalPriceInfo => {
+            let noticeBox = additionalPriceInfo.querySelector('.notice-box');
+            if (!noticeBox) {
+              noticeBox = document.createElement('div');
+              noticeBox.className = 'notice-box';
+              noticeBox.textContent = 'Procesing fee for all non cash payments';
+              additionalPriceInfo.insertBefore(noticeBox, additionalPriceInfo.firstChild);
+            }
+          });
+        }
+
+        updatePriceInfo();
+
+        document.querySelectorAll('select[id^="SingleOptionSelector-"], [name="id"]').forEach(selector => {
+          selector.addEventListener('change', function() {
+            updatePriceInfo();
+          });
+        });
+
+        document.addEventListener('variant:change', function() {
+          updatePriceInfo();
+        });
+
+        setTimeout(updatePriceInfo, 500); // Adding delay to ensure elements are fully loaded
+      }, 100); // Delay script execution by 100 milliseconds
+    });
+  </script>
+
+</div>
+
+{% schema %}
+{
+  "name": "Custom Product Pricing",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_debug",
+      "label": "Show Debug Info",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_location_dropdown",
+      "label": "Show Piercing Location Dropdown",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_piercing_dropdown",
+      "label": "Show Piercing Dropdown",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        { "type": "product",  "id": "product",                     "label": "Select Product" },
+        { "type": "checkbox", "id": "override_full_price",         "label": "Override Full Price",               "default": false },
+        { "type": "number",   "id": "full_price",                  "label": "Full Price",                       "default": 0 },
+        { "type": "checkbox", "id": "show_full_price",             "label": "Show Full Price",                  "default": true },
+        { "type": "number",   "id": "down_payment_percentage",     "label": "Down Payment Percentage",          "default": 30 },
+        { "type": "checkbox", "id": "dynamic_full_price",          "label": "Dynamic Full Price Calculation",   "default": false },
+        { "type": "number",   "id": "initial_down_payment",        "label": "Initial Down Payment",             "default": 0 },
+        { "type": "checkbox", "id": "show_small_text",             "label": "Show Small Text After Full Price", "default": false },
+        { "type": "text",     "id": "small_text",                  "label": "Small Text for Full Price",        "default": "r" },
+        { "type": "checkbox", "id": "show_down_payment",           "label": "Show Down Payment Price",          "default": true },
+        { "type": "checkbox", "id": "show_small_text_down_payment","label": "Show Small Text After Down Payment","default": false },
+        { "type": "text",     "id": "small_text_down_payment",     "label": "Small Text for Down Payment",      "default": "r" },
+        { "type": "checkbox", "id": "hide_down_payment_price",      "label": "Hide Down Payment Price",          "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Product",
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "override_full_price": false,
+            "full_price": 0,
+            "show_full_price": true,
+            "down_payment_percentage": 30,
+            "dynamic_full_price": false,
+            "initial_down_payment": 0,
+            "show_small_text": false,
+            "small_text": "",
+            "show_down_payment": true,
+            "show_small_text_down_payment": false,
+            "small_text_down_payment": "",
+            "hide_down_payment_price": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+<style>
+  .hidden-text { font-size: 0px; }
+  .additional-price-info { margin-top: 10px; }
+  .notice-box { font-size: 12px; margin-top: 5px; color: red; }
+  .small-text, .small-text-down-payment { margin-left: 5px; font-size: 10px; }
+</style>
+{% endstylesheet %}

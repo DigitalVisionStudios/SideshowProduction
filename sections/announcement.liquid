@@ -1,0 +1,330 @@
+{%- if settings.dbtfy_announcement_bar -%}
+  {%- assign small_text_on_mobile = section.settings.small_announcement_text -%}
+
+  <div id="announcement"
+       data-section-id="{{ section.id }}"
+       data-section-type="announcement-section"
+       data-template="{{ template.name }}">
+
+    <div class="wrapper">
+    <div class="grid grid-small flex-nowrap align-center announcement-grid whitespace-nowrap fadeIn">
+      <div class="grid__item three-twelfths flex announcement-item announcement-left overflow-hidden small--hide align-center">
+        {%- if section.settings.show_social -%}
+          {%- render "social-medias" -%}
+        {%- endif -%}
+
+        {%- if section.settings.left_message -%}
+          <span class="announcement-left-message rte">{{- section.settings.left_message -}}</span>
+        {%- endif -%}
+      </div>
+
+      <div class="grid__item large-six-twelfths medium--six-twelfths announcement-item announcement-message overflow-hidden text-center{% if section.blocks.size > 1 %} slick slick-announcement{% endif %}"
+        data-autoplayspeed="{{ section.settings.announcement_autoplayspeed | times: 1000 }}">
+
+        {%- for block in section.blocks -%}
+          {%- assign announcement_text = block.settings.announcement_text -%}
+
+        {%- unless announcement_text == blank -%}
+  <div class="announcement-message-item announcement-{{ block.id }} rte{% if small_text_on_mobile %} text-small-mobile{% endif %}" 
+     {{ block.shopify_attributes }}>
+    <div class="announcement-text-content">
+      {{ announcement_text }}
+    </div>
+    <button id="toggleCollapsible" class="announcement-bar-button">
+    Learn More
+      <svg class="icon icon--caret" aria-hidden="true" focusable="false" role="presentation" width="7" height="6" viewBox="0 0 7 6">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M.293.793a1 1 0 0 0 0 1.414L3.5 5.414l3.207-3.207A1 1 0 0 0 5.293.793L3.5 2.585 1.707.793a1 1 0 0 0-1.414 0Z"></path>
+      </svg>
+    </button>
+  </div>
+{%- endunless -%}
+        {%- endfor -%}
+      </div>
+      
+
+      <div class="grid__item three-twelfths flex justify-end announcement-item announcement-right overflow-hidden small--hide align-center">
+        {%- if section.settings.right_message -%}
+          <span class="announcement-right-message rte">{{- section.settings.right_message -}}</span>
+        {%- endif -%}
+        <ul class="inline-list">
+          {%- if section.settings.phone -%}
+          <li>
+            <a href="tel:{{ shop.phone | remove: '-' | replace: ' ', '' }}" title="{{ shop.phone }}" aria-label="{{ shop.phone }}">
+              <span class="{{ settings.icon }}" aria-hidden="true">phone</span>
+            </a>
+          </li>
+          {%- endif -%}
+          {%- if section.settings.email -%}
+          <li>
+            <a href="mailto:{{ shop.email | escape }}" title="{{ shop.email }}" aria-label="{{ shop.email }}">
+              <span class="{{ settings.icon }}" aria-hidden="true">email</span>
+            </a>
+          </li>
+          {%- endif -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{%- endif -%}
+<style>
+  .announcement-message-item p {
+  display: block; /* reaffirms that the paragraph is a block-level element */
+  margin: 0; /* removes default paragraph margin */
+  text-align: center; /* centers the text */
+  width: 100%; /* ensures the paragraph takes the full width of its container */
+}
+  .announcement-text-content {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+    .collapsible-content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    display: flex;
+   
+    align-items: center;
+    flex-direction: column;
+}
+
+  }
+.announcement-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 20px; /* Adds space between your items */
+  width: 70%;
+  height: 215px;
+}
+
+.close-button {
+  align-self: flex-end;
+  cursor: pointer;
+  font-size: 24px; /* Size of the close button */
+  padding: 10px; /* Makes it easier to click/tap */
+  
+}
+
+.container-content-announcement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Adds space between your text and button */
+   padding-top: 50px; /* Add more space at the top */
+  padding-bottom: 50px; /* Add more space at the bottom */
+  /* You can adjust the 20px to whatever value gives you the breathing room you desire */
+padding-left: 30px;
+    padding-right: 30px;
+
+}
+
+.title-announcement {
+  font-size: 1.6em;
+  text-align: center;
+  font-weight: bold; /* Makes the title stand out */
+}
+
+.description-announcement {
+  text-align: center;
+  color: #555; /* A mild color for description text */
+}
+
+.announcement-button {
+  padding: 10px 25px;
+  background-color: black;
+  color: white;
+  text-decoration: none; /* Removes underline from link */
+  font-weight: bold;
+  border-radius: 4px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+   
+}
+
+.announcement-button:hover {
+  background-color: #333; /* Darker shade on hover */
+}
+  .announcement-message-item {
+  display: block; /* Makes it a block-level element */
+  margin-bottom: 10px; /* Adds a little space below the message */
+}
+
+.announcement-bar-button {
+  display: inline-block; /* Allows it to sit inline with the text */
+  margin-left: 10px; /* Spacing from the text */
+  padding: 5px 15px;
+  border: 1px solid black;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Smooth transition for the SVG rotation */
+  font-size:10px;
+}
+
+.icon--caret {
+  transition: transform 0.3s ease; /* Animation for the caret */
+  display: inline-block; /* Align with the text */
+  margin-left: 5px; /* Spacing from the button text */
+  vertical-align: middle; /* Center with the button text */
+}
+
+.collapsible-open .icon--caret {
+  transform: rotate(180deg); /* Rotates the caret when the collapsible is open */
+}
+  .icon--caret {
+  transition: transform 0.3s ease; /* Animation for the caret */
+  /* ...other styles... */
+}
+</style>
+
+<!-- Collapsible content outside of the announcement bar -->
+<div id="collapsibleContent" class="collapsible-content" style="height: 0px;">
+  <div class="announcement-container">
+    <div class="close-button">✕</div>
+    <div class="container-content-announcement">
+      <div class="title-announcement">Introducing our Lease-to-Own Program!</div>
+      <div class="description-announcement">
+        Pay over 12 months or opt for the 3-month plan with zero interest. Choose what's best for you.
+      </div>
+      <a href="/pages/financing-options" class="announcement-button">View More</a>
+    </div>
+  </div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var toggleButton = document.getElementById('toggleCollapsible');
+  var collapsibleContent = document.getElementById('collapsibleContent');
+  var caret = toggleButton.querySelector('.icon--caret'); // Get the SVG element
+
+  toggleButton.addEventListener('click', function () {
+    var isCollapsed = collapsibleContent.style.height !== '0px';
+    collapsibleContent.style.height = isCollapsed ? '0px' : collapsibleContent.scrollHeight + 'px';
+    caret.style.transform = isCollapsed ? 'rotate(0deg)' : 'rotate(180deg)'; // Rotate the caret
+  });
+
+  var closeButton = document.querySelector('.close-button');
+  closeButton.addEventListener('click', function () {
+    collapsibleContent.style.height = '0px';
+    caret.style.transform = 'rotate(0deg)'; // Reset the rotation of the caret
+  });
+});
+</script>
+
+
+<style>
+
+  .collapsible-content {
+  transition: height 0.3s ease;
+}
+</style>
+
+{% schema %}
+  {
+    "name": "t:sections.announcement.name",
+	  "class": "announcement-section stacked-on-top-of-content",
+    "max_blocks": 5,
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:sections.announcement.settings.header__1.content"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:sections.announcement.settings.paragraph__1.content"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:sections.announcement.settings.paragraph__2.content"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.announcement.settings.header__2.content"
+      },
+      {
+        "type": "checkbox",
+        "id": "small_announcement_text",
+        "label": "t:sections.announcement.settings.enable_small_text_on_mobile.label",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_social",
+        "label": "t:sections.announcement.settings.show_social_medias.label",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "email",
+        "label": "t:sections.announcement.settings.show_email_address.label",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "phone",
+        "label": "t:sections.announcement.settings.show_phone_number.label",
+        "default": true
+      },
+      {
+        "type": "richtext",
+        "id": "left_message",
+        "label": "t:sections.announcement.settings.left_message.label",
+        "default": "<p>Follow us!</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "right_message",
+        "label": "t:sections.announcement.settings.right_message.label",
+        "default": "<p>Get in touch with us</p>"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.announcement.settings.header__3.content",
+        "info": "t:sections.announcement.settings.header__3.info"
+      },
+      {
+        "type": "range",
+        "id": "announcement_autoplayspeed",
+        "label": "t:sections.announcement.settings.rotation_speed.label",
+        "min": 3,
+        "max": 10,
+        "step": 1,
+        "unit": "s",
+        "default": 5
+      }
+    ],
+	  "blocks": [
+	    {
+        "type": "message",
+        "name": "t:sections.announcement.blocks.message.name",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "t:sections.announcement.blocks.message.settings.block_name.label",
+            "info": "t:sections.announcement.blocks.message.settings.block_name.info"
+          },
+          {
+            "type": "richtext",
+            "id": "announcement_text",
+            "label": "t:sections.announcement.blocks.message.settings.text.label",
+            "default": "<p>Free shipping worldwide | 30-Day free returns</p>"
+          }
+        ]
+      }
+    ],
+    "default": {
+      "blocks": [
+        {
+          "type": "message"
+        }
+      ]
+    }
+  }
+{% endschema %}

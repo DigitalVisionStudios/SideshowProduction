@@ -1,0 +1,133 @@
+<style>
+    @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeInContainer { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
+
+    #meety-popup-overlay-{{ section.id }}{
+      display:none; position:fixed; inset:0;
+      background:rgba(0,0,0,.6); z-index:10000;
+      justify-content:center; align-items:center; opacity:0;
+    }
+    #meety-popup-overlay-{{ section.id }}.open{ display:flex; animation:fadeInOverlay .25s ease forwards; }
+
+    #meety-popup-container-{{ section.id }}{
+      background:#fff; border-radius:10px; max-width:900px; width:92%;
+      max-height:85%; overflow:hidden; position:relative; opacity:0; transform:scale(.96);
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+      display:flex; flex-direction:column;
+    }
+    #meety-popup-container-{{ section.id }}.open{ animation:fadeInContainer .25s ease forwards; }
+
+    #meety-popup-header-{{ section.id }}{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: .5rem .75rem;
+      border-bottom: 1px solid #eee;
+      flex: 0 0 auto;
+    }
+    #meety-popup-close-{{ section.id }}{
+      background:none; border:none; font-size:1.5rem; cursor:pointer; line-height:1; padding:.25rem .5rem;
+    }
+    #meety-popup-body-{{ section.id }}{
+      padding:1rem; overflow:auto; max-height:calc(85vh - 50px); position:relative;
+    }
+    .meety-step {
+      display: none; /* Hidden by default */
+      animation-duration: 0.3s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+    }
+    @keyframes meetyStepIn { from { opacity: 0; transform: translateX(15px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes meetyStepOut { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(-15px); } }
+  /* Polished animation variants */
+  .meety-step { transition: opacity .3s ease, transform .3s ease; }
+  .meety-step.anim-enter { opacity:0; transform: translateY(12px) scale(.96); }
+  .meety-step.anim-enter-active { opacity:1; transform: translateY(0) scale(1); }
+  .meety-step.anim-exit { opacity:1; transform: translateY(0) scale(1); }
+  .meety-step.anim-exit-active { opacity:0; transform: translateY(-6px) scale(.985); }
+
+
+    .meety-step-chooser, .meety-step-service, .meety-step-gift-purchase, .meety-step-redeem { max-width:680px; margin: 0 auto; padding: 12px 12px 16px; border:1px solid #eee; border-radius:8px; background:#fff; }
+    .meety-step-chooser h3, .meety-step-service h3, .meety-step-gift-purchase h3, .meety-step-redeem h3 { margin:.25rem 0 10px; font-size:1.125rem; color:#000; }
+    
+    /* Ensure all titles in the overlay are black */
+    #meety-popup-overlay-{{ section.id }} h3 { color: #333 !important; }
+    #meety-popup-overlay-{{ section.id }} .meety-step-bogo h3 { color: #333 !important; }
+    .meety-chooser-row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+    .meety-chooser-select, .meety-chooser-btn,
+    .meety-select, .meety-continue-btn {
+      padding:.5rem .6rem; border:1px solid #e3e3e3; border-radius:6px; background:#fff; cursor:pointer;
+    }
+    .meety-chooser-btn.primary, .meety-continue-btn.primary { background:#111; color:#fff; border-color:#111; }
+    .meety-step-service .menu-slot { margin-top: 8px; display:grid; gap:8px; }
+    .meety-step-calendar { max-width:900px; margin: 0 auto; }
+    .meety-owned-popover { position: relative !important; inset: auto !important; left: auto !important; top: auto !important; transform: none !important; z-index: auto !important; box-shadow: 0 10px 26px rgba(0,0,0,.15); border-radius: 10px; border: 1px solid rgba(24,28,50,0.08); max-width: 100% !important; }
+    .meety-owned-popover .meety-select-item { padding: 10px 12px; cursor: pointer; }
+    .meety-fees-disclaimer { margin-top:12px; padding-top:10px; border-top:1px solid #eee; font-size:.85rem; color:#666; text-align:center; display:none; }
+    .meety-row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    .meety-row label { font-size:.9rem; color:#333; }
+
+    .meety-note { margin-top:8px; font-size:.9rem; color:#555; }
+    
+    /* Gift Card & Redeem Form Styles */
+    .gift-card-options { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+    .gift-card-btn { padding: 12px 16px; border: 2px solid #111; border-radius: 8px; background: #111; color: #fff; cursor: pointer; text-align: center; font-weight: 600; transition: opacity .2s; }
+    .gift-card-btn.secondary { background: transparent; color: #555; border-color: #e0e0e0; text-decoration: none; font-weight: 500; }
+    .gift-card-btn:hover { opacity: 0.85; }
+    .gift-card-btn:disabled,
+    .gift-card-btn.disabled { opacity: 0.55; cursor: not-allowed; filter: grayscale(0.15); pointer-events: none; }
+    .gift-card-btn.secondary:disabled,
+    .gift-card-btn.secondary.disabled { background: #f5f5f5; color: #aaa; border-color: #e5e5e5; }
+    .gift-card-btn.back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: auto;
+      font-size: .85rem;
+      padding: 6px 12px;
+      border-width: 1px;
+      margin-top: 10px;
+    }
+    
+    .gift-form, .redeem-form { display: flex; flex-direction: column; gap: 14px; }
+    .gift-form label, .redeem-form label { font-weight: 600; color: #333; font-size: 13px; margin-bottom: -8px; }
+    .gift-form input, .gift-form select {
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+      background-color: #fff;
+      color: #333;
+    }
+    .gift-form input::placeholder { color: #999; }
+    .gift-form select { background: #fff; cursor: pointer; }
+    
+    .add-to-cart-btn {
+      width: 100%;
+      padding: 12px 16px;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 4px;
+      transition: opacity .2s;
+    }
+    .add-to-cart-btn:hover { opacity: 0.85; }
+  .add-to-cart-btn:disabled,
+  .add-to-cart-btn.disabled { opacity: 0.6; cursor: not-allowed; pointer-events: none; background: #bbb; color: #fff; }
+    
+    /* BOGO Selector Styles */
+    .meety-step-bogo { max-width: 680px; margin: 0 auto; padding: 12px 12px 16px; border: 1px solid #eee; border-radius: 8px; background: #fff; }
+    .bogo-explanation { margin: 8px 0 16px; font-size: 14px; color: #666; text-align: center; }
+    .bogo-service-group { margin-bottom: 16px; }
+    .bogo-service-group label { display: block; margin-bottom: 6px; font-weight: 600; color: #333; font-size: 14px; }
+    .bogo-pricing-display { margin-top: 16px; }
+    .bogo-continue-btn { width: 100%; }
+
+  /* Black Friday inventory banner */
+  .bf-inventory-banner { display:none; margin: 8px 0 12px; padding: 10px 12px; border-radius: 6px; border: 1px solid #f59e0b; background: #fff7ed; color: #7c2d12; font-size: 14px; text-align: center; }
+  .bf-inventory-banner.show { display:block; }
+</style>

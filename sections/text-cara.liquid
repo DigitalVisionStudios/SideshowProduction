@@ -1,0 +1,110 @@
+<div class="text-cara" style="background-color: {{ section.settings.background_color }}; padding-top: {{ section.settings.padding_top_bottom }}px; padding-bottom: {{ section.settings.padding_top_bottom }}px;">
+  <div class="carousel-content" style="animation-duration: {{ section.settings.carousel_speed }}s; font-size: {{ section.settings.font_size }}px; color: {{ section.settings.text_color }}; padding-left: {{ section.settings.padding_left_right }}px; padding-right: {{ section.settings.padding_left_right }}px;">
+    {{ section.settings.carousel_text }}
+  </div>
+</div>
+
+{% stylesheet %}
+.text-cara {
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.carousel-content {
+  display: inline-block;
+  font-weight: bold;
+  animation: slide linear infinite;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+{% endstylesheet %}
+
+{% javascript %}
+/* Add any necessary JavaScript here */
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Text Carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "carousel_text",
+      "label": "Carousel Text",
+      "default": "Sample text for the carousel"
+    },
+    {
+      "type": "range",
+      "id": "carousel_speed",
+      "label": "Carousel Speed (seconds)",
+      "min": 5,
+      "max": 60,
+      "step": 1,
+      "default": 10,
+      "unit": "s"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font Size (px)",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_bottom",
+      "label": "Padding Top & Bottom (px)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_left_right",
+      "label": "Padding Left & Right (px)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default Text Carousel",
+      "category": "Custom",
+      "settings": {
+        "carousel_text": "Sample text for the carousel",
+        "carousel_speed": 10,
+        "font_size": 16,
+        "text_color": "#000000",
+        "background_color": "#FFFFFF",
+        "padding_top_bottom": 10,
+        "padding_left_right": 10
+      }
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,291 @@
+<style>
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.drawer__inner-section * {
+    animation-name: fade-up;
+    animation-duration: 1s;  /* Adjust duration as needed */
+    animation-fill-mode: both;
+}
+.drawer__inner-section > * {
+    animation-delay: calc(var(--animation-order) * 0.1s); /* Delay increases by 0.2s for each element */
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%); /* Start off-screen */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0); /* End at final position */
+    opacity: 1;
+  }
+}
+.drawer {
+  animation: slideIn 0.5s forwards;
+  opacity: 0; /* Ensure it starts hidden */
+}
+.drawer.js-drawer-open {
+  /* This class ensures the drawer stays visible and in place after the animation */
+  transform: translateX(0);
+  opacity: 1;
+}
+.drawer {
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1),
+              opacity 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  transform: translateX(-100%); /* Adjust for initial off-screen position */
+  opacity: 0; /* Start with the drawer hidden */
+}
+.drawer.js-drawer-open {
+  transform: translateX(0); /* Slide in */
+  opacity: 1; /* Become fully visible */
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let delay = 0;
+    let increment = 0.10;
+    const decay = 0.9;
+
+    // Loop through each section so bottom‐section links come after top ones
+    const sections = document.querySelectorAll('.drawer__inner-section');
+    sections.forEach(section => {
+      const links = section.querySelectorAll(
+        '.mobile-nav__link:not(.mobile-nav__sublist .mobile-nav__link), ' +
+        '.mobile-nav__item--secondary > a'
+      );
+
+      links.forEach(link => {
+        link.classList.add('fade-up-animation');
+        link.style.animationDelay = `${delay}s`;
+        // increase delay, then make the increment a bit smaller for faster stagger
+        delay += increment;
+        increment *= decay;
+      });
+    });
+  });
+</script>
+
+<div id="NavDrawer" class="drawer drawer--left overlay-content" data-section-id="{{ section.id }}" data-section-type="drawer-menu-section" aria-hidden="true" tabindex="-1">
+  <div class="drawer__header" data-aos="fade-right">
+    <div class="drawer__title">
+      <span class="{{ settings.icon }}"
+            {% if section.settings.hide_menu_icon %}hidden{% endif %}
+            aria-hidden="true">menu</span>
+      <span {% unless section.settings.hide_menu_icon %}class="spacer-left-xs"{% endunless %}>
+        {%- if section.settings.title != blank -%}
+          {{ section.settings.title }}
+        {%- else -%}
+          {{ 'general.drawers.navigation' | t }}
+        {%- endif -%}
+      </span>
+    </div>
+    <div class="drawer__close">
+      <button type="button" class="btn btn-square-small drawer__close-button js-drawer-close" aria-label="{{ 'general.drawers.close_menu' | t }}" title="{{ 'general.drawers.close_menu' | t }}">
+        <span class="{{ settings.icon }}" aria-hidden="true">close</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="drawer__inner drawer-left__inner">
+    {%- if section.settings.drawer_top_link_list -%}
+    <div class="drawer__inner-section" data-aos="fade-right">
+      <ul class="mobile-nav">
+        {%- for link in linklists[section.settings.drawer_top_link_list].links -%}
+        {%- if link.links != blank -%}
+        <li class="mobile-nav__item" data-aos="fade-right" data-aos-delay="{{ forloop.index0 | times: 100 }}">
+          <div class="mobile-nav__has-sublist">
+            <a href="{{ link.url }}"
+               class="mobile-nav__link {% if section.settings.drawer_link_toggle %}mobile-nav__toggle-link{% endif %}"
+               id="Label-{{ forloop.index }}"
+               {% unless request.page_type == 'index' %}{% if link.active %}aria-current="page"{% endif %}{% endunless %}>
+              {{ link.title | escape }}
+            </a>
+            <div class="mobile-nav__toggle mbutton">
+              <button type="button" class="btn btn-square-small mobile-nav__toggle-btn" aria-controls="Linklist-{{ forloop.index }}" aria-expanded="false">
+                <span class="mobile-nav__toggle-open" aria-label="{{ 'general.drawers.expand_submenu' | t }} {{ link.title | escape }}" title="{{ 'general.drawers.expand_submenu' | t }} {{ link.title | escape }}">
+                  <span class="{{ settings.icon }}" aria-hidden="true">add</span>
+                </span>
+                <span class="mobile-nav__toggle-close" aria-label="{{ 'general.drawers.collapse_submenu' | t }} {{ link.title | escape }}" title="{{ 'general.drawers.collapse_submenu' | t }} {{ link.title | escape }}">
+                  <span class="{{ settings.icon }}" aria-hidden="true">remove</span>
+                </span>
+              </button>
+            </div>
+          </div>
+          <ul class="mobile-nav__sublist" id="Linklist-{{ forloop.index }}" aria-labelledby="Label-{{ forloop.index }}" role="navigation">
+            {%- assign parent_index = forloop.index -%}
+            {%- for childlink in link.links -%}
+            {%- if childlink.links != blank -%}
+            <li class="mobile-nav__item" data-aos="fade-right" data-aos-delay="{{ forloop.index0 | times: 100 }}">
+              <div class="mobile-nav__has-sublist">
+                <a href="{{ childlink.url }}"
+                   class="mobile-nav__link {% if section.settings.drawer_link_toggle %}mobile-nav__toggle-link{% endif %}"
+                   id="Label-{{ parent_index }}-{{ forloop.index }}"
+                   {% unless request.page_type == 'index' %}{% if childlink.active %}aria-current="page"{% endif %}{% endunless %}>
+                  {{ childlink.title | escape }}
+                </a>
+                <div class="mobile-nav__toggle">
+                  <button type="button" class="btn btn-square-small mobile-nav__toggle-btn" aria-controls="Linklist-{{ parent_index }}-{{ forloop.index }}" aria-expanded="false">
+                    <span class="mobile-nav__toggle-open" aria-label="{{ 'general.drawers.expand_submenu' | t }} {{ childlink.title | escape }}" title="{{ 'general.drawers.expand_submenu' | t }} {{ childlink.title | escape }}">
+                      <span class="{{ settings.icon }}" aria-hidden="true">add</span>
+                    </span>
+                    <span class="mobile-nav__toggle-close" aria-label="{{ 'general.drawers.collapse_submenu' | t }} {{ childlink.title | escape }}" title="{{ 'general.drawers.collapse_submenu' | t }} {{ childlink.title | escape }}">
+                      <span class="{{ settings.icon }}" aria-hidden="true">remove</span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <ul class="mobile-nav__sublist mobile-nav__subsublist" id="Linklist-{{ parent_index }}-{{ forloop.index }}" aria-labelledby="Label-{{ parent_index }}-{{ forloop.index }}" role="navigation">
+                {%- for grandchildlink in childlink.links -%}
+                <li class="mobile-nav__item">
+                  <a href="{{ grandchildlink.url }}"
+                     class="mobile-nav__link"
+                     {% unless request.page_type == 'index' %}{% if grandchildlink.active %}aria-current="page"{% endif %}{% endunless %}>
+                    {{ grandchildlink.title | escape }}
+                  </a>
+                </li>
+                {%- endfor -%}
+              </ul>
+            </li>
+            {%- else -%}
+            <li class="mobile-nav__item">
+              <a href="{{ childlink.url }}"
+                 class="mobile-nav__link"
+                 {% unless request.page_type == 'index' %}{% if childlink.active %}aria-current="page"{% endif %}{% endunless %}>
+                {{ childlink.title | escape }}
+              </a>
+            </li>
+            {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </li>
+        {%- else -%}
+        <li class="mobile-nav__item">
+          <a href="{{ link.url }}"
+             class="mobile-nav__link"
+             {% unless request.page_type == 'index' %}{% if link.active %}aria-current="page"{% endif %}{% endunless %}>
+            {{ link.title | escape }}
+          </a>
+        </li>
+        {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+    {%- endif -%}
+
+    {%- if section.settings.drawer_bottom_link_list -%}
+    <div class="drawer__inner-section">
+      <ul class="mobile-nav">
+        {%- for link in linklists[section.settings.drawer_bottom_link_list].links -%}
+        <li class="mobile-nav__item mobile-nav__item--secondary">
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+    {%- endif -%}
+
+    {%- if section.settings.email or section.settings.phone -%}
+    <div class="drawer__inner-section">
+      <ul class="mobile-nav">
+        {%- if section.settings.email -%}
+        <li class="mobile-nav__item mobile-nav__item--secondary">
+          <a href="mailto:{{ shop.email | escape }}">
+            <span class="{{ settings.icon }} icon-width" aria-hidden="true">email</span>
+            {{ shop.email }}
+          </a>
+        </li>
+        {%- endif -%}
+        {%- if section.settings.phone -%}
+        <li class="mobile-nav__item mobile-nav__item--secondary">
+          <a href="tel:{{ shop.phone | remove: '-' | replace: ' ', '' }}">
+            <span class="{{ settings.icon }} icon-width" aria-hidden="true">phone</span>
+            {{ shop.phone }}
+          </a>
+        </li>
+        {%- endif -%}
+      </ul>
+    </div>
+    {%- endif -%}
+
+  </div>
+
+  {%- if section.settings.show_social_medias -%}
+  <a href="https://www.digitalvisionstudios.net/" target="_blank" rel="noreferrer noopener">
+    <div class="drawer__footer">
+      
+<svg width="134" height="36" viewBox="0 0 134 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M30.0484 20.8461V14.6163H31.9824V20.8461H30.0484ZM32.2242 18.9583H32.4659C33.0892 18.9583 33.6157 18.738 34.0454 18.2975C34.486 17.8465 34.7063 17.3064 34.7063 16.6771C34.7063 16.0479 34.486 15.5077 34.0454 15.0568C33.6157 14.6058 33.0892 14.3803 32.4659 14.3803H30V12.5397H32.4659C33.6371 12.5397 34.6364 12.9434 35.4638 13.751C36.2911 14.5481 36.7048 15.5235 36.7048 16.6771C36.7048 17.8203 36.2911 18.7957 35.4638 19.6033C34.6472 20.4003 33.6479 20.7989 32.4659 20.7989H32.2242V18.9583ZM36.2898 12.5397H38.3367L41.3506 20.7989H39.3199L36.2898 12.5397ZM42.3983 12.5397H44.4129L41.4796 20.4528L40.4964 17.7626L42.3983 12.5397ZM52.2561 12.2179C52.1874 11.6518 51.9089 11.2123 51.4205 10.8994C50.9321 10.5866 50.333 10.4302 49.6233 10.4302C49.1044 10.4302 48.6503 10.5121 48.2611 10.676C47.8757 10.8398 47.5743 11.0652 47.3568 11.352C47.1431 11.6387 47.0363 11.9646 47.0363 12.3296C47.0363 12.635 47.1107 12.8976 47.2595 13.1173C47.4121 13.3333 47.6067 13.5139 47.8433 13.6592C48.0799 13.8008 48.3279 13.9181 48.5874 14.0112C48.8468 14.1005 49.0853 14.1732 49.3028 14.2291L50.4933 14.5419C50.7985 14.6201 51.1381 14.7281 51.5121 14.8659C51.8898 15.0037 52.2504 15.1918 52.5938 15.4302C52.941 15.6648 53.2272 15.9665 53.4523 16.3352C53.6775 16.7039 53.79 17.1564 53.79 17.6927C53.79 18.311 53.624 18.8696 53.292 19.3687C52.9639 19.8678 52.4831 20.2644 51.8497 20.5587C51.2201 20.8529 50.4551 21 49.5546 21C48.7152 21 47.9883 20.8678 47.374 20.6034C46.7635 20.3389 46.2827 19.9702 45.9317 19.4972C45.5845 19.0242 45.3879 18.4748 45.3422 17.8492H46.8073C46.8455 18.2812 46.9943 18.6387 47.2538 18.9218C47.517 19.2011 47.849 19.4097 48.2497 19.5475C48.6541 19.6816 49.0891 19.7486 49.5546 19.7486C50.0964 19.7486 50.5829 19.6629 51.0141 19.4916C51.4453 19.3166 51.7868 19.0745 52.0386 18.7654C52.2905 18.4525 52.4164 18.0875 52.4164 17.6704C52.4164 17.2905 52.3076 16.9814 52.0901 16.743C51.8726 16.5046 51.5865 16.311 51.2316 16.162C50.8768 16.013 50.4933 15.8827 50.0812 15.7709L48.6388 15.3687C47.7231 15.1117 46.9981 14.7449 46.464 14.2681C45.9297 13.7914 45.6626 13.1676 45.6626 12.3966C45.6626 11.756 45.8401 11.1974 46.1949 10.7207C46.5536 10.2402 47.0344 9.86778 47.6373 9.60335C48.2439 9.33519 48.9212 9.20112 49.6691 9.20112C50.4246 9.20112 51.0962 9.33333 51.6837 9.59777C52.2714 9.85847 52.7369 10.216 53.0803 10.6704C53.4275 11.1248 53.6107 11.6406 53.6297 12.2179H52.2561ZM59.7639 12.2179V13.3352H55.208V12.2179H59.7639ZM56.5358 10.162H57.8866V18.3408C57.8866 18.7132 57.9419 18.9925 58.0526 19.1788C58.167 19.3613 58.312 19.4842 58.4875 19.5475C58.6669 19.6071 58.8557 19.6369 59.0541 19.6369C59.203 19.6369 59.3251 19.6294 59.4205 19.6145C59.5158 19.5959 59.5922 19.581 59.6494 19.5698L59.9242 20.7542C59.8326 20.7877 59.7047 20.8212 59.5406 20.8547C59.3766 20.892 59.1686 20.9106 58.9168 20.9106C58.5353 20.9106 58.1613 20.8305 57.795 20.6704C57.4325 20.5102 57.1311 20.2663 56.8907 19.9385C56.6541 19.6108 56.5358 19.1974 56.5358 18.6983V10.162ZM67.336 17.2905V12.2179H68.6868V20.7989H67.336V19.3463H67.2445C67.0384 19.7821 66.7179 20.1527 66.2829 20.4581C65.8479 20.7598 65.2985 20.9106 64.6345 20.9106C64.0851 20.9106 63.5967 20.7933 63.1694 20.5587C62.742 20.3203 62.4062 19.9627 62.162 19.486C61.9178 19.0056 61.7957 18.4004 61.7957 17.6704V12.2179H63.1465V17.581C63.1465 18.2067 63.3258 18.7058 63.6844 19.0782C64.047 19.4507 64.5086 19.6369 65.0695 19.6369C65.4053 19.6369 65.7468 19.5531 66.094 19.3855C66.4451 19.2179 66.7389 18.9609 66.9755 18.6145C67.2158 18.2681 67.336 17.8268 67.336 17.2905ZM74.4804 20.9777C73.7477 20.9777 73.1009 20.797 72.5401 20.4358C71.9793 20.0708 71.5404 19.5568 71.2239 18.8938C70.907 18.2272 70.7487 17.4395 70.7487 16.5307C70.7487 15.6294 70.907 14.8473 71.2239 14.1844C71.5404 13.5214 71.981 13.0093 72.5459 12.648C73.1104 12.2868 73.763 12.1061 74.5031 12.1061C75.0755 12.1061 75.5276 12.1993 75.8599 12.3855C76.1954 12.568 76.4513 12.7765 76.6265 13.0112C76.8058 13.2421 76.9451 13.432 77.0443 13.581H77.1588V9.35754H78.5097V20.7989H77.2046V19.4804H77.0443C76.9451 19.6369 76.8042 19.8343 76.6211 20.0726C76.4376 20.3072 76.1764 20.5177 75.8367 20.7039C75.4974 20.8864 75.0449 20.9777 74.4804 20.9777ZM74.6635 19.7933C75.2053 19.7933 75.6632 19.6555 76.0372 19.3799C76.4112 19.1006 76.6955 18.7151 76.8901 18.2235C77.0844 17.7281 77.1819 17.1564 77.1819 16.5084C77.1819 15.8678 77.0864 15.3073 76.8955 14.8268C76.705 14.3427 76.4223 13.9665 76.0487 13.6983C75.6747 13.4265 75.2131 13.2905 74.6635 13.2905C74.0911 13.2905 73.6142 13.4339 73.2328 13.7207C72.855 14.0037 72.5707 14.3892 72.3798 14.8771C72.193 15.3613 72.0996 15.905 72.0996 16.5084C72.0996 17.1192 72.1946 17.6741 72.3856 18.1732C72.5802 18.6685 72.8662 19.0633 73.2439 19.3575C73.6258 19.648 74.099 19.7933 74.6635 19.7933ZM81.1712 20.7989V12.2179H82.5217V20.7989H81.1712ZM81.858 10.7877C81.5947 10.7877 81.3675 10.7002 81.1769 10.5251C80.9897 10.3501 80.8963 10.1397 80.8963 9.89385C80.8963 9.64804 80.9897 9.43762 81.1769 9.26257C81.3675 9.08752 81.5947 9 81.858 9C82.1212 9 82.3465 9.08752 82.5333 9.26257C82.7242 9.43762 82.8197 9.64804 82.8197 9.89385C82.8197 10.1397 82.7242 10.3501 82.5333 10.5251C82.3465 10.7002 82.1212 10.7877 81.858 10.7877ZM88.5673 20.9777C87.7735 20.9777 87.0771 20.7933 86.4783 20.4246C85.8828 20.0558 85.4175 19.54 85.0819 18.8771C84.7496 18.2141 84.5839 17.4395 84.5839 16.5531C84.5839 15.6592 84.7496 14.8789 85.0819 14.2123C85.4175 13.5456 85.8828 13.0279 86.4783 12.6592C87.0771 12.2905 87.7735 12.1061 88.5673 12.1061C89.3608 12.1061 90.0555 12.2905 90.6506 12.6592C91.2498 13.0279 91.7152 13.5456 92.047 14.2123C92.383 14.8789 92.5508 15.6592 92.5508 16.5531C92.5508 17.4395 92.383 18.2141 92.047 18.8771C91.7152 19.54 91.2498 20.0558 90.6506 20.4246C90.0555 20.7933 89.3608 20.9777 88.5673 20.9777ZM88.5673 19.7933C89.1703 19.7933 89.6662 19.6425 90.0555 19.3408C90.4444 19.0391 90.7329 18.6424 90.9197 18.1508C91.1064 17.6592 91.2003 17.1266 91.2003 16.5531C91.2003 15.9795 91.1064 15.445 90.9197 14.9497C90.7329 14.4544 90.4444 14.054 90.0555 13.7486C89.6662 13.4432 89.1703 13.2905 88.5673 13.2905C87.9644 13.2905 87.4685 13.4432 87.0792 13.7486C86.6899 14.054 86.4018 14.4544 86.215 14.9497C86.0278 15.445 85.9344 15.9795 85.9344 16.5531C85.9344 17.1266 86.0278 17.6592 86.215 18.1508C86.4018 18.6424 86.6899 19.0391 87.0792 19.3408C87.4685 19.6425 87.9644 19.7933 88.5673 19.7933Z" fill="white"/>
+</svg>
+    </div>
+  </a>
+  {%- endif -%}
+</div>
+
+<div class="overlay-backdrop overlay-drawer"></div>
+
+{% schema %}
+{
+  "name": "t:sections.drawer_menu.name",
+  "class": "drawer-menu-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "drawer_link_toggle",
+      "label": "t:sections.drawer_menu.settings.toggle_submenu_on_links.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "email",
+      "label": "t:sections.drawer_menu.settings.email.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "phone",
+      "label": "t:sections.drawer_menu.settings.phone.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_medias",
+      "label": "t:sections.drawer_menu.settings.show_social_medias.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_menu_icon",
+      "label": "t:sections.drawer_menu.settings.hide_menu_icon.label",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.drawer_menu.settings.title.label",
+      "default": "Menu"
+    },
+    {
+      "type": "link_list",
+      "id": "drawer_top_link_list",
+      "label": "t:sections.drawer_menu.settings.top_link_list.label",
+      "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "drawer_bottom_link_list",
+      "label": "t:sections.drawer_menu.settings.bottom_link_list.label",
+      "default": "footer"
+    }
+  ]
+}
+{% endschema %}

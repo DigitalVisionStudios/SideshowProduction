@@ -1,0 +1,642 @@
+{% comment %}
+Section: Custom Variant UI + Meety (Piercings-ready) — single-variant safe
+- Works whether product has option selects or not
+- Hides native theme labels like "Type: (Ear) Standard Lobe"
+- Builds clean Piercing Type / Piercing Location selects (when options exist)
+- Optional Attending / Each selects + Meety/cart bridge for line item properties
+{% endcomment %}
+
+<div id="cvum-bridge"
+  data-current-product-id="{{ product.id }}"
+  data-debug="{{ section.settings.debug | json }}"
+>
+  {% for block in section.blocks %}
+    {% assign blk_product = block.settings.product %}
+    <div class="cvum-block"
+      data-block-id="{{ block.id }}"
+      data-product-id="{{ blk_product.id | default: 0 }}"
+      data-enable="{{ block.settings.enable | json }}"
+
+      data-hide-theme-labels="{{ block.settings.hide_theme_labels | json }}"
+      data-enable-variant-ui="{{ block.settings.enable_variant_ui | json }}"
+
+      data-enable-piercings="{{ block.settings.enable_piercings | json }}"
+      data-pierce-categories="{{ block.settings.pierce_categories | default: 'Ear,Facial,Oral,Body,Vulvar,Penile' | escape }}"
+      data-pierce-show-all="{{ block.settings.pierce_show_all | json }}"
+      data-pierce-type-label="{{ block.settings.pierce_type_label | default: 'Type' }}"
+      data-pierce-option-label="{{ block.settings.pierce_option_label | default: 'Option' }}"
+      data-pierce-all-label="{{ block.settings.pierce_all_label | default: 'All' }}"
+
+      data-enable-attending="{{ block.settings.enable_attending | json }}"
+      data-attending-label="{{ block.settings.attending_label | default: 'How many are attending?' }}"
+      data-attending-options="{{ block.settings.attending_options | default: '1|1 Attendee,2|2 Attendees,3|3 Attendees,4|4 Attendees,5|5 Attendees' | escape }}"
+
+      data-enable-each="{{ block.settings.enable_each | json }}"
+      data-each-label="{{ block.settings.each_label | default: 'How many of each?' }}"
+      data-each-options="{{ block.settings.each_options | default: '1|1 each,2|2 each,3|3 each,4|4 each,5|5 each' | escape }}"
+
+      data-enable-meety-bridge="{{ block.settings.enable_meety_bridge | json }}"
+    ></div>
+  {% endfor %}
+
+  <script>
+  (function() {
+    if (window.__cvumInstalled) return;
+    window.__cvumInstalled = true;
+
+    const root = document.getElementById('cvum-bridge');
+    const DEBUG = root && root.getAttribute('data-debug') === 'true';
+    const CURRENT_PID = root ? String(root.getAttribute('data-current-product-id') || '') : '';
+
+    const $$ = (sel, r) => Array.from((r||document).querySelectorAll(sel));
+    const $  = (sel, r) => (r||document).querySelector(sel);
+    function log(){ if (DEBUG) console.log.apply(console, arguments); }
+
+    // pick 1st active block for current product
+    const activeBlock = ($$('.cvum-block') || []).find(b => {
+      const pid = String(b.getAttribute('data-product-id') || '');
+      const ena = b.getAttribute('data-enable') === 'true';
+      return ena && pid && pid === CURRENT_PID;
+    });
+    if (!activeBlock) { log('[CVUM] No active block for this product; idle.'); return; }
+
+    // settings
+    const HIDE_THEME_LABELS   = activeBlock.getAttribute('data-hide-theme-labels') === 'true';
+    const ENABLE_VARIANT_UI   = activeBlock.getAttribute('data-enable-variant-ui') === 'true';
+
+    const ENABLE_PIERCINGS    = activeBlock.getAttribute('data-enable-piercings') === 'true';
+    const PIERCE_CATS_RAW     = activeBlock.getAttribute('data-pierce-categories') || 'Ear,Facial,Oral,Body,Vulvar,Penile';
+    const PIERCE_SHOW_ALL     = activeBlock.getAttribute('data-pierce-show-all') === 'true';
+    const PIERCE_TYPE_LABEL   = activeBlock.getAttribute('data-pierce-type-label') || 'Type';
+    const PIERCE_OPTION_LABEL = activeBlock.getAttribute('data-pierce-option-label') || 'Option';
+    const PIERCE_ALL_LABEL    = activeBlock.getAttribute('data-pierce-all-label') || 'All';
+
+    const ENABLE_ATTENDING    = activeBlock.getAttribute('data-enable-attending') === 'true';
+    const ATT_LABEL           = activeBlock.getAttribute('data-attending-label') || 'How many are attending?';
+    const ATT_OPTS_RAW        = activeBlock.getAttribute('data-attending-options') || '1|1 Attendee,2|2 Attendees,3|3 Attendees,4|4 Attendees,5|5 Attendees';
+
+    const ENABLE_EACH         = activeBlock.getAttribute('data-enable-each') === 'true';
+    const EACH_LABEL          = activeBlock.getAttribute('data-each-label') || 'How many of each?';
+    const EACH_OPTS_RAW       = activeBlock.getAttribute('data-each-options') || '1|1 each,2|2 each,3|3 each,4|4 each,5|5 each';
+
+    const ENABLE_MEETY_BRIDGE = activeBlock.getAttribute('data-enable-meety-bridge') === 'true';
+
+    function parsePairs(raw){
+      return String(raw).split(',').map(s=>{
+        const p = s.split('|');
+        const v = (p[0]||'').trim();
+        const t = (p[1]||'').trim() || v;
+        return v ? { v, t } : null;
+      }).filter(Boolean);
+    }
+    const ATT_OPTS  = parsePairs(ATT_OPTS_RAW);
+    const EACH_OPTS = parsePairs(EACH_OPTS_RAW);
+    const PIERCE_CATS = String(PIERCE_CATS_RAW).split(',').map(s=>s.trim()).filter(Boolean);
+
+    function findProductForm() {
+      return (
+        $('product-form form') ||
+        $('form[action^="/cart/add"]') ||
+        $('form[id^="AddToCartForm"]') ||
+        $('form[id^="product-form"]') ||
+        null
+      );
+    }
+    function sentenceCase(str){ if(!str) return ''; const l=str.toLowerCase(); return l.charAt(0).toUpperCase()+l.slice(1); }
+
+    // Accept both "(Type) Name" and "Name (Type)"
+    function parseFromOption(opt){
+      const raw = (opt && typeof opt.value === 'string') ? opt.value : (opt?.text || '').trim();
+      const txt = (opt && typeof opt.text === 'string') ? opt.text : (opt?.textContent || raw);
+
+      let m = txt.match(/^\s*\(([^)]+)\)\s*(.+?)\s*$/);
+      if (m) return { title: m[1].trim(), value: m[2].trim(), raw };
+
+      m = txt.match(/^\s*(.+?)\s*\(([^)]+)\)\s*$/);
+      if (m) return { title: m[2].trim(), value: m[1].trim(), raw };
+
+      return { title: 'Misc', value: txt.trim(), raw };
+    }
+
+    function ensureHidden(form, name, value){
+      if (!form) return;
+      let input = form.querySelector('input[type="hidden"][name="'+name+'"]');
+      if(!input){
+        input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = name;
+        form.appendChild(input);
+        log('[CVUM] created hidden', name);
+      }
+      input.value = value;
+    }
+
+    function detectPiercings(data0){
+      if (!ENABLE_PIERCINGS) return false;
+      if (!data0 || !data0.length) return false;
+      const lcCats = PIERCE_CATS.map(c => '('+c.toLowerCase()+')');
+      return data0.some(d => {
+        const raw = (d.raw || '').toLowerCase();
+        return lcCats.some(tag => raw.includes(tag));
+      });
+    }
+
+    // Robust native-label hider
+    function hideVariantLabelFor(selectEl){
+      if (!selectEl) return;
+
+      // 1) label with explicit 'for'
+      const id = selectEl.getAttribute('id');
+      if (id) {
+        const bound = document.querySelector(`label[for="${CSS.escape(id)}"]`);
+        if (bound) bound.style.display = 'none';
+      }
+
+      // 2) nearest wrapper's label
+      const wrap = selectEl.closest('.product-form__input, .selector-wrapper, .single-option-selector, .product__info-container, .product-form, .product__form, .product__info-wrapper');
+      if (wrap) {
+        const lbl = wrap.querySelector('label');
+        if (lbl) lbl.style.display = 'none';
+      }
+
+      // 3) common legacy class
+      const legacy = document.querySelector('label.single-option-radio__label');
+      if (legacy) legacy.style.display = 'none';
+
+      // 4) any stray "Type: ..." labels
+      document.querySelectorAll('label').forEach(l=>{
+        if (/^\s*type\s*:/i.test(l.textContent || '')) l.style.display = 'none';
+      });
+    }
+
+    // Find a safe anchor even for single-variant products
+    function findAnchor() {
+      return (
+        document.getElementById('cvum-options-1') ||
+        document.getElementById('cvum-options-0') ||
+        document.getElementById('SingleOptionSelector-1') ||
+        document.getElementById('SingleOptionSelector-0') ||
+        document.querySelector('select[name="id"]') || // master variant select
+        document.querySelector('.product-single__quantity, .product-form__quantity') ||
+        document.querySelector('[type="submit"], button[name="add"], .product-form__submit') ||
+        null
+      );
+    }
+    function insertAfter(node, ref, form){
+      if (ref && ref.parentNode) ref.parentNode.insertBefore(node, ref.nextSibling);
+      else if (form) form.appendChild(node);
+      else document.body.appendChild(node);
+    }
+
+    function mountVariantUI() {
+      const select0 = document.getElementById('SingleOptionSelector-0') || document.querySelector('select[data-index="option1"]');
+      const select1 = document.getElementById('SingleOptionSelector-1') || document.querySelector('select[data-index="option2"]');
+      const master  = document.querySelector('select[name="id"]'); // present even for single-variant on many themes
+
+      // Hide labels wherever applicable
+      if (HIDE_THEME_LABELS) {
+        document.documentElement.classList.add('cvum-hide-theme-variant-labels');
+        hideVariantLabelFor(select0);
+        hideVariantLabelFor(select1);
+        hideVariantLabelFor(master);
+      }
+
+      // If variant UI is disabled, we're still fine → return true (do not block)
+      if (!ENABLE_VARIANT_UI) { log('[CVUM] Variant UI disabled; skipping.'); return true; }
+
+      // If there are NO option selects, we treat it as single-variant and do not try to build custom UI.
+      if (!select0 && !select1) {
+        log('[CVUM] No option selects detected (likely single-variant). Skipping custom variant UI.');
+        return true; // IMPORTANT: return true so the rest (Attending/Each/Bridge) can mount
+      }
+
+      // ---- We DO have option selects; proceed like before ----
+      if (select0) {
+        const data0 = Array.from(select0.options || []).map(parseFromOption);
+        const isPierce = detectPiercings(data0);
+
+        select0.style.display = 'none';
+
+        // Piercings mode (Type + Option)
+        if (isPierce) {
+          if (!document.getElementById('cvum-type-label')) {
+            const typeLbl = document.createElement('label');
+            typeLbl.id = 'cvum-type-label';
+            typeLbl.style.display = 'block';
+            typeLbl.style.margin = '6px 0 4px';
+            typeLbl.textContent = PIERCE_TYPE_LABEL;
+            select0.parentNode.insertBefore(typeLbl, select0);
+          }
+          if (!document.getElementById('cvum-type-0')) {
+            const typeSel = document.createElement('select');
+            typeSel.id = 'cvum-type-0';
+            typeSel.className = 'select--small';
+            if (PIERCE_SHOW_ALL) typeSel.add(new Option(PIERCE_ALL_LABEL, 'all'));
+            PIERCE_CATS.forEach(c => typeSel.add(new Option(sentenceCase(c), c.toLowerCase())));
+            select0.parentNode.insertBefore(typeSel, select0.nextSibling);
+
+            const optLbl = document.createElement('label');
+            optLbl.id = 'cvum-options-0-label';
+            optLbl.style.display = 'block';
+            optLbl.style.margin = '6px 0 4px';
+            optLbl.textContent = PIERCE_OPTION_LABEL;
+            select0.parentNode.insertBefore(optLbl, typeSel.nextSibling);
+
+            const optSel = document.createElement('select');
+            optSel.id = 'cvum-options-0';
+            optSel.className = 'select--small';
+            select0.parentNode.insertBefore(optSel, optLbl.nextSibling);
+
+            function formatOptionText(row, typeValue){
+              if (typeValue !== 'all') return row.value;
+              return row.raw || row.value;
+            }
+
+            function populateOptions(typeValue){
+              optSel.innerHTML = '';
+              const lc = String(typeValue || '').toLowerCase();
+              data0.forEach(row => {
+                const raw = (row.raw || '').toLowerCase();
+                const matches = (lc === 'all') || raw.includes('(' + lc + ')');
+                if (matches) optSel.add(new Option(formatOptionText(row, lc), row.raw));
+              });
+
+              const current = select0.value;
+              const found = Array.from(optSel.options).find(o => o.value === current);
+              if (found) optSel.value = current;
+              else if (optSel.options.length) optSel.selectedIndex = 0;
+
+              if (optSel.value) {
+                select0.value = optSel.value;
+                select0.dispatchEvent(new Event('change', { bubbles: true }));
+              }
+              log('[CVUM] Piercings populate →', lc, 'count=', optSel.options.length);
+            }
+
+            const startType = PIERCE_SHOW_ALL ? 'all' : (PIERCE_CATS[0]||'ear').toLowerCase();
+            typeSel.value = startType;
+            populateOptions(startType);
+
+            typeSel.addEventListener('change', (e)=> populateOptions(e.target.value));
+            optSel.addEventListener('change', (e)=>{
+              select0.value = e.target.value;
+              select0.dispatchEvent(new Event('change', { bubbles: true }));
+              log('[CVUM] Piercings option →', e.target.value);
+            });
+          }
+        }
+        // Non-piercings (single clean dropdown)
+        else {
+          const current0 = parseFromOption(select0.selectedOptions[0] || null);
+          const labelText0 = sentenceCase(current0.title || (data0[0] && data0[0].title) || 'Option');
+
+          if (!document.getElementById('cvum-simple-0-label')) {
+            const lbl0 = document.createElement('label');
+            lbl0.id = 'cvum-simple-0-label';
+            lbl0.textContent = labelText0;
+            lbl0.style.display = 'block';
+            lbl0.style.margin = '6px 0 4px';
+            select0.parentNode.insertBefore(lbl0, select0);
+          }
+          if (!document.getElementById('cvum-options-0')) {
+            const ui0 = document.createElement('select');
+            ui0.id = 'cvum-options-0';
+            ui0.className = 'select--small';
+            select0.parentNode.insertBefore(ui0, select0.nextSibling);
+
+            const data0b = Array.from(select0.options || []).map(parseFromOption);
+            data0b.forEach(row => ui0.add(new Option(row.value, row.raw)));
+            const found = Array.from(ui0.options).find(o => o.value === select0.value);
+            if (found) ui0.value = select0.value;
+            else if (ui0.options.length) ui0.selectedIndex = 0;
+
+            select0.value = ui0.value;
+            select0.dispatchEvent(new Event('change', { bubbles: true }));
+
+            ui0.addEventListener('change', e => {
+              select0.value = e.target.value;
+              select0.dispatchEvent(new Event('change', { bubbles: true }));
+              log('[CVUM] simple variant 0 →', e.target.value);
+            });
+          }
+        }
+      }
+
+      if (select1) {
+        const data1 = Array.from(select1.options || []).map(parseFromOption);
+        const current1 = parseFromOption(select1.selectedOptions[0] || null);
+        const labelText1 = sentenceCase(current1.title || 'Additional gems?');
+
+        select1.style.display = 'none';
+
+        if (!document.getElementById('cvum-options-1-label')) {
+          const lbl1 = document.createElement('label');
+          lbl1.id = 'cvum-options-1-label';
+          lbl1.textContent = labelText1;
+          lbl1.style.display = 'block';
+          lbl1.style.margin = '10px 0 4px';
+          select1.parentNode.insertBefore(lbl1, select1);
+        }
+        if (!document.getElementById('cvum-options-1')) {
+          const ui1 = document.createElement('select');
+          ui1.id = 'cvum-options-1';
+          ui1.className = 'select--small';
+          select1.parentNode.insertBefore(ui1, select1.nextSibling);
+
+          data1.forEach(row => ui1.add(new Option(row.value, row.raw)));
+          const found = Array.from(ui1.options).find(o => o.value === select1.value);
+          if (found) ui1.value = select1.value;
+          else if (ui1.options.length) ui1.selectedIndex = 0;
+
+          select1.value = ui1.value;
+          select1.dispatchEvent(new Event('change', { bubbles: true }));
+
+          ui1.addEventListener('change', e => {
+            select1.value = e.target.value;
+            select1.dispatchEvent(new Event('change', { bubbles: true }));
+            log('[CVUM] variant 1 →', e.target.value);
+          });
+        }
+      }
+
+      return true;
+    }
+
+    function ensureCustomInputs() {
+      const form = findProductForm();
+      if (!form) { log('[CVUM] form not found yet'); return false; }
+      if (!form.id) form.id = 'product-form-' + Date.now();
+
+      const anchor = findAnchor();
+      if (!anchor) { log('[CVUM] no anchor yet'); return false; }
+
+      // Attending
+      if (ENABLE_ATTENDING && !document.getElementById('cvum-attending')) {
+        const lab = document.createElement('label');
+        lab.id = 'cvum-attending-label';
+        lab.htmlFor = 'cvum-attending';
+        lab.style.display = 'block';
+        lab.style.margin = '10px 0 4px';
+        lab.innerHTML = '<strong>'+ ATT_LABEL +'</strong>';
+
+        const sel = document.createElement('select');
+        sel.id = 'cvum-attending';
+        sel.name = 'properties[Attending]';
+        sel.setAttribute('form', form.id);
+
+        (ATT_OPTS || []).forEach((p, i) => {
+          const o = new Option(p.t, p.v);
+          if (i===0) o.selected = true;
+          sel.add(o);
+        });
+
+        insertAfter(lab, anchor, form);
+        insertAfter(sel, lab, form);
+        log('[CVUM] mounted Attending');
+        sel.addEventListener('change', e => log('[CVUM] Attending →', e.target.value));
+      }
+
+      // Each
+      const attSel = document.getElementById('cvum-attending') || anchor;
+      if (ENABLE_EACH && !document.getElementById('cvum-each')) {
+        const lab = document.createElement('label');
+        lab.id = 'cvum-each-label';
+        lab.htmlFor = 'cvum-each';
+        lab.style.display = 'block';
+        lab.style.margin = '10px 0 4px';
+        lab.innerHTML = '<strong>'+ EACH_LABEL +'</strong>';
+
+        const sel = document.createElement('select');
+        sel.id = 'cvum-each';
+        sel.name = 'properties[Each]';
+        sel.setAttribute('form', form.id);
+
+        (EACH_OPTS || []).forEach((p, i) => {
+          const o = new Option(p.t, p.v);
+          if (i===0) o.selected = true;
+          sel.add(o);
+        });
+
+        insertAfter(lab, attSel, form);
+        insertAfter(sel, lab, form);
+        log('[CVUM] mounted Each');
+        sel.addEventListener('change', e => log('[CVUM] Each →', e.target.value));
+      }
+
+      // keep hidden synced
+      const attending = document.getElementById('cvum-attending');
+      const each = document.getElementById('cvum-each');
+      const syncHidden = () => {
+        ensureHidden(form, 'properties[Attending]', attending ? attending.value : '');
+        ensureHidden(form, 'properties[Each]',      each ? each.value : '');
+      };
+      syncHidden();
+
+      form.addEventListener('submit', () => { log('[CVUM] submit → sync hidden'); syncHidden(); }, { capture: true });
+      const addBtn = form.querySelector('[type="submit"], button[name="add"], .product-form__submit');
+      if (addBtn) addBtn.addEventListener('click', () => { log('[CVUM] add click → sync hidden'); syncHidden(); }, { capture: true });
+
+      const mo = new MutationObserver(() => {
+        const f = findProductForm();
+        if (f && !f.id) f.id = 'product-form-' + Date.now();
+        if (attending && f && attending.getAttribute('form') !== f.id) attending.setAttribute('form', f.id);
+        if (each && f && each.getAttribute('form') !== f.id) each.setAttribute('form', f.id);
+        syncHidden();
+      });
+      mo.observe(document.documentElement, { childList: true, subtree: true });
+
+      return true;
+    }
+
+    function installMeetyBridge() {
+      if (!ENABLE_MEETY_BRIDGE) { log('[CVUM] Meety bridge disabled'); return; }
+      if (window.__cvumMeetyBridge) { log('[CVUM] Meety bridge already installed'); return; }
+      window.__cvumMeetyBridge = true;
+
+      function getProps() {
+        const att = document.getElementById('cvum-attending');
+        const each = document.getElementById('cvum-each');
+        return { Attending: att ? String(att.value||'') : '', Each: each ? String(each.value||'') : '' };
+      }
+      function ensureHiddenInForm() {
+        const form = findProductForm(); if (!form) return;
+        const props = getProps();
+        ['Attending','Each'].forEach(k=>{
+          const name = `properties[${k}]`;
+          let input = form.querySelector(`input[name="${name}"]`);
+          if (!input) { input = document.createElement('input'); input.type='hidden'; input.name=name; form.appendChild(input); log('[CVUM Bridge] created hidden →', name); }
+          input.value = props[k];
+        });
+      }
+      function injectIntoObj(obj){
+        const props = getProps();
+        if (Array.isArray(obj?.items)) {
+          obj.items = obj.items.map(it => { it = it || {}; it.properties = Object.assign({}, it.properties||{}, props); return it; });
+        } else {
+          obj.properties = Object.assign({}, obj.properties||{}, props);
+        }
+        return obj;
+      }
+      function transformBody(body){
+        const props = getProps(); log('[CVUM Bridge] props →', props);
+        try{
+          if (body instanceof FormData){ body.set('properties[Attending]', props.Attending); body.set('properties[Each]', props.Each); return body; }
+          if (typeof URLSearchParams!=='undefined' && body instanceof URLSearchParams){ body.set('properties[Attending]', props.Attending); body.set('properties[Each]', props.Each); return body; }
+          if (typeof body === 'string'){
+            const t = body.trim(); const jsonish = (t.startsWith('{')&&t.endsWith('}'))||(t.startsWith('[')&&t.endsWith(']'));
+            if (jsonish) return JSON.stringify(injectIntoObj(JSON.parse(t||'{}')));
+            const extra = 'properties%5BAttending%5D='+encodeURIComponent(props.Attending)+'&properties%5BEach%5D='+encodeURIComponent(props.Each);
+            return t ? (t+'&'+extra) : extra;
+          }
+          if (body && typeof body === 'object' && !(body instanceof Blob)) return injectIntoObj(body);
+        } catch(e){ log('[CVUM Bridge] transform error:', e); }
+        return body;
+      }
+      function isCartAdd(url, method){
+        if (!url) return false; const m = String(method||'GET').toUpperCase(); if (m!=='POST') return false;
+        return /\/cart\/(add|add\.js|update|update\.js)(\?|$)/i.test(url);
+      }
+
+      const _fetch = window.fetch;
+      window.fetch = function(resource, init){
+        try{
+          const url = (typeof resource==='string') ? resource : (resource && resource.url);
+          const method = (init && init.method) || (resource && resource.method) || 'GET';
+          if (isCartAdd(url, method)) {
+            log('[CVUM Bridge] intercept fetch →', url);
+            ensureHiddenInForm();
+            if (resource instanceof Request){
+              const req = resource.clone(); const newInit = Object.assign({}, init||{});
+              const apply = async ()=>{
+                let bodyTxt = newInit.body; if (typeof bodyTxt==='undefined') bodyTxt = await req.text();
+                newInit.method = req.method || method;
+                newInit.headers = new Headers(newInit.headers || req.headers || {});
+                newInit.credentials = newInit.credentials || req.credentials;
+                newInit.mode = newInit.mode || req.mode;
+                newInit.redirect = newInit.redirect || req.redirect;
+                newInit.referrer = newInit.referrer || req.referrer;
+                newInit.integrity = newInit.integrity || req.integrity;
+                return _fetch(new Request(url, Object.assign({}, newInit, { body: transformBody(bodyTxt) })));
+              };
+              return apply();
+            } else if (init && 'body' in init) {
+              init.body = transformBody(init.body);
+            }
+          }
+        } catch(e){ log('[CVUM Bridge] fetch patch error:', e); }
+        return _fetch.apply(this, arguments);
+      };
+
+      const _open = XMLHttpRequest.prototype.open;
+      const _send = XMLHttpRequest.prototype.send;
+      XMLHttpRequest.prototype.open = function(method, url){ this.__cvum_is_cart_add = isCartAdd(url, method); this.__cvum_url = url; return _open.apply(this, arguments); };
+      XMLHttpRequest.prototype.send = function(body){
+        try{ if (this.__cvum_is_cart_add){ log('[CVUM Bridge] intercept XHR →', this.__cvum_url); ensureHiddenInForm(); body = transformBody(body); } }
+        catch(e){ log('[CVUM Bridge] XHR patch error:', e); }
+        return _send.call(this, body);
+      };
+
+      function prime(){ ['.meety-block-schedule-button', '#meety-button-confirm-schedule'].forEach(sel=>{
+        const btn = document.querySelector(sel);
+        if (!btn || btn.__cvumHooked) return;
+        btn.__cvumHooked = true;
+        btn.addEventListener('click', ()=>{ log('[CVUM Bridge] button click → ensure hidden'); ensureHiddenInForm(); }, { capture:true });
+      });}
+      let tries = 0; const iv = setInterval(()=>{ tries++; prime(); if (tries>60) clearInterval(iv); }, 200);
+      log('[CVUM Bridge] installed');
+    }
+
+    let spins = 0;
+    const tick = setInterval(()=>{
+      spins++;
+      const vOK = mountVariantUI();         // now returns true even when single-variant (no option selects)
+      const iOK = ensureCustomInputs();     // always tries to mount Attending/Each with robust anchor
+      if (vOK && iOK){ installMeetyBridge(); clearInterval(tick); log('[CVUM] ready'); }
+      else if (spins>80){ clearInterval(tick); log('[CVUM] mount timeout'); }
+    }, 200);
+  })();
+  </script>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Variant UI",
+  "settings": [
+    { "type": "checkbox", "id": "debug", "label": "Enable debug logs", "default": false }
+  ],
+  "blocks": [
+    {
+      "type": "target_product",
+      "name": "Target Product",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Select product" },
+        { "type": "checkbox", "id": "enable", "label": "Enable on this product", "default": true },
+
+        { "type": "checkbox", "id": "hide_theme_labels", "label": "Hide theme's variant labels", "default": true },
+        { "type": "checkbox", "id": "enable_variant_ui", "label": "Enable clean variant UI", "default": true },
+
+        { "type": "checkbox", "id": "enable_piercings", "label": "Auto-enable Piercings mode on (Ear/Facial/Oral/Body/Vulvar/Penile)", "default": true },
+        { "type": "text", "id": "pierce_categories", "label": "Piercings categories (comma-separated)", "default": "Ear,Facial,Oral,Body,Vulvar,Penile" },
+        { "type": "checkbox", "id": "pierce_show_all", "label": "Show \"All\" option in Type", "default": true },
+        { "type": "text", "id": "pierce_type_label", "label": "Type label", "default": "Type" },
+        { "type": "text", "id": "pierce_option_label", "label": "Option label", "default": "Option" },
+        { "type": "text", "id": "pierce_all_label", "label": "All label", "default": "All" },
+
+        { "type": "checkbox", "id": "enable_attending", "label": "Show “Attending” dropdown", "default": true },
+        { "type": "text", "id": "attending_label", "label": "Attending label", "default": "How many are attending?" },
+        { "type": "text", "id": "attending_options", "label": "Attending options (value|Label, comma-separated)", "default": "1|1 Attendee,2|2 Attendees,3|3 Attendees,4|4 Attendees,5|5 Attendees" },
+
+        { "type": "checkbox", "id": "enable_each", "label": "Show “Each” dropdown", "default": true },
+        { "type": "text", "id": "each_label", "label": "Each label", "default": "How many of each?" },
+        { "type": "text", "id": "each_options", "label": "Each options (value|Label, comma-separated)", "default": "1|1 each,2|2 each,3|3 each,4|4 each,5|5 each" },
+
+        { "type": "checkbox", "id": "enable_meety_bridge", "label": "Enable Meety AJAX bridge", "default": true }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Variant UI + Meety (Piercings)",
+      "category": "Product",
+      "blocks": [
+        {
+          "type": "target_product",
+          "settings": {
+            "enable": true,
+            "hide_theme_labels": true,
+            "enable_variant_ui": true,
+            "enable_piercings": true,
+            "pierce_categories": "Ear,Facial,Oral,Body,Vulvar,Penile",
+            "pierce_show_all": true,
+            "pierce_type_label": "Type",
+            "pierce_option_label": "Option",
+            "pierce_all_label": "All",
+            "enable_attending": true,
+            "attending_label": "How many are attending?",
+            "attending_options": "1|1 Attendee,2|2 Attendees,3|3 Attendees,4|4 Attendees,5|5 Attendees",
+            "enable_each": true,
+            "each_label": "How many of each?",
+            "each_options": "1|1 each,2|2 each,3|3 each,4|4 each,5|5 each",
+            "enable_meety_bridge": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+<style>
+  #cvum-bridge label { font-weight: 600; }
+
+  /* CSS fallback: only applies when script adds the class */
+  .cvum-hide-theme-variant-labels label.single-option-radio__label,
+  .cvum-hide-theme-variant-labels label[for^="SingleOptionSelector-0"],
+  .cvum-hide-theme-variant-labels label[for^="ProductSelect-option-0"],
+  .cvum-hide-theme-variant-labels label[for^="SingleOptionSelector-1"],
+  .cvum-hide-theme-variant-labels label[for^="ProductSelect-option-1"] {
+    display: none !important;
+  }
+</style>
+{% endstylesheet %}

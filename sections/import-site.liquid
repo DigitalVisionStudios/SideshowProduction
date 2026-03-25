@@ -1,0 +1,35 @@
+{% comment %}
+  Dynamically load a Shopify Page’s HTML into any spot on your theme  
+  – no CORS headaches, since we’re hitting your own store’s JSON API.  
+  1. Create a normal Page in Shopify Admin (Online Store > Pages)  
+     and note its handle (e.g. “artists” if your URL is /pages/artists).  
+  2. Paste this anywhere in your theme (section, snippet, template).  
+  3. Change “artists” below to your page’s handle.
+{% endcomment %}
+
+<div id="external-content"></div>
+
+<script>
+  (function() {
+    // replace 'artists' with your own page handle
+    var pageHandle = 'artists';
+    var url = '/pages/' + pageHandle + '.json';
+
+    fetch(url)
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error('Network error: ' + response.status + ' ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then(function(data) {
+        // `body_html` contains the page’s rich HTML
+        document.getElementById('external-content').innerHTML = data.page.body_html;
+      })
+      .catch(function(err) {
+        console.error('Error loading Shopify page:', err);
+        document.getElementById('external-content').innerHTML =
+          '<p>Sorry, we couldn’t load that content right now.</p>';
+      });
+  })();
+</script>

@@ -1,0 +1,806 @@
+{% schema %}
+{
+  "name": "Popups",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "hide_in_theme_editor",
+      "label": "Hide popups in Shopify theme editor (Design Mode)",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_email_popup",
+      "label": "Show Email Signup Popup",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "email_popup_title",
+      "label": "Email Popup Title",
+      "default": "Get 5% Off The Whole Shop!"
+    },
+    {
+      "type": "textarea",
+      "id": "email_popup_text",
+      "label": "Email Popup Text",
+      "default": "Sign up for our newsletter and get 5% off your entire order. Stay updated with our latest promotions and offers."
+    },
+    {
+      "type": "text",
+      "id": "email_popup_placeholder",
+      "label": "Email Placeholder Text",
+      "default": "Email"
+    },
+    {
+      "type": "text",
+      "id": "email_popup_button_text",
+      "label": "Email Popup Button Text",
+      "default": "Get More Deals"
+    },
+    {
+      "type": "text",
+      "id": "email_popup_button_url",
+      "label": "Email Popup Button URL",
+      "default": "/"
+    },
+    {
+      "type": "textarea",
+      "id": "email_popup_disclaimer",
+      "label": "Email Popup Disclaimer Text",
+      "default": "Excludes already discounted items. Cannot be combined with other promotions."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "popup",
+      "name": "Popup",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "popup_image",
+          "label": "Popup Image"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Book Now"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button URL",
+          "default": "/"
+        },
+        {
+          "type": "text",
+          "id": "popup_subtext",
+          "label": "Popup Subtext",
+          "default": "Optional subtext"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_slider",
+          "label": "Enable Slider",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "slide_image_1",
+          "label": "Slide Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "slide_image_2",
+          "label": "Slide Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "slide_image_3",
+          "label": "Slide Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "slide_image_4",
+          "label": "Slide Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "slide_image_5",
+          "label": "Slide Image 5"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Popups"
+    }
+  ]
+}
+{% endschema %}
+
+{% assign in_editor = request.design_mode %}
+{% unless in_editor and section.settings.hide_in_theme_editor %}
+
+<div id="backdrop" class="backdrop"></div>
+<div class="announcement-counter">Announcements: <span id="announcementCount">{{ section.blocks.size }}</span></div>
+
+{% for block in section.blocks %}
+  <div id="popup-{{ forloop.index }}" class="image-popup">
+    <span class="close-btn">×</span>
+    <div class="image-content-wrapper">
+      {% if block.settings.enable_slider %}
+        <div class="slider-instructions">
+          <p>Swipe for more info</p>
+          <div class="arrow"></div>
+        </div>
+      {% endif %}
+      <div class="image-container {% if block.settings.enable_slider %}slider{% endif %}">
+        {% if block.settings.enable_slider %}
+          {% if block.settings.slide_image_1 != blank %}
+            <div><img src="{{ block.settings.slide_image_1 | img_url: '1024x1024' }}" alt="slide image 1"></div>
+          {% endif %}
+          {% if block.settings.slide_image_2 != blank %}
+            <div><img src="{{ block.settings.slide_image_2 | img_url: '1024x1024' }}" alt="slide image 2"></div>
+          {% endif %}
+          {% if block.settings.slide_image_3 != blank %}
+            <div><img src="{{ block.settings.slide_image_3 | img_url: '1024x1024' }}" alt="slide image 3"></div>
+          {% endif %}
+          {% if block.settings.slide_image_4 != blank %}
+            <div><img src="{{ block.settings.slide_image_4 | img_url: '1024x1024' }}" alt="slide image 4"></div>
+          {% endif %}
+          {% if block.settings.slide_image_5 != blank %}
+            <div><img src="{{ block.settings.slide_image_5 | img_url: '1024x1024' }}" alt="slide image 5"></div>
+          {% endif %}
+        {% else %}
+          {% if block.settings.popup_image != blank %}
+            <img src="{{ block.settings.popup_image | img_url: '1024x1024' }}" alt="popup image">
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+    <div class="button-wrapper">
+      <a href="{{ block.settings.button_url }}" style="text-decoration: none;">
+        <button class="btn">{{ block.settings.button_text }}</button>
+      </a>
+    </div>
+    {% if block.settings.popup_subtext != blank %}
+      <small class="popup-subtext">{{ block.settings.popup_subtext }}</small>
+    {% endif %}
+  </div>
+{% endfor %}
+
+{%- comment -%}
+  Ashley booking popup (Smash) using flyer image and IG link.
+{%- endcomment -%}
+<div id="ashleyBookingPopup"
+     class="image-popup ashley-popup"
+     data-ig-url="https://www.instagram.com/smashsart03/">
+  <span class="close-btn">×</span>
+  <div class="image-content-wrapper ashley-popup-wrapper">
+    <div class="image-container ashley-popup-image">
+      <img
+        src="https://sideshowproductionstattoo.com/cdn/shop/files/smashsart03_1726364172_cvvc3457315721078249716_60846150159_5427e4c1-f118-4a4f-89b6-c2c0f4cdb332_900x.png?v=1758496112"
+        alt="Ashley artist flyer"
+      >
+    </div>
+    <div class="ashley-popup-card">
+      <h2>Next step: DM Ashley</h2>
+      <p>
+        Thanks for grabbing Ashley's bonus time.
+        DM her on Instagram to finish your booking.
+      </p>
+      <div class="button-wrapper ashley-button-wrapper">
+        <a
+          href="https://www.instagram.com/smashsart03/"
+          style="text-decoration: none;"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button class="btn sign-up-button">
+            <svg class="instagram-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 8px;">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            Open Instagram
+          </button>
+        </a>
+      </div>
+      <p class="disclaimer-text ashley-disclaimer">
+        You will be redirected automatically in <span id="ashleyCountdown">4</span> seconds.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% if section.settings.show_email_popup %}
+  <div id="emailSignupPopup" class="image-popup">
+    <span class="close-btn">×</span>
+    <div class="image-content-wrapper">
+      <div class="image-container">
+        <h2>{{ section.settings.email_popup_title }}</h2>
+        <p>{{ section.settings.email_popup_text }}</p>
+        <form method="post" action="/contact#contact_form" accept-charset="UTF-8" class="contact-form">
+          <input type="hidden" name="form_type" value="customer">
+          <input type="hidden" name="utf8" value="✓">
+          <input type="email" name="contact[email]" placeholder="{{ section.settings.email_popup_placeholder }}" required class="email-input">
+          <button type="submit" class="btn sign-up-button">{{ section.settings.email_popup_button_text }}</button>
+        </form>
+        <p class="disclaimer-text">{{ section.settings.email_popup_disclaimer }}</p>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<div id="thankYouPopup" class="image-popup">
+  <span class="close-btn">×</span>
+  <div class="image-content-wrapper">
+    <div class="image-container">
+      <h2>Thank You!</h2>
+      <p>Thank you for signing up! Enjoy your 5% discount on your next purchase.</p>
+      <button id="shopNowBtn" class="btn sign-up-button">Shop Now</button>
+    </div>
+  </div>
+</div>
+
+<style>
+form.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.announcement-counter {
+    position: fixed;
+    top: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    color: #000;
+    padding: 5px 10px;
+    z-index: 1001;
+    display: none;
+}
+
+.image-popup .image-content-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.image-popup .button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.image-popup .image-container {
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    padding-top: 40px;
+}
+
+.image-popup .slider-instructions {
+    position: absolute;
+    top: -22px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    color: white;
+}
+
+.image-popup .slider-instructions p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.image-popup .slider-instructions .arrow {
+    margin-left: 5px;
+    width: 14px;
+    height: 14px;
+    border-right: 2px solid white;
+    border-top: 2px solid white;
+    transform: rotate(45deg) scale(0.5);
+    animation: arrowMove 1s infinite;
+}
+
+@keyframes arrowMove {
+    0% { transform: rotate(45deg) scale(0.5) translateX(0); }
+    50% { transform: rotate(45deg) scale(0.5) translateX(5px); }
+    100% { transform: rotate(45deg) scale(0.5) translateX(0); }
+}
+
+.image-popup .btn-outline-primary:hover {
+    color: black;
+    background-color: white;
+}
+
+.image-popup .btn-outline-primary {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 99999;
+}
+
+.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+.image-popup {
+    position: fixed;
+    background-color: black;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    z-index: 100000;
+    opacity: 0;
+    padding: 26px;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.image-popup img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+    max-height: 500px;
+    object-fit: contain;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 13;
+    color: white;
+    line-height: 1;
+}
+
+.email-input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.email-input::placeholder { color: white; }
+
+.sign-up-button {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.disclaimer-text,
+.popup-subtext {
+    font-size: 0.8em;
+    color: #fff;
+    margin-top: 10px;
+}
+.popup-subtext { text-align: center; }
+
+#thankYouPopup .image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+/* Ashley popup specific styling */
+.ashley-popup .image-content-wrapper {
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.ashley-popup-image {
+    padding: 0;
+    background-color: transparent;
+    margin-bottom: 10px;
+    padding-top: 0 !important;
+}
+
+.ashley-popup-image img {
+    border-radius: 50% !important;
+    margin-bottom: 0 !important;
+    width: 120px !important;
+    height: 120px !important;
+    max-height: 120px !important;
+    object-fit: cover !important;
+    display: block !important;
+    margin: 10px auto 0 auto !important;
+}
+
+@media (min-width: 601px) {
+    .ashley-popup-image img {
+        width: 160px !important;
+        height: 160px !important;
+        max-height: 160px !important;
+    }
+}
+
+.ashley-popup-card {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 24px 20px 18px 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.ashley-popup-card h2 {
+    margin: 0 0 8px 0;
+}
+
+.ashley-popup-card p {
+    margin: 4px 0;
+}
+
+.ashley-handle {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.ashley-button-wrapper {
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ashley-button-wrapper a {
+    width: 100%;
+    max-width: 280px;
+}
+
+.ashley-button-wrapper .sign-up-button {
+    width: 100%;
+}
+
+.ashley-disclaimer {
+    font-size: 0.7em;
+    opacity: 0.75;
+    margin-top: 6px;
+}
+
+.ashley-popup {
+    max-width: 90vw;
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+    .ashley-popup {
+        padding: 15px;
+        max-width: 100vw;
+        width: 100vw;
+        box-sizing: border-box;
+    }
+    
+    .ashley-popup-card {
+        padding: 16px 12px;
+    }
+    
+    .ashley-popup-card h2 {
+        font-size: 1.2em;
+        margin: 0 0 6px 0;
+    }
+    
+    .ashley-popup-card p {
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+    
+    .ashley-popup-image img {
+        width: 130px;
+        height: 130px;
+        margin: 10px auto 0 auto;
+    }
+    
+    .ashley-button-wrapper {
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 601px) {
+    .image-popup {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        max-width: 35vw;
+        min-width: 288px;
+    }
+    .image-popup.visible {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@media (max-width: 600px) {
+    .image-popup {
+        width: 100%;
+        max-height: 100vh;
+        bottom: -100%;
+        left: 0;
+        right: 0;
+        transform: translate(0, 0);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .image-popup.visible {
+        bottom: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Cookie helpers for Ashley booking flow
+    function getCookie(name) {
+        var parts = document.cookie.split('; ');
+        for (var i = 0; i < parts.length; i++) {
+            var row = parts[i];
+            if (row.indexOf(name + '=') === 0) {
+                return decodeURIComponent(row.substring(name.length + 1));
+            }
+        }
+        return null;
+    }
+
+    function deleteCookie(name) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax';
+    }
+
+    var originalScrollY = 0;
+    var isBodyFixed = false;
+    var activePopups = {{ section.blocks.size }};
+    var popupsQueue = [{% for block in section.blocks %}'popup-{{ forloop.index }}'{% unless forloop.last %}, {% endunless %}{% endfor %}];
+
+    if ({{ section.settings.show_email_popup | json }}) {
+        popupsQueue.push('emailSignupPopup');
+        activePopups++;
+    }
+
+    // Ashley after purchase popup integration (Smash)
+    var shouldQueueAshley = false;
+    var dvsArtist = getCookie('dvs_last_artist');
+
+    if (dvsArtist && dvsArtist.toLowerCase() === 'ashley') {
+        shouldQueueAshley = true;
+        deleteCookie('dvs_last_artist');
+    }
+
+    // Dev query param to force Ashley popup:
+    // use ?ashley_debug=1 on the URL
+    try {
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('ashley_debug') === '1') {
+            shouldQueueAshley = true;
+            console.log('[Popups] Ashley debug query detected, forcing popup');
+        }
+    } catch (e) {
+        console.warn('[Popups] URLSearchParams not available', e);
+    }
+
+    if (shouldQueueAshley) {
+        popupsQueue.unshift('ashleyBookingPopup');
+        activePopups++;
+        console.log('[Popups] Ashley booking popup queued');
+    }
+
+    function updateAnnouncementCount() {
+        if (activePopups > 0) {
+            document.getElementById('announcementCount').textContent = activePopups;
+            // Hide announcement counter if Ashley popup is showing
+            if (shouldQueueAshley) {
+                document.querySelector('.announcement-counter').style.display = 'none';
+            } else {
+                document.querySelector('.announcement-counter').style.display = 'block';
+            }
+        } else {
+            document.querySelector('.announcement-counter').style.display = 'none';
+        }
+    }
+
+    function hideLoyaltyButton() {
+        var loyaltyButton = document.getElementById('bon-loyalty-btn');
+        if (loyaltyButton) {
+            loyaltyButton.style.display = 'none';
+        }
+    }
+
+    function showLoyaltyButton() {
+        var loyaltyButton = document.getElementById('bon-loyalty-btn');
+        if (loyaltyButton) {
+            loyaltyButton.style.display = 'flex';
+        }
+    }
+
+    function showPopup(popupId) {
+        document.querySelectorAll('.image-popup').forEach(function(popup) {
+            popup.style.visibility = 'hidden';
+        });
+
+        if (!isBodyFixed) {
+            originalScrollY = window.scrollY;
+            document.body.style.position = 'fixed';
+            document.body.style.top = '-' + originalScrollY + 'px';
+            document.body.style.width = '100%';
+            document.getElementById('backdrop').style.display = 'block';
+            var siteHeader = document.querySelector('.site-header');
+            if (siteHeader) {
+                siteHeader.style.display = 'none';
+            }
+            hideLoyaltyButton();
+            isBodyFixed = true;
+        }
+
+        var popup = document.getElementById(popupId);
+        if (!popup) {
+            return;
+        }
+        popup.style.visibility = 'visible';
+        popup.classList.add('visible');
+
+        if (popup.querySelector('.slider') &&
+            typeof jQuery !== 'undefined' &&
+            typeof jQuery.fn.slick === 'function') {
+            jQuery(popup).find('.slider').not('.slick-initialized').slick({
+                initialSlide: 0,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+                arrows: false,
+                autoplay: true,
+                autoplaySpeed: 3000
+            });
+        }
+
+        // Auto redirect when Ashley popup shows
+        if (popupId === 'ashleyBookingPopup') {
+            var igUrl = popup.getAttribute('data-ig-url');
+            if (igUrl) {
+                var countdown = 4;
+                var countdownElement = document.getElementById('ashleyCountdown');
+                
+                var countdownInterval = setInterval(function() {
+                    countdown--;
+                    if (countdownElement) {
+                        countdownElement.textContent = countdown;
+                    }
+                    if (countdown <= 0) {
+                        clearInterval(countdownInterval);
+                    }
+                }, 1000);
+                
+                setTimeout(function() {
+                    window.location.href = igUrl;
+                }, 4000);
+            }
+        }
+
+        updateAnnouncementCount();
+    }
+
+    function closePopup(popupId) {
+        var popup = document.getElementById(popupId);
+        if (popup) {
+            popup.classList.remove('visible');
+            popup.style.visibility = 'hidden';
+        }
+        activePopups--;
+        updateAnnouncementCount();
+
+        if (activePopups > 0 &&
+            popupId !== 'thankYouPopup' &&
+            popupId !== 'emailSignupPopup') {
+            showPopup(popupsQueue[popupsQueue.length - activePopups]);
+        }
+
+        if (activePopups === 0 ||
+            popupId === 'thankYouPopup' ||
+            popupId === 'emailSignupPopup') {
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            window.scrollTo(0, originalScrollY);
+            document.getElementById('backdrop').style.display = 'none';
+            var siteHeader = document.querySelector('.site-header');
+            if (siteHeader) {
+                siteHeader.style.display = 'block';
+            }
+            showLoyaltyButton();
+            isBodyFixed = false;
+        }
+    }
+
+    document.querySelectorAll('.close-btn').forEach(function(button) {
+        button.addEventListener('click', function() {
+            closePopup(button.closest('.image-popup').id);
+        });
+    });
+
+    var shopNowBtn = document.getElementById('shopNowBtn');
+    if (shopNowBtn) {
+        shopNowBtn.addEventListener('click', function() {
+            closePopup('thankYouPopup');
+        });
+    }
+
+    if (window.location.href.indexOf('form_type=customer#contact_form') > -1) {
+        document.querySelector('.announcement-counter').style.opacity = '0';
+        showPopup('thankYouPopup');
+    } else if (window.location.href.indexOf('?email') > -1) {
+        document.querySelector('.announcement-counter').style.opacity = '0';
+        showPopup('emailSignupPopup');
+    } else {
+        // Show Ashley popup instantly, other popups with delay
+        if (shouldQueueAshley) {
+            document.querySelector('.announcement-counter').style.opacity = '0';
+            if (popupsQueue.length > 0) {
+                showPopup(popupsQueue[0]);
+            }
+        } else {
+            document.querySelector('.announcement-counter').style.opacity = '1';
+            if (document.body.classList.contains('template-index')) {
+                window.setTimeout(function() {
+                    if (popupsQueue.length > 0) {
+                        showPopup(popupsQueue[0]);
+                    }
+                }, 2000);
+            }
+        }
+    }
+});
+</script>
+
+{% endunless %}

@@ -1,0 +1,363 @@
+{% comment %}
+  Section: Marquee – CTA + 3 Rows of Images (alternating direction)
+  Left column uses the original classes you requested:
+  - .col.small
+  - .header-quaternary.grey-text.uppercase
+  - .spacer-15 / .spacer-30 / .spacer-60
+  - .header-secondary.centered-svp
+  - .paragraph-large.centered-svp
+  - .flex-horizontal.flex-left.flip-svp
+  - .btn.w-button
+{% endcomment %}
+
+<section id="marquee-{{ section.id }}" class="marquee-wrapper">
+  <div class="marquee-container">
+    <div class="marquee-flex marquee-flex--row marquee-flex--wrap-md">
+
+      {%- comment -%} LEFT: original class names preserved {%- endcomment -%}
+      <div class="col small">
+        {%- if section.settings.small_label != blank -%}
+          <h2 class="header-quaternary grey-text uppercase">{{ section.settings.small_label }}</h2>
+        {%- endif -%}
+
+        <div class="spacer-15"></div>
+
+        {%- if section.settings.heading != blank -%}
+          <div class="header-secondary centered-svp">{{ section.settings.heading }}</div>
+        {%- endif -%}
+
+        <div class="spacer-30"></div>
+
+        {%- if section.settings.subtext != blank -%}
+          <p class="paragraph-large centered-svp">{{ section.settings.subtext }}</p>
+        {%- endif -%}
+
+        <div class="spacer-60"></div>
+
+        {%- if section.settings.button_label != blank -%}
+          <div class="flex-horizontal flex-left flip-svp">
+            <a href="{{ section.settings.button_link | default: '/' }}" class="btn w-button">{{ section.settings.button_label }}</a>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="mq-spacer-60 mq-spacer-60--w"></div>
+
+      {%- comment -%} RIGHT: 3 marquee rows {%- endcomment -%}
+      <div class="marquee-col marquee-col--right">
+        {%- assign r1_count = 0 -%}
+        {%- assign r2_count = 0 -%}
+        {%- assign r3_count = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.settings.row == 'row1' -%}{%- assign r1_count = r1_count | plus: 1 -%}{%- endif -%}
+          {%- if block.settings.row == 'row2' -%}{%- assign r2_count = r2_count | plus: 1 -%}{%- endif -%}
+          {%- if block.settings.row == 'row3' -%}{%- assign r3_count = r3_count | plus: 1 -%}{%- endif -%}
+        {%- endfor -%}
+
+        {%- if r1_count > 0 -%}
+        <div class="mq-row">
+          <div class="mq-row-cover"></div>
+          <div class="mq-track mq-track--row1">
+            <div class="marquee-flex marquee-flex--row">
+              {%- for pass in (1..2) -%}
+                {%- for block in section.blocks -%}
+                  {%- if block.settings.row == 'row1' -%}
+                    <div class="mq-item">
+                      {%- if block.settings.link_url != blank -%}
+                        <a href="{{ block.settings.link_url }}" class="mq-item-link" aria-label="{{ block.settings.alt | escape }}">
+                          {%- if block.settings.image != blank -%}
+                            <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.alt | default: 'Tattoo image' | escape }}" loading="lazy" class="mq-img">
+                          {%- endif -%}
+                        </a>
+                      {%- else -%}
+                        {%- if block.settings.image != blank -%}
+                          <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.alt | default: 'Tattoo image' | escape }}" loading="lazy" class="mq-img">
+                        {%- endif -%}
+                      {%- endif -%}
+                    </div>
+                    <div class="mq-gap" aria-hidden="true"></div>
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+        {%- endif -%}
+
+        {%- if r2_count > 0 -%}
+        <div class="mq-row">
+          <div class="mq-row-cover"></div>
+          <div class="mq-track mq-track--row2 mq-track--alt">
+            <div class="marquee-flex marquee-flex--row">
+              {%- for pass in (1..2) -%}
+                {%- for block in section.blocks -%}
+                  {%- if block.settings.row == 'row2' -%}
+                    <div class="mq-item">
+                      {%- if block.settings.link_url != blank -%}
+                        <a href="{{ block.settings.link_url }}" class="mq-item-link" aria-label="{{ block.settings.alt | escape }}">
+                          {%- if block.settings.image != blank -%}
+                            <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.alt | default: 'Tattoo image' | escape }}" loading="lazy" class="mq-img">
+                          {%- endif -%}
+                        </a>
+                      {%- else -%}
+                        {%- if block.settings.image != blank -%}
+                          <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.alt | default: 'Tattoo image' | escape }}" loading="lazy" class="mq-img">
+                        {%- endif -%}
+                      {%- endif -%}
+                    </div>
+                    <div class="mq-gap" aria-hidden="true"></div>
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+        {%- endif -%}
+
+        {%- if r3_count > 0 -%}
+        <div class="mq-row">
+          <div class="mq-row-cover"></div>
+          <div class="mq-track mq-track--row3">
+            <div class="marquee-flex marquee-flex--row">
+              {%- for pass in (1..2) -%}
+                {%- for block in section.blocks -%}
+                  {%- if block.settings.row == 'row3' -%}
+                    <div class="mq-item">
+                      {%- if block.settings.link_url != blank -%}
+                        <a href="{{ block.settings.link_url }}" class="mq-item-link" aria-label="{{ block.settings.alt | escape }}">
+                          {%- if block.settings.image != blank -%}
+                            <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.alt | default: 'Tattoo image' | escape }}" loading="lazy" class="mq-img">
+                          {%- endif -%}
+                        </a>
+                      {%- else -%}
+                        {%- if block.settings.image != blank -%}
+                          <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.alt | default: 'Tattoo image' | escape }}" loading="lazy" class="mq-img">
+                        {%- endif -%}
+                      {%- endif -%}
+                    </div>
+                    <div class="mq-gap" aria-hidden="true"></div>
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+        {%- endif -%}
+
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* ===== Scoped variables ===== */
+    #marquee-{{ section.id }} {
+      --bg-grad-start: {{ section.settings.bg_color | color_modify: 'alpha', 0 }};
+      --bg-grad-solid: {{ section.settings.bg_color }};
+      --text-color: {{ section.settings.text_color }};
+      --overlay-color: {{ section.settings.overlay_color }};
+      --row-height: {{ section.settings.row_height }}px;
+      --image-w: {{ section.settings.image_width }}px;
+      --image-h: {{ section.settings.image_height }}px;
+      --gap-x: {{ section.settings.gap_x }}px;
+      --row1-speed: {{ section.settings.row1_speed }}s;
+      --row2-speed: {{ section.settings.row2_speed }}s;
+      --row3-speed: {{ section.settings.row3_speed }}s;
+      --btn-bg: {{ section.settings.btn_bg }};
+      --btn-text: {{ section.settings.btn_text }};
+      --btn-bg-hover: {{ section.settings.btn_bg_hover }};
+      --btn-text-hover: {{ section.settings.btn_text_hover }};
+    }
+
+    /* ===== Section wrapper ===== */
+    #marquee-{{ section.id }} {
+      width: 100%;
+      background-image: linear-gradient(var(--bg-grad-start), var(--bg-grad-solid) 9%, var(--bg-grad-solid) 93%, var(--bg-grad-start));
+      padding: 47px 35px;
+    }
+    #marquee-{{ section.id }} .marquee-container {
+      z-index: 10;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 60px;
+      position: relative;
+    }
+    #marquee-{{ section.id }} .marquee-flex {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+    #marquee-{{ section.id }} .marquee-flex--row { flex-direction: row; }
+    #marquee-{{ section.id }} .marquee-flex--wrap-md { gap: 0; }
+
+    /* ===== Left column using ORIGINAL classes ===== */
+    #marquee-{{ section.id }} .col { display: flex; flex-direction: column; flex: 1; }
+    #marquee-{{ section.id }} .col.small { width: 41%; flex: none; align-items: flex-start; }
+    #marquee-{{ section.id }} .grey-text { color: rgba(255,255,255,0.6); }
+    #marquee-{{ section.id }} .uppercase { text-transform: uppercase; letter-spacing: 1px; }
+    #marquee-{{ section.id }} .header-quaternary { font-size: 14px; color: var(--text-color); padding: 2px 4px; }
+    #marquee-{{ section.id }} .header-secondary { font-size: 56px; line-height: 120%; color: var(--text-color); }
+    #marquee-{{ section.id }} .centered-svp { text-align: center; }
+    #marquee-{{ section.id }} .paragraph-large { font-size: 20px; color: var(--text-color); }
+    #marquee-{{ section.id }} .spacer-15 { height: 15px; width: 100%; }
+    #marquee-{{ section.id }} .spacer-30 { height: 30px; width: 100%; }
+    #marquee-{{ section.id }} .spacer-60 { height: 60px; width: 100%; }
+    #marquee-{{ section.id }} .flex-horizontal { display: flex; width: 100%; align-items: center; justify-content: center; }
+    #marquee-{{ section.id }} .flex-left { justify-content: flex-start; }
+
+    /* Button (uses original .btn.w-button classes) */
+    #marquee-{{ section.id }} .btn.w-button {
+      display: inline-block;
+      padding: 12px 20px;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all .25s ease;
+      border: 1px solid transparent;
+    }
+    #marquee-{{ section.id }} .btn.w-button:hover {
+      background: var(--btn-bg-hover);
+      color: var(--btn-text-hover);
+      transform: translateY(-1px);
+    }
+
+    /* spacer between columns */
+    #marquee-{{ section.id }} .mq-spacer-60 { height: 60px; width: 100%; }
+    #marquee-{{ section.id }} .mq-spacer-60--w { width: 60px; }
+
+    /* ===== Right column (unchanged) ===== */
+    #marquee-{{ section.id }} .marquee-col--right { width: 100%; align-items: center; justify-content: center; }
+
+    #marquee-{{ section.id }} .mq-row {
+      position: relative; width: 100%; height: var(--row-height);
+      display: flex; align-items: center; overflow: hidden; margin-bottom: 16px;
+    }
+    #marquee-{{ section.id }} .mq-row:last-child { margin-bottom: 0; }
+
+    #marquee-{{ section.id }} .mq-row-cover {
+      position: absolute; z-index: 10; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(270deg, rgba(255,255,255,0) 70%, var(--overlay-color)),
+        linear-gradient(270deg, var(--overlay-color), rgba(255,255,255,0) 30%);
+    }
+    #marquee-{{ section.id }} .mq-track { position: absolute; will-change: transform; white-space: nowrap; display: flex; align-items: center; }
+
+    @keyframes mq-{{ section.id }}-row1 { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes mq-{{ section.id }}-row2 { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+    @keyframes mq-{{ section.id }}-row3 { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    #marquee-{{ section.id }} .mq-track--row1 { animation: mq-{{ section.id }}-row1 var(--row1-speed) linear infinite; }
+    #marquee-{{ section.id }} .mq-track--row2 { animation: mq-{{ section.id }}-row2 var(--row2-speed) linear infinite; }
+    #marquee-{{ section.id }} .mq-track--row3 { animation: mq-{{ section.id }}-row3 var(--row3-speed) linear infinite; }
+
+    #marquee-{{ section.id }} .mq-item {
+      width: var(--image-w); height: var(--image-h);
+      border-radius: 8px; box-shadow: 0 7px 15px 3px rgba(175,177,179,.3);
+      overflow: hidden; display: flex; align-items: center; justify-content: center; flex: none; background: #000;
+    }
+    #marquee-{{ section.id }} .mq-item-link { display: inline-flex; width: 100%; height: 100%; }
+    #marquee-{{ section.id }} .mq-img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; display: block; }
+    #marquee-{{ section.id }} .mq-gap { width: var(--gap-x); height: 1px; flex: none; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 991px) {
+      #marquee-{{ section.id }} .marquee-container { width: 100%; padding: 0 30px; }
+      #marquee-{{ section.id }} .header-secondary { font-size: 40px; }
+      #marquee-{{ section.id }} .col.small { width: 100%; align-items: center; }
+      #marquee-{{ section.id }} .marquee-flex--wrap-md { flex-direction: column; }
+      #marquee-{{ section.id }} .mq-row-cover {
+        background-image:
+          linear-gradient(rgba(255,255,255,0) 70%, var(--overlay-color)),
+          linear-gradient(var(--overlay-color), rgba(255,255,255,0) 30%, rgba(255,255,255,0));
+      }
+    }
+    @media (max-width: 479px) {
+      #marquee-{{ section.id }} .marquee-container { padding: 0 15px; }
+      #marquee-{{ section.id }} .mq-row { height: {{ section.settings.row_height_mobile }}px; }
+      #marquee-{{ section.id }} .mq-item { width: {{ section.settings.image_width_mobile }}px; height: {{ section.settings.image_height_mobile }}px; }
+      #marquee-{{ section.id }} .mq-gap { width: {{ section.settings.gap_x_mobile }}px; }
+    }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "Marquee – CTA + 3 Rows",
+  "settings": [
+    { "type": "text", "id": "small_label", "label": "Small label (above heading)", "default": "Featured work" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Ready for your next tattoo?" },
+    { "type": "text", "id": "subtext", "label": "Subtext", "default": "Set your next Appointment Today!" },
+
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Let's go" },
+    { "type": "url", "id": "button_link", "label": "Button link", "default": "/" },
+
+    { "type": "color", "id": "bg_color", "label": "Background base color", "default": "#000000" },
+    { "type": "color", "id": "overlay_color", "label": "Edge overlay/gradient color", "default": "#000000" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#FFFFFF" },
+
+    { "type": "color", "id": "btn_bg", "label": "Button background", "default": "#FFFFFF" },
+    { "type": "color", "id": "btn_text", "label": "Button text", "default": "#000000" },
+    { "type": "color", "id": "btn_bg_hover", "label": "Button background (hover)", "default": "#F2F2F2" },
+    { "type": "color", "id": "btn_text_hover", "label": "Button text (hover)", "default": "#000000" },
+
+    { "type": "range", "id": "row_height", "min": 120, "max": 280, "step": 2, "label": "Row height (desktop)", "default": 190 },
+    { "type": "range", "id": "row_height_mobile", "min": 120, "max": 240, "step": 2, "label": "Row height (mobile)", "default": 180 },
+
+    { "type": "range", "id": "image_width", "min": 120, "max": 360, "step": 4, "label": "Image width (desktop)", "default": 200 },
+    { "type": "range", "id": "image_height", "min": 120, "max": 240, "step": 2, "label": "Image height (desktop)", "default": 174 },
+
+    { "type": "range", "id": "image_width_mobile", "min": 120, "max": 240, "step": 2, "label": "Image width (mobile)", "default": 150 },
+    { "type": "range", "id": "image_height_mobile", "min": 120, "max": 240, "step": 2, "label": "Image height (mobile)", "default": 150 },
+
+    { "type": "range", "id": "gap_x", "min": 8, "max": 80, "step": 1, "label": "Gap between items (desktop, px)", "default": 30 },
+    { "type": "range", "id": "gap_x_mobile", "min": 8, "max": 80, "step": 1, "label": "Gap between items (mobile, px)", "default": 15 },
+
+    { "type": "range", "id": "row1_speed", "min": 8, "max": 120, "step": 2, "label": "Row 1 speed (seconds per loop)", "default": 40 },
+    { "type": "range", "id": "row2_speed", "min": 8, "max": 120, "step": 2, "label": "Row 2 speed (seconds per loop)", "default": 40 },
+    { "type": "range", "id": "row3_speed", "min": 8, "max": 120, "step": 2, "label": "Row 3 speed (seconds per loop)", "default": 40 }
+  ],
+  "blocks": [
+    {
+      "type": "marquee_image",
+      "name": "Image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "alt", "label": "Alt text", "default": "Tattoo image" },
+        {
+          "type": "select",
+          "id": "row",
+          "label": "Row",
+          "default": "row1",
+          "options": [
+            { "value": "row1", "label": "Row 1" },
+            { "value": "row2", "label": "Row 2" },
+            { "value": "row3", "label": "Row 3" }
+          ]
+        },
+        { "type": "url", "id": "link_url", "label": "Optional link", "default": "/" }
+      ]
+    }
+  ],
+  "max_blocks": 30,
+  "presets": [
+    {
+      "name": "Marquee – CTA + 3 Rows",
+      "category": "Images",
+      "blocks": [
+        { "type": "marquee_image", "settings": { "row": "row1" } },
+        { "type": "marquee_image", "settings": { "row": "row1" } },
+        { "type": "marquee_image", "settings": { "row": "row1" } },
+        { "type": "marquee_image", "settings": { "row": "row2" } },
+        { "type": "marquee_image", "settings": { "row": "row2" } },
+        { "type": "marquee_image", "settings": { "row": "row2" } },
+        { "type": "marquee_image", "settings": { "row": "row3" } },
+        { "type": "marquee_image", "settings": { "row": "row3" } },
+        { "type": "marquee_image", "settings": { "row": "row3" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
