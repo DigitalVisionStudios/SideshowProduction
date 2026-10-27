@@ -253,7 +253,7 @@
                           endif
 
                           if xr_id
-                            render 'xr-button' with model_id: xr_id, multi: true
+                            render 'xr-button' with model_id, model_id: xr_id, multi: true
                           endif
 
                           assign first_media = false
@@ -272,7 +272,7 @@
                 endcomment
 
                 if first_3d_model
-                  render 'xr-button' with model_id: first_3d_model.id, multi: false
+                  render 'xr-button' with model_id, model_id: first_3d_model.id, multi: false
                 endif
               -%}
 
@@ -811,4 +811,20 @@
 <script type="application/json" id="ModelJson-{{ section.id }}">
 {{ product.media | where: 'media_type', 'model' | json }}
 </script>
-{%- endunless -%}
+{%- endunless -%}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "                            render 'xr-button' with model_id: xr_id, multi:
+    true"
+  to: "                            render 'xr-button' with model_id, model_id: xr_id,
+    multi: true"
+  position: 10009..10099
+- from: "                  render 'xr-button' with model_id: first_3d_model.id, multi:
+    false"
+  to: "                  render 'xr-button' with model_id, model_id: first_3d_model.id,
+    multi: false"
+  position: 10627..10720
+{%- endcomment -%}
