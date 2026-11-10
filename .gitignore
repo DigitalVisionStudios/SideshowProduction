@@ -1,0 +1,20 @@
+# Local development and temporary review outputs
+node_modules/
+.ai-bridge/
+.preview/
+playwright-report/
+test-results/
+*.log
+.DS_Store
+Thumbs.db
+
+# Full source capture stays on disk; text captures and metadata remain trackable.
+archive/**/assets/
+archive/**/*.zip
+archive/**/*.png
+archive/**/*.jpg
+archive/**/*.jpeg
+archive/**/*.webp
+archive/**/*.gif
+archive/**/*.mp4
+archive/**/*.pdf

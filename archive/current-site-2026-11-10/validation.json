@@ -1,0 +1,10 @@
+{
+  "unique_files_checked": 632,
+  "missing_files": [],
+  "hash_mismatches": [],
+  "media_items": 314,
+  "media_originals_present": 314,
+  "missing_originals": [],
+  "all_media_preserved": true,
+  "note": "Windows text newline normalization for robots.txt corrected to exact captured response bytes and verified by original SHA-256."
+}

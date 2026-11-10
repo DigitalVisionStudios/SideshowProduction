@@ -1,0 +1,166 @@
+{
+  "layout": "studio",
+  "sections": {
+    "section_1": {
+      "type": "studio-page",
+      "settings": {
+        "title": "SOME THINGS SPEAK FOR THEMSELVES.",
+        "copy": "Real work from the studio. Find a style, explore the details, and meet the artist behind it.",
+        "kicker": "THE WORK"
+      }
+    },
+    "section_2": {
+      "type": "studio-work",
+      "settings": {
+        "heading": "FRESH FROM THE STUDIO.",
+        "show_filters": true,
+        "full_gallery": true
+      },
+      "blocks": {
+        "block_1": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-01.webp",
+            "alt": "Fine-line cowboy boot with flowers by Jake",
+            "title": "A little western",
+            "artist": "JAKE",
+            "category": "tattoo"
+          }
+        },
+        "block_2": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-02.webp",
+            "alt": "Blue floral tattoo by Rigo",
+            "title": "Color that stays with you",
+            "artist": "RIGO",
+            "category": "tattoo"
+          }
+        },
+        "block_3": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-04.webp",
+            "alt": "Heart-shaped ear jewelry in a piercing by Sonny",
+            "title": "Small details. Big personality.",
+            "artist": "SONNY",
+            "category": "piercing"
+          }
+        },
+        "block_4": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-03.webp",
+            "alt": "Swallow and sun linework tattoo by Jake",
+            "title": "Made to move with you",
+            "artist": "JAKE",
+            "category": "tattoo"
+          }
+        },
+        "block_5": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-05.webp",
+            "alt": "Dragon linework tattoo by Jake",
+            "title": "Your kind of bold",
+            "artist": "JAKE",
+            "category": "tattoo"
+          }
+        },
+        "block_6": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-06.webp",
+            "alt": "A small tooth gem applied by Megan",
+            "title": "A little extra shine",
+            "artist": "MEGAN",
+            "category": "gems"
+          }
+        },
+        "block_7": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-07.webp",
+            "alt": "Script lettering tattoo by Rigo",
+            "title": "Say it your way",
+            "artist": "RIGO",
+            "category": "tattoo"
+          }
+        },
+        "block_8": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-08.webp",
+            "alt": "Blackwork witch hat tattoo by Jake",
+            "title": "For the darker side",
+            "artist": "JAKE",
+            "category": "tattoo"
+          }
+        },
+        "block_9": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-09.webp",
+            "alt": "Sunflower and shoe tattoo by Jake",
+            "title": "A story in the details",
+            "artist": "JAKE",
+            "category": "tattoo"
+          }
+        },
+        "block_10": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-10.webp",
+            "alt": "Floral vine linework tattoo by Rigo",
+            "title": "Something that grows with you",
+            "artist": "RIGO",
+            "category": "tattoo"
+          }
+        },
+        "block_11": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-11.webp",
+            "alt": "Ear jewelry and piercings by Sonny",
+            "title": "Perfectly placed",
+            "artist": "SONNY",
+            "category": "piercing"
+          }
+        },
+        "block_12": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-12.webp",
+            "alt": "Tooth gem work from Megan's portfolio",
+            "title": "Make your smile yours",
+            "artist": "MEGAN",
+            "category": "gems"
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4",
+        "block_5",
+        "block_6",
+        "block_7",
+        "block_8",
+        "block_9",
+        "block_10",
+        "block_11",
+        "block_12"
+      ]
+    },
+    "section_3": {
+      "type": "studio-visit",
+      "settings": {}
+    }
+  },
+  "order": [
+    "section_1",
+    "section_2",
+    "section_3"
+  ]
+}

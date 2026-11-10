@@ -1,0 +1,17 @@
+{
+  "phase": "complete",
+  "pages": 58,
+  "distinct_page_paths": 54,
+  "media_items": 314,
+  "requests": 705,
+  "assets_saved": 567,
+  "failed_requests": 69,
+  "discarded_metadata_candidates": 63,
+  "failures": 1,
+  "downloaded_bytes": 334376808,
+  "stored_bytes": 338474549,
+  "output": "C:\\Users\\jesus\\Documents\\Work\\Shopify Stores\\SideshowProduction\\archive\\current-site-2026-11-10",
+  "warnings": [],
+  "media_originals_verified": 314,
+  "hash_mismatch_count": 0
+}

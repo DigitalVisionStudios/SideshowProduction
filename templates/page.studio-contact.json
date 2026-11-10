@@ -1,0 +1,21 @@
+{
+  "layout": "studio",
+  "sections": {
+    "section_1": {
+      "type": "studio-page",
+      "settings": {
+        "title": "COME ON IN.",
+        "copy": "Have an idea, a question, or a space to fill? We'd love to hear it.",
+        "kicker": "VISIT & CONTACT"
+      }
+    },
+    "section_2": {
+      "type": "studio-contact",
+      "settings": {}
+    }
+  },
+  "order": [
+    "section_1",
+    "section_2"
+  ]
+}

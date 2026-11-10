@@ -1,0 +1,10 @@
+<section class="sp-section sp-section--paper">
+  <div class="sp-shell sp-visit">
+    <div class="sp-visit-heading" data-reveal><p class="sp-eyebrow">COME ON IN</p><h2>YOUR NEXT<br>STORY STARTS<br><em>HERE.</em></h2><a class="sp-button sp-button--red" href="/pages/book">Let's make it happen <span aria-hidden="true">↗</span></a></div>
+    <div class="sp-visit-info" data-reveal><h3>Murray, Utah</h3><p>{{ section.settings.address | escape }}</p><a class="sp-link" href="https://www.google.com/maps/search/?api=1&amp;query=4973+S+State+St+Murray+UT+84107" target="_blank" rel="noopener noreferrer">Get directions <span aria-hidden="true">↗</span></a><hr><p>Have a question or an idea?<br>We're a phone call away.</p><a class="sp-link" href="tel:+13855479547">(385) 547-9547</a><a href="mailto:club@sideshowproductionstattoo.com">club@sideshowproductionstattoo.com</a><p class="sp-visit-note">Artist schedules vary. Check the artist page or contact the studio before you visit.</p></div>
+    <a class="sp-visit-map" href="https://www.google.com/maps/search/?api=1&amp;query=4973+S+State+St+Murray+UT+84107" target="_blank" rel="noopener noreferrer" aria-label="Get directions to Sideshow Productions" data-reveal><img src="{{ 'sp-storefront.webp' | asset_url }}" alt="Sideshow Productions storefront at 4973 South State Street in Murray" width="1354" height="759" loading="lazy"><span>4973 S STATE STREET <span aria-hidden="true">↗</span></span></a>
+  </div>
+</section>
+{% schema %}
+{"name":"Studio visit","settings":[{"type":"text","id":"address","label":"Address","default":"4973 S State St, Murray, UT 84107"}],"presets":[{"name":"Studio visit"}]}
+{% endschema %}

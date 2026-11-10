@@ -1,0 +1,182 @@
+<section class="sp-section sp-section--dark" id="artists">
+  <div class="sp-shell">
+    <div class="sp-section-heading" data-reveal><div><p class="sp-eyebrow">03 / FIND YOUR PEOPLE</p><h2>{{ section.settings.heading | escape }}</h2></div><p>{{ section.settings.intro | escape }}</p></div>
+    <div class="sp-artist-grid{% if section.settings.show_details %} sp-artist-grid--full{% endif %}">
+      {% for block in section.blocks %}<article class="sp-artist-card" id="{{ block.settings.anchor | escape }}" {{ block.shopify_attributes }} data-reveal>
+        <a href="{% if section.settings.show_details %}/pages/book#{{ block.settings.anchor | escape }}{% else %}/pages/artists#{{ block.settings.anchor | escape }}{% endif %}" class="sp-artist-photo" aria-label="Meet {{ block.settings.name | escape }}">{% render 'studio-image', image: block.settings.image, asset_name: block.settings.asset, alt: block.settings.alt %}<span aria-hidden="true">↗</span></a>
+        <div class="sp-artist-info"><p class="sp-eyebrow">{{ block.settings.role | escape }}</p><h3>{{ block.settings.name | escape }}</h3><p>{{ block.settings.bio | escape }}</p><p class="sp-artist-meta">{{ block.settings.meta | escape }}</p>
+        {% if section.settings.show_details %}
+          <details class="sp-artist-details"><summary>Rates &amp; availability</summary><div><p><strong>{{ block.settings.rate | escape }}</strong></p><p>{{ block.settings.deposit | escape }}</p><p>{{ block.settings.hours | escape }}</p><p>All times are local to the Murray studio. 48-hour notice for appointment changes. Final availability is confirmed when booking.</p></div></details>
+          <a class="sp-link" href="/pages/book#{{ block.settings.anchor | escape }}">Book with {{ block.settings.name | escape }} <span aria-hidden="true">↗</span></a>
+        {% else %}
+          <a class="sp-link" href="/pages/artists#{{ block.settings.anchor | escape }}">Meet {{ block.settings.name | escape }} <span aria-hidden="true">↗</span></a>
+        {% endif %}</div>
+      </article>{% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Studio artists",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "YOUR NEXT FAVORITE ARTIST."
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "Different styles. The same care for the craft. Get to know the people behind the work."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_details",
+      "label": "Show rates and availability",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "artist",
+      "name": "Artist",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Artist"
+        },
+        {
+          "type": "text",
+          "id": "anchor",
+          "label": "Link anchor",
+          "default": "artist"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role",
+          "default": "TATTOO ARTIST"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Portrait or work image"
+        },
+        {
+          "type": "text",
+          "id": "asset",
+          "label": "Fallback image asset",
+          "default": "sp-jake.webp"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Image description",
+          "default": "Artist at Sideshow Productions"
+        },
+        {
+          "type": "textarea",
+          "id": "bio",
+          "label": "Biography",
+          "default": "Find your next piece with our studio."
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "label": "Specialties",
+          "default": "CUSTOM WORK"
+        },
+        {
+          "type": "text",
+          "id": "rate",
+          "label": "Rate summary",
+          "default": "Contact the studio for pricing"
+        },
+        {
+          "type": "textarea",
+          "id": "deposit",
+          "label": "Deposit and prices",
+          "default": "Confirm details with the studio."
+        },
+        {
+          "type": "textarea",
+          "id": "hours",
+          "label": "Artist availability",
+          "default": "Contact the studio to confirm availability."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Studio artists",
+      "blocks": [
+        {
+          "type": "artist",
+          "settings": {
+            "anchor": "jake",
+            "name": "Jake",
+            "role": "TATTOO ARTIST",
+            "asset": "sp-jake.webp",
+            "alt": "Jake working on a tattoo at Sideshow",
+            "bio": "Graphic details, black-and-grey shading, lettering, and illustrative customs. A clear idea, made personal.",
+            "meta": "CUSTOM TATTOOS · LETTERING",
+            "rate": "From $100 / hour",
+            "deposit": "$50 deposit, credited toward your total.",
+            "hours": "Tuesday & Friday: 4–10 pm. Wednesday, Thursday & Saturday: 3:30–10 pm. No Sunday or Monday appointments."
+          }
+        },
+        {
+          "type": "artist",
+          "settings": {
+            "anchor": "rigo",
+            "name": "Rigo",
+            "role": "TATTOO ARTIST",
+            "asset": "sp-rigo.webp",
+            "alt": "Blue floral tattoo work by Rigo",
+            "bio": "Clean lines, smooth blends, and illustrative pieces with personality. Consultations in English or Spanish.",
+            "meta": "ILLUSTRATIVE · ENGLISH / ESPAÑOL",
+            "rate": "From $100 / hour",
+            "deposit": "$50 deposit, credited toward your total.",
+            "hours": "Tuesday–Saturday: 3–8 pm. No Sunday or Monday appointments."
+          }
+        },
+        {
+          "type": "artist",
+          "settings": {
+            "anchor": "sonny",
+            "name": "Sonny",
+            "role": "PIERCING ARTIST",
+            "asset": "sp-sonny.webp",
+            "alt": "Ear piercing work by Sonny",
+            "bio": "Thoughtful placement and a sharp eye for the details. Explore your next piercing with Sonny.",
+            "meta": "PIERCINGS · JEWELRY",
+            "rate": "Pricing varies by piercing",
+            "deposit": "20% deposit. Jewelry included with new piercings.",
+            "hours": "Tuesday–Friday: 2–8 pm. Saturday: noon–8 pm. No Sunday or Monday appointments."
+          }
+        },
+        {
+          "type": "artist",
+          "settings": {
+            "anchor": "megan",
+            "name": "Megan",
+            "role": "TOOTH GEMS & WHITENING",
+            "asset": "sp-megan.webp",
+            "alt": "Megan at Sideshow Productions",
+            "bio": "A little sparkle or a brighter smile. Personalize the details with tooth gems and whitening sessions.",
+            "meta": "TOOTH GEMS · TEETH WHITENING",
+            "rate": "Tooth gems from $60",
+            "deposit": "Additional gems $20 each. Heart/star $65. Fang $100. Whitening: single $89, double $120, triple $200. 20% deposit.",
+            "hours": "Tuesday–Saturday: 7–8:30 pm."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

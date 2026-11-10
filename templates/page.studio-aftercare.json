@@ -1,0 +1,21 @@
+{
+  "layout": "studio",
+  "sections": {
+    "section_1": {
+      "type": "studio-page",
+      "settings": {
+        "title": "GOOD WORK DESERVES GOOD CARE.",
+        "copy": "Stay connected to your artist after your appointment. Find the right instructions for your service and get your questions answered.",
+        "kicker": "AFTERCARE"
+      }
+    },
+    "section_2": {
+      "type": "studio-aftercare",
+      "settings": {}
+    }
+  },
+  "order": [
+    "section_1",
+    "section_2"
+  ]
+}

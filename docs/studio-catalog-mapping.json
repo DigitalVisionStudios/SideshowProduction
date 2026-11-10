@@ -1,0 +1,1441 @@
+{
+  "source_captured_at": "2026-11-10T23:05:58.134550+00:00",
+  "source_catalog": "archive/current-site-2026-11-10/catalog.json",
+  "source_galleries": "archive/current-site-2026-11-10/galleries.json",
+  "product_count": 21,
+  "merchandise_count": 16,
+  "aftercare_count": 5,
+  "roulette_image_count": 27,
+  "shopify_verified": false,
+  "notes": [
+    "Prepared entirely from verified archived local image bytes. No source downloads performed.",
+    "Product prices and stock declarations are from captured public HTML/JSON-LD, not Shopify inventory.",
+    "Shopify product selectors remain unassigned; existing section contact links handle catalog inquiries.",
+    "Unknown variants, quantities, and Shopify product handles remain unknown.",
+    "Only obvious spelling/grammar corrections were made to display titles; original titles are retained.",
+    "Roulette image numbering is gallery display order, not an official in-studio game selection number."
+  ],
+  "products": [
+    {
+      "display_order": 1,
+      "display_group": "Merchandise",
+      "template_block_id": "product_01",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-3-eyed-lady-long-sleeve/",
+      "original_title": "Sideshow Productions 3 Eyed Lady Long Sleeve",
+      "current_display_title": "Sideshow Productions 3 Eyed Lady Long Sleeve",
+      "captured_price": "$25.00",
+      "currency": "USD",
+      "captured_price_amount": 25.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/8A989CE5-D3CF-4731-8C5D-1029886421CB.webp",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/8A989CE5-D3CF-4731-8C5D-1029886421CB.webp",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__sideshow-productions-3-eyed-lady-long-sleeve.html",
+      "asset": "sp-product-01.webp",
+      "asset_path": "assets/sp-product-01.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/8A989CE5-D3CF-4731-8C5D-1029886421CB.webp",
+      "source_sha256": "a519344090146ea2bc9a618b3316172fd3d57ef3a2ced6a214bf0f5b20494527",
+      "source_dimensions": [
+        508,
+        676
+      ],
+      "output_dimensions": [
+        508,
+        676
+      ],
+      "output_bytes": 43340,
+      "output_sha256": "945037b43fb687f82b509a505a1e452f45a860d722cef5d4a0794c6df8f561c9",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 2,
+      "display_group": "Merchandise",
+      "template_block_id": "product_02",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-circus-lady-long-sleeve/",
+      "original_title": "Sideshow Productions Circus Lady Long Sleeve",
+      "current_display_title": "Sideshow Productions Circus Lady Long Sleeve",
+      "captured_price": "$25.00",
+      "currency": "USD",
+      "captured_price_amount": 25.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/sideshowproductionstattoo_249466638_4585124344867172_8185758163476328029_n.jpg",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/sideshowproductionstattoo_249466638_4585124344867172_8185758163476328029_n.jpg",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__sideshow-productions-circus-lady-long-sleeve.html",
+      "asset": "sp-product-02.webp",
+      "asset_path": "assets/sp-product-02.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/sideshowproductionstattoo_249466638_4585124344867172_8185758163476328029_n.jpg",
+      "source_sha256": "a68ad52b7e488711204545f394e0b76b0e822b715f03b4fa6d5a881e83b67f91",
+      "source_dimensions": [
+        1080,
+        1080
+      ],
+      "output_dimensions": [
+        900,
+        900
+      ],
+      "output_bytes": 78612,
+      "output_sha256": "ff1178784d8bc3c357a7da2f5c4a4089824dd434c7d9ab8439cbbd7ae4a6f63c",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 3,
+      "display_group": "Merchandise",
+      "template_block_id": "product_03",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-colorful-octopus-tee/",
+      "original_title": "Sideshow Productions Colorful Octopus Tee",
+      "current_display_title": "Sideshow Productions Colorful Octopus Tee",
+      "captured_price": "$20.00",
+      "currency": "USD",
+      "captured_price_amount": 20.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/C6412B67-E2C1-49A1-A215-8D3B5217F4E1.webp",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/C6412B67-E2C1-49A1-A215-8D3B5217F4E1.webp",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__sideshow-productions-colorful-octopus-tee.html",
+      "asset": "sp-product-03.webp",
+      "asset_path": "assets/sp-product-03.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/C6412B67-E2C1-49A1-A215-8D3B5217F4E1.webp",
+      "source_sha256": "fa4eb780d9c8bb11d4743ac2a231e626b708bbd37c07cd23d29de72ff8f6eec6",
+      "source_dimensions": [
+        552,
+        676
+      ],
+      "output_dimensions": [
+        552,
+        676
+      ],
+      "output_bytes": 121110,
+      "output_sha256": "c04ac046f60c5323a77ec5a4f0455ea124cadad3e5926a52d759ef192f838f58",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 4,
+      "display_group": "Merchandise",
+      "template_block_id": "product_04",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-conjoined-skeletons-long-sleeve/",
+      "original_title": "Sideshow Productions Conjoined Skeletons Long Sleeve",
+      "current_display_title": "Sideshow Productions Conjoined Skeletons Long Sleeve",
+      "captured_price": "$25.00",
+      "currency": "USD",
+      "captured_price_amount": 25.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/777825F5-C746-4F41-8F9A-0206500A40CB.webp",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/777825F5-C746-4F41-8F9A-0206500A40CB.webp",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__sideshow-productions-conjoined-skeletons-long-sleeve.html",
+      "asset": "sp-product-04.webp",
+      "asset_path": "assets/sp-product-04.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/777825F5-C746-4F41-8F9A-0206500A40CB.webp",
+      "source_sha256": "488c4e75c2f05e116fccf8208ba28a86e12cf3948dc41272e44aae9ec19c6491",
+      "source_dimensions": [
+        583,
+        676
+      ],
+      "output_dimensions": [
+        583,
+        676
+      ],
+      "output_bytes": 71572,
+      "output_sha256": "aa88bbf466a9314878c2d2213a36d04a3ca3628b08dabed112358d21c865a8ab",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 5,
+      "display_group": "Merchandise",
+      "template_block_id": "product_05",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-freex-beanie/",
+      "original_title": "Sideshow Productions Freex Beanie",
+      "current_display_title": "Sideshow Productions Freex Beanie",
+      "captured_price": "$10.00",
+      "currency": "USD",
+      "captured_price_amount": 10.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/44B8BF7F-430E-4241-AF33-B484742652F0.webp",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/44B8BF7F-430E-4241-AF33-B484742652F0.webp",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__sideshow-productions-freex-beanie.html",
+      "asset": "sp-product-05.webp",
+      "asset_path": "assets/sp-product-05.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/44B8BF7F-430E-4241-AF33-B484742652F0.webp",
+      "source_sha256": "e538ebf3336ba93ff5927c455492c46569709e6eb4c6c0bcca8c4770d95e05a4",
+      "source_dimensions": [
+        600,
+        676
+      ],
+      "output_dimensions": [
+        600,
+        676
+      ],
+      "output_bytes": 143304,
+      "output_sha256": "cbfc2cd0f33fa530fcc766af6efa65de42fc54c522021d1fab0ca519a4a92ae8",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 6,
+      "display_group": "Merchandise",
+      "template_block_id": "product_06",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-gray-hat/",
+      "original_title": "Sideshow Productions Gray Hat",
+      "current_display_title": "Sideshow Productions Gray Hat",
+      "captured_price": "$15.00",
+      "currency": "USD",
+      "captured_price_amount": 15.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/441623288_979272287111444_6943540419869774814_n.jpg",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/441623288_979272287111444_6943540419869774814_n.jpg",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__sideshow-productions-gray-hat.html",
+      "asset": "sp-product-06.webp",
+      "asset_path": "assets/sp-product-06.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/441623288_979272287111444_6943540419869774814_n.jpg",
+      "source_sha256": "77b64ce60362c95913743ffea6071bc112c5ffd9afc0735bcf0638b29b90809e",
+      "source_dimensions": [
+        1440,
+        2560
+      ],
+      "output_dimensions": [
+        619,
+        1100
+      ],
+      "output_bytes": 89814,
+      "output_sha256": "c7e7259d57589b0bddf919a6f3173544637d28e546cb0bdfed93d404e606fde5",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 7,
+      "display_group": "Merchandise",
+      "template_block_id": "product_07",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-hard-skull-short-sleeve/",
+      "original_title": "Sideshow Productions Hard Skull Short Sleeve",
+      "current_display_title": "Sideshow Productions Hard Skull Short Sleeve",
+      "captured_price": "$28.00",
+      "currency": "USD",
+      "captured_price_amount": 28.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Sideshow-Productions-Hard-Skull-Short-Sleeve.png",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Sideshow-Productions-Hard-Skull-Short-Sleeve.png",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__sideshow-productions-hard-skull-short-sleeve.html",
+      "asset": "sp-product-07.webp",
+      "asset_path": "assets/sp-product-07.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Sideshow-Productions-Hard-Skull-Short-Sleeve.png",
+      "source_sha256": "b5d52772b54c59ad4c504bcd15b369d6f7b2e23b5a9d98dd4eff5b32581d12fa",
+      "source_dimensions": [
+        560,
+        758
+      ],
+      "output_dimensions": [
+        560,
+        758
+      ],
+      "output_bytes": 65736,
+      "output_sha256": "d8355c2a1144c64d2b8d9cbb62c4ba9e7e1f76a16eecd0e6817da76e88f75b7e",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 8,
+      "display_group": "Merchandise",
+      "template_block_id": "product_08",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-ink-therapy-tee/",
+      "original_title": "Sideshow Productions Ink Therapy Tee",
+      "current_display_title": "Sideshow Productions Ink Therapy Tee",
+      "captured_price": "$20.00",
+      "currency": "USD",
+      "captured_price_amount": 20.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/D22D1CDA-8718-493A-A0A2-AE2FDA893F5A.webp",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/D22D1CDA-8718-493A-A0A2-AE2FDA893F5A.webp",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__sideshow-productions-ink-therapy-tee.html",
+      "asset": "sp-product-08.webp",
+      "asset_path": "assets/sp-product-08.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/D22D1CDA-8718-493A-A0A2-AE2FDA893F5A.webp",
+      "source_sha256": "68f1ba0d52825c7bf4f2a1f21ff15171c3eedf2f97a734d0fb1c1d0695c5c79a",
+      "source_dimensions": [
+        674,
+        676
+      ],
+      "output_dimensions": [
+        674,
+        676
+      ],
+      "output_bytes": 131608,
+      "output_sha256": "c6062a6eab30a21d1505cbc91b15f21f4dc1625124e6b6cd853ef14060c24866",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 9,
+      "display_group": "Merchandise",
+      "template_block_id": "product_09",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-inked-octopus-tee/",
+      "original_title": "Sideshow Productions Inked Octopus Tee",
+      "current_display_title": "Sideshow Productions Inked Octopus Tee",
+      "captured_price": "$20.00",
+      "currency": "USD",
+      "captured_price_amount": 20.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/1FD34741-F874-450B-9CC3-5D6CB42CCBA0.webp",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/1FD34741-F874-450B-9CC3-5D6CB42CCBA0.webp",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__sideshow-productions-inked-octopus-tee.html",
+      "asset": "sp-product-09.webp",
+      "asset_path": "assets/sp-product-09.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/1FD34741-F874-450B-9CC3-5D6CB42CCBA0.webp",
+      "source_sha256": "9f3cb1625ab0e4676724d5d8f691e55beb7bb6b14a6abff6dbbf10b9377dc50d",
+      "source_dimensions": [
+        562,
+        676
+      ],
+      "output_dimensions": [
+        562,
+        676
+      ],
+      "output_bytes": 60842,
+      "output_sha256": "090943abb07f01f774f278830f31bdb29cd24473b2597d2f1d6dc06436255a70",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 10,
+      "display_group": "Merchandise",
+      "template_block_id": "product_10",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-monster-tattoo-long-sleeve/",
+      "original_title": "Sideshow Productions Monster Tattoo Long Sleeve",
+      "current_display_title": "Sideshow Productions Monster Tattoo Long Sleeve",
+      "captured_price": "$25.00",
+      "currency": "USD",
+      "captured_price_amount": 25.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/ACB9DCE9-19F9-4CD9-B573-16FABF73D112.webp",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/ACB9DCE9-19F9-4CD9-B573-16FABF73D112.webp",
+      "stock_declaration": [
+        "OutOfStock"
+      ],
+      "captured_inventory_state": "out_of_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__sideshow-productions-monster-tattoo-long-sleeve.html",
+      "asset": "sp-product-10.webp",
+      "asset_path": "assets/sp-product-10.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/ACB9DCE9-19F9-4CD9-B573-16FABF73D112.webp",
+      "source_sha256": "bb056ba928ac97d6596526b32ff92496d407bad2545d11631fd7275f35d24709",
+      "source_dimensions": [
+        508,
+        676
+      ],
+      "output_dimensions": [
+        508,
+        676
+      ],
+      "output_bytes": 62676,
+      "output_sha256": "978d8e877c666f265fc78a27ef0bd841a1373cc3e396c8f3c2b0f43f42beb2dd",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 11,
+      "display_group": "Merchandise",
+      "template_block_id": "product_11",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-scientist-ladies-hoodie/",
+      "original_title": "Sideshow Productions Scientist Ladies Hoodie",
+      "current_display_title": "Sideshow Productions Scientist Ladies Hoodie",
+      "captured_price": "$40.00",
+      "currency": "USD",
+      "captured_price_amount": 40.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/349272F9-EDF3-42B4-9D46-B639848615B7.webp",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/349272F9-EDF3-42B4-9D46-B639848615B7.webp",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__sideshow-productions-scientist-ladies-hoodie.html",
+      "asset": "sp-product-11.webp",
+      "asset_path": "assets/sp-product-11.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/349272F9-EDF3-42B4-9D46-B639848615B7.webp",
+      "source_sha256": "b51c61af8c788e7bea950456719bf2dfffb006fb226d6c4a0f90c68c8555db4e",
+      "source_dimensions": [
+        508,
+        676
+      ],
+      "output_dimensions": [
+        508,
+        676
+      ],
+      "output_bytes": 65928,
+      "output_sha256": "e0b84ec040533547e3294879566f77509001af262bc534995c4aa1194c9319c6",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 12,
+      "display_group": "Merchandise",
+      "template_block_id": "product_12",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-tattoo-dracula-pullover/",
+      "original_title": "Sideshow Productions Tattoo Dracula Pullover",
+      "current_display_title": "Sideshow Productions Tattoo Dracula Pullover",
+      "captured_price": "$40.00",
+      "currency": "USD",
+      "captured_price_amount": 40.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/5CFE0955-58AB-4EEE-B2F4-AA485BB63A49.webp",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/5CFE0955-58AB-4EEE-B2F4-AA485BB63A49.webp",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__sideshow-productions-tattoo-dracula-pullover.html",
+      "asset": "sp-product-12.webp",
+      "asset_path": "assets/sp-product-12.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/5CFE0955-58AB-4EEE-B2F4-AA485BB63A49.webp",
+      "source_sha256": "c330f5eb3dbf06a257e702c5a65de926ded1510a3a3845aa84d5b9e046fffd41",
+      "source_dimensions": [
+        578,
+        676
+      ],
+      "output_dimensions": [
+        578,
+        676
+      ],
+      "output_bytes": 97506,
+      "output_sha256": "ee62841b93fd5bf8e60b8e64736f93aecaf703703d843e1ec603a5f6390ac319",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 13,
+      "display_group": "Merchandise",
+      "template_block_id": "product_13",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-tie-dye-skull-short-sleeve/",
+      "original_title": "Sideshow Productions Tie Dye Skull Short Sleeve",
+      "current_display_title": "Sideshow Productions Tie Dye Skull Short Sleeve",
+      "captured_price": "$28.00",
+      "currency": "USD",
+      "captured_price_amount": 28.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/476486510_654734523612330_3109943415180603564_n.jpg",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/476486510_654734523612330_3109943415180603564_n.jpg",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__sideshow-productions-tie-dye-skull-short-sleeve.html",
+      "asset": "sp-product-13.webp",
+      "asset_path": "assets/sp-product-13.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/476486510_654734523612330_3109943415180603564_n.jpg",
+      "source_sha256": "7d7f832323480f24b480a791d6314caaedfe78cc6b1183f19b0674396c1c8d4d",
+      "source_dimensions": [
+        616,
+        640
+      ],
+      "output_dimensions": [
+        616,
+        640
+      ],
+      "output_bytes": 92062,
+      "output_sha256": "f591b65f72c851e225f92d575f5e9f7f6338ceaf7a7971f322c9d564332645ab",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 14,
+      "display_group": "Merchandise",
+      "template_block_id": "product_14",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-ware-wolf-tattoo-tee/",
+      "original_title": "Sideshow Productions Ware Wolf Tattoo Tee",
+      "current_display_title": "Sideshow Productions Werewolf Tattoo Tee",
+      "captured_price": "$20.00",
+      "currency": "USD",
+      "captured_price_amount": 20.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7.webp",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7.webp",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__sideshow-productions-ware-wolf-tattoo-tee.html",
+      "asset": "sp-product-14.webp",
+      "asset_path": "assets/sp-product-14.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7.webp",
+      "source_sha256": "74bffc5f439bee1cadb188e66747758b836ae19fb4b63c91ea310e4f3b075f90",
+      "source_dimensions": [
+        508,
+        676
+      ],
+      "output_dimensions": [
+        508,
+        676
+      ],
+      "output_bytes": 54636,
+      "output_sha256": "25482a58051b413a382accb5c35d1bb02f413579fa39f4c80baeb92047b50976",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 15,
+      "display_group": "Merchandise",
+      "template_block_id": "product_15",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-white-tote-bag/",
+      "original_title": "Sideshow Productions White Tote Bag",
+      "current_display_title": "Sideshow Productions White Tote Bag",
+      "captured_price": "$15.00",
+      "currency": "USD",
+      "captured_price_amount": 15.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/441535113_1120288905904483_4553324281305310860_n.jpg",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/441535113_1120288905904483_4553324281305310860_n.jpg",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__sideshow-productions-white-tote-bag.html",
+      "asset": "sp-product-15.webp",
+      "asset_path": "assets/sp-product-15.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/441535113_1120288905904483_4553324281305310860_n.jpg",
+      "source_sha256": "ea749f199bf36e150b45f91c7ca90096ea0cf139098b766b67573264901fb3ee",
+      "source_dimensions": [
+        1440,
+        2560
+      ],
+      "output_dimensions": [
+        619,
+        1100
+      ],
+      "output_bytes": 43382,
+      "output_sha256": "69eb590bb8410ae0028a47944bdd6429bdf764e717e6dd5660a2a27863fa183e",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 16,
+      "display_group": "Merchandise",
+      "template_block_id": "product_16",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-wman-skull-short-sleeve/",
+      "original_title": "Sideshow Productions Woman Skull Short Sleeve",
+      "current_display_title": "Sideshow Productions Woman Skull Short Sleeve",
+      "captured_price": "$20.00",
+      "currency": "USD",
+      "captured_price_amount": 20.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/476503417_1781609856022375_781671424847425057_n.jpg",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/476503417_1781609856022375_781671424847425057_n.jpg",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__sideshow-productions-wman-skull-short-sleeve.html",
+      "asset": "sp-product-16.webp",
+      "asset_path": "assets/sp-product-16.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/476503417_1781609856022375_781671424847425057_n.jpg",
+      "source_sha256": "74f9df4a98cb663f7a6d5c9d2314368a238d70be2fb9b5840b4d6b1df13e2eff",
+      "source_dimensions": [
+        706,
+        800
+      ],
+      "output_dimensions": [
+        706,
+        800
+      ],
+      "output_bytes": 88374,
+      "output_sha256": "f39186cb37b2f7397f4d4b10522666f7c60e1b6a03f8cc11770b56de77b5d6e2",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 17,
+      "display_group": "Aftercare",
+      "template_block_id": "product_17",
+      "source_url": "https://sideshowproductionstattoo.com/product/aftercare-soothing-gel-for-tattoos-mad-rabbit/",
+      "original_title": "Aftercare Soothing Gel for Tattoo's | Mad Rabbit",
+      "current_display_title": "Aftercare Soothing Gel for Tattoos | Mad Rabbit",
+      "captured_price": "$21.00",
+      "currency": "USD",
+      "captured_price_amount": 21.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_08_34-PM.png",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_08_34-PM.png",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__aftercare-soothing-gel-for-tattoos-mad-rabbit.html",
+      "asset": "sp-product-17.webp",
+      "asset_path": "assets/sp-product-17.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_08_34-PM.png",
+      "source_sha256": "a2c6aefa13d1dbd004b3a55a0c32fba6b116b34036440f1404733c7982672e6e",
+      "source_dimensions": [
+        1024,
+        1536
+      ],
+      "output_dimensions": [
+        733,
+        1100
+      ],
+      "output_bytes": 42960,
+      "output_sha256": "06d7cc1da7194b11e7aced23a80ac9160112ca10a5618bec2816ceccd95bb500",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 18,
+      "display_group": "Aftercare",
+      "template_block_id": "product_18",
+      "source_url": "https://sideshowproductionstattoo.com/product/base-laboratories-aftercare-spray/",
+      "original_title": "Base Laboratories | Piercing Aftercare Spray",
+      "current_display_title": "Base Laboratories | Piercing Aftercare Spray",
+      "captured_price": "$22.00",
+      "currency": "USD",
+      "captured_price_amount": 22.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_40_36-PM.png",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_40_36-PM.png",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__base-laboratories-aftercare-spray.html",
+      "asset": "sp-product-18.webp",
+      "asset_path": "assets/sp-product-18.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_40_36-PM.png",
+      "source_sha256": "a15a27e12d1031701480175e3dc7f9491bf65c8a83026fef5865ff8f0ed5500d",
+      "source_dimensions": [
+        1024,
+        1536
+      ],
+      "output_dimensions": [
+        733,
+        1100
+      ],
+      "output_bytes": 55730,
+      "output_sha256": "7259df1ba0e35182b227e034ca38eeeb8891d940e3f5efdee824579b57e7ffee",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 19,
+      "display_group": "Aftercare",
+      "template_block_id": "product_19",
+      "source_url": "https://sideshowproductionstattoo.com/product/ehance-balm-mad-rabbit/",
+      "original_title": "Ehance Balm for Tattoo Aftercare | Mad Rabbit",
+      "current_display_title": "Enhance Balm for Tattoo Aftercare | Mad Rabbit",
+      "captured_price": "$18.00",
+      "currency": "USD",
+      "captured_price_amount": 18.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_05_29-PM.png",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_05_29-PM.png",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__ehance-balm-mad-rabbit.html",
+      "asset": "sp-product-19.webp",
+      "asset_path": "assets/sp-product-19.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_05_29-PM.png",
+      "source_sha256": "1b1e8a94c4287f4b0281697b345d319c00b81437ee83df46b69ee420d3d01977",
+      "source_dimensions": [
+        1024,
+        1536
+      ],
+      "output_dimensions": [
+        733,
+        1100
+      ],
+      "output_bytes": 30692,
+      "output_sha256": "9f03ed85b31ccf4510e20eb6718bfac3a2e481cf85597aa1f902e0e1a7e2d2e0",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 20,
+      "display_group": "Aftercare",
+      "template_block_id": "product_20",
+      "source_url": "https://sideshowproductionstattoo.com/product/steri-wash-piercing-wash/",
+      "original_title": "Steri-Wash | Sterile Saline Piercing Wash",
+      "current_display_title": "Steri-Wash | Sterile Saline Piercing Wash",
+      "captured_price": "$16.00",
+      "currency": "USD",
+      "captured_price_amount": 16.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_41_48-PM.png",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_41_48-PM.png",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__steri-wash-piercing-wash.html",
+      "asset": "sp-product-20.webp",
+      "asset_path": "assets/sp-product-20.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_41_48-PM.png",
+      "source_sha256": "76f1cec72b5daf1e309c70f24b9dc26b21265070720df6126b54b578d9891fe1",
+      "source_dimensions": [
+        1024,
+        1536
+      ],
+      "output_dimensions": [
+        733,
+        1100
+      ],
+      "output_bytes": 34820,
+      "output_sha256": "6211abfc5cdc66b7321c4d774eb8479d5eac9325e91a8816f159a6fc6a183a10",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 21,
+      "display_group": "Aftercare",
+      "template_block_id": "product_21",
+      "source_url": "https://sideshowproductionstattoo.com/product/tattoo-sunscreen-defend-mad-rabbit/",
+      "original_title": "Tattoo Sunscreen - Defend | Mad Rabbit",
+      "current_display_title": "Tattoo Sunscreen - Defend | Mad Rabbit",
+      "captured_price": "$21.00",
+      "currency": "USD",
+      "captured_price_amount": 21.0,
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_04_24-PM.png",
+      "original_image_filepath": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_04_24-PM.png",
+      "stock_declaration": [
+        "InStock"
+      ],
+      "captured_inventory_state": "in_stock",
+      "inventory_quantity": null,
+      "source_variant_options": [],
+      "source_variants": [],
+      "shopify_verified": false,
+      "shopify_product_handle": null,
+      "source_html": "archive/current-site-2026-11-10/pages/product__tattoo-sunscreen-defend-mad-rabbit.html",
+      "asset": "sp-product-21.webp",
+      "asset_path": "assets/sp-product-21.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_04_24-PM.png",
+      "source_sha256": "2993a2060663b2d328a921da47edb046dbd1425f2e3311190f90759d489435f8",
+      "source_dimensions": [
+        1024,
+        1536
+      ],
+      "output_dimensions": [
+        733,
+        1100
+      ],
+      "output_bytes": 33036,
+      "output_sha256": "e3e5e97b7681278d24ac934e4978e16100f6f8389ac869f9fa2e6414d0b27acc",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    }
+  ],
+  "roulette_assets": [
+    {
+      "display_order": 1,
+      "template_block_id": "design_01",
+      "title": "Ink Roulette design #1",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/0D497D0D-C972-4ECA-BCE2-DB93EA8CB3A3-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/0D497D0D-C972-4ECA-BCE2-DB93EA8CB3A3.jpg",
+      "asset": "sp-roulette-01.webp",
+      "asset_path": "assets/sp-roulette-01.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/0D497D0D-C972-4ECA-BCE2-DB93EA8CB3A3.jpg",
+      "source_sha256": "2599d4f3f846bff02b8425422facc735d244cfe7dcd727c77dacef929d43f8b7",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 61632,
+      "output_sha256": "e2e147bd7c0e84968d58a13901f20572257062643a456dedee77f71c9c4d10ff",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 2,
+      "template_block_id": "design_02",
+      "title": "Ink Roulette design #2",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/2A197C2B-3720-423B-88E0-C97E91C2E370-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/2A197C2B-3720-423B-88E0-C97E91C2E370.jpg",
+      "asset": "sp-roulette-02.webp",
+      "asset_path": "assets/sp-roulette-02.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/2A197C2B-3720-423B-88E0-C97E91C2E370.jpg",
+      "source_sha256": "2f64e51d44afdb94fa086047d3583de8e9c90215b51f83c6ae8bf27786d9f289",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 69670,
+      "output_sha256": "d9cae8a1f4d00b297d44d6479be41a33326ab99c51240284c6c4995274461a80",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 3,
+      "template_block_id": "design_03",
+      "title": "Ink Roulette design #3",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/2D8C199E-3D8B-4D8D-A7BC-8CDF0E9C62C1-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/2D8C199E-3D8B-4D8D-A7BC-8CDF0E9C62C1.jpg",
+      "asset": "sp-roulette-03.webp",
+      "asset_path": "assets/sp-roulette-03.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/2D8C199E-3D8B-4D8D-A7BC-8CDF0E9C62C1.jpg",
+      "source_sha256": "52591bb6a9995551b686baeb08df2363ab40b86c3be48690b9a332f735bc3881",
+      "source_dimensions": [
+        848,
+        1131
+      ],
+      "output_dimensions": [
+        750,
+        1000
+      ],
+      "output_bytes": 88042,
+      "output_sha256": "2443c25c9913d598639e5fecf8acf927d0ce822564a1a2c38d801761e4df0af0",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 4,
+      "template_block_id": "design_04",
+      "title": "Ink Roulette design #4",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/3EF87B67-3FA8-4609-9BFD-525AF3F1D760-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/3EF87B67-3FA8-4609-9BFD-525AF3F1D760.jpg",
+      "asset": "sp-roulette-04.webp",
+      "asset_path": "assets/sp-roulette-04.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/3EF87B67-3FA8-4609-9BFD-525AF3F1D760.jpg",
+      "source_sha256": "4528c61e8366da5c2e35b5000f26831495cc25ee979d30abd70ce1dcbbe15de1",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 76962,
+      "output_sha256": "3b426b0d5ed2df805a9eb7c4acfd1b3350bf4811b23acce015a74a1e292c327a",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 5,
+      "template_block_id": "design_05",
+      "title": "Ink Roulette design #5",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/7D1C02F1-4D6E-4FF7-8277-6F1654FDF02D-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/7D1C02F1-4D6E-4FF7-8277-6F1654FDF02D.jpg",
+      "asset": "sp-roulette-05.webp",
+      "asset_path": "assets/sp-roulette-05.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/7D1C02F1-4D6E-4FF7-8277-6F1654FDF02D.jpg",
+      "source_sha256": "ace895b2b2d7166d4700addc2c23fd08b4f249f58024f965140229b5b14c1129",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 126196,
+      "output_sha256": "b5671a6070d018fdba2a74a2f1b263a25345d10401b9c847802e49852d659a3c",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 6,
+      "template_block_id": "design_06",
+      "title": "Ink Roulette design #6",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/8D2BF8D8-5519-45BC-A770-FF5AD1290257-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/8D2BF8D8-5519-45BC-A770-FF5AD1290257.jpg",
+      "asset": "sp-roulette-06.webp",
+      "asset_path": "assets/sp-roulette-06.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/8D2BF8D8-5519-45BC-A770-FF5AD1290257.jpg",
+      "source_sha256": "4fb45e2cf158f286d97f8de94902a4886d1d09069881fb1b1dca5b2d11bc6a53",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 43284,
+      "output_sha256": "72899323b522bb4974cdbf85b76d41aa2053a96b36b45a0ff055b77d4541585b",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 7,
+      "template_block_id": "design_07",
+      "title": "Ink Roulette design #7",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/43E8FD5B-A941-4B9D-9390-6C3A4A56FB80-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/43E8FD5B-A941-4B9D-9390-6C3A4A56FB80.jpg",
+      "asset": "sp-roulette-07.webp",
+      "asset_path": "assets/sp-roulette-07.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/43E8FD5B-A941-4B9D-9390-6C3A4A56FB80.jpg",
+      "source_sha256": "35fe534cb30275a56267270b8ea20beefd0520562287340c7ef2c83f4bd01952",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 66140,
+      "output_sha256": "d0c393f8f83015e40d934b1197eab2198117b4ee8d1fc5ce2513a0c39869b9c4",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 8,
+      "template_block_id": "design_08",
+      "title": "Ink Roulette design #8",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/57D43D4E-7DE6-4D16-AD1F-8BF26EABC298-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/57D43D4E-7DE6-4D16-AD1F-8BF26EABC298.jpg",
+      "asset": "sp-roulette-08.webp",
+      "asset_path": "assets/sp-roulette-08.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/57D43D4E-7DE6-4D16-AD1F-8BF26EABC298.jpg",
+      "source_sha256": "4104e185d4cd2d5da72a2e7e956d26441aacf83de6b8d212b43b3f2fe771481e",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 52028,
+      "output_sha256": "44fe4fbdeb88a1f3e02f6e909c75f2ae3a169d51761417389d4b9d7fe8b9b86f",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 9,
+      "template_block_id": "design_09",
+      "title": "Ink Roulette design #9",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/59B6719C-9A00-43F0-B0E0-575471363726-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/59B6719C-9A00-43F0-B0E0-575471363726.jpg",
+      "asset": "sp-roulette-09.webp",
+      "asset_path": "assets/sp-roulette-09.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/59B6719C-9A00-43F0-B0E0-575471363726.jpg",
+      "source_sha256": "4fb45a60110b9b7956d1a233ad3f6061c4ceb0aeca3ba3e13d5bd489d7308917",
+      "source_dimensions": [
+        848,
+        1131
+      ],
+      "output_dimensions": [
+        750,
+        1000
+      ],
+      "output_bytes": 44474,
+      "output_sha256": "a185edb8093c9fcc9c17aaf7015430f773a786562ae8f28bbb3e807e7e573c1d",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 10,
+      "template_block_id": "design_10",
+      "title": "Ink Roulette design #10",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/67E6CD27-AC47-4090-BA3B-FA7706FD6605-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/67E6CD27-AC47-4090-BA3B-FA7706FD6605.jpg",
+      "asset": "sp-roulette-10.webp",
+      "asset_path": "assets/sp-roulette-10.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/67E6CD27-AC47-4090-BA3B-FA7706FD6605.jpg",
+      "source_sha256": "9ec638125f7268d6f1c90122f898fb99f41ad9fd79b05991c590672633aeac2d",
+      "source_dimensions": [
+        848,
+        1131
+      ],
+      "output_dimensions": [
+        750,
+        1000
+      ],
+      "output_bytes": 87464,
+      "output_sha256": "bada1b5aadffb6cdd28ad707ffaefcc299143de907f3564fb2c2628755ee1bf7",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 11,
+      "template_block_id": "design_11",
+      "title": "Ink Roulette design #11",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/90AACF72-CD6B-4F5B-8B56-1AE758D4EE04-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/90AACF72-CD6B-4F5B-8B56-1AE758D4EE04.jpg",
+      "asset": "sp-roulette-11.webp",
+      "asset_path": "assets/sp-roulette-11.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/90AACF72-CD6B-4F5B-8B56-1AE758D4EE04.jpg",
+      "source_sha256": "9437e2745e2c3ab63a24d28c65ec59161748610e3b05a9cdb0acffa2c1c0fcbe",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 61350,
+      "output_sha256": "02fa31b49b473362b04b0a4e5487bcd6b438dc61b96c25e03e6d78840311af5d",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 12,
+      "template_block_id": "design_12",
+      "title": "Ink Roulette design #12",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/175F157F-E46D-49AC-86CB-8A887BAB7F03-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/175F157F-E46D-49AC-86CB-8A887BAB7F03.jpg",
+      "asset": "sp-roulette-12.webp",
+      "asset_path": "assets/sp-roulette-12.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/175F157F-E46D-49AC-86CB-8A887BAB7F03.jpg",
+      "source_sha256": "80aba82e699dfb3cd6e4b9c5a78c515644d4e09f0bc3faf3ba1634fbbb2271b8",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 87146,
+      "output_sha256": "57ed70cea1cc9cdc16150e0189830f7d9ad27c5ceddd4bf7a7c6362087ff220c",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 13,
+      "template_block_id": "design_13",
+      "title": "Ink Roulette design #13",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/590D921C-0F57-4BE4-9592-6DA1169BF200-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/590D921C-0F57-4BE4-9592-6DA1169BF200.jpg",
+      "asset": "sp-roulette-13.webp",
+      "asset_path": "assets/sp-roulette-13.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/590D921C-0F57-4BE4-9592-6DA1169BF200.jpg",
+      "source_sha256": "a4ff56aa4d4ac2cc0a5f5da094b17b3a7fb0e5f35cb7bbfbb2a842c121fe82f3",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 59704,
+      "output_sha256": "96ee7efddf44e150576ed190353c772b704dc1dc130567bbdf324e920d6da5f2",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 14,
+      "template_block_id": "design_14",
+      "title": "Ink Roulette design #14",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/7485E40C-FB50-4C5B-A4CD-52C0C17F6930-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/7485E40C-FB50-4C5B-A4CD-52C0C17F6930.jpg",
+      "asset": "sp-roulette-14.webp",
+      "asset_path": "assets/sp-roulette-14.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/7485E40C-FB50-4C5B-A4CD-52C0C17F6930.jpg",
+      "source_sha256": "439f76ae6bba97fc5ae384368d4d571973e609975912f4377f113d6fb6b21549",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 64376,
+      "output_sha256": "1a058f7f31052cc68f7870bfde33df51615d6c88f9493bae5e824a85992cc0f1",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 15,
+      "template_block_id": "design_15",
+      "title": "Ink Roulette design #15",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/26736DBD-A7DC-42F4-9905-7AAB1B1E91B4-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/26736DBD-A7DC-42F4-9905-7AAB1B1E91B4.jpg",
+      "asset": "sp-roulette-15.webp",
+      "asset_path": "assets/sp-roulette-15.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/26736DBD-A7DC-42F4-9905-7AAB1B1E91B4.jpg",
+      "source_sha256": "2b5507d61d8d91f7c0c7ea3728ff7b88feea907c6ab9b9843cc508e5eb08b0c3",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 68966,
+      "output_sha256": "4b226bb7f99c70a4aa652084d4fea5fa5027e365fd7302ee7df2a88e4ee5729f",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 16,
+      "template_block_id": "design_16",
+      "title": "Ink Roulette design #16",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/82685590-A70F-4DA2-8F02-1E689B9A0775-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/82685590-A70F-4DA2-8F02-1E689B9A0775.jpg",
+      "asset": "sp-roulette-16.webp",
+      "asset_path": "assets/sp-roulette-16.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/82685590-A70F-4DA2-8F02-1E689B9A0775.jpg",
+      "source_sha256": "96988b49143fb661acaf5bc5996bde37bd26571d83d4345d41255e54d65df97b",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 60922,
+      "output_sha256": "a910164589116c8419652f8c78b3630c4ec3fc14987e85e55f77581ccf366b06",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 17,
+      "template_block_id": "design_17",
+      "title": "Ink Roulette design #17",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/A0E69497-2D42-4D65-9EC8-E9696EE44DB4-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/A0E69497-2D42-4D65-9EC8-E9696EE44DB4.jpg",
+      "asset": "sp-roulette-17.webp",
+      "asset_path": "assets/sp-roulette-17.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/A0E69497-2D42-4D65-9EC8-E9696EE44DB4.jpg",
+      "source_sha256": "03127a8271188faed88c0d5876a3c719eac839673dd643e5127d1d03ef878ed3",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 84496,
+      "output_sha256": "b351617db1aa039f43d285f725e17849ee79f12c6e10433027fa79277305f1a7",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 18,
+      "template_block_id": "design_18",
+      "title": "Ink Roulette design #18",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/A082A4CE-1223-4067-82DC-B20A5A54093C-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/A082A4CE-1223-4067-82DC-B20A5A54093C.jpg",
+      "asset": "sp-roulette-18.webp",
+      "asset_path": "assets/sp-roulette-18.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/A082A4CE-1223-4067-82DC-B20A5A54093C.jpg",
+      "source_sha256": "68d2e12f267ae4312d1606c19040818d9d06c407847f8e3b29cf9ce466102dea",
+      "source_dimensions": [
+        848,
+        1131
+      ],
+      "output_dimensions": [
+        750,
+        1000
+      ],
+      "output_bytes": 65734,
+      "output_sha256": "f79263930bd14564adb4831dbb4910d76eec942619a921f484b81e0602b0c833",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 19,
+      "template_block_id": "design_19",
+      "title": "Ink Roulette design #19",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/AFF563DC-9DD1-4515-BA16-1BD2A3CB7DD9-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/AFF563DC-9DD1-4515-BA16-1BD2A3CB7DD9.jpg",
+      "asset": "sp-roulette-19.webp",
+      "asset_path": "assets/sp-roulette-19.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/AFF563DC-9DD1-4515-BA16-1BD2A3CB7DD9.jpg",
+      "source_sha256": "7e8b7f9d2d9c4b663e0fbdcddb78610ad5417d272e0f2dfc4ac56347306cc5cf",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 69586,
+      "output_sha256": "6b8e08f2262ac721845f64ed8b9c7db7c8c4c9c4d4325cca8e9414ceb23c0a5c",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 20,
+      "template_block_id": "design_20",
+      "title": "Ink Roulette design #20",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/BB91D86B-3332-4E53-837B-2ED54F84F0E0-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/BB91D86B-3332-4E53-837B-2ED54F84F0E0.jpg",
+      "asset": "sp-roulette-20.webp",
+      "asset_path": "assets/sp-roulette-20.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/BB91D86B-3332-4E53-837B-2ED54F84F0E0.jpg",
+      "source_sha256": "f3ffbf885ac0cc7a3c9d0276d9c85d986f21b71c1785531df1a67e0ecf2e2e6e",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 81646,
+      "output_sha256": "aec61704a1157c496178dadd4ad05ef38de700722b27aa70e1cb551e13a7a5fb",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 21,
+      "template_block_id": "design_21",
+      "title": "Ink Roulette design #21",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/BBF16812-C857-4532-8F41-2E3CBB300E7C-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/BBF16812-C857-4532-8F41-2E3CBB300E7C.jpg",
+      "asset": "sp-roulette-21.webp",
+      "asset_path": "assets/sp-roulette-21.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/BBF16812-C857-4532-8F41-2E3CBB300E7C.jpg",
+      "source_sha256": "8ac53345ba2eb73d1f5428db5e2cab9a7476e8a63fc3327441221a3ac1e4d798",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 83950,
+      "output_sha256": "aa31be89ee04881770983fb72bc6e6855a8c1a345f2c0a302676ac0e0462d8b8",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 22,
+      "template_block_id": "design_22",
+      "title": "Ink Roulette design #22",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/C01FD91D-CAAE-4A4C-ACF8-8250C63B7FE4-300x225.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/C01FD91D-CAAE-4A4C-ACF8-8250C63B7FE4.jpg",
+      "asset": "sp-roulette-22.webp",
+      "asset_path": "assets/sp-roulette-22.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/C01FD91D-CAAE-4A4C-ACF8-8250C63B7FE4.jpg",
+      "source_sha256": "14263560a7ae0c92af237842c97577453f7a20f334b06cb55b326fd48eacc3cd",
+      "source_dimensions": [
+        799,
+        599
+      ],
+      "output_dimensions": [
+        799,
+        599
+      ],
+      "output_bytes": 106840,
+      "output_sha256": "1dd80bddce03af5366d688ccd58fe98a1e30a8cd3bfbf26d201f929dbcf825cb",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 23,
+      "template_block_id": "design_23",
+      "title": "Ink Roulette design #23",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/F72F284F-B672-4817-B0EB-6F3C4C2D8E26-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/F72F284F-B672-4817-B0EB-6F3C4C2D8E26.jpg",
+      "asset": "sp-roulette-23.webp",
+      "asset_path": "assets/sp-roulette-23.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/F72F284F-B672-4817-B0EB-6F3C4C2D8E26.jpg",
+      "source_sha256": "e11b2b0e58718db975f343c281ac0b48f487754aaa67d913e35397a206e5e02b",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 55092,
+      "output_sha256": "8f1f73b73683d893bba41aac90cecfcda745bcc815b3a035b11557608e206755",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 24,
+      "template_block_id": "design_24",
+      "title": "Ink Roulette design #24",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/FC9AB94E-C4B1-422B-8ED8-7A0137B354D3-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/FC9AB94E-C4B1-422B-8ED8-7A0137B354D3.jpg",
+      "asset": "sp-roulette-24.webp",
+      "asset_path": "assets/sp-roulette-24.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/FC9AB94E-C4B1-422B-8ED8-7A0137B354D3.jpg",
+      "source_sha256": "3c17807b80d5035b8a505c2b166e23cc828f05bca7b8b03bd7d2a0fa0a98fde6",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 85936,
+      "output_sha256": "1a78a9fc869482c86b1008673cbf92f956a3768f09b03873635af5d6861c3e75",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 25,
+      "template_block_id": "design_25",
+      "title": "Ink Roulette design #25",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/FF7F2026-E239-468B-89EB-517B03E43170-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/FF7F2026-E239-468B-89EB-517B03E43170.jpg",
+      "asset": "sp-roulette-25.webp",
+      "asset_path": "assets/sp-roulette-25.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/FF7F2026-E239-468B-89EB-517B03E43170.jpg",
+      "source_sha256": "3c3fa4f2d006de40176a0cdb2efaf8671ab5de0d1c823dff76e4d05982e6a178",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 58616,
+      "output_sha256": "77c0f2cbf14a855d487c9839562a589f9e1c4f75ebef710bb6aa359c33ac7192",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 26,
+      "template_block_id": "design_26",
+      "title": "Ink Roulette design #26",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218.jpg",
+      "asset": "sp-roulette-26.webp",
+      "asset_path": "assets/sp-roulette-26.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218.jpg",
+      "source_sha256": "e0c3bc1622446390d34b6278cee7511ff0f3306d69ae09965e7940687d4d3519",
+      "source_dimensions": [
+        848,
+        1131
+      ],
+      "output_dimensions": [
+        750,
+        1000
+      ],
+      "output_bytes": 71366,
+      "output_sha256": "a1addc9ca3669fecfe48f32019d2a0b919fb5ef2e6b4b29747355fe87976d3bc",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    },
+    {
+      "display_order": 27,
+      "template_block_id": "design_27",
+      "title": "Ink Roulette design #27",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/1EE0E93D-6FF3-40A9-AD0E-F05BD98309C8-225x300.jpg",
+      "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/1EE0E93D-6FF3-40A9-AD0E-F05BD98309C8.jpg",
+      "asset": "sp-roulette-27.webp",
+      "asset_path": "assets/sp-roulette-27.webp",
+      "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/1EE0E93D-6FF3-40A9-AD0E-F05BD98309C8.jpg",
+      "source_sha256": "a6cb5f0f2da20103e6204080ed2ac59e59ce41345f1934e86ddf7420b406e4fb",
+      "source_dimensions": [
+        599,
+        799
+      ],
+      "output_dimensions": [
+        599,
+        799
+      ],
+      "output_bytes": 101402,
+      "output_sha256": "caabcf1183ad099159bcb93392f7eb320c0d48c267932642958d8a09ef24f3f9",
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+    }
+  ]
+}

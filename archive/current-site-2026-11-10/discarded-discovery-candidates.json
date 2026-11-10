@@ -1,0 +1,509 @@
+{
+  "explanation": "Early crawl interpreted bare media metadata filenames as root URLs. These were not actual public resource links; original source URLs are preserved and verified separately.",
+  "records": [
+    {
+      "url": "https://sideshowproductionstattoo.com/03a6efc0-6cdd-401a-a8ba-775ffa79f4a0-100x100.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/03a6efc0-6cdd-401a-a8ba-775ffa79f4a0-100x100.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/03a6efc0-6cdd-401a-a8ba-775ffa79f4a0.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/03a6efc0-6cdd-401a-a8ba-775ffa79f4a0.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5-100x100.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5-100x100.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5-150x150.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5-150x150.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5-200x300.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5-200x300.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5-300x300.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5-300x300.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5-600x900.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5-600x900.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5-683x1024.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5-683x1024.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5-768x1152.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5-768x1152.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/050124DF-946B-41DA-AAF6-ABDFD226A429-100x100.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/050124DF-946B-41DA-AAF6-ABDFD226A429-100x100.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/050124DF-946B-41DA-AAF6-ABDFD226A429-150x150.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/050124DF-946B-41DA-AAF6-ABDFD226A429-150x150.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/050124DF-946B-41DA-AAF6-ABDFD226A429-240x300.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/050124DF-946B-41DA-AAF6-ABDFD226A429-240x300.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/050124DF-946B-41DA-AAF6-ABDFD226A429-300x300.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/050124DF-946B-41DA-AAF6-ABDFD226A429-300x300.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/050124DF-946B-41DA-AAF6-ABDFD226A429-600x750.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/050124DF-946B-41DA-AAF6-ABDFD226A429-600x750.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/050124DF-946B-41DA-AAF6-ABDFD226A429-768x960.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/050124DF-946B-41DA-AAF6-ABDFD226A429-768x960.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/050124DF-946B-41DA-AAF6-ABDFD226A429-819x1024.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/050124DF-946B-41DA-AAF6-ABDFD226A429-819x1024.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/050124DF-946B-41DA-AAF6-ABDFD226A429.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/050124DF-946B-41DA-AAF6-ABDFD226A429.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/06262a10-23fa-472e-b3cf-b0d54ae4cff9-100x100.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/06262a10-23fa-472e-b3cf-b0d54ae4cff9-100x100.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/06262a10-23fa-472e-b3cf-b0d54ae4cff9-1152x1536.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/06262a10-23fa-472e-b3cf-b0d54ae4cff9-1152x1536.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/06262a10-23fa-472e-b3cf-b0d54ae4cff9-150x150.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/06262a10-23fa-472e-b3cf-b0d54ae4cff9-150x150.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/06262a10-23fa-472e-b3cf-b0d54ae4cff9-225x300.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/06262a10-23fa-472e-b3cf-b0d54ae4cff9-225x300.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/06262a10-23fa-472e-b3cf-b0d54ae4cff9-300x300.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/06262a10-23fa-472e-b3cf-b0d54ae4cff9-300x300.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/06262a10-23fa-472e-b3cf-b0d54ae4cff9-600x800.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/06262a10-23fa-472e-b3cf-b0d54ae4cff9-600x800.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/06262a10-23fa-472e-b3cf-b0d54ae4cff9-768x1024.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/06262a10-23fa-472e-b3cf-b0d54ae4cff9-768x1024.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/06262a10-23fa-472e-b3cf-b0d54ae4cff9.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/06262a10-23fa-472e-b3cf-b0d54ae4cff9.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/0D497D0D-C972-4ECA-BCE2-DB93EA8CB3A3-100x100.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/0D497D0D-C972-4ECA-BCE2-DB93EA8CB3A3-100x100.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/0D497D0D-C972-4ECA-BCE2-DB93EA8CB3A3-150x150.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/0D497D0D-C972-4ECA-BCE2-DB93EA8CB3A3-150x150.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/0D497D0D-C972-4ECA-BCE2-DB93EA8CB3A3-225x300.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/0D497D0D-C972-4ECA-BCE2-DB93EA8CB3A3-225x300.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/0D497D0D-C972-4ECA-BCE2-DB93EA8CB3A3-300x300.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/0D497D0D-C972-4ECA-BCE2-DB93EA8CB3A3-300x300.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/0D497D0D-C972-4ECA-BCE2-DB93EA8CB3A3.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/0D497D0D-C972-4ECA-BCE2-DB93EA8CB3A3.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/175F157F-E46D-49AC-86CB-8A887BAB7F03-100x100.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/175F157F-E46D-49AC-86CB-8A887BAB7F03-100x100.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/175F157F-E46D-49AC-86CB-8A887BAB7F03-150x150.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/175F157F-E46D-49AC-86CB-8A887BAB7F03-150x150.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/175F157F-E46D-49AC-86CB-8A887BAB7F03-225x300.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/175F157F-E46D-49AC-86CB-8A887BAB7F03-225x300.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/175F157F-E46D-49AC-86CB-8A887BAB7F03-300x300.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/175F157F-E46D-49AC-86CB-8A887BAB7F03-300x300.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/175F157F-E46D-49AC-86CB-8A887BAB7F03.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/175F157F-E46D-49AC-86CB-8A887BAB7F03.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1793627365890_image-100x100.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1793627365890_image-100x100.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1793627365890_image-150x150.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1793627365890_image-150x150.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1793627365890_image-240x300.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1793627365890_image-240x300.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1793627365890_image-300x300.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1793627365890_image-300x300.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1793627365890_image-600x750.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1793627365890_image-600x750.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1793627365890_image.png",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1793627365890_image.png",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218-100x100.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218-100x100.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218-150x150.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218-150x150.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218-225x300.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218-225x300.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218-300x300.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218-300x300.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218-600x800.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218-600x800.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218-768x1024.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218-768x1024.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7-100x100.webp",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7-100x100.webp",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7-150x150.webp",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7-150x150.webp",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7-225x300.webp",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7-225x300.webp",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7-300x225.webp",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7-300x225.webp",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7-300x300.webp",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7-300x300.webp",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7.webp",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7.webp",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1EE0E93D-6FF3-40A9-AD0E-F05BD98309C8-100x100.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1EE0E93D-6FF3-40A9-AD0E-F05BD98309C8-100x100.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1EE0E93D-6FF3-40A9-AD0E-F05BD98309C8-150x150.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1EE0E93D-6FF3-40A9-AD0E-F05BD98309C8-150x150.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1EE0E93D-6FF3-40A9-AD0E-F05BD98309C8-225x300.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1EE0E93D-6FF3-40A9-AD0E-F05BD98309C8-225x300.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1EE0E93D-6FF3-40A9-AD0E-F05BD98309C8-300x300.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1EE0E93D-6FF3-40A9-AD0E-F05BD98309C8-300x300.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1EE0E93D-6FF3-40A9-AD0E-F05BD98309C8.jpg",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1EE0E93D-6FF3-40A9-AD0E-F05BD98309C8.jpg",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1FD34741-F874-450B-9CC3-5D6CB42CCBA0-100x100.webp",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1FD34741-F874-450B-9CC3-5D6CB42CCBA0-100x100.webp",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1FD34741-F874-450B-9CC3-5D6CB42CCBA0-150x150.webp",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1FD34741-F874-450B-9CC3-5D6CB42CCBA0-150x150.webp",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    },
+    {
+      "url": "https://sideshowproductionstattoo.com/1FD34741-F874-450B-9CC3-5D6CB42CCBA0-249x300.webp",
+      "kind": "asset",
+      "status": 404,
+      "final_url": "https://sideshowproductionstattoo.com/1FD34741-F874-450B-9CC3-5D6CB42CCBA0-249x300.webp",
+      "content_type": "text/html; charset=UTF-8",
+      "headers": {}
+    }
+  ]
+}

@@ -1,0 +1,727 @@
+{
+  "captured_at": "2026-11-10T23:05:58.134550+00:00",
+  "source": "Saved public product HTML with Product/Offer JSON-LD and visible gallery images",
+  "product_count": 21,
+  "notes": [
+    "Prices and availability reflect the captured public site, not Shopify inventory.",
+    "Original titles retained, including source spelling errors.",
+    "Quantity is unknown unless explicitly provided by source; no quantity was inferred.",
+    "No checkout, cart action, or authenticated request was made."
+  ],
+  "products": [
+    {
+      "title": "Aftercare Soothing Gel for Tattoo's | Mad Rabbit",
+      "title_raw": "Aftercare Soothing Gel for Tattoo’s | Mad Rabbit",
+      "handle": "aftercare-soothing-gel-for-tattoos-mad-rabbit",
+      "price": 21.0,
+      "min_price": 21.0,
+      "max_price": 21.0,
+      "price_display": "$21.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_08_34-PM.png",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_08_34-PM.png",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_08_34-PM.png",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_08_34-PM.png",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_08_34-PM.png",
+          "alt": "",
+          "width": 1024,
+          "height": 1536
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/aftercare-soothing-gel-for-tattoos-mad-rabbit/",
+      "source_html": "pages/product__aftercare-soothing-gel-for-tattoos-mad-rabbit.html",
+      "category": "Products",
+      "description": "Repair – Soothing Gel ($21)",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Base Laboratories | Piercing Aftercare Spray",
+      "title_raw": "Base Laboratories | Piercing Aftercare Spray",
+      "handle": "base-laboratories-aftercare-spray",
+      "price": 22.0,
+      "min_price": 22.0,
+      "max_price": 22.0,
+      "price_display": "$22.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_40_36-PM.png",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_40_36-PM.png",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_40_36-PM.png",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_40_36-PM.png",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_40_36-PM.png",
+          "alt": "Aftercare spray with soothing elements",
+          "width": 1024,
+          "height": 1536
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/base-laboratories-aftercare-spray/",
+      "source_html": "pages/product__base-laboratories-aftercare-spray.html",
+      "category": "Products",
+      "description": "Base Laboratories Piercing Aftercare Spray ($22)",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Ehance Balm for Tattoo Aftercare | Mad Rabbit",
+      "title_raw": "Ehance Balm for Tattoo Aftercare | Mad Rabbit",
+      "handle": "ehance-balm-mad-rabbit",
+      "price": 18.0,
+      "min_price": 18.0,
+      "max_price": 18.0,
+      "price_display": "$18.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_05_29-PM.png",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_05_29-PM.png",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_05_29-PM.png",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_05_29-PM.png",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_05_29-PM.png",
+          "alt": "",
+          "width": 1024,
+          "height": 1536
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/ehance-balm-mad-rabbit/",
+      "source_html": "pages/product__ehance-balm-mad-rabbit.html",
+      "category": "Products",
+      "description": "Enhance – Tattoo Revitalizer ($18)",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Sideshow Productions 3 Eyed Lady Long Sleeve",
+      "title_raw": "Sideshow Productions 3 Eyed Lady Long Sleeve",
+      "handle": "sideshow-productions-3-eyed-lady-long-sleeve",
+      "price": 25.0,
+      "min_price": 25.0,
+      "max_price": 25.0,
+      "price_display": "$25.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/8A989CE5-D3CF-4731-8C5D-1029886421CB.webp",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/8A989CE5-D3CF-4731-8C5D-1029886421CB.webp",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/8A989CE5-D3CF-4731-8C5D-1029886421CB.webp",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/8A989CE5-D3CF-4731-8C5D-1029886421CB.webp",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/8A989CE5-D3CF-4731-8C5D-1029886421CB.webp",
+          "alt": "",
+          "width": 508,
+          "height": 676
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-3-eyed-lady-long-sleeve/",
+      "source_html": "pages/product__sideshow-productions-3-eyed-lady-long-sleeve.html",
+      "category": "Products",
+      "description": "",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Sideshow Productions Circus Lady Long Sleeve",
+      "title_raw": "Sideshow Productions Circus Lady Long Sleeve",
+      "handle": "sideshow-productions-circus-lady-long-sleeve",
+      "price": 25.0,
+      "min_price": 25.0,
+      "max_price": 25.0,
+      "price_display": "$25.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/sideshowproductionstattoo_249466638_4585124344867172_8185758163476328029_n.jpg",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/sideshowproductionstattoo_249466638_4585124344867172_8185758163476328029_n.jpg",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/sideshowproductionstattoo_249466638_4585124344867172_8185758163476328029_n.jpg",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/sideshowproductionstattoo_249466638_4585124344867172_8185758163476328029_n.jpg",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/sideshowproductionstattoo_249466638_4585124344867172_8185758163476328029_n.jpg",
+          "alt": "",
+          "width": 1080,
+          "height": 1080
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-circus-lady-long-sleeve/",
+      "source_html": "pages/product__sideshow-productions-circus-lady-long-sleeve.html",
+      "category": "Products",
+      "description": "",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Sideshow Productions Colorful Octopus Tee",
+      "title_raw": "Sideshow Productions Colorful Octopus Tee",
+      "handle": "sideshow-productions-colorful-octopus-tee",
+      "price": 20.0,
+      "min_price": 20.0,
+      "max_price": 20.0,
+      "price_display": "$20.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/C6412B67-E2C1-49A1-A215-8D3B5217F4E1.webp",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/C6412B67-E2C1-49A1-A215-8D3B5217F4E1.webp",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/C6412B67-E2C1-49A1-A215-8D3B5217F4E1.webp",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/C6412B67-E2C1-49A1-A215-8D3B5217F4E1.webp",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/C6412B67-E2C1-49A1-A215-8D3B5217F4E1.webp",
+          "alt": "",
+          "width": 552,
+          "height": 676
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-colorful-octopus-tee/",
+      "source_html": "pages/product__sideshow-productions-colorful-octopus-tee.html",
+      "category": "Products",
+      "description": "",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Sideshow Productions Conjoined Skeletons Long Sleeve",
+      "title_raw": "Sideshow Productions Conjoined Skeletons Long Sleeve",
+      "handle": "sideshow-productions-conjoined-skeletons-long-sleeve",
+      "price": 25.0,
+      "min_price": 25.0,
+      "max_price": 25.0,
+      "price_display": "$25.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/777825F5-C746-4F41-8F9A-0206500A40CB.webp",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/777825F5-C746-4F41-8F9A-0206500A40CB.webp",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/777825F5-C746-4F41-8F9A-0206500A40CB.webp",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/777825F5-C746-4F41-8F9A-0206500A40CB.webp",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/777825F5-C746-4F41-8F9A-0206500A40CB.webp",
+          "alt": "",
+          "width": 583,
+          "height": 676
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-conjoined-skeletons-long-sleeve/",
+      "source_html": "pages/product__sideshow-productions-conjoined-skeletons-long-sleeve.html",
+      "category": "Products",
+      "description": "",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Sideshow Productions Freex Beanie",
+      "title_raw": "Sideshow Productions Freex Beanie",
+      "handle": "sideshow-productions-freex-beanie",
+      "price": 10.0,
+      "min_price": 10.0,
+      "max_price": 10.0,
+      "price_display": "$10.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/44B8BF7F-430E-4241-AF33-B484742652F0.webp",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/44B8BF7F-430E-4241-AF33-B484742652F0.webp",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/44B8BF7F-430E-4241-AF33-B484742652F0.webp",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/44B8BF7F-430E-4241-AF33-B484742652F0.webp",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/44B8BF7F-430E-4241-AF33-B484742652F0.webp",
+          "alt": "",
+          "width": 600,
+          "height": 676
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-freex-beanie/",
+      "source_html": "pages/product__sideshow-productions-freex-beanie.html",
+      "category": "Products",
+      "description": "",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Sideshow Productions Gray Hat",
+      "title_raw": "Sideshow Productions Gray Hat",
+      "handle": "sideshow-productions-gray-hat",
+      "price": 15.0,
+      "min_price": 15.0,
+      "max_price": 15.0,
+      "price_display": "$15.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/441623288_979272287111444_6943540419869774814_n.jpg",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/441623288_979272287111444_6943540419869774814_n.jpg",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/441623288_979272287111444_6943540419869774814_n.jpg",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/441623288_979272287111444_6943540419869774814_n.jpg",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/441623288_979272287111444_6943540419869774814_n.jpg",
+          "alt": "",
+          "width": 1440,
+          "height": 2560
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-gray-hat/",
+      "source_html": "pages/product__sideshow-productions-gray-hat.html",
+      "category": "Products",
+      "description": "",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Sideshow Productions Hard Skull Short Sleeve",
+      "title_raw": "Sideshow Productions Hard Skull Short Sleeve",
+      "handle": "sideshow-productions-hard-skull-short-sleeve",
+      "price": 28.0,
+      "min_price": 28.0,
+      "max_price": 28.0,
+      "price_display": "$28.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Sideshow-Productions-Hard-Skull-Short-Sleeve.png",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Sideshow-Productions-Hard-Skull-Short-Sleeve.png",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Sideshow-Productions-Hard-Skull-Short-Sleeve.png",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Sideshow-Productions-Hard-Skull-Short-Sleeve.png",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Sideshow-Productions-Hard-Skull-Short-Sleeve.png",
+          "alt": "",
+          "width": 560,
+          "height": 758
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-hard-skull-short-sleeve/",
+      "source_html": "pages/product__sideshow-productions-hard-skull-short-sleeve.html",
+      "category": "Products",
+      "description": "",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Sideshow Productions Ink Therapy Tee",
+      "title_raw": "Sideshow Productions Ink Therapy Tee",
+      "handle": "sideshow-productions-ink-therapy-tee",
+      "price": 20.0,
+      "min_price": 20.0,
+      "max_price": 20.0,
+      "price_display": "$20.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/D22D1CDA-8718-493A-A0A2-AE2FDA893F5A.webp",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/D22D1CDA-8718-493A-A0A2-AE2FDA893F5A.webp",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/D22D1CDA-8718-493A-A0A2-AE2FDA893F5A.webp",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/D22D1CDA-8718-493A-A0A2-AE2FDA893F5A.webp",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/D22D1CDA-8718-493A-A0A2-AE2FDA893F5A.webp",
+          "alt": "",
+          "width": 674,
+          "height": 676
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-ink-therapy-tee/",
+      "source_html": "pages/product__sideshow-productions-ink-therapy-tee.html",
+      "category": "Products",
+      "description": "",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Sideshow Productions Inked Octopus Tee",
+      "title_raw": "Sideshow Productions Inked Octopus Tee",
+      "handle": "sideshow-productions-inked-octopus-tee",
+      "price": 20.0,
+      "min_price": 20.0,
+      "max_price": 20.0,
+      "price_display": "$20.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/1FD34741-F874-450B-9CC3-5D6CB42CCBA0.webp",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/1FD34741-F874-450B-9CC3-5D6CB42CCBA0.webp",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/1FD34741-F874-450B-9CC3-5D6CB42CCBA0.webp",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/1FD34741-F874-450B-9CC3-5D6CB42CCBA0.webp",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/1FD34741-F874-450B-9CC3-5D6CB42CCBA0.webp",
+          "alt": "",
+          "width": 562,
+          "height": 676
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-inked-octopus-tee/",
+      "source_html": "pages/product__sideshow-productions-inked-octopus-tee.html",
+      "category": "Products",
+      "description": "",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Sideshow Productions Monster Tattoo Long Sleeve",
+      "title_raw": "Sideshow Productions Monster Tattoo  Long Sleeve",
+      "handle": "sideshow-productions-monster-tattoo-long-sleeve",
+      "price": 25.0,
+      "min_price": 25.0,
+      "max_price": 25.0,
+      "price_display": "$25.00",
+      "currency": "USD",
+      "inventory_state": "out_of_stock",
+      "source_availability": [
+        "OutOfStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/ACB9DCE9-19F9-4CD9-B573-16FABF73D112.webp",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/ACB9DCE9-19F9-4CD9-B573-16FABF73D112.webp",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/ACB9DCE9-19F9-4CD9-B573-16FABF73D112.webp",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/ACB9DCE9-19F9-4CD9-B573-16FABF73D112.webp",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/ACB9DCE9-19F9-4CD9-B573-16FABF73D112.webp",
+          "alt": "",
+          "width": 508,
+          "height": 676
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-monster-tattoo-long-sleeve/",
+      "source_html": "pages/product__sideshow-productions-monster-tattoo-long-sleeve.html",
+      "category": "Products",
+      "description": "Step right up and behold the spectacle of the Sideshow Productions Long Sleeve 'Monster Tattoo Freex' Tee! Crafted for the daring spirit and the soul of the carnival, this shirt is not just apparel—it's a declaration of uniqueness and audacity.",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Sideshow Productions Scientist Ladies Hoodie",
+      "title_raw": "Sideshow Productions Scientist Ladies Hoodie",
+      "handle": "sideshow-productions-scientist-ladies-hoodie",
+      "price": 40.0,
+      "min_price": 40.0,
+      "max_price": 40.0,
+      "price_display": "$40.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/349272F9-EDF3-42B4-9D46-B639848615B7.webp",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/349272F9-EDF3-42B4-9D46-B639848615B7.webp",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/349272F9-EDF3-42B4-9D46-B639848615B7.webp",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/349272F9-EDF3-42B4-9D46-B639848615B7.webp",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/349272F9-EDF3-42B4-9D46-B639848615B7.webp",
+          "alt": "",
+          "width": 508,
+          "height": 676
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-scientist-ladies-hoodie/",
+      "source_html": "pages/product__sideshow-productions-scientist-ladies-hoodie.html",
+      "category": "Products",
+      "description": "",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Sideshow Productions Tattoo Dracula Pullover",
+      "title_raw": "Sideshow Productions Tattoo Dracula Pullover",
+      "handle": "sideshow-productions-tattoo-dracula-pullover",
+      "price": 40.0,
+      "min_price": 40.0,
+      "max_price": 40.0,
+      "price_display": "$40.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/5CFE0955-58AB-4EEE-B2F4-AA485BB63A49.webp",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/5CFE0955-58AB-4EEE-B2F4-AA485BB63A49.webp",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/5CFE0955-58AB-4EEE-B2F4-AA485BB63A49.webp",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/5CFE0955-58AB-4EEE-B2F4-AA485BB63A49.webp",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/5CFE0955-58AB-4EEE-B2F4-AA485BB63A49.webp",
+          "alt": "",
+          "width": 578,
+          "height": 676
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-tattoo-dracula-pullover/",
+      "source_html": "pages/product__sideshow-productions-tattoo-dracula-pullover.html",
+      "category": "Products",
+      "description": "",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Sideshow Productions Tie Dye Skull Short Sleeve",
+      "title_raw": "Sideshow Productions Tie Dye Skull Short Sleeve",
+      "handle": "sideshow-productions-tie-dye-skull-short-sleeve",
+      "price": 28.0,
+      "min_price": 28.0,
+      "max_price": 28.0,
+      "price_display": "$28.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/476486510_654734523612330_3109943415180603564_n.jpg",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/476486510_654734523612330_3109943415180603564_n.jpg",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/476486510_654734523612330_3109943415180603564_n.jpg",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/476486510_654734523612330_3109943415180603564_n.jpg",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/476486510_654734523612330_3109943415180603564_n.jpg",
+          "alt": "",
+          "width": 616,
+          "height": 640
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-tie-dye-skull-short-sleeve/",
+      "source_html": "pages/product__sideshow-productions-tie-dye-skull-short-sleeve.html",
+      "category": "Products",
+      "description": "",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Sideshow Productions Ware Wolf Tattoo Tee",
+      "title_raw": "Sideshow Productions Ware Wolf Tattoo Tee",
+      "handle": "sideshow-productions-ware-wolf-tattoo-tee",
+      "price": 20.0,
+      "min_price": 20.0,
+      "max_price": 20.0,
+      "price_display": "$20.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7.webp",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7.webp",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7.webp",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7.webp",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/1C92ADD8-3185-4EEB-BE57-1E5BD763F6E7.webp",
+          "alt": "",
+          "width": 508,
+          "height": 676
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-ware-wolf-tattoo-tee/",
+      "source_html": "pages/product__sideshow-productions-ware-wolf-tattoo-tee.html",
+      "category": "Products",
+      "description": "",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Sideshow Productions White Tote Bag",
+      "title_raw": "Sideshow Productions White Tote Bag",
+      "handle": "sideshow-productions-white-tote-bag",
+      "price": 15.0,
+      "min_price": 15.0,
+      "max_price": 15.0,
+      "price_display": "$15.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/441535113_1120288905904483_4553324281305310860_n.jpg",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/441535113_1120288905904483_4553324281305310860_n.jpg",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/441535113_1120288905904483_4553324281305310860_n.jpg",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/441535113_1120288905904483_4553324281305310860_n.jpg",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/441535113_1120288905904483_4553324281305310860_n.jpg",
+          "alt": "",
+          "width": 1440,
+          "height": 2560
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-white-tote-bag/",
+      "source_html": "pages/product__sideshow-productions-white-tote-bag.html",
+      "category": "Products",
+      "description": "",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Sideshow Productions Woman Skull Short Sleeve",
+      "title_raw": "Sideshow Productions Woman Skull Short Sleeve",
+      "handle": "sideshow-productions-wman-skull-short-sleeve",
+      "price": 20.0,
+      "min_price": 20.0,
+      "max_price": 20.0,
+      "price_display": "$20.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/476503417_1781609856022375_781671424847425057_n.jpg",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/476503417_1781609856022375_781671424847425057_n.jpg",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/476503417_1781609856022375_781671424847425057_n.jpg",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/476503417_1781609856022375_781671424847425057_n.jpg",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/476503417_1781609856022375_781671424847425057_n.jpg",
+          "alt": "",
+          "width": 706,
+          "height": 800
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-wman-skull-short-sleeve/",
+      "source_html": "pages/product__sideshow-productions-wman-skull-short-sleeve.html",
+      "category": "Products",
+      "description": "Price is Online Only",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Steri-Wash | Sterile Saline Piercing Wash",
+      "title_raw": "Steri-Wash | Sterile Saline Piercing Wash",
+      "handle": "steri-wash-piercing-wash",
+      "price": 16.0,
+      "min_price": 16.0,
+      "max_price": 16.0,
+      "price_display": "$16.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_41_48-PM.png",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_41_48-PM.png",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_41_48-PM.png",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_41_48-PM.png",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_41_48-PM.png",
+          "alt": "Steri-Wash and aftercare essentials",
+          "width": 1024,
+          "height": 1536
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/steri-wash-piercing-wash/",
+      "source_html": "pages/product__steri-wash-piercing-wash.html",
+      "category": "Products",
+      "description": "Steri-Wash – Sterile Saline Piercing Wash ($15)",
+      "options": [],
+      "variants": []
+    },
+    {
+      "title": "Tattoo Sunscreen - Defend | Mad Rabbit",
+      "title_raw": "Tattoo Sunscreen – Defend | Mad Rabbit",
+      "handle": "tattoo-sunscreen-defend-mad-rabbit",
+      "price": 21.0,
+      "min_price": 21.0,
+      "max_price": 21.0,
+      "price_display": "$21.00",
+      "currency": "USD",
+      "inventory_state": "in_stock",
+      "source_availability": [
+        "InStock"
+      ],
+      "availability_source": "Public product JSON-LD, not a live inventory export",
+      "inventory_quantity": null,
+      "image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_04_24-PM.png",
+      "image_local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_04_24-PM.png",
+      "images": [
+        {
+          "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_04_24-PM.png",
+          "original_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_04_24-PM.png",
+          "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_04_24-PM.png",
+          "alt": "",
+          "width": 1024,
+          "height": 1536
+        }
+      ],
+      "product_url": "https://sideshowproductionstattoo.com/product/tattoo-sunscreen-defend-mad-rabbit/",
+      "source_html": "pages/product__tattoo-sunscreen-defend-mad-rabbit.html",
+      "category": "Products",
+      "description": "Defend – Tattoo Sunscreen SPF 30 ($21)",
+      "options": [],
+      "variants": []
+    }
+  ]
+}

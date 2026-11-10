@@ -1,0 +1,121 @@
+{
+  "layout": "studio",
+  "sections": {
+    "section_1": {
+      "type": "studio-page",
+      "settings": {
+        "title": "MORE WAYS TO BE YOU.",
+        "copy": "A custom tattoo, a new piercing, a little sparkle. Explore the studio's services and find your next thing.",
+        "kicker": "WHAT WE DO"
+      }
+    },
+    "section_2": {
+      "type": "studio-services",
+      "settings": {},
+      "blocks": {
+        "block_1": {
+          "type": "service",
+          "settings": {
+            "title": "Custom tattoos",
+            "description": "Black and grey, fine lines, lettering, bold ideas. Made for you.",
+            "note": "JAKE & RIGO",
+            "link": "/pages/artists"
+          }
+        },
+        "block_2": {
+          "type": "service",
+          "settings": {
+            "title": "Piercings",
+            "description": "A thoughtful placement. A little edge. Find your next favorite piece.",
+            "note": "WITH SONNY",
+            "link": "/pages/artists#sonny"
+          }
+        },
+        "block_3": {
+          "type": "service",
+          "settings": {
+            "title": "Tooth gems",
+            "description": "Something small that makes a statement. Add a little sparkle.",
+            "note": "WITH MEGAN",
+            "link": "/pages/artists#megan"
+          }
+        },
+        "block_4": {
+          "type": "service",
+          "settings": {
+            "title": "Teeth whitening",
+            "description": "Make room for a brighter smile. Explore sessions with Megan.",
+            "note": "WITH MEGAN",
+            "link": "/pages/artists#megan"
+          }
+        },
+        "block_5": {
+          "type": "service",
+          "settings": {
+            "title": "Microblading",
+            "description": "Interested in brows? Contact the studio to confirm the current service and availability.",
+            "note": "ASK THE STUDIO",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4",
+        "block_5"
+      ]
+    },
+    "section_3": {
+      "type": "studio-faq",
+      "settings": {},
+      "blocks": {
+        "block_1": {
+          "type": "question",
+          "settings": {
+            "question": "How much will my tattoo cost?",
+            "answer": "<p>Jake and Rigo's published starting rate is $100 per hour, with a $50 deposit credited toward the total. Your artist will confirm the price for your design, size, and placement.</p>"
+          }
+        },
+        "block_2": {
+          "type": "question",
+          "settings": {
+            "question": "Can I book more than one service?",
+            "answer": "<p>Let the studio know what you have in mind so the team can confirm the right artists and appointment times.</p>"
+          }
+        },
+        "block_3": {
+          "type": "question",
+          "settings": {
+            "question": "Can I walk in?",
+            "answer": "<p>Contact the studio before you head over. Walk-in availability depends on the service, artist schedules, and any events running that day.</p>"
+          }
+        },
+        "block_4": {
+          "type": "question",
+          "settings": {
+            "question": "Where can I check artist availability?",
+            "answer": "<p>Each artist's page includes published hours. Your exact appointment is confirmed when you book with the studio.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4"
+      ]
+    },
+    "section_4": {
+      "type": "studio-visit",
+      "settings": {}
+    }
+  },
+  "order": [
+    "section_1",
+    "section_2",
+    "section_3",
+    "section_4"
+  ]
+}

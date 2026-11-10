@@ -1,0 +1,235 @@
+{
+  "layout": "studio",
+  "sections": {
+    "section_1": {
+      "type": "studio-page",
+      "settings": {
+        "title": "WEAR YOUR SIDESHOW.",
+        "copy": "Studio merch, everyday favorites, and aftercare essentials. Explore what's in the shop.",
+        "kicker": "THE STUDIO SHOP"
+      }
+    },
+    "section_2": {
+      "type": "studio-shop",
+      "settings": {},
+      "blocks": {
+        "product_01": {
+          "type": "item",
+          "settings": {
+            "title": "Sideshow Productions 3 Eyed Lady Long Sleeve",
+            "asset": "sp-product-01.webp",
+            "price": "$25.00",
+            "sold_out": false
+          }
+        },
+        "product_02": {
+          "type": "item",
+          "settings": {
+            "title": "Sideshow Productions Circus Lady Long Sleeve",
+            "asset": "sp-product-02.webp",
+            "price": "$25.00",
+            "sold_out": false
+          }
+        },
+        "product_03": {
+          "type": "item",
+          "settings": {
+            "title": "Sideshow Productions Colorful Octopus Tee",
+            "asset": "sp-product-03.webp",
+            "price": "$20.00",
+            "sold_out": false
+          }
+        },
+        "product_04": {
+          "type": "item",
+          "settings": {
+            "title": "Sideshow Productions Conjoined Skeletons Long Sleeve",
+            "asset": "sp-product-04.webp",
+            "price": "$25.00",
+            "sold_out": false
+          }
+        },
+        "product_05": {
+          "type": "item",
+          "settings": {
+            "title": "Sideshow Productions Freex Beanie",
+            "asset": "sp-product-05.webp",
+            "price": "$10.00",
+            "sold_out": false
+          }
+        },
+        "product_06": {
+          "type": "item",
+          "settings": {
+            "title": "Sideshow Productions Gray Hat",
+            "asset": "sp-product-06.webp",
+            "price": "$15.00",
+            "sold_out": false
+          }
+        },
+        "product_07": {
+          "type": "item",
+          "settings": {
+            "title": "Sideshow Productions Hard Skull Short Sleeve",
+            "asset": "sp-product-07.webp",
+            "price": "$28.00",
+            "sold_out": false
+          }
+        },
+        "product_08": {
+          "type": "item",
+          "settings": {
+            "title": "Sideshow Productions Ink Therapy Tee",
+            "asset": "sp-product-08.webp",
+            "price": "$20.00",
+            "sold_out": false
+          }
+        },
+        "product_09": {
+          "type": "item",
+          "settings": {
+            "title": "Sideshow Productions Inked Octopus Tee",
+            "asset": "sp-product-09.webp",
+            "price": "$20.00",
+            "sold_out": false
+          }
+        },
+        "product_10": {
+          "type": "item",
+          "settings": {
+            "title": "Sideshow Productions Monster Tattoo Long Sleeve",
+            "asset": "sp-product-10.webp",
+            "price": "$25.00",
+            "sold_out": true
+          }
+        },
+        "product_11": {
+          "type": "item",
+          "settings": {
+            "title": "Sideshow Productions Scientist Ladies Hoodie",
+            "asset": "sp-product-11.webp",
+            "price": "$40.00",
+            "sold_out": false
+          }
+        },
+        "product_12": {
+          "type": "item",
+          "settings": {
+            "title": "Sideshow Productions Tattoo Dracula Pullover",
+            "asset": "sp-product-12.webp",
+            "price": "$40.00",
+            "sold_out": false
+          }
+        },
+        "product_13": {
+          "type": "item",
+          "settings": {
+            "title": "Sideshow Productions Tie Dye Skull Short Sleeve",
+            "asset": "sp-product-13.webp",
+            "price": "$28.00",
+            "sold_out": false
+          }
+        },
+        "product_14": {
+          "type": "item",
+          "settings": {
+            "title": "Sideshow Productions Werewolf Tattoo Tee",
+            "asset": "sp-product-14.webp",
+            "price": "$20.00",
+            "sold_out": false
+          }
+        },
+        "product_15": {
+          "type": "item",
+          "settings": {
+            "title": "Sideshow Productions White Tote Bag",
+            "asset": "sp-product-15.webp",
+            "price": "$15.00",
+            "sold_out": false
+          }
+        },
+        "product_16": {
+          "type": "item",
+          "settings": {
+            "title": "Sideshow Productions Woman Skull Short Sleeve",
+            "asset": "sp-product-16.webp",
+            "price": "$20.00",
+            "sold_out": false
+          }
+        },
+        "product_17": {
+          "type": "item",
+          "settings": {
+            "title": "Aftercare Soothing Gel for Tattoos | Mad Rabbit",
+            "asset": "sp-product-17.webp",
+            "price": "$21.00",
+            "sold_out": false
+          }
+        },
+        "product_18": {
+          "type": "item",
+          "settings": {
+            "title": "Base Laboratories | Piercing Aftercare Spray",
+            "asset": "sp-product-18.webp",
+            "price": "$22.00",
+            "sold_out": false
+          }
+        },
+        "product_19": {
+          "type": "item",
+          "settings": {
+            "title": "Enhance Balm for Tattoo Aftercare | Mad Rabbit",
+            "asset": "sp-product-19.webp",
+            "price": "$18.00",
+            "sold_out": false
+          }
+        },
+        "product_20": {
+          "type": "item",
+          "settings": {
+            "title": "Steri-Wash | Sterile Saline Piercing Wash",
+            "asset": "sp-product-20.webp",
+            "price": "$16.00",
+            "sold_out": false
+          }
+        },
+        "product_21": {
+          "type": "item",
+          "settings": {
+            "title": "Tattoo Sunscreen - Defend | Mad Rabbit",
+            "asset": "sp-product-21.webp",
+            "price": "$21.00",
+            "sold_out": false
+          }
+        }
+      },
+      "block_order": [
+        "product_01",
+        "product_02",
+        "product_03",
+        "product_04",
+        "product_05",
+        "product_06",
+        "product_07",
+        "product_08",
+        "product_09",
+        "product_10",
+        "product_11",
+        "product_12",
+        "product_13",
+        "product_14",
+        "product_15",
+        "product_16",
+        "product_17",
+        "product_18",
+        "product_19",
+        "product_20",
+        "product_21"
+      ]
+    }
+  },
+  "order": [
+    "section_1",
+    "section_2"
+  ]
+}

@@ -1,0 +1,20 @@
+# Development and source capture are never theme upload payloads
+.git
+.git/**
+.gitignore
+.ai-bridge
+.ai-bridge/**
+node_modules
+node_modules/**
+scripts
+scripts/**
+docs
+docs/**
+archive
+archive/**
+.preview
+.preview/**
+package.json
+package-lock.json
+*.log
+README.md

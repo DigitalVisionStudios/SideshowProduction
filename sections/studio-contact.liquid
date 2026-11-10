@@ -1,0 +1,17 @@
+<section class="sp-section sp-section--paper"><div class="sp-shell sp-contact-grid">
+<div class="sp-prose"><p class="sp-eyebrow">STOP IN. REACH OUT.</p><h2>LET'S TALK<br>ABOUT YOUR IDEA.</h2><p>Tell us the service, artist, or piece you have in mind. We'll help you find the right next step.</p><h3>Visit the studio</h3><p>4973 S State St<br>Murray, UT 84107</p><a class="sp-link" href="https://www.google.com/maps/search/?api=1&amp;query=4973+S+State+St+Murray+UT+84107" target="_blank" rel="noopener noreferrer">Get directions <span aria-hidden="true">↗</span></a><h3>Call or email</h3><p><a href="tel:+13855479547">(385) 547-9547</a><br><a href="mailto:club@sideshowproductionstattoo.com">club@sideshowproductionstattoo.com</a></p><p>For appointment changes, please contact the studio directly. A message here does not reserve an appointment.</p></div>
+<div class="sp-form">
+{% form 'contact', id: 'StudioContactForm' %}
+{% if form.posted_successfully? %}<div class="sp-notice" role="status">Thanks for reaching out. Your message has been sent to the studio. Your appointment is not confirmed until the studio gets back to you.</div>{% endif %}
+{% if form.errors %}<div class="sp-notice" role="alert">{{ form.errors | default_errors }}</div>{% endif %}
+<div class="sp-field"><label for="StudioContactName">Your name</label><input id="StudioContactName" name="contact[name]" type="text" autocomplete="name" value="{{ form.name | escape }}" required></div>
+<div class="sp-field"><label for="StudioContactEmail">Email address</label><input id="StudioContactEmail" name="contact[email]" type="email" autocomplete="email" value="{{ form.email | escape }}" required></div>
+<div class="sp-field"><label for="StudioContactPhone">Phone <span>(optional)</span></label><input id="StudioContactPhone" name="contact[phone]" type="tel" autocomplete="tel" value="{{ form.phone | escape }}"></div>
+<div class="sp-field"><label for="StudioContactService">What are you thinking?</label><select id="StudioContactService" name="contact[service]" required><option value="" disabled selected>Choose a service</option><option value="Custom tattoo">Custom tattoo</option><option value="Piercing">Piercing</option><option value="Tooth gems">Tooth gems</option><option value="Teeth whitening">Teeth whitening</option><option value="Flash tattoo or Ink Roulette">Flash tattoo or Ink Roulette</option><option value="Microblading inquiry">Microblading inquiry</option><option value="Other question">Something else</option></select></div>
+<div class="sp-field"><label for="StudioContactMessage">Tell us a little about it</label><textarea id="StudioContactMessage" name="contact[body]" rows="6" required>{{ form.body | escape }}</textarea></div>
+<p class="sp-form-note">By sending your message, you agree to our <a href="/policies/privacy-policy">privacy policy</a>.</p><button class="sp-button sp-button--red" type="submit">Send your message <span aria-hidden="true">↗</span></button>
+{% endform %}
+</div></div></section>
+{% schema %}
+{"name":"Studio contact form","settings":[],"presets":[{"name":"Studio contact form"}]}
+{% endschema %}

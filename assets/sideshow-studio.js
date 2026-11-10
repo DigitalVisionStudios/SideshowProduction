@@ -1,0 +1,483 @@
+/* Sideshow Productions: progressive storefront interactions. */
+(function () {
+  "use strict";
+  if (window.SideshowStudio && window.SideshowStudio.init) {
+    window.SideshowStudio.init(document);
+    return;
+  }
+
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var desktop = window.matchMedia("(min-width: 1001px)");
+  var revealed = new WeakSet();
+  var observed = new Set();
+  var rouletteStates = new WeakMap();
+  var observer = null;
+  var expiryTimer = null;
+  var scrollPending = false;
+  var lightbox = null;
+  var lightboxImage = null;
+  var lightboxCaption = null;
+  var lightboxCounter = null;
+  var lightboxPrevious = null;
+  var lightboxNext = null;
+  var lightboxOpener = null;
+  var lightboxItems = [];
+  var lightboxIndex = 0;
+
+  function elements(scope, selector) {
+    var found = Array.prototype.slice.call(scope.querySelectorAll(selector));
+    if (scope.nodeType === 1 && scope.matches(selector)) found.unshift(scope);
+    return found;
+  }
+
+  function focusElement(element) {
+    if (!element || !element.isConnected) return;
+    try { element.focus({ preventScroll: true }); } catch (error) { element.focus(); }
+  }
+
+  function imageURL(value) {
+    if (typeof value !== "string" || !value.trim()) return null;
+    try {
+      var url = new URL(value, document.baseURI);
+      return url.protocol === "https:" || url.protocol === "http:" ? url.href : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function menuFor(toggle) {
+    var id = toggle.getAttribute("aria-controls");
+    return id ? document.getElementById(id) : document.querySelector("[data-mobile-menu]");
+  }
+
+  function setMenu(toggle, open, restoreFocus) {
+    var menu = menuFor(toggle);
+    if (!menu) return;
+    menu.hidden = !open;
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    toggle.classList.toggle("is-open", open);
+    if (!open && restoreFocus) focusElement(toggle);
+  }
+
+  function closeMenus(restoreFocus) {
+    document.querySelectorAll('[data-menu-toggle][aria-expanded="true"]').forEach(function (toggle) {
+      setMenu(toggle, false, restoreFocus);
+    });
+  }
+
+  function reveal(element) {
+    element.classList.add("is-visible");
+    revealed.add(element);
+    observed.delete(element);
+    if (observer) observer.unobserve(element);
+  }
+
+  function ensureObserver() {
+    if (observer || reducedMotion.matches || !("IntersectionObserver" in window)) return;
+    try {
+      observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) reveal(entry.target);
+        });
+      }, { threshold: 0.06, rootMargin: "0px 0px -36px 0px" });
+    } catch (error) {
+      observer = null;
+    }
+  }
+
+  function initReveals(scope) {
+    ensureObserver();
+    elements(scope, "[data-reveal]").forEach(function (element) {
+      if (revealed.has(element)) return;
+      if (!observer || reducedMotion.matches || (window.Shopify && window.Shopify.designMode)) {
+        reveal(element);
+        return;
+      }
+      var bounds = element.getBoundingClientRect();
+      if (bounds.top < window.innerHeight - 36 && bounds.bottom > 0) {
+        reveal(element);
+        return;
+      }
+      try {
+        observer.observe(element);
+        observed.add(element);
+        element.classList.add("sp-reveal-ready");
+      } catch (error) {
+        reveal(element);
+      }
+    });
+  }
+
+  function expiryCheck() {
+    window.clearTimeout(expiryTimer);
+    var now = Date.now();
+    var next = null;
+    document.querySelectorAll("[data-expires]").forEach(function (element) {
+      var expires = Date.parse(element.getAttribute("data-expires"));
+      if (!Number.isFinite(expires)) return;
+      if (expires <= now) {
+        element.hidden = true;
+      } else if (next === null || expires < next) {
+        next = expires;
+      }
+    });
+    if (next !== null) {
+      expiryTimer = window.setTimeout(expiryCheck, Math.min(Math.max(next - now + 50, 1000), 86400000));
+    }
+  }
+
+  function initGalleries(scope) {
+    elements(scope, "[data-gallery]").forEach(function (gallery) {
+      if (!gallery.querySelector("[data-gallery-status]")) {
+        var status = document.createElement("p");
+        status.className = "sp-sr-only";
+        status.setAttribute("data-gallery-status", "");
+        status.setAttribute("role", "status");
+        status.setAttribute("aria-live", "polite");
+        gallery.appendChild(status);
+      }
+    });
+  }
+
+  function filterGallery(button) {
+    var gallery = button.closest("[data-gallery]");
+    if (!gallery) return;
+    var selected = (button.getAttribute("data-filter") || "all").toLowerCase();
+    gallery.setAttribute("data-filter-active", selected);
+    var count = 0;
+    gallery.querySelectorAll("[data-filter]").forEach(function (control) {
+      if (control.closest("[data-gallery]") === gallery) {
+        control.setAttribute("aria-pressed", String(control === button));
+      }
+    });
+    gallery.querySelectorAll(".sp-work[data-category]").forEach(function (item) {
+      if (item.closest("[data-gallery]") !== gallery) return;
+      var categories = (item.getAttribute("data-category") || "").toLowerCase().split(/[\s,|]+/);
+      var visible = selected === "all" || categories.indexOf(selected) !== -1;
+      item.hidden = !visible;
+      if (visible) {
+        count += 1;
+        if (item.hasAttribute("data-reveal")) reveal(item);
+      }
+    });
+    var status = gallery.querySelector("[data-gallery-status]");
+    if (status) status.textContent = count + (count === 1 ? " piece shown." : " pieces shown.");
+  }
+
+  function makeButton(label, className) {
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = className || "";
+    button.textContent = label;
+    return button;
+  }
+
+  function lightboxCleanup() {
+    document.body.classList.remove("sp-lightbox-open");
+    focusElement(lightboxOpener);
+    lightboxOpener = null;
+  }
+
+  function closeLightbox() {
+    if (!lightbox || !lightbox.hasAttribute("open")) return;
+    if (typeof lightbox.close === "function") {
+      lightbox.close();
+    } else {
+      lightbox.removeAttribute("open");
+      lightboxCleanup();
+    }
+  }
+
+  function createLightbox() {
+    if (lightbox) return;
+    lightbox = document.createElement("dialog");
+    lightbox.className = "sp-lightbox";
+    lightbox.setAttribute("aria-label", "Artwork viewer");
+    lightbox.setAttribute("aria-modal", "true");
+
+    var top = document.createElement("div");
+    top.className = "sp-lightbox-top";
+    var label = document.createElement("p");
+    label.textContent = "Selected work / Sideshow Productions";
+    var close = makeButton("Close ×", "sp-lightbox-close");
+    close.setAttribute("aria-label", "Close artwork viewer");
+    close.addEventListener("click", closeLightbox);
+    top.append(label, close);
+
+    var content = document.createElement("div");
+    content.className = "sp-lightbox-content";
+    lightboxImage = document.createElement("img");
+    lightboxImage.decoding = "async";
+    content.appendChild(lightboxImage);
+
+    var bottom = document.createElement("div");
+    bottom.className = "sp-lightbox-bottom";
+    lightboxCaption = document.createElement("p");
+    lightboxCaption.className = "sp-lightbox-caption";
+    lightboxCaption.setAttribute("aria-live", "polite");
+    var controls = document.createElement("div");
+    controls.className = "sp-lightbox-controls";
+    lightboxPrevious = makeButton("←", "sp-lightbox-previous");
+    lightboxPrevious.setAttribute("aria-label", "Previous artwork");
+    lightboxNext = makeButton("→", "sp-lightbox-next");
+    lightboxNext.setAttribute("aria-label", "Next artwork");
+    lightboxCounter = document.createElement("span");
+    lightboxCounter.className = "sp-lightbox-counter";
+    lightboxCounter.setAttribute("aria-hidden", "true");
+    lightboxPrevious.addEventListener("click", function () { moveLightbox(-1); });
+    lightboxNext.addEventListener("click", function () { moveLightbox(1); });
+    controls.append(lightboxPrevious, lightboxCounter, lightboxNext);
+    bottom.append(lightboxCaption, controls);
+    lightbox.append(top, content, bottom);
+    document.body.appendChild(lightbox);
+
+    lightbox.addEventListener("close", lightboxCleanup);
+    lightbox.addEventListener("cancel", function (event) {
+      event.preventDefault();
+      closeLightbox();
+    });
+    lightbox.addEventListener("click", function (event) {
+      if (event.target !== lightbox) return;
+      var bounds = lightbox.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right ||
+          event.clientY < bounds.top || event.clientY > bounds.bottom) closeLightbox();
+    });
+  }
+
+  function showLightboxItem() {
+    var item = lightboxItems[lightboxIndex];
+    if (!item) return;
+    var url = imageURL(item.getAttribute("data-lightbox-src"));
+    if (!url) return;
+    var originalImage = item.querySelector("img");
+    var alt = item.getAttribute("data-lightbox-alt") ||
+      (originalImage && originalImage.alt) || "Artwork from Sideshow Productions";
+    lightboxImage.src = url;
+    lightboxImage.alt = alt;
+    lightboxCaption.textContent = alt;
+    lightboxCounter.textContent = (lightboxIndex + 1) + " / " + lightboxItems.length;
+    lightboxPrevious.hidden = lightboxItems.length < 2;
+    lightboxNext.hidden = lightboxItems.length < 2;
+  }
+
+  function moveLightbox(direction) {
+    if (lightboxItems.length < 2) return;
+    lightboxIndex = (lightboxIndex + direction + lightboxItems.length) % lightboxItems.length;
+    showLightboxItem();
+  }
+
+  function openLightbox(trigger) {
+    if (!imageURL(trigger.getAttribute("data-lightbox-src"))) return;
+    createLightbox();
+    var gallery = trigger.closest("[data-gallery]") || trigger.closest(".sp-gallery-grid") || trigger.parentElement;
+    lightboxItems = Array.prototype.slice.call(gallery.querySelectorAll("[data-lightbox-src]")).filter(function (item) {
+      return !item.closest("[hidden]") && imageURL(item.getAttribute("data-lightbox-src"));
+    });
+    lightboxIndex = lightboxItems.indexOf(trigger);
+    if (lightboxIndex < 0) {
+      lightboxItems = [trigger];
+      lightboxIndex = 0;
+    }
+    lightboxOpener = trigger;
+    showLightboxItem();
+    document.body.classList.add("sp-lightbox-open");
+    try {
+      if (typeof lightbox.showModal === "function") lightbox.showModal();
+      else lightbox.setAttribute("open", "");
+      focusElement(lightbox.querySelector(".sp-lightbox-close"));
+    } catch (error) {
+      document.body.classList.remove("sp-lightbox-open");
+    }
+  }
+
+  function initRoulette(scope) {
+    elements(scope, ".sp-roulette-panel").forEach(function (panel) {
+      if (rouletteStates.has(panel)) return;
+      var data = panel.querySelector("script[data-flash-pool]");
+      var button = panel.querySelector("[data-spin]");
+      if (!data || !button) return;
+      try {
+        var raw = JSON.parse(data.textContent);
+        var pool = Array.isArray(raw) ? raw.filter(function (item) {
+          return item && imageURL(item.image);
+        }) : [];
+        rouletteStates.set(panel, { pool: pool, index: -1, timer: null });
+        button.disabled = pool.length === 0;
+      } catch (error) {
+        button.disabled = true;
+      }
+    });
+  }
+
+  function initContactContext(scope) {
+    elements(scope, "form#StudioContactForm").forEach(function (form) {
+      if (form.hasAttribute("data-sp-context-ready")) return;
+      form.setAttribute("data-sp-context-ready", "");
+      var parameters = new URLSearchParams(window.location.search);
+      var notes = [];
+      [
+        { query: "artist", field: "requested_artist" },
+        { query: "item", field: "requested_item" }
+      ].forEach(function (context) {
+        var value = (parameters.get(context.query) || "").replace(/[\u0000-\u001f\u007f]/g, "").trim().slice(0, 160);
+        if (!value) return;
+        var field = document.createElement("input");
+        field.type = "hidden";
+        field.name = "contact[" + context.field + "]";
+        field.value = value;
+        form.appendChild(field);
+        notes.push(value);
+      });
+      if (notes.length) {
+        var note = document.createElement("p");
+        note.className = "sp-form-context";
+        note.textContent = "About: " + notes.join(" / ");
+        form.insertBefore(note, form.firstChild);
+      }
+    });
+  }
+
+  function spinDesign(button) {
+    var panel = button.closest(".sp-roulette-panel");
+    var state = panel && rouletteStates.get(panel);
+    if (!state || !state.pool.length || button.disabled) return;
+    var index = Math.floor(Math.random() * state.pool.length);
+    if (state.pool.length > 1 && index === state.index) index = (index + 1) % state.pool.length;
+    state.index = index;
+    var image = panel.querySelector(".sp-roulette-image img");
+    var result = panel.querySelector("[data-spin-result]");
+    var item = state.pool[index];
+    button.disabled = true;
+    panel.classList.add("is-spinning");
+    state.timer = window.setTimeout(function () {
+      if (!panel.isConnected) return;
+      var title = typeof item.title === "string" && item.title.trim() ?
+        item.title.trim() : "Flash idea " + (index + 1);
+      if (image) {
+        image.src = imageURL(item.image);
+        image.alt = title;
+      }
+      if (result) result.textContent = title + ". Your artist will confirm design availability.";
+      panel.classList.remove("is-spinning");
+      button.disabled = false;
+      state.timer = null;
+    }, reducedMotion.matches ? 0 : 200);
+  }
+
+  function updateHeader() {
+    scrollPending = false;
+    document.querySelectorAll(".sp-header").forEach(function (header) {
+      header.classList.toggle("is-scrolled", window.scrollY > 12);
+    });
+  }
+
+  function init(scope) {
+    if (!document.body || !document.body.classList.contains("sp-site")) return;
+    scope = scope || document;
+    document.body.classList.add("sp-enhanced");
+    initGalleries(scope);
+    initRoulette(scope);
+    initContactContext(scope);
+    initReveals(scope);
+    expiryCheck();
+    updateHeader();
+  }
+
+  document.addEventListener("click", function (event) {
+    if (!(event.target instanceof Element)) return;
+    var toggle = event.target.closest("[data-menu-toggle]");
+    if (toggle) {
+      event.preventDefault();
+      setMenu(toggle, toggle.getAttribute("aria-expanded") !== "true", false);
+      return;
+    }
+    if (event.target.closest("[data-mobile-menu] a")) closeMenus(false);
+    else if (!event.target.closest("[data-mobile-menu]")) closeMenus(false);
+
+    var filter = event.target.closest("[data-filter]");
+    if (filter) {
+      event.preventDefault();
+      filterGallery(filter);
+      return;
+    }
+    var artwork = event.target.closest("[data-lightbox-src]");
+    if (artwork) {
+      event.preventDefault();
+      openLightbox(artwork);
+      return;
+    }
+    var spin = event.target.closest("[data-spin]");
+    if (spin) {
+      event.preventDefault();
+      spinDesign(spin);
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (lightbox && lightbox.hasAttribute("open")) {
+      if (event.key === "Escape") { event.preventDefault(); closeLightbox(); }
+      if (event.key === "ArrowLeft") { event.preventDefault(); moveLightbox(-1); }
+      if (event.key === "ArrowRight") { event.preventDefault(); moveLightbox(1); }
+      if (event.key === "Tab") {
+        var buttons = Array.prototype.slice.call(lightbox.querySelectorAll("button")).filter(function (button) {
+          return !button.hidden && !button.disabled;
+        });
+        var first = buttons[0];
+        var last = buttons[buttons.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault(); focusElement(last);
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault(); focusElement(first);
+        }
+      }
+      return;
+    }
+    if (event.key === "Escape") closeMenus(true);
+  });
+
+  window.addEventListener("scroll", function () {
+    if (!scrollPending) {
+      scrollPending = true;
+      window.requestAnimationFrame(updateHeader);
+    }
+  }, { passive: true });
+
+  function desktopChanged(event) {
+    if (event.matches) closeMenus(false);
+  }
+  function motionChanged(event) {
+    if (event.matches) {
+      observed.forEach(reveal);
+      if (observer) observer.disconnect();
+      observer = null;
+    }
+  }
+  if (desktop.addEventListener) desktop.addEventListener("change", desktopChanged);
+  else if (desktop.addListener) desktop.addListener(desktopChanged);
+  if (reducedMotion.addEventListener) reducedMotion.addEventListener("change", motionChanged);
+  else if (reducedMotion.addListener) reducedMotion.addListener(motionChanged);
+
+  document.addEventListener("shopify:section:load", function (event) { init(event.target); });
+  document.addEventListener("shopify:section:unload", function (event) {
+    observed.forEach(function (element) {
+      if (event.target.contains(element)) {
+        if (observer) observer.unobserve(element);
+        observed.delete(element);
+      }
+    });
+    elements(event.target, ".sp-roulette-panel").forEach(function (panel) {
+      var state = rouletteStates.get(panel);
+      if (state && state.timer !== null) window.clearTimeout(state.timer);
+      rouletteStates.delete(panel);
+    });
+    if (lightboxOpener && event.target.contains(lightboxOpener)) closeLightbox();
+  });
+
+  window.SideshowStudio = { init: init };
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () { init(document); }, { once: true });
+  } else {
+    init(document);
+  }
+})();

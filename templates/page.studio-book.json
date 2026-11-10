@@ -1,0 +1,116 @@
+{
+  "layout": "studio",
+  "sections": {
+    "section_1": {
+      "type": "studio-page",
+      "settings": {
+        "title": "LET'S MAKE IT YOURS.",
+        "copy": "Choose your person, talk through the details, and take the next step toward your session.",
+        "kicker": "BOOK A SESSION"
+      }
+    },
+    "section_2": {
+      "type": "studio-booking",
+      "settings": {
+        "booking_ready": false
+      },
+      "blocks": {
+        "block_1": {
+          "type": "artist",
+          "settings": {
+            "anchor": "jake",
+            "name": "Jake",
+            "role": "TATTOO ARTIST",
+            "asset": "sp-jake.webp",
+            "alt": "Jake working on a tattoo at Sideshow",
+            "rate": "From $100 / hour",
+            "description": "$50 deposit, credited toward your total.",
+            "booking_url": "/products/jake-tattoo-services"
+          }
+        },
+        "block_2": {
+          "type": "artist",
+          "settings": {
+            "anchor": "rigo",
+            "name": "Rigo",
+            "role": "TATTOO ARTIST",
+            "asset": "sp-rigo.webp",
+            "alt": "Blue floral tattoo work by Rigo",
+            "rate": "From $100 / hour",
+            "description": "$50 deposit, credited toward your total.",
+            "booking_url": "/products/rigo-tattoo-services"
+          }
+        },
+        "block_3": {
+          "type": "artist",
+          "settings": {
+            "anchor": "sonny",
+            "name": "Sonny",
+            "role": "PIERCING ARTIST",
+            "asset": "sp-sonny.webp",
+            "alt": "Ear piercing work by Sonny",
+            "rate": "Pricing varies by piercing",
+            "description": "20% deposit. Jewelry included with new piercings.",
+            "booking_url": "/products/sonny-piercing-services"
+          }
+        },
+        "block_4": {
+          "type": "artist",
+          "settings": {
+            "anchor": "megan",
+            "name": "Megan",
+            "role": "TOOTH GEMS & WHITENING",
+            "asset": "sp-megan.webp",
+            "alt": "Megan at Sideshow Productions",
+            "rate": "Tooth gems from $60",
+            "description": "Additional gems $20 each. Heart/star $65. Fang $100. Whitening: single $89, double $120, triple $200. 20% deposit.",
+            "booking_url": "/pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4"
+      ]
+    },
+    "section_3": {
+      "type": "studio-faq",
+      "settings": {},
+      "blocks": {
+        "block_1": {
+          "type": "question",
+          "settings": {
+            "question": "Does a message reserve an appointment?",
+            "answer": "<p>Your appointment is confirmed when the studio has agreed the service, artist, date, time, and deposit with you. Sending an inquiry alone does not reserve a slot.</p>"
+          }
+        },
+        "block_2": {
+          "type": "question",
+          "settings": {
+            "question": "Do deposits count toward the total?",
+            "answer": "<p>The published tattoo deposit is credited toward the total. Confirm the deposit and full price for your specific service before paying.</p>"
+          }
+        },
+        "block_3": {
+          "type": "question",
+          "settings": {
+            "question": "What if I need to change my appointment?",
+            "answer": "<p>Contact the studio directly. The current published booking information asks for at least 48 hours' notice for changes or cancellations.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3"
+      ]
+    }
+  },
+  "order": [
+    "section_1",
+    "section_2",
+    "section_3"
+  ]
+}

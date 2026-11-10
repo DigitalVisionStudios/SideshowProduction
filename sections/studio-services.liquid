@@ -1,0 +1,13 @@
+<section class="sp-section sp-section--paper" id="services">
+  <div class="sp-shell">
+    <div class="sp-section-heading" data-reveal><div><p class="sp-eyebrow">01 / MAKE IT YOURS</p><h2>{{ section.settings.heading | escape }}</h2></div><p>From the first idea to the final detail.<br>Find the right fit for you.</p></div>
+    <div class="sp-service-list">
+      {% for block in section.blocks %}<a class="sp-service-row" href="{{ block.settings.link | default: '/pages/book' }}" {{ block.shopify_attributes }} data-reveal>
+        <span class="sp-service-number">0{{ forloop.index }}</span><div><h3>{{ block.settings.title | escape }}</h3><p>{{ block.settings.description | escape }}</p></div><span class="sp-service-meta">{{ block.settings.note | escape }}</span><span class="sp-arrow" aria-hidden="true">↗</span>
+      </a>{% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{"name":"Studio services","settings":[{"type":"text","id":"heading","label":"Heading","default":"A DIFFERENT KIND OF STUDIO."}],"blocks":[{"type":"service","name":"Service","settings":[{"type":"text","id":"title","label":"Title","default":"Custom tattoos"},{"type":"textarea","id":"description","label":"Description","default":"Bring an idea. We'll help you make it your own."},{"type":"text","id":"note","label":"Small label","default":"EXPLORE"},{"type":"url","id":"link","label":"Destination"}]}],"presets":[{"name":"Studio services","blocks":[{"type":"service","settings":{"title":"Custom tattoos","description":"Black and grey, fine lines, lettering, bold ideas. Made for you.","note":"JAKE & RIGO","link":"/pages/artists"}},{"type":"service","settings":{"title":"Piercings","description":"A thoughtful placement. A little edge. Find your next favorite piece.","note":"WITH SONNY","link":"/pages/artists#sonny"}},{"type":"service","settings":{"title":"Tooth gems","description":"Something small that makes a statement. Add a little sparkle.","note":"WITH MEGAN","link":"/pages/artists#megan"}},{"type":"service","settings":{"title":"Teeth whitening","description":"Make room for a brighter smile. Explore sessions with Megan.","note":"WITH MEGAN","link":"/pages/artists#megan"}}]}]}
+{% endschema %}

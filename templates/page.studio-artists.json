@@ -1,0 +1,174 @@
+{
+  "layout": "studio",
+  "sections": {
+    "section_1": {
+      "type": "studio-page",
+      "settings": {
+        "title": "GOOD HANDS. GREAT COMPANY.",
+        "copy": "The style matters. So does the person behind it. Meet the crew and find the right fit for your next session.",
+        "kicker": "THE ARTISTS"
+      }
+    },
+    "section_2": {
+      "type": "studio-artists",
+      "settings": {
+        "show_details": true,
+        "heading": "MEET YOUR PEOPLE."
+      },
+      "blocks": {
+        "block_1": {
+          "type": "artist",
+          "settings": {
+            "anchor": "jake",
+            "name": "Jake",
+            "role": "TATTOO ARTIST",
+            "asset": "sp-jake.webp",
+            "alt": "Jake working on a tattoo at Sideshow",
+            "bio": "Graphic details, black-and-grey shading, lettering, and illustrative customs. A clear idea, made personal.",
+            "meta": "CUSTOM TATTOOS · LETTERING",
+            "rate": "From $100 / hour",
+            "deposit": "$50 deposit, credited toward your total.",
+            "hours": "Tuesday & Friday: 4–10 pm. Wednesday, Thursday & Saturday: 3:30–10 pm. No Sunday or Monday appointments."
+          }
+        },
+        "block_2": {
+          "type": "artist",
+          "settings": {
+            "anchor": "rigo",
+            "name": "Rigo",
+            "role": "TATTOO ARTIST",
+            "asset": "sp-rigo.webp",
+            "alt": "Blue floral tattoo work by Rigo",
+            "bio": "Clean lines, smooth blends, and illustrative pieces with personality. Consultations in English or Spanish.",
+            "meta": "ILLUSTRATIVE · ENGLISH / ESPAÑOL",
+            "rate": "From $100 / hour",
+            "deposit": "$50 deposit, credited toward your total.",
+            "hours": "Tuesday–Saturday: 3–8 pm. No Sunday or Monday appointments."
+          }
+        },
+        "block_3": {
+          "type": "artist",
+          "settings": {
+            "anchor": "sonny",
+            "name": "Sonny",
+            "role": "PIERCING ARTIST",
+            "asset": "sp-sonny.webp",
+            "alt": "Ear piercing work by Sonny",
+            "bio": "Thoughtful placement and a sharp eye for the details. Explore your next piercing with Sonny.",
+            "meta": "PIERCINGS · JEWELRY",
+            "rate": "Pricing varies by piercing",
+            "deposit": "20% deposit. Jewelry included with new piercings.",
+            "hours": "Tuesday–Friday: 2–8 pm. Saturday: noon–8 pm. No Sunday or Monday appointments."
+          }
+        },
+        "block_4": {
+          "type": "artist",
+          "settings": {
+            "anchor": "megan",
+            "name": "Megan",
+            "role": "TOOTH GEMS & WHITENING",
+            "asset": "sp-megan.webp",
+            "alt": "Megan at Sideshow Productions",
+            "bio": "A little sparkle or a brighter smile. Personalize the details with tooth gems and whitening sessions.",
+            "meta": "TOOTH GEMS · TEETH WHITENING",
+            "rate": "Tooth gems from $60",
+            "deposit": "Additional gems $20 each. Heart/star $65. Fang $100. Whitening: single $89, double $120, triple $200. 20% deposit.",
+            "hours": "Tuesday–Saturday: 7–8:30 pm."
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4"
+      ]
+    },
+    "section_3": {
+      "type": "studio-work",
+      "settings": {
+        "heading": "MADE WITH CARE."
+      },
+      "blocks": {
+        "block_1": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-01.webp",
+            "alt": "Fine-line cowboy boot with flowers by Jake",
+            "title": "A little western",
+            "artist": "JAKE",
+            "category": "tattoo"
+          }
+        },
+        "block_2": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-02.webp",
+            "alt": "Blue floral tattoo by Rigo",
+            "title": "Color that stays with you",
+            "artist": "RIGO",
+            "category": "tattoo"
+          }
+        },
+        "block_3": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-04.webp",
+            "alt": "Heart-shaped ear jewelry in a piercing by Sonny",
+            "title": "Small details. Big personality.",
+            "artist": "SONNY",
+            "category": "piercing"
+          }
+        },
+        "block_4": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-03.webp",
+            "alt": "Swallow and sun linework tattoo by Jake",
+            "title": "Made to move with you",
+            "artist": "JAKE",
+            "category": "tattoo"
+          }
+        },
+        "block_5": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-05.webp",
+            "alt": "Dragon linework tattoo by Jake",
+            "title": "Your kind of bold",
+            "artist": "JAKE",
+            "category": "tattoo"
+          }
+        },
+        "block_6": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-06.webp",
+            "alt": "A small tooth gem applied by Megan",
+            "title": "A little extra shine",
+            "artist": "MEGAN",
+            "category": "gems"
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4",
+        "block_5",
+        "block_6"
+      ]
+    },
+    "section_4": {
+      "type": "studio-visit",
+      "settings": {}
+    }
+  },
+  "order": [
+    "section_1",
+    "section_2",
+    "section_3",
+    "section_4"
+  ]
+}

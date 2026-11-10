@@ -1,0 +1,26 @@
+<header class="sp-header">
+  <div class="sp-shell sp-header-inner">
+    <a class="sp-brand" href="{{ routes.root_url }}" aria-label="Sideshow Productions home">
+      <img src="{{ 'sp-logo.webp' | asset_url }}" alt="" width="52" height="52">
+      <span class="sp-brand-type"><strong>SIDESHOW</strong><small>PRODUCTIONS · MURRAY, UTAH</small></span>
+    </a>
+    <nav class="sp-nav" aria-label="Main navigation">
+      <a href="/pages/portfolio" class="sp-nav-link{% if request.path == '/pages/portfolio' %} is-current{% endif %}">The work</a>
+      <a href="/pages/artists" class="sp-nav-link{% if request.path == '/pages/artists' %} is-current{% endif %}">The artists</a>
+      <a href="/pages/services" class="sp-nav-link{% if request.path == '/pages/services' %} is-current{% endif %}">Services</a>
+      <a href="/pages/about" class="sp-nav-link{% if request.path == '/pages/about' %} is-current{% endif %}">The studio</a>
+      <a href="/pages/shop" class="sp-nav-link{% if request.path == '/pages/shop' %} is-current{% endif %}">Shop</a>
+    </nav>
+    <div class="sp-header-actions">
+      <a class="sp-button sp-button--red" href="{{ section.settings.booking_url | default: '/pages/book' }}">{{ section.settings.booking_label | escape }} <span aria-hidden="true">↗</span></a>
+      <button class="sp-menu-toggle" type="button" data-menu-toggle aria-controls="sp-mobile-menu" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span class="sp-sr-only">Menu</span></button>
+    </div>
+  </div>
+  <nav id="sp-mobile-menu" class="sp-mobile-menu" data-mobile-menu aria-label="Mobile navigation" hidden>
+    <a href="/pages/portfolio">The work</a><a href="/pages/artists">The artists</a><a href="/pages/services">Services</a><a href="/pages/about">The studio</a><a href="/pages/flash">Flash &amp; events</a><a href="/pages/ink-roulette">Ink Roulette</a><a href="/pages/aftercare">Aftercare</a><a href="/pages/shop">Shop</a><a href="/pages/contact">Visit &amp; contact</a>
+  </nav>
+  <noscript><nav class="sp-noscript-nav" aria-label="Navigation"><a href="/pages/artists">Artists</a><a href="/pages/services">Services</a><a href="/pages/portfolio">Work</a><a href="/pages/shop">Shop</a><a href="/pages/contact">Contact</a></nav></noscript>
+</header>
+{% schema %}
+{"name":"Studio header","settings":[{"type":"text","id":"booking_label","label":"Booking button","default":"Book a session"},{"type":"url","id":"booking_url","label":"Booking page"}]}
+{% endschema %}

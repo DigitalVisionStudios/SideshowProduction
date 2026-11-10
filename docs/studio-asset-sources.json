@@ -1,0 +1,216 @@
+[
+  {
+    "file": "sp-logo.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/cropped-03a6efc0-6cdd-401a-a8ba-775ffa79f4a0.png",
+    "bytes": 39052,
+    "width": 512,
+    "height": 512,
+    "sha256": "51a68d9006e89bb05694df8b505fa3b136b3cad4add532fc2e5701e8b0eebd02"
+  },
+  {
+    "file": "sp-storefront.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-09-101734.png",
+    "bytes": 105922,
+    "width": 1354,
+    "height": 759,
+    "sha256": "9d784297f976367b7f0a9d232f95bdde78ca8ad088399044c5cbb80e8ff324c8"
+  },
+  {
+    "file": "sp-hero.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-12-170956.png",
+    "bytes": 56272,
+    "width": 735,
+    "height": 732,
+    "sha256": "e21d6d2f37c274ea998f118ac1a5af179f89f9d8c969f5df3976ce8c8d8efbe7"
+  },
+  {
+    "file": "sp-jake.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-162353-e1774365148720.png",
+    "bytes": 21932,
+    "width": 364,
+    "height": 364,
+    "sha256": "1788a9332ed3b1ee8f434e904443a54b7fbc342409b2962c7d330d3920a15874"
+  },
+  {
+    "file": "sp-rigo.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-165356-e1774365245548.png",
+    "bytes": 20134,
+    "width": 363,
+    "height": 364,
+    "sha256": "4ee692ca3d89af5fd8e78ce6a3605452f7ae17bdbf89a3646a0e8d6f278534ec"
+  },
+  {
+    "file": "sp-sonny.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-163923-e1774365062847.png",
+    "bytes": 20886,
+    "width": 365,
+    "height": 362,
+    "sha256": "2b7ed3a737c6963038c8ba81abb95b7fa37d72db0e9902c3842dc5d80c4a3662"
+  },
+  {
+    "file": "sp-megan.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-163956-e1774365113946.png",
+    "bytes": 17728,
+    "width": 364,
+    "height": 364,
+    "sha256": "d4739657ad0adce7507d471d1ca94d8ec00eb7356fbf8c048715a28270d1d7ed"
+  },
+  {
+    "file": "sp-work-01.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-12-171009.png",
+    "bytes": 60672,
+    "width": 729,
+    "height": 731,
+    "sha256": "253cc45904ee53243c5feb1bbcb09be9f7e9c4888ee78e88533305b89d9042e7"
+  },
+  {
+    "file": "sp-work-02.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-151743.png",
+    "bytes": 47156,
+    "width": 734,
+    "height": 734,
+    "sha256": "9766653bea3ffef8cc1aedda5f149ccd8c728f34c1ac21f4ce8d476557ae5db0"
+  },
+  {
+    "file": "sp-work-03.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-12-170942.png",
+    "bytes": 37906,
+    "width": 734,
+    "height": 736,
+    "sha256": "97860b0c724983d2eec4ac9614e346fa1d17d16ccc24ee6149e049b608231ae9"
+  },
+  {
+    "file": "sp-work-04.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-152219.png",
+    "bytes": 78130,
+    "width": 730,
+    "height": 707,
+    "sha256": "e91e0e85fad381ccab9fbb696a76dd3f814e01a083e1e6f8e1dd1303bc3b5912"
+  },
+  {
+    "file": "sp-work-05.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-12-171037.png",
+    "bytes": 59918,
+    "width": 735,
+    "height": 733,
+    "sha256": "b14cbdee6e7a6f85085d37610efa3411d0083335e0366df9645e31463295df55"
+  },
+  {
+    "file": "sp-work-06.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-152946.png",
+    "bytes": 54150,
+    "width": 731,
+    "height": 724,
+    "sha256": "449292c4c5d16f06971d15c4ca83f74bc452e1065241b31617de06be468c3593"
+  },
+  {
+    "file": "sp-work-07.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-151736.png",
+    "bytes": 28804,
+    "width": 735,
+    "height": 729,
+    "sha256": "c04f09c20f0fcb54000ef21d6d4b88c5b3118bfcb9b5a678d29483d1175fb9c8"
+  },
+  {
+    "file": "sp-work-08.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-12-171023.png",
+    "bytes": 51614,
+    "width": 736,
+    "height": 730,
+    "sha256": "d35d945708fffd725494a3d1dd2c13acab14f19e90645c8d15d095ec3de4e96d"
+  },
+  {
+    "file": "sp-work-09.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-12-171002.png",
+    "bytes": 55104,
+    "width": 739,
+    "height": 734,
+    "sha256": "ec263d39a63aeb293516de8a728215685b95a7ad88a940cd0b496eccb4c30eda"
+  },
+  {
+    "file": "sp-work-10.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-151730.png",
+    "bytes": 21980,
+    "width": 734,
+    "height": 736,
+    "sha256": "6a29c1ebf56120a6933113a1dbfc903b069beaf9de5d4eba54643bc45494f531"
+  },
+  {
+    "file": "sp-work-11.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-152133.png",
+    "bytes": 49662,
+    "width": 735,
+    "height": 734,
+    "sha256": "6b21369729f92702392b6404e4093a3f536d46d3c9e230ef666b6dfacf678fe7"
+  },
+  {
+    "file": "sp-work-12.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-153010.png",
+    "bytes": 39286,
+    "width": 724,
+    "height": 714,
+    "sha256": "31c739fb968351948e9e7351151944c847db3d47e3bef044b0a9ac31cef0f2d4"
+  },
+  {
+    "file": "sp-flash-01.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-164310.png",
+    "bytes": 16896,
+    "width": 536,
+    "height": 532,
+    "sha256": "cfa9e14e9cf4791ac257a68704ffa171367919370e7fa1d3f35577dc097161f1"
+  },
+  {
+    "file": "sp-flash-02.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-164328.png",
+    "bytes": 19974,
+    "width": 571,
+    "height": 571,
+    "sha256": "d0e81048ddbc25b57f98f1d6245672a26467ab2d4b844c531c8e660d47f2bb1b"
+  },
+  {
+    "file": "sp-flash-03.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-164340.png",
+    "bytes": 21280,
+    "width": 699,
+    "height": 848,
+    "sha256": "ed6ff5b75bbf0b06a6a5c7920fe042f05446240b5c9652872edc12048e54bb89"
+  },
+  {
+    "file": "sp-flash-04.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-164317.png",
+    "bytes": 60728,
+    "width": 827,
+    "height": 828,
+    "sha256": "4273169a34f9cfc6d890686ac83536c4cbcd553150a2a0935e123980a8433260"
+  },
+  {
+    "file": "sp-flash-05.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-164255.png",
+    "bytes": 53576,
+    "width": 623,
+    "height": 845,
+    "sha256": "785a4205882d575859a7f549d43b37d5a6930c09f146ca226a78bd9aa9aea615"
+  },
+  {
+    "file": "sp-flash-06.webp",
+    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-164249.png",
+    "bytes": 65276,
+    "width": 626,
+    "height": 846,
+    "sha256": "786876e28a284f89f23c791282c66e2e200a4482c4593fa55aec00f388c296df"
+  },
+  {
+    "file": "sp-display.woff2",
+    "source": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2z3bWuQ.woff2",
+    "css_source": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap",
+    "bytes": 22444,
+    "sha256": "3787a5a419171630e6890cfa47c4da067474d005cd0ff8dc11ec090fdc3ee2b8"
+  },
+  {
+    "file": "sp-body.woff2",
+    "source": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+    "css_source": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400..700&display=swap",
+    "bytes": 36932,
+    "sha256": "9fea608a947e67020c33cad9a6fe3d60c54119dfb8cff87768a8117a15ed7543"
+  }
+]

@@ -1,0 +1,9 @@
+<section class="sp-section sp-section--paper">
+  <div class="sp-shell sp-flash-feature">
+    <div class="sp-flash-copy" data-reveal><p class="sp-eyebrow">A LITTLE SPONTANEITY LOOKS GOOD ON YOU</p><h2>{{ section.settings.heading | escape }}</h2><p>{{ section.settings.copy | escape }}</p><div class="sp-actions"><a class="sp-button sp-button--red" href="/pages/flash">Find your flash <span aria-hidden="true">↗</span></a><a class="sp-link" href="/pages/ink-roulette">Try Ink Roulette <span aria-hidden="true">↗</span></a></div></div>
+    <a class="sp-flash-art" href="/pages/flash" aria-label="Browse Sideshow flash designs" data-reveal><img src="{{ 'sp-flash-01.webp' | asset_url }}" alt="A Sideshow flash sheet with small symbols, botanical designs, and linework" width="800" height="1000" loading="lazy"><span class="sp-tag">SMALL PIECES. BIG PERSONALITY.</span></a>
+  </div>
+</section>
+{% schema %}
+{"name":"Studio flash feature","settings":[{"type":"text","id":"heading","label":"Heading","default":"LESS OVERTHINKING. MORE INK."},{"type":"textarea","id":"copy","label":"Description","default":"Have a little space to fill? Explore the studio's flash designs, find an idea that feels like you, or leave a little room for surprise with Ink Roulette."}],"presets":[{"name":"Studio flash feature"}]}
+{% endschema %}

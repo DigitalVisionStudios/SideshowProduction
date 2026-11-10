@@ -1,0 +1,474 @@
+{
+  "layout": "studio",
+  "sections": {
+    "section_1": {
+      "type": "studio-page",
+      "settings": {
+        "title": "A LITTLE CHANCE. A LOT OF CHARACTER.",
+        "copy": "Leave a little room for the unexpected with Sideshow's in-studio Ink Roulette experience.",
+        "kicker": "INK ROULETTE"
+      }
+    },
+    "section_2": {
+      "type": "studio-roulette",
+      "settings": {},
+      "blocks": {
+        "design_01": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-01.webp",
+            "title": "Ink Roulette design #1"
+          }
+        },
+        "design_02": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-02.webp",
+            "title": "Ink Roulette design #2"
+          }
+        },
+        "design_03": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-03.webp",
+            "title": "Ink Roulette design #3"
+          }
+        },
+        "design_04": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-04.webp",
+            "title": "Ink Roulette design #4"
+          }
+        },
+        "design_05": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-05.webp",
+            "title": "Ink Roulette design #5"
+          }
+        },
+        "design_06": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-06.webp",
+            "title": "Ink Roulette design #6"
+          }
+        },
+        "design_07": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-07.webp",
+            "title": "Ink Roulette design #7"
+          }
+        },
+        "design_08": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-08.webp",
+            "title": "Ink Roulette design #8"
+          }
+        },
+        "design_09": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-09.webp",
+            "title": "Ink Roulette design #9"
+          }
+        },
+        "design_10": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-10.webp",
+            "title": "Ink Roulette design #10"
+          }
+        },
+        "design_11": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-11.webp",
+            "title": "Ink Roulette design #11"
+          }
+        },
+        "design_12": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-12.webp",
+            "title": "Ink Roulette design #12"
+          }
+        },
+        "design_13": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-13.webp",
+            "title": "Ink Roulette design #13"
+          }
+        },
+        "design_14": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-14.webp",
+            "title": "Ink Roulette design #14"
+          }
+        },
+        "design_15": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-15.webp",
+            "title": "Ink Roulette design #15"
+          }
+        },
+        "design_16": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-16.webp",
+            "title": "Ink Roulette design #16"
+          }
+        },
+        "design_17": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-17.webp",
+            "title": "Ink Roulette design #17"
+          }
+        },
+        "design_18": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-18.webp",
+            "title": "Ink Roulette design #18"
+          }
+        },
+        "design_19": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-19.webp",
+            "title": "Ink Roulette design #19"
+          }
+        },
+        "design_20": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-20.webp",
+            "title": "Ink Roulette design #20"
+          }
+        },
+        "design_21": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-21.webp",
+            "title": "Ink Roulette design #21"
+          }
+        },
+        "design_22": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-22.webp",
+            "title": "Ink Roulette design #22"
+          }
+        },
+        "design_23": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-23.webp",
+            "title": "Ink Roulette design #23"
+          }
+        },
+        "design_24": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-24.webp",
+            "title": "Ink Roulette design #24"
+          }
+        },
+        "design_25": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-25.webp",
+            "title": "Ink Roulette design #25"
+          }
+        },
+        "design_26": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-26.webp",
+            "title": "Ink Roulette design #26"
+          }
+        },
+        "design_27": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-27.webp",
+            "title": "Ink Roulette design #27"
+          }
+        }
+      },
+      "block_order": [
+        "design_01",
+        "design_02",
+        "design_03",
+        "design_04",
+        "design_05",
+        "design_06",
+        "design_07",
+        "design_08",
+        "design_09",
+        "design_10",
+        "design_11",
+        "design_12",
+        "design_13",
+        "design_14",
+        "design_15",
+        "design_16",
+        "design_17",
+        "design_18",
+        "design_19",
+        "design_20",
+        "design_21",
+        "design_22",
+        "design_23",
+        "design_24",
+        "design_25",
+        "design_26",
+        "design_27"
+      ]
+    },
+    "section_3": {
+      "type": "studio-flash-gallery",
+      "settings": {
+        "heading": "THE INK ROULETTE COLLECTION.",
+        "kicker": "LEAVE A LITTLE ROOM FOR SURPRISE"
+      },
+      "blocks": {
+        "design_01": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-01.webp",
+            "title": "Ink Roulette design #1"
+          }
+        },
+        "design_02": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-02.webp",
+            "title": "Ink Roulette design #2"
+          }
+        },
+        "design_03": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-03.webp",
+            "title": "Ink Roulette design #3"
+          }
+        },
+        "design_04": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-04.webp",
+            "title": "Ink Roulette design #4"
+          }
+        },
+        "design_05": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-05.webp",
+            "title": "Ink Roulette design #5"
+          }
+        },
+        "design_06": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-06.webp",
+            "title": "Ink Roulette design #6"
+          }
+        },
+        "design_07": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-07.webp",
+            "title": "Ink Roulette design #7"
+          }
+        },
+        "design_08": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-08.webp",
+            "title": "Ink Roulette design #8"
+          }
+        },
+        "design_09": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-09.webp",
+            "title": "Ink Roulette design #9"
+          }
+        },
+        "design_10": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-10.webp",
+            "title": "Ink Roulette design #10"
+          }
+        },
+        "design_11": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-11.webp",
+            "title": "Ink Roulette design #11"
+          }
+        },
+        "design_12": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-12.webp",
+            "title": "Ink Roulette design #12"
+          }
+        },
+        "design_13": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-13.webp",
+            "title": "Ink Roulette design #13"
+          }
+        },
+        "design_14": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-14.webp",
+            "title": "Ink Roulette design #14"
+          }
+        },
+        "design_15": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-15.webp",
+            "title": "Ink Roulette design #15"
+          }
+        },
+        "design_16": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-16.webp",
+            "title": "Ink Roulette design #16"
+          }
+        },
+        "design_17": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-17.webp",
+            "title": "Ink Roulette design #17"
+          }
+        },
+        "design_18": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-18.webp",
+            "title": "Ink Roulette design #18"
+          }
+        },
+        "design_19": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-19.webp",
+            "title": "Ink Roulette design #19"
+          }
+        },
+        "design_20": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-20.webp",
+            "title": "Ink Roulette design #20"
+          }
+        },
+        "design_21": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-21.webp",
+            "title": "Ink Roulette design #21"
+          }
+        },
+        "design_22": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-22.webp",
+            "title": "Ink Roulette design #22"
+          }
+        },
+        "design_23": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-23.webp",
+            "title": "Ink Roulette design #23"
+          }
+        },
+        "design_24": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-24.webp",
+            "title": "Ink Roulette design #24"
+          }
+        },
+        "design_25": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-25.webp",
+            "title": "Ink Roulette design #25"
+          }
+        },
+        "design_26": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-26.webp",
+            "title": "Ink Roulette design #26"
+          }
+        },
+        "design_27": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-roulette-27.webp",
+            "title": "Ink Roulette design #27"
+          }
+        }
+      },
+      "block_order": [
+        "design_01",
+        "design_02",
+        "design_03",
+        "design_04",
+        "design_05",
+        "design_06",
+        "design_07",
+        "design_08",
+        "design_09",
+        "design_10",
+        "design_11",
+        "design_12",
+        "design_13",
+        "design_14",
+        "design_15",
+        "design_16",
+        "design_17",
+        "design_18",
+        "design_19",
+        "design_20",
+        "design_21",
+        "design_22",
+        "design_23",
+        "design_24",
+        "design_25",
+        "design_26",
+        "design_27"
+      ]
+    },
+    "section_4": {
+      "type": "studio-visit",
+      "settings": {}
+    }
+  },
+  "order": [
+    "section_1",
+    "section_2",
+    "section_3",
+    "section_4"
+  ]
+}

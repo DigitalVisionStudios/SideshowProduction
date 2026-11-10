@@ -1,0 +1,128 @@
+{
+  "layout": "studio",
+  "sections": {
+    "section_1": {
+      "type": "studio-page",
+      "settings": {
+        "title": "SMALL PIECES. BIG PERSONALITY.",
+        "copy": "Find something you didn't know you were looking for. Explore the studio's flash sheets and make a little room for spontaneity.",
+        "kicker": "FLASH TATTOOS"
+      }
+    },
+    "section_2": {
+      "type": "studio-event",
+      "settings": {
+        "copy": "Flash tattoos, tooth gems and ear-lobe piercings from $13 plus $7 gratuity. Friday Nov 13: 10 am–8 pm, walk-ins. Saturday Nov 14: noon–8 pm, appointment only. Contact the studio for availability.",
+        "link": "/pages/contact",
+        "link_label": "Ask about the event"
+      }
+    },
+    "section_3": {
+      "type": "studio-flash-gallery",
+      "settings": {},
+      "blocks": {
+        "block_1": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-flash-01.webp",
+            "title": "Symbols, botanical details & linework"
+          }
+        },
+        "block_2": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-flash-02.webp",
+            "title": "Small designs with personality"
+          }
+        },
+        "block_3": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-flash-03.webp",
+            "title": "Everyday objects & tiny favorites"
+          }
+        },
+        "block_4": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-flash-04.webp",
+            "title": "Animal-inspired flash designs"
+          }
+        },
+        "block_5": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-flash-05.webp",
+            "title": "Dark details & lucky numbers"
+          }
+        },
+        "block_6": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-flash-06.webp",
+            "title": "A little of everything"
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4",
+        "block_5",
+        "block_6"
+      ]
+    },
+    "section_4": {
+      "type": "studio-faq",
+      "settings": {},
+      "blocks": {
+        "block_1": {
+          "type": "question",
+          "settings": {
+            "question": "What is a flash tattoo?",
+            "answer": "<p>Flash is a pre-designed tattoo from an artist's collection. Choose a piece you like, then confirm the size, placement, and final price with your artist.</p>"
+          }
+        },
+        "block_2": {
+          "type": "question",
+          "settings": {
+            "question": "Can I change a design?",
+            "answer": "<p>Minor changes may be possible. Larger changes can be better suited to a custom session. Talk it through with your artist.</p>"
+          }
+        },
+        "block_3": {
+          "type": "question",
+          "settings": {
+            "question": "How much does flash cost?",
+            "answer": "<p>Prices vary with the design, size, placement, artist, and event. The studio will confirm the final cost before the session.</p>"
+          }
+        },
+        "block_4": {
+          "type": "question",
+          "settings": {
+            "question": "Where do I find new events?",
+            "answer": "<p>Follow the studio on Instagram or contact the team for upcoming flash days and special events.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4"
+      ]
+    },
+    "section_5": {
+      "type": "studio-visit",
+      "settings": {}
+    }
+  },
+  "order": [
+    "section_1",
+    "section_2",
+    "section_3",
+    "section_4",
+    "section_5"
+  ]
+}
