@@ -20,8 +20,8 @@
             "anchor": "jake",
             "name": "Jake",
             "role": "TATTOO ARTIST",
-            "asset": "sp-jake.webp",
-            "alt": "Jake working on a tattoo at Sideshow",
+            "asset": "sp-welcome-jake-session.webp",
+            "alt": "Jake wearing blue gloves while tattooing a client's arm at Sideshow",
             "rate": "From $100 / hour",
             "description": "$50 deposit, credited toward your total.",
             "booking_url": "/products/jake-tattoo-services"
@@ -33,8 +33,8 @@
             "anchor": "rigo",
             "name": "Rigo",
             "role": "TATTOO ARTIST",
-            "asset": "sp-rigo.webp",
-            "alt": "Blue floral tattoo work by Rigo",
+            "asset": "sp-original-rigo-floral.webp",
+            "alt": "Blue and purple floral tattoo by Rigo",
             "rate": "From $100 / hour",
             "description": "$50 deposit, credited toward your total.",
             "booking_url": "/products/rigo-tattoo-services"
@@ -46,8 +46,8 @@
             "anchor": "sonny",
             "name": "Sonny",
             "role": "PIERCING ARTIST",
-            "asset": "sp-sonny.webp",
-            "alt": "Ear piercing work by Sonny",
+            "asset": "sp-original-sonny-ear.webp",
+            "alt": "Gold ear jewelry in piercing work by Sonny",
             "rate": "Pricing varies by piercing",
             "description": "20% deposit. Jewelry included with new piercings.",
             "booking_url": "/products/sonny-piercing-services"
@@ -59,8 +59,8 @@
             "anchor": "megan",
             "name": "Megan",
             "role": "TOOTH GEMS & WHITENING",
-            "asset": "sp-megan.webp",
-            "alt": "Megan at Sideshow Productions",
+            "asset": "sp-original-megan.webp",
+            "alt": "Megan, Sideshow Productions tooth-gem and whitening artist",
             "rate": "Tooth gems from $60",
             "description": "Additional gems $20 each. Heart/star $65. Fang $100. Whitening: single $89, double $120, triple $200. 20% deposit.",
             "booking_url": "/pages/contact"

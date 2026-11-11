@@ -33,9 +33,9 @@
           "type": "scene",
           "settings": {
             "word": "piercings",
-            "asset": "sp-work-04.webp",
-            "width": 730,
-            "height": 707,
+            "asset": "sp-original-sonny-heart.webp",
+            "width": 1440,
+            "height": 1800,
             "media_style": "right",
             "focus_x": 50,
             "focus_y": 50,
@@ -78,8 +78,8 @@
           "type": "service",
           "settings": {
             "title": "Custom tattoos",
-            "asset": "sp-work-03.webp",
-            "alt": "Swallow and sun linework tattoo by Jake",
+            "asset": "sp-original-jake-swallow.webp",
+            "alt": "Black swallow, sun, and wave tattoo by Jake",
             "fit": "cover",
             "price": "From $100 / hour",
             "price_detail": "$50 deposit, credited toward your total.",
@@ -94,8 +94,8 @@
           "type": "service",
           "settings": {
             "title": "Piercings",
-            "asset": "sp-work-04.webp",
-            "alt": "Heart-shaped ear jewelry in a piercing by Sonny",
+            "asset": "sp-original-sonny-heart.webp",
+            "alt": "Gold heart-shaped ear jewelry in a piercing by Sonny",
             "fit": "cover",
             "price": "Pricing by placement",
             "price_detail": "20% deposit. Jewelry included with new piercings.",
@@ -126,8 +126,8 @@
           "type": "service",
           "settings": {
             "title": "Teeth whitening",
-            "asset": "sp-megan.webp",
-            "alt": "Megan at Sideshow Productions",
+            "asset": "sp-original-megan.webp",
+            "alt": "Megan, Sideshow Productions tooth-gem and whitening artist",
             "fit": "contain",
             "price": "From $89",
             "price_detail": "Single $89. Double $120. Triple $200. 20% deposit.",
@@ -153,8 +153,8 @@
         "block_1": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-dark-01.webp",
-            "alt": "Bold black grim reaper tattoo with a scythe by Jake",
+            "asset": "sp-original-jake-reaper.webp",
+            "alt": "Black grim reaper tattoo holding a scythe by Jake",
             "title": "Grim reaper",
             "artist": "JAKE",
             "category": "tattoo"
@@ -163,7 +163,7 @@
         "block_2": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-02.webp",
+            "asset": "sp-original-rigo-floral.webp",
             "alt": "Blue and purple floral tattoo by Rigo",
             "title": "Color florals",
             "artist": "RIGO",
@@ -173,7 +173,7 @@
         "block_3": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-dark-02.webp",
+            "asset": "sp-original-jake-spiders.webp",
             "alt": "Two black spider tattoos forming a heart shape by Jake",
             "title": "Spider heart",
             "artist": "JAKE",
@@ -183,8 +183,8 @@
         "block_4": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-08.webp",
-            "alt": "Illustrative blackwork tattoo by Jake",
+            "asset": "sp-original-jake-figure.webp",
+            "alt": "Illustrative black tattoo of a seated figure beneath a crescent moon by Jake",
             "title": "Illustrative blackwork",
             "artist": "JAKE",
             "category": "tattoo"
@@ -193,8 +193,8 @@
         "block_5": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-04.webp",
-            "alt": "Heart-shaped ear jewelry in a piercing by Sonny",
+            "asset": "sp-original-sonny-heart.webp",
+            "alt": "Gold heart-shaped ear jewelry in a piercing by Sonny",
             "title": "Heart jewelry",
             "artist": "SONNY",
             "category": "piercing"
@@ -230,8 +230,8 @@
             "anchor": "jake",
             "name": "Jake",
             "role": "TATTOO ARTIST",
-            "asset": "sp-jake.webp",
-            "alt": "Jake working on a tattoo at Sideshow",
+            "asset": "sp-welcome-jake-session.webp",
+            "alt": "Jake wearing blue gloves while tattooing a client's arm at Sideshow",
             "bio": "Custom tattoo work, black and grey, lettering, and fine-line designs.",
             "meta": "CUSTOM TATTOOS · LETTERING",
             "rate": "From $100 / hour",
@@ -245,8 +245,8 @@
             "anchor": "rigo",
             "name": "Rigo",
             "role": "TATTOO ARTIST",
-            "asset": "sp-rigo.webp",
-            "alt": "Blue floral tattoo work by Rigo",
+            "asset": "sp-original-rigo-floral.webp",
+            "alt": "Blue and purple floral tattoo by Rigo",
             "bio": "Custom tattoos and color work. Consultations in English or Spanish.",
             "meta": "ILLUSTRATIVE · ENGLISH / ESPAÑOL",
             "rate": "From $100 / hour",
@@ -260,8 +260,8 @@
             "anchor": "sonny",
             "name": "Sonny",
             "role": "PIERCING ARTIST",
-            "asset": "sp-sonny.webp",
-            "alt": "Ear piercing work by Sonny",
+            "asset": "sp-original-sonny-ear.webp",
+            "alt": "Gold ear jewelry in piercing work by Sonny",
             "bio": "Body piercings and jewelry. Contact Sonny about your placement and availability.",
             "meta": "PIERCINGS · JEWELRY",
             "rate": "Pricing varies by piercing",
@@ -275,8 +275,8 @@
             "anchor": "megan",
             "name": "Megan",
             "role": "TOOTH GEMS & WHITENING",
-            "asset": "sp-megan.webp",
-            "alt": "Megan at Sideshow Productions",
+            "asset": "sp-original-megan.webp",
+            "alt": "Megan, Sideshow Productions tooth-gem and whitening artist",
             "bio": "Tooth gems and teeth whitening. Explore gem options and whitening sessions.",
             "meta": "TOOTH GEMS · TEETH WHITENING",
             "rate": "Tooth gems from $60",
@@ -640,8 +640,8 @@
         "block_1": {
           "type": "photo",
           "settings": {
-            "asset": "sp-work-01.webp",
-            "alt": "Fine-line cowboy boot with flowers by Jake",
+            "asset": "sp-original-jake-boot.webp",
+            "alt": "Fine-line cowboy boot filled with flowers by Jake",
             "caption": "Work by Jake",
             "link_url": "https://www.instagram.com/jakenotlopez",
             "link_label": "See Jake's work on Instagram"
@@ -670,8 +670,8 @@
         "block_4": {
           "type": "photo",
           "settings": {
-            "asset": "sp-work-03.webp",
-            "alt": "Swallow and sun linework tattoo by Jake",
+            "asset": "sp-original-jake-swallow.webp",
+            "alt": "Black swallow, sun, and wave tattoo by Jake",
             "caption": "Work by Jake",
             "link_url": "https://www.instagram.com/jakenotlopez",
             "link_label": "See Jake's work on Instagram"
@@ -680,8 +680,8 @@
         "block_5": {
           "type": "photo",
           "settings": {
-            "asset": "sp-work-06.webp",
-            "alt": "A small tooth gem shown in Megan's portfolio",
+            "asset": "sp-original-megan-gem.webp",
+            "alt": "Small tooth gem shown in Megan's portfolio",
             "caption": "Tooth gems by Megan",
             "link_url": "https://www.instagram.com/meganwell14",
             "link_label": "See Megan's work on Instagram"

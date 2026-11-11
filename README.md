@@ -12,7 +12,7 @@ npm ci
 npm run preview
 ```
 
-The preview renders the actual Liquid templates and sections, adds a preview notice, and never submits a booking, inquiry, order, or payment. It can also be viewed from authorized devices through the configured private Tailscale Serve endpoint. If port 8794 is occupied, the server reports its next available port.
+The preview renders the actual Liquid templates and sections without an extra notice bar above the navigation. Its local form guards prevent booking, inquiry, order, or payment submission. It can also be viewed from authorized devices through the configured private Tailscale Serve endpoint. If port 8794 is occupied, the server reports its next available port.
 
 ## Included pages
 
@@ -46,7 +46,9 @@ Shopify page resources and template assignments must be created/confirmed in the
 - Stronger staggered scroll reveals, staged hero typography, and image transitions. A moving service strip uses the original brush font, with a pause control and reduced-motion fallback.
 - The hero cycles automatically without arrows, slide numbers, or play/pause controls. Its rotation and optional video stop offscreen, while a modal is open, or when the tab is hidden. Reduced-motion preferences show a still scene.
 - The original November 13–14 event poster and promotion return in a native dialog. It opens after 12 seconds at most once per session, can be reopened from the event banner, closes with Escape or its close control, and retires automatically. Saturday booking choices close at the original studio-local cutoff.
-- Photo service cards bring starting prices, deposit details, artist links, and booking inquiries into a clear grid. One continuous ambient red background spans the content sections.
+- Photo service cards bring starting prices, deposit details, artist links, and booking inquiries into a clear grid. The original red Lottie and faint shop-sign artwork form a fixed background, with transparent-to-black-to-transparent fades through each content section.
+- A small palette button appears after 200 pixels of scrolling. Clean and Original presets plus separate Red motion, Studio artwork, and Section fades switches save a preference on that browser. The Studio appearance section controls the initial layers, animation opacity/scale, optional replacement artwork, and whether visitors see the button. When the button is disabled, the merchant's defaults apply instead of saved visitor choices.
+- The original animation player loads only when the background can be seen. It pauses behind overlays, on hidden tabs, above the content, or when motion is disabled. Reduced-motion preferences retain a static red atmosphere. The panel supports Escape, focus return, and phone safe areas.
 - Six original client reviews form a swipeable slider. A six-image social gallery uses real client work and links directly to the studio and artists’ Instagram profiles, with original Instagram and TikTok icons. It is a curated gallery, not a live social feed.
 - An interactive Ink Roulette wheel draws from all 27 recovered design images, with a synchronized result and image enlargement. Online spins provide inspiration; the published $150/two-spin and $20 extra-number terms describe the in-studio experience.
 - The 21 recovered products and all 27 actual Ink Roulette images remain available.
@@ -98,6 +100,8 @@ Browser review covered the home page at desktop and mobile sizes, the brush head
 
 The November 11 homepage restoration passed the validator with 22 studio section schemas, 11 templates, 26 Liquid files, eight JavaScript files, zero errors, and zero warnings. Sixteen focused Chrome checks verified hero autoplay/manual pause, overlay/offscreen suspension, event focus and expiry handling, wheel/result alignment, lightbox interaction, review navigation, reduced motion, and 320/390-pixel layouts. Six additional checks through the private Tailscale endpoint verified the event-to-artist-to-contact request context, the new homepage content, once-per-session popup behavior, and no browser runtime errors. Desktop and mobile screenshots were visually reviewed, and the long brush-letter descender received additional space above the hero suffix.
 
+The November 11 appearance and original-photo revision passed the validator with 23 studio section schemas, 11 templates, 27 Liquid files, nine JavaScript files, zero errors, and zero warnings. Desktop and phone captures through the private Tailscale endpoint verified the original background, palette panel, higher-resolution hero, and artist cards. Browser checks covered saved preferences after reload, lazy player loading, reduced-motion suspension, Escape focus return, independent layer switches, clean-mode backgrounds, and 390-pixel layout bounds. The updated pages produced no browser runtime exceptions. Source recovery also verified the original CDN hashes, native image dimensions, and lossless alpha preservation for the background artwork.
+
 ## Source preparation
 
 ```powershell
@@ -106,11 +110,17 @@ python scripts/prepare-studio-assets.py
 python scripts/prepare-studio-content.py
 python scripts/prepare-studio-motion.py --build
 python scripts/prepare-welcome-gallery.py
+python scripts/prepare-legacy-appearance.py
+python scripts/prepare-studio-originals.py
 ```
 
 The preparation scripts use Python with requests, BeautifulSoup, and Pillow. Asset preparation uses preserved originals and does not invent or retouch client artwork. Check the script documentation before recrawling. Source provenance is recorded in docs/studio-asset-sources.json, docs/studio-catalog-mapping.json, and docs/studio-authentic-media-sources.json. The authentic media script additionally requires FFmpeg and FFprobe. Original video is low resolution (498 × 246), so the current hero defaults to the sharper real photographs; the clip remains available as an optional scene asset.
 
 The Welcome-photo helper uses Python's standard library and Pillow. The new Jake image retains its original 750 × 1000 resolution; the storefront and flash-wall assets are reused without recompression. `docs/studio-welcome-media-sources.json` records their original sources and dimensions. `docs/studio-visual-references.md` links the current Sideshow site and the additional design references. Other studios' photography is for reference and is not included in this theme.
+
+The appearance helper recovers the exact legacy Lottie JSON and a lossless WebP of the original shop-sign pattern. The artwork already has very faint transparency in its pixels, so 100% artwork opacity preserves the original rather than making it opaque. The local SVG player is lottie-web 5.7.4, matching the former theme, with its MIT license in `docs/licenses/`. `docs/studio-legacy-appearance-sources.json` records the source URLs, hashes, original settings, and conversion checks.
+
+The original-photo helper verifies the retained Shopify artist references and exact CDN file hashes. It creates twelve WebP assets at native resolution and reuses Jake's existing Welcome photograph. The hero, artists, portfolio, services, social tiles, about page, and booking cards use matching originals where they improve on the captured screenshots. Sonny's heart-ear photograph is 1440 × 1800; Megan's single tooth-gem photograph is 1080 × 1350; Rigo's blue floral tattoo is 815 × 1228. Jake's recovered work photographs are 750 × 1000, except the 1000 × 750 spider pair. `docs/studio-original-media-sources.json` contains exact replacements, attribution, dimensions, and rejected candidates. Megan's and Sonny's profile sources remain modest in resolution; their uncropped originals remove the old circular screenshot masks. No image was enlarged or artificially sharpened.
 
 ## Before launch
 

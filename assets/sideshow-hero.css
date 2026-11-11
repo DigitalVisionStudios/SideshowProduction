@@ -73,7 +73,7 @@
 }
 .sp-hero-deck__words {
   display: grid;
-  margin-block: 6px 20px;
+  margin-block: 6px .3em;
   font-family: "SP Brush", "SP Sans", Arial, sans-serif;
   font-size: clamp(88px, 9.2vw, 140px);
   font-weight: 400;

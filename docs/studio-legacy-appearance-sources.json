@@ -1,0 +1,139 @@
+{
+  "prepared_at_utc": "2026-11-11T09:04:17.760943+00:00",
+  "helper": "scripts/prepare-legacy-appearance.py",
+  "pillow_version": "12.2.0",
+  "assets": {
+    "animation": {
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/Animation_-_1706478173660.json?v=1706478316",
+      "source_sha256": "11210f6e49d9390157a85daa4db497cb6b0ebc03ef2cb6e7eead27be28e1ada0",
+      "source_bytes": 2644,
+      "output": "assets/sp-legacy-background.json",
+      "output_sha256": "11210f6e49d9390157a85daa4db497cb6b0ebc03ef2cb6e7eead27be28e1ada0",
+      "output_bytes": 2644,
+      "transform": "Byte-for-byte copy"
+    },
+    "pattern": {
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/Frame_1_1.png?v=1706560299",
+      "source_sha256": "292f84e52b6aedb839789cb987a7954bf3f2ae86e69c6ca22e723314d081e0c5",
+      "source_bytes": 898826,
+      "output": "assets/sp-legacy-sign.webp",
+      "output_sha256": "133a37e4ba572218359f69f2b7a0b4758cd6d3733aec729c739a09057301d16f",
+      "output_bytes": 370550,
+      "transform": "Lossless WebP, native resolution, all RGBA pixels preserved"
+    },
+    "player": {
+      "source_url": "https://cdn.jsdelivr.net/npm/lottie-web@5.7.4/build/player/lottie_light.min.js",
+      "source_sha256": "b6d09da0c3245664a4a6b03f0e4d6b132db88ce994750d8324640403f93814d6",
+      "source_bytes": 143356,
+      "output": "assets/sp-lottie-svg.min.js",
+      "output_sha256": "b6d09da0c3245664a4a6b03f0e4d6b132db88ce994750d8324640403f93814d6",
+      "output_bytes": 143356,
+      "transform": "Byte-for-byte copy"
+    },
+    "license": {
+      "source_url": "https://cdn.jsdelivr.net/npm/lottie-web@5.7.4/LICENSE.md",
+      "source_sha256": "4750849de81eeee983513f7e66c419abf4656146a23283e8e93532075e2c242b",
+      "source_bytes": 1095,
+      "output": "docs/licenses/lottie-web-5.7.4-LICENSE.txt",
+      "output_sha256": "4750849de81eeee983513f7e66c419abf4656146a23283e8e93532075e2c242b",
+      "output_bytes": 1095,
+      "transform": "Byte-for-byte copy"
+    }
+  },
+  "legacy_evidence": {
+    "animation_section": "sections/lottie-fullscreen-section.liquid",
+    "animation_settings_file": "config/settings_data.json",
+    "animation_settings_json_path": "$.current.sections.lottie-fullscreen-section.settings",
+    "original_player_source": "https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js",
+    "original_player_reference": "layout/theme.liquid",
+    "original_animation_settings": {
+      "opacity": 0.3,
+      "scale": 5.5
+    },
+    "original_player_options": {
+      "renderer": "svg",
+      "loop": false,
+      "autoplay": true
+    },
+    "original_loop_behavior": "On complete, reverse playDirection with setDirection and call play; a continuous forward/reverse cycle.",
+    "original_mobile_transform": "translateX(-80%) translateY(-50%) scale(10)",
+    "pattern_settings_file": "config/settings_data.json",
+    "pattern_settings_json_path": "$.current.sections.footer.blocks.192a6b17-ff2b-48ef-8f41-454eb72b8ba4.settings.html_area",
+    "original_body_background": {
+      "color": "black",
+      "repeat": "repeat",
+      "size": "cover",
+      "position": "relative"
+    },
+    "original_duplicate_pseudo_layer": {
+      "opacity": 0.1,
+      "z_index": -1,
+      "size": "none (invalid CSS value in the source)",
+      "repeat": "repeat"
+    },
+    "original_overlay_gradient": "linear-gradient(0deg, black 16%, transparent 73%, transparent 84%, black 100%)"
+  },
+  "animation": {
+    "name": "fondo_lottie",
+    "exporter_version": "5.7.9",
+    "width": 720,
+    "height": 480,
+    "frame_rate": 25,
+    "in_frame": 0,
+    "out_frame": 51,
+    "one_way_duration_seconds": 2.04,
+    "layer_types": [
+      "shape",
+      "solid"
+    ],
+    "stroke_rgb_normalized": [
+      0.3412,
+      0,
+      0
+    ],
+    "solid_color": "#021311",
+    "external_assets": [],
+    "expressions": [],
+    "source_changes": "None. Original color, timing, shape repeater, solid and animation data retained."
+  },
+  "pattern": {
+    "description": "Original tattoo flash symbols, tattoo-history clippings and novelty shop-sign pattern. This is decorative artwork, not a storefront photograph.",
+    "width": 1228,
+    "height": 2376,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 20,
+    "maximum_native_opacity": 0.0784313725490196,
+    "focal_point": "No single focal subject; retain full portrait proportions for the repeating pattern.",
+    "recommended_element_opacity": 1,
+    "opacity_note": "The original file is already faint. Do not multiply by 0.1 to imitate its native alpha. Apply any section readability fades separately.",
+    "lossless_rgba_comparison_passed": true,
+    "upscaled": false
+  },
+  "player": {
+    "package": "lottie-web",
+    "version": "5.7.4",
+    "repository": "https://github.com/airbnb/lottie-web",
+    "build": "build/player/lottie_light.min.js (SVG-only light build)",
+    "global_names": [
+      "lottie",
+      "bodymovin"
+    ],
+    "license": "MIT; Copyright (c) 2015 Bodymovin",
+    "license_file": "docs/licenses/lottie-web-5.7.4-LICENSE.txt",
+    "api_verified_in_matching_unminified_source": [
+      "loadAnimation",
+      "play",
+      "pause",
+      "goToAndStop",
+      "setDirection",
+      "playDirection",
+      "addEventListener",
+      "complete",
+      "destroy"
+    ],
+    "api_source_url": "https://cdn.jsdelivr.net/npm/lottie-web@5.7.4/build/player/lottie_light.js",
+    "api_source_sha256": "fd7b5b430a7a5dace38c852b3f5edb700933e0fc879f2349770bcb7b9d5bd3d4",
+    "compatibility": "The source has only a shape layer (path, stroke, repeater and transforms) and a solid layer. The verified SVG light build includes both renderers and the repeater, without needing expression support."
+  }
+}

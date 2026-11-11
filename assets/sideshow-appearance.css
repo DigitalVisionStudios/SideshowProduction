@@ -1,0 +1,42 @@
+/* The original Shopify atmosphere sits behind the page, with soft section edges. */
+body.sp-site{position:relative;isolation:isolate}
+.sp-appearance-section{position:static}
+.sp-atmosphere{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:#080809;contain:strict}
+.sp-atmosphere-motion,.sp-atmosphere-art{position:absolute;inset:0;visibility:hidden}
+.sp-atmosphere-motion{opacity:var(--sp-background-motion-opacity,.3);background:radial-gradient(ellipse at 30% 55%,#b30826,transparent 72%),radial-gradient(ellipse at 85% 15%,#650b1c,transparent 68%)}
+.sp-atmosphere-motion.is-loaded{background:none}
+.sp-atmosphere-animation{position:absolute;inset:0;transform:scale(var(--sp-background-scale,5.5));transform-origin:center}
+.sp-atmosphere-animation>svg{display:block;width:100%!important;height:100%!important}
+.sp-atmosphere-art{opacity:var(--sp-background-art-opacity,1)}
+.sp-atmosphere-art img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center}
+body[data-sp-motion="on"] .sp-atmosphere-motion,body[data-sp-artwork="on"] .sp-atmosphere-art{visibility:visible}
+body[data-sp-background] #main-content{background:transparent}
+body[data-sp-fades="on"] #main-content>.shopify-section>.sp-section{background:linear-gradient(180deg,rgba(8,8,9,0) 0%,rgba(8,8,9,.95) 20%,rgba(8,8,9,.97) 78%,rgba(8,8,9,0) 100%)}
+body[data-sp-fades="on"] .sp-footer{background:linear-gradient(180deg,rgba(8,8,9,0),#080809 28%)}
+body[data-sp-fades="off"] .sp-footer{background:#080809}
+.sp-appearance{position:fixed;right:24px;bottom:max(24px,env(safe-area-inset-bottom));z-index:90;font-family:"SP Sans",Arial,sans-serif}
+.sp-appearance-toggle{display:grid;place-items:center;width:50px;height:50px;padding:0;border:1px solid #78404c;border-radius:50%;background:rgba(15,10,14,.94);color:#f4c6cf;box-shadow:0 6px 24px #0008;cursor:pointer;transition:background .2s,border-color .2s,transform .25s;backdrop-filter:blur(12px)}
+.sp-appearance-toggle:hover,.sp-appearance-toggle[aria-expanded="true"]{background:#6f0b1a;border-color:#eb5369;color:#fff;transform:translateY(-2px)}
+.sp-appearance-panel{position:absolute;right:0;bottom:65px;width:326px;max-width:calc(100vw - 32px);max-height:calc(100dvh - 110px);padding:22px;overflow:auto;overscroll-behavior:contain;border:1px solid #60303e;border-radius:12px;background:linear-gradient(145deg,#20121b,#100c11 65%);color:#f9f2f5;box-shadow:0 18px 65px #000a;animation:sp-appearance-enter .25s ease both}
+.sp-appearance-heading{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.sp-appearance-heading h2{font:400 23px/1.3 "SP Sans",Arial,sans-serif;letter-spacing:-.015em;text-transform:none}
+.sp-appearance-close{display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;margin:-8px -8px -8px 0;padding:0;border:0;border-radius:50%;background:transparent;color:#d5bdc6;cursor:pointer}
+.sp-appearance-close:hover{background:#54202f;color:white}
+.sp-appearance-intro{margin-top:7px!important;color:#bca8b2;font-size:13px;line-height:1.6}
+.sp-appearance-presets{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:19px;padding:4px;border:1px solid #49303d;border-radius:8px;background:#09080a}
+.sp-appearance-presets>button{min-height:41px;padding:8px 15px;border:1px solid transparent;border-radius:5px;background:transparent;color:#c1aeb8;font:400 13px/1.4 "SP Sans",Arial,sans-serif;cursor:pointer}
+.sp-appearance-presets>button[aria-pressed="true"]{border-color:#9e233a;background:#641124;color:#fff}
+.sp-appearance-options{padding:4px 0 0;margin:0;border:0;min-width:0}
+.sp-appearance-options label{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 0;border-bottom:1px solid #35212c;cursor:pointer}
+.sp-appearance-options label>span{min-width:0}
+.sp-appearance-options strong{display:block;font-size:14px;font-weight:400;line-height:1.5}
+.sp-appearance-options small{display:block;margin-top:3px;color:#b49fa9;font-size:11px;line-height:1.5}
+.sp-appearance-options input{appearance:none;flex:0 0 43px;position:relative;width:43px;height:25px;margin:0;border:1px solid #78616e;border-radius:20px;background:#33282f;cursor:pointer;transition:background .2s,border-color .2s}
+.sp-appearance-options input::before{content:"";position:absolute;top:3px;left:3px;width:17px;height:17px;border-radius:50%;background:#e2d1da;transition:transform .2s}
+.sp-appearance-options input:checked{background:#ab1231;border-color:#ef536e}
+.sp-appearance-options input:checked::before{transform:translateX(18px);background:#fff}
+.sp-appearance-reset{display:block;min-height:40px;margin:13px 0 -5px;padding:6px 0;border:0;background:transparent;color:#d9aebd;font-size:12px;line-height:1.5;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+@keyframes sp-appearance-enter{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+@media(max-width:640px){.sp-appearance{right:16px;bottom:max(18px,env(safe-area-inset-bottom))}.sp-appearance-toggle{width:48px;height:48px}.sp-appearance-panel{bottom:61px;padding:21px;width:318px}body[data-sp-fades="on"] #main-content>.shopify-section>.sp-section{background:linear-gradient(180deg,rgba(8,8,9,0),rgba(8,8,9,.96) 12%,rgba(8,8,9,.97) 88%,rgba(8,8,9,0))}}
+@media(prefers-reduced-motion:reduce){.sp-appearance-panel{animation:none}.sp-appearance-toggle,.sp-appearance-options input,.sp-appearance-options input::before{transition:none}}
+@media print{.sp-atmosphere,.sp-appearance{display:none!important}body[data-sp-background] #main-content,body[data-sp-fades="on"] #main-content>.shopify-section>.sp-section{background:white}}

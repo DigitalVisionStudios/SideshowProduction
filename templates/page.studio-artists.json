@@ -21,8 +21,8 @@
             "anchor": "jake",
             "name": "Jake",
             "role": "TATTOO ARTIST",
-            "asset": "sp-jake.webp",
-            "alt": "Jake working on a tattoo at Sideshow",
+            "asset": "sp-welcome-jake-session.webp",
+            "alt": "Jake wearing blue gloves while tattooing a client's arm at Sideshow",
             "bio": "Custom tattoo work, black and grey, lettering, and fine-line designs.",
             "meta": "CUSTOM TATTOOS · LETTERING",
             "rate": "From $100 / hour",
@@ -36,8 +36,8 @@
             "anchor": "rigo",
             "name": "Rigo",
             "role": "TATTOO ARTIST",
-            "asset": "sp-rigo.webp",
-            "alt": "Blue floral tattoo work by Rigo",
+            "asset": "sp-original-rigo-floral.webp",
+            "alt": "Blue and purple floral tattoo by Rigo",
             "bio": "Custom tattoos and color work. Consultations in English or Spanish.",
             "meta": "ILLUSTRATIVE · ENGLISH / ESPAÑOL",
             "rate": "From $100 / hour",
@@ -51,8 +51,8 @@
             "anchor": "sonny",
             "name": "Sonny",
             "role": "PIERCING ARTIST",
-            "asset": "sp-sonny.webp",
-            "alt": "Ear piercing work by Sonny",
+            "asset": "sp-original-sonny-ear.webp",
+            "alt": "Gold ear jewelry in piercing work by Sonny",
             "bio": "Body piercings and jewelry. Contact Sonny about your placement and availability.",
             "meta": "PIERCINGS · JEWELRY",
             "rate": "Pricing varies by piercing",
@@ -66,8 +66,8 @@
             "anchor": "megan",
             "name": "Megan",
             "role": "TOOTH GEMS & WHITENING",
-            "asset": "sp-megan.webp",
-            "alt": "Megan at Sideshow Productions",
+            "asset": "sp-original-megan.webp",
+            "alt": "Megan, Sideshow Productions tooth-gem and whitening artist",
             "bio": "Tooth gems and teeth whitening. Explore gem options and whitening sessions.",
             "meta": "TOOTH GEMS · TEETH WHITENING",
             "rate": "Tooth gems from $60",
@@ -92,8 +92,8 @@
         "block_1": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-01.webp",
-            "alt": "Fine-line cowboy boot with flowers by Jake",
+            "asset": "sp-original-jake-boot.webp",
+            "alt": "Fine-line cowboy boot filled with flowers by Jake",
             "title": "Cowboy boot & florals",
             "artist": "JAKE",
             "category": "tattoo"
@@ -102,8 +102,8 @@
         "block_2": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-02.webp",
-            "alt": "Blue floral tattoo by Rigo",
+            "asset": "sp-original-rigo-floral.webp",
+            "alt": "Blue and purple floral tattoo by Rigo",
             "title": "Blue florals",
             "artist": "RIGO",
             "category": "tattoo"
@@ -112,8 +112,8 @@
         "block_3": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-04.webp",
-            "alt": "Heart-shaped ear jewelry in a piercing by Sonny",
+            "asset": "sp-original-sonny-heart.webp",
+            "alt": "Gold heart-shaped ear jewelry in a piercing by Sonny",
             "title": "Heart jewelry",
             "artist": "SONNY",
             "category": "piercing"
@@ -122,8 +122,8 @@
         "block_4": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-03.webp",
-            "alt": "Swallow and sun linework tattoo by Jake",
+            "asset": "sp-original-jake-swallow.webp",
+            "alt": "Black swallow, sun, and wave tattoo by Jake",
             "title": "Swallow & sun",
             "artist": "JAKE",
             "category": "tattoo"
@@ -132,8 +132,8 @@
         "block_5": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-05.webp",
-            "alt": "Dragon linework tattoo by Jake",
+            "asset": "sp-original-jake-dragon.webp",
+            "alt": "Dragon linework tattoo beneath a crescent moon by Jake",
             "title": "Dragon linework",
             "artist": "JAKE",
             "category": "tattoo"
@@ -142,8 +142,8 @@
         "block_6": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-06.webp",
-            "alt": "A small tooth gem applied by Megan",
+            "asset": "sp-original-megan-gem.webp",
+            "alt": "Small tooth gem shown in Megan's portfolio",
             "title": "Tooth gem",
             "artist": "MEGAN",
             "category": "gems"

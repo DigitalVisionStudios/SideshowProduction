@@ -1,0 +1,43 @@
+{% assign artwork_opacity = section.settings.artwork_opacity | divided_by: 100.0 %}
+{% assign motion_opacity = section.settings.motion_opacity | divided_by: 100.0 %}
+<div data-sp-appearance data-default-motion="{{ section.settings.motion_enabled }}" data-default-artwork="{{ section.settings.artwork_enabled }}" data-default-fades="{{ section.settings.fades_enabled }}" data-show-control="{{ section.settings.show_control }}" data-motion-url="{{ 'sp-legacy-background.json' | asset_url }}" data-player-url="{{ 'sp-lottie-svg.min.js' | asset_url }}" style="--sp-background-art-opacity:{{ artwork_opacity }};--sp-background-motion-opacity:{{ motion_opacity }};--sp-background-scale:{{ section.settings.motion_scale }};">
+  <div class="sp-atmosphere" data-atmosphere-background aria-hidden="true">
+    <div class="sp-atmosphere-motion" data-atmosphere-motion><div class="sp-atmosphere-animation" data-atmosphere-animation></div></div>
+    <div class="sp-atmosphere-art" data-atmosphere-art>{% if section.settings.artwork != blank %}<img data-artwork-src="{{ section.settings.artwork | image_url: width: 2000 }}" alt="" width="1228" height="2376" decoding="async">{% else %}<img data-artwork-src="{{ 'sp-legacy-sign.webp' | asset_url }}" alt="" width="1228" height="2376" decoding="async">{% endif %}</div>
+  </div>
+  {% if section.settings.show_control %}
+  <div class="sp-appearance" data-appearance-controls hidden>
+    <div class="sp-appearance-panel" id="sp-appearance-panel-{{ section.id }}" data-appearance-panel role="dialog" aria-modal="false" aria-labelledby="sp-appearance-title-{{ section.id }}" hidden>
+      <div class="sp-appearance-heading"><h2 id="sp-appearance-title-{{ section.id }}">Appearance</h2><button type="button" class="sp-appearance-close" data-appearance-close aria-label="Close appearance settings">{% render 'studio-icon', name: 'close' %}</button></div>
+      <p class="sp-appearance-intro">Find your Sideshow.</p>
+      <div class="sp-appearance-presets" role="group" aria-label="Background style"><button type="button" data-appearance-preset="clean" aria-pressed="false">Clean</button><button type="button" data-appearance-preset="studio" aria-pressed="true">Original</button></div>
+      <fieldset class="sp-appearance-options"><legend class="sp-sr-only">Background layers</legend>
+        <label><span><strong>Red motion</strong><small>The original animated background</small></span><input type="checkbox" role="switch" data-appearance-option="motion"{% if section.settings.motion_enabled %} checked{% endif %}></label>
+        <label><span><strong>Studio artwork</strong><small>The shop's original poster pattern</small></span><input type="checkbox" role="switch" data-appearance-option="artwork"{% if section.settings.artwork_enabled %} checked{% endif %}></label>
+        <label><span><strong>Section fades</strong><small>Soft black shading through the page</small></span><input type="checkbox" role="switch" data-appearance-option="fades"{% if section.settings.fades_enabled %} checked{% endif %}></label>
+      </fieldset>
+      <button type="button" class="sp-appearance-reset" data-appearance-reset>Reset to the studio look</button>
+      <span class="sp-sr-only" data-appearance-status role="status" aria-live="polite"></span>
+    </div>
+    <button class="sp-appearance-toggle" type="button" data-appearance-toggle aria-label="Change site appearance" aria-expanded="false" aria-controls="sp-appearance-panel-{{ section.id }}" title="Change appearance"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18h1.3a2 2 0 0 0 1.6-3.2 1.5 1.5 0 0 1 1.2-2.4h1.4A3.5 3.5 0 0 0 21 12a9 9 0 0 0-9-9Z"/><circle cx="7.5" cy="10" r=".8" fill="currentColor"/><circle cx="10.5" cy="6.8" r=".8" fill="currentColor"/><circle cx="15" cy="7.5" r=".8" fill="currentColor"/><circle cx="7.5" cy="14.5" r=".8" fill="currentColor"/></svg></button>
+  </div>
+  {% endif %}
+</div>
+{% schema %}
+{
+  "name":"Studio appearance",
+  "tag":"div",
+  "class":"sp-appearance-section",
+  "settings":[
+    {"type":"checkbox","id":"show_control","label":"Show appearance button","default":true,"info":"A small palette button appears after scrolling. Visitors can compare backgrounds on their own device."},
+    {"type":"checkbox","id":"motion_enabled","label":"Red animation by default","default":true},
+    {"type":"checkbox","id":"artwork_enabled","label":"Studio artwork by default","default":true},
+    {"type":"checkbox","id":"fades_enabled","label":"Section fades by default","default":true},
+    {"type":"range","id":"motion_opacity","label":"Animation opacity","min":5,"max":60,"step":5,"unit":"%","default":30},
+    {"type":"range","id":"motion_scale","label":"Animation scale","min":1,"max":6,"step":0.5,"default":5.5},
+    {"type":"image_picker","id":"artwork","label":"Optional background artwork"},
+    {"type":"range","id":"artwork_opacity","label":"Artwork opacity","min":10,"max":100,"step":5,"unit":"%","default":100,"info":"The original artwork already contains very faint transparency. 100% preserves that original appearance."}
+  ],
+  "presets":[{"name":"Studio appearance"}]
+}
+{% endschema %}

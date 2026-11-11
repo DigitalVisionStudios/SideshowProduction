@@ -19,8 +19,8 @@
         "block_1": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-01.webp",
-            "alt": "Fine-line cowboy boot with flowers by Jake",
+            "asset": "sp-original-jake-boot.webp",
+            "alt": "Fine-line cowboy boot filled with flowers by Jake",
             "title": "Cowboy boot & florals",
             "artist": "JAKE",
             "category": "tattoo"
@@ -29,8 +29,8 @@
         "block_2": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-02.webp",
-            "alt": "Blue floral tattoo by Rigo",
+            "asset": "sp-original-rigo-floral.webp",
+            "alt": "Blue and purple floral tattoo by Rigo",
             "title": "Blue florals",
             "artist": "RIGO",
             "category": "tattoo"
@@ -39,8 +39,8 @@
         "block_3": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-04.webp",
-            "alt": "Heart-shaped ear jewelry in a piercing by Sonny",
+            "asset": "sp-original-sonny-heart.webp",
+            "alt": "Gold heart-shaped ear jewelry in a piercing by Sonny",
             "title": "Heart jewelry",
             "artist": "SONNY",
             "category": "piercing"
@@ -49,8 +49,8 @@
         "block_4": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-03.webp",
-            "alt": "Swallow and sun linework tattoo by Jake",
+            "asset": "sp-original-jake-swallow.webp",
+            "alt": "Black swallow, sun, and wave tattoo by Jake",
             "title": "Swallow & sun",
             "artist": "JAKE",
             "category": "tattoo"
@@ -59,8 +59,8 @@
         "block_5": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-05.webp",
-            "alt": "Dragon linework tattoo by Jake",
+            "asset": "sp-original-jake-dragon.webp",
+            "alt": "Dragon linework tattoo beneath a crescent moon by Jake",
             "title": "Dragon linework",
             "artist": "JAKE",
             "category": "tattoo"
@@ -69,8 +69,8 @@
         "block_6": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-06.webp",
-            "alt": "A small tooth gem applied by Megan",
+            "asset": "sp-original-megan-gem.webp",
+            "alt": "Small tooth gem shown in Megan's portfolio",
             "title": "Tooth gem",
             "artist": "MEGAN",
             "category": "gems"
@@ -89,8 +89,8 @@
         "block_8": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-08.webp",
-            "alt": "Illustrative blackwork tattoo by Jake",
+            "asset": "sp-original-jake-figure.webp",
+            "alt": "Illustrative black tattoo of a seated figure beneath a crescent moon by Jake",
             "title": "Illustrative blackwork",
             "artist": "JAKE",
             "category": "tattoo"
@@ -99,8 +99,8 @@
         "block_9": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-09.webp",
-            "alt": "Sunflower and shoe tattoo by Jake",
+            "asset": "sp-original-jake-sunflower.webp",
+            "alt": "Sunflower growing from a shoe tattoo by Jake",
             "title": "A story in the details",
             "artist": "JAKE",
             "category": "tattoo"
@@ -139,8 +139,8 @@
         "dark_work_1": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-dark-01.webp",
-            "alt": "Bold black grim reaper tattoo with a scythe by Jake",
+            "asset": "sp-original-jake-reaper.webp",
+            "alt": "Black grim reaper tattoo holding a scythe by Jake",
             "title": "Grim reaper",
             "artist": "JAKE",
             "category": "tattoo"
@@ -149,7 +149,7 @@
         "dark_work_2": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-dark-02.webp",
+            "asset": "sp-original-jake-spiders.webp",
             "alt": "Two black spider tattoos forming a heart shape by Jake",
             "title": "Spider heart",
             "artist": "JAKE",

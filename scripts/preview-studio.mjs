@@ -268,11 +268,9 @@ export async function templateForRoute(pathname) {
 }
 
 function previewChrome(html) {
-  const banner = '<aside class="design-preview" aria-label="Preview status"><strong>Design preview</strong><span>Shopify bookings and checkout are not connected.</span></aside>';
-  const styles = '<style>.design-preview{position:relative;z-index:100000;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px 12px;padding:6px 16px;background:#151313;color:#ddd;font:11px/1.4 system-ui,sans-serif;border-bottom:1px solid #3a3030}.design-preview strong{font-weight:750;letter-spacing:.08em;text-transform:uppercase}.preview-form-status{padding:14px;background:#1b1717;color:#ddd;border:1px solid #473333;font:14px/1.5 system-ui,sans-serif}</style>';
+  const styles = '<style>.preview-form-status{padding:14px;background:#1b1717;color:#ddd;border:1px solid #473333;font:14px/1.5 system-ui,sans-serif}</style>';
   const guard = '<script>document.addEventListener("submit",function(event){event.preventDefault();var status=event.target.querySelector(".preview-form-status");if(!status){status=document.createElement("p");status.className="preview-form-status";status.setAttribute("role","status");event.target.appendChild(status);}status.textContent="Design preview only. Nothing was submitted. The form will connect through Shopify before launch.";});document.addEventListener("click",function(event){var a=event.target.closest("a[href]");if(!a)return;try{var u=new URL(a.href,location.href);if(u.origin!==location.origin&&(/api\\.apexmediasol\\.com|leadconnectorhq\\.com|\\.myshopify\\.com$/.test(u.hostname)||/\\/widget\\/booking\\//.test(u.pathname))){event.preventDefault();location.href="/__preview/boundary?target="+encodeURIComponent(u.href);}}catch(error){}});</script>';
   html = html.replace(/<head([^>]*)>/i, '<head$1><meta name="robots" content="noindex,nofollow,noarchive">' + styles);
-  html = html.replace(/<body([^>]*)>/i, '<body$1>' + banner);
   return html.replace(/<\/body>/i, guard + '</body>');
 }
 

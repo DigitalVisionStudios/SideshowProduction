@@ -1,0 +1,687 @@
+{
+  "review_date": "2026-11-11",
+  "purpose": "Replace current-roster screenshot crops with visually matched original Shopify images while preserving subjects and artist attribution.",
+  "reproduction_helper": "scripts/prepare-studio-originals.py",
+  "source_template": "templates/page.artist-portfolio.json",
+  "selection_scope": "36 unique current-roster candidates were retrieved and visually compared. Thirteen exact-source records were selected, yielding twelve new assets and one reused asset. No additional portfolio subjects are introduced.",
+  "replacement_map": {
+    "sp-jake.webp": {
+      "asset": "sp-welcome-jake-session.webp",
+      "alt": "Jake wearing blue gloves while tattooing a client's arm at Sideshow",
+      "artist": "Jake",
+      "dimensions": [
+        750,
+        1000
+      ]
+    },
+    "sp-rigo.webp": {
+      "asset": "sp-original-rigo-floral.webp",
+      "alt": "Blue and purple floral tattoo by Rigo",
+      "artist": "Rigo",
+      "dimensions": [
+        815,
+        1228
+      ]
+    },
+    "sp-work-02.webp": {
+      "asset": "sp-original-rigo-floral.webp",
+      "alt": "Blue and purple floral tattoo by Rigo",
+      "artist": "Rigo",
+      "dimensions": [
+        815,
+        1228
+      ]
+    },
+    "sp-sonny.webp": {
+      "asset": "sp-original-sonny-ear.webp",
+      "alt": "Gold ear jewelry in piercing work by Sonny",
+      "artist": "Sonny",
+      "dimensions": [
+        461,
+        461
+      ]
+    },
+    "sp-megan.webp": {
+      "asset": "sp-original-megan.webp",
+      "alt": "Megan, Sideshow Productions tooth-gem and whitening artist",
+      "artist": "Megan",
+      "dimensions": [
+        480,
+        481
+      ]
+    },
+    "sp-work-01.webp": {
+      "asset": "sp-original-jake-boot.webp",
+      "alt": "Fine-line cowboy boot filled with flowers by Jake",
+      "artist": "Jake",
+      "dimensions": [
+        750,
+        1000
+      ]
+    },
+    "sp-work-03.webp": {
+      "asset": "sp-original-jake-swallow.webp",
+      "alt": "Black swallow, sun, and wave tattoo by Jake",
+      "artist": "Jake",
+      "dimensions": [
+        750,
+        1000
+      ]
+    },
+    "sp-work-04.webp": {
+      "asset": "sp-original-sonny-heart.webp",
+      "alt": "Gold heart-shaped ear jewelry in a piercing by Sonny",
+      "artist": "Sonny",
+      "dimensions": [
+        1440,
+        1800
+      ]
+    },
+    "sp-work-05.webp": {
+      "asset": "sp-original-jake-dragon.webp",
+      "alt": "Dragon linework tattoo beneath a crescent moon by Jake",
+      "artist": "Jake",
+      "dimensions": [
+        750,
+        1000
+      ]
+    },
+    "sp-work-06.webp": {
+      "asset": "sp-original-megan-gem.webp",
+      "alt": "Small tooth gem shown in Megan's portfolio",
+      "artist": "Megan",
+      "dimensions": [
+        1080,
+        1350
+      ]
+    },
+    "sp-work-08.webp": {
+      "asset": "sp-original-jake-figure.webp",
+      "alt": "Illustrative black tattoo of a seated figure beneath a crescent moon by Jake",
+      "artist": "Jake",
+      "dimensions": [
+        750,
+        1000
+      ]
+    },
+    "sp-work-09.webp": {
+      "asset": "sp-original-jake-sunflower.webp",
+      "alt": "Sunflower growing from a shoe tattoo by Jake",
+      "artist": "Jake",
+      "dimensions": [
+        750,
+        1000
+      ]
+    },
+    "sp-work-dark-01.webp": {
+      "asset": "sp-original-jake-reaper.webp",
+      "alt": "Black grim reaper tattoo holding a scythe by Jake",
+      "artist": "Jake",
+      "dimensions": [
+        750,
+        1000
+      ]
+    },
+    "sp-work-dark-02.webp": {
+      "asset": "sp-original-jake-spiders.webp",
+      "alt": "Two black spider tattoos forming a heart shape by Jake",
+      "artist": "Jake",
+      "dimensions": [
+        1000,
+        750
+      ]
+    }
+  },
+  "assets": [
+    {
+      "artist": "Jake",
+      "section": "portfolio_yFkdkL",
+      "block": "author_nDfefr",
+      "field": "profile_image",
+      "reference": "shopify://shop_images/534394909_1422782015498885_1036830063844308316_n_b3258798-eb61-4f4c-8f78-c0cd56a04cfc.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/534394909_1422782015498885_1036830063844308316_n_b3258798-eb61-4f4c-8f78-c0cd56a04cfc.jpg",
+      "source_dimensions": [
+        750,
+        1000
+      ],
+      "source_bytes": 94576,
+      "source_sha256": "62308da617f3f97b97299a4e6f5fe14ac707298b19289be943cf6c2bdc5006f9",
+      "asset": "sp-welcome-jake-session.webp",
+      "replaces": [
+        "sp-jake.webp"
+      ],
+      "alt": "Jake wearing blue gloves while tattooing a client's arm at Sideshow",
+      "reuse_existing": true,
+      "asset_path": "assets/sp-welcome-jake-session.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 85728,
+      "sha256": "ea07c526554dabe8ca07a335a2b64371de557c1f58d3880993b92106d3f55165",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_author_name": "Jake",
+      "prior_assets": [
+        {
+          "asset": "sp-jake.webp",
+          "dimensions": [
+            364,
+            364
+          ],
+          "bytes": 21932
+        }
+      ],
+      "processing": "Existing reviewed WebP reused unchanged."
+    },
+    {
+      "artist": "Rigo",
+      "section": "portfolio_8VdjfF",
+      "block": "author_y8MKRD",
+      "field": "profile_image",
+      "reference": "shopify://shop_images/526622776_1310402764119617_5225542224893530845_n_bdddfcc8-430e-4b28-aaf5-5e1afc2da6d9.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/526622776_1310402764119617_5225542224893530845_n_bdddfcc8-430e-4b28-aaf5-5e1afc2da6d9.jpg",
+      "source_dimensions": [
+        815,
+        1228
+      ],
+      "source_bytes": 111570,
+      "source_sha256": "09f8ff01866194e6df58617c881511b644b13b20e4a18b87f90e37ff8984888d",
+      "asset": "sp-original-rigo-floral.webp",
+      "replaces": [
+        "sp-rigo.webp",
+        "sp-work-02.webp"
+      ],
+      "alt": "Blue and purple floral tattoo by Rigo",
+      "reuse_existing": false,
+      "asset_path": "assets/sp-original-rigo-floral.webp",
+      "width": 815,
+      "height": 1228,
+      "bytes": 75912,
+      "sha256": "1aed32ea29236348a5b2b0fbf706770ba0454c59566490f2edfc22efc1a051fb",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_author_name": "Rigo",
+      "prior_assets": [
+        {
+          "asset": "sp-rigo.webp",
+          "dimensions": [
+            363,
+            364
+          ],
+          "bytes": 20134
+        },
+        {
+          "asset": "sp-work-02.webp",
+          "dimensions": [
+            734,
+            734
+          ],
+          "bytes": 47156
+        }
+      ],
+      "processing": "WebP quality 88, method 6. Full native source resolution. No crop, resize, enlargement, retouching, generated content, or artificial sharpening."
+    },
+    {
+      "artist": "Sonny",
+      "section": "portfolio_XgQG6y",
+      "block": "author_pUxpLa",
+      "field": "profile_image",
+      "reference": "shopify://shop_images/sideshowproductionstattoo_349221110_1393516688080112_6225021189359635028_n_baf28904-c07b-4aa2-9490-405c8cbff98a.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/sideshowproductionstattoo_349221110_1393516688080112_6225021189359635028_n_baf28904-c07b-4aa2-9490-405c8cbff98a.jpg",
+      "source_dimensions": [
+        461,
+        461
+      ],
+      "source_bytes": 41773,
+      "source_sha256": "e01b9d7c11c9d4e0fa5dafc4216bad5769316cc98cba424258abf84c9f5fabb9",
+      "asset": "sp-original-sonny-ear.webp",
+      "replaces": [
+        "sp-sonny.webp"
+      ],
+      "alt": "Gold ear jewelry in piercing work by Sonny",
+      "reuse_existing": false,
+      "asset_path": "assets/sp-original-sonny-ear.webp",
+      "width": 461,
+      "height": 461,
+      "bytes": 42778,
+      "sha256": "7e42a3c3715543815829f975daf62b6809695381181191c284f2d4cf24979575",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_author_name": "Sonny",
+      "prior_assets": [
+        {
+          "asset": "sp-sonny.webp",
+          "dimensions": [
+            365,
+            362
+          ],
+          "bytes": 20886
+        }
+      ],
+      "processing": "WebP quality 88, method 6. Full native source resolution. No crop, resize, enlargement, retouching, generated content, or artificial sharpening."
+    },
+    {
+      "artist": "Megan",
+      "section": "portfolio_NhdxPw",
+      "block": "author_mLcbKx",
+      "field": "profile_image",
+      "reference": "shopify://shop_images/533154052_30825867153726763_898925798855418618_n.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/533154052_30825867153726763_898925798855418618_n.jpg",
+      "source_dimensions": [
+        480,
+        481
+      ],
+      "source_bytes": 29026,
+      "source_sha256": "ac14f1d91723a8f4fa3caf7eadacadf5e0d8a15fd34ab704af338cd871602d4e",
+      "asset": "sp-original-megan.webp",
+      "replaces": [
+        "sp-megan.webp"
+      ],
+      "alt": "Megan, Sideshow Productions tooth-gem and whitening artist",
+      "reuse_existing": false,
+      "asset_path": "assets/sp-original-megan.webp",
+      "width": 480,
+      "height": 481,
+      "bytes": 29412,
+      "sha256": "106a2b4c7f5c335ee2f2bec16fc206685899dfdf36ec7ae7a18e6d251e0dc1ce",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_author_name": "Megan",
+      "prior_assets": [
+        {
+          "asset": "sp-megan.webp",
+          "dimensions": [
+            364,
+            364
+          ],
+          "bytes": 17728
+        }
+      ],
+      "processing": "WebP quality 88, method 6. Full native source resolution. No crop, resize, enlargement, retouching, generated content, or artificial sharpening."
+    },
+    {
+      "artist": "Jake",
+      "section": "portfolio_yFkdkL",
+      "block": "author_nDfefr",
+      "field": "portfolio_image_5",
+      "reference": "shopify://shop_images/525253195_1270153974000620_4829795239189763710_n.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/525253195_1270153974000620_4829795239189763710_n.jpg",
+      "source_dimensions": [
+        750,
+        1000
+      ],
+      "source_bytes": 97505,
+      "source_sha256": "c30dd9564be61d42990a1f2c5529cc46f0b87a83e53862ac1e0fa0690d9f8b19",
+      "asset": "sp-original-jake-boot.webp",
+      "replaces": [
+        "sp-work-01.webp"
+      ],
+      "alt": "Fine-line cowboy boot filled with flowers by Jake",
+      "reuse_existing": false,
+      "asset_path": "assets/sp-original-jake-boot.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 94062,
+      "sha256": "63bda7dbbf93a9f92d0f370199b1300b606c386036376ba47f93b415323ad062",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_author_name": "Jake",
+      "prior_assets": [
+        {
+          "asset": "sp-work-01.webp",
+          "dimensions": [
+            729,
+            731
+          ],
+          "bytes": 60672
+        }
+      ],
+      "processing": "WebP quality 88, method 6. Full native source resolution. No crop, resize, enlargement, retouching, generated content, or artificial sharpening."
+    },
+    {
+      "artist": "Jake",
+      "section": "portfolio_yFkdkL",
+      "block": "author_nDfefr",
+      "field": "portfolio_image_2",
+      "reference": "shopify://shop_images/515173148_1257222752509581_3976315660138338170_n.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/515173148_1257222752509581_3976315660138338170_n.jpg",
+      "source_dimensions": [
+        750,
+        1000
+      ],
+      "source_bytes": 66938,
+      "source_sha256": "661c66fc24b590fdd672cbc9a144a703dcdd8b8195f3708bbbca07916d4e9e3e",
+      "asset": "sp-original-jake-swallow.webp",
+      "replaces": [
+        "sp-work-03.webp"
+      ],
+      "alt": "Black swallow, sun, and wave tattoo by Jake",
+      "reuse_existing": false,
+      "asset_path": "assets/sp-original-jake-swallow.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 53538,
+      "sha256": "3e8b97dad8cdfce9207bfdbf527dfbb2e700d33532ea009d23d75e601b581f84",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_author_name": "Jake",
+      "prior_assets": [
+        {
+          "asset": "sp-work-03.webp",
+          "dimensions": [
+            734,
+            736
+          ],
+          "bytes": 37906
+        }
+      ],
+      "processing": "WebP quality 88, method 6. Full native source resolution. No crop, resize, enlargement, retouching, generated content, or artificial sharpening."
+    },
+    {
+      "artist": "Sonny",
+      "section": "portfolio_XgQG6y",
+      "block": "author_pUxpLa",
+      "field": "portfolio_image_5",
+      "reference": "shopify://shop_images/sonny.27__1676172151_3036274529756647097_48765499699.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/sonny.27__1676172151_3036274529756647097_48765499699.jpg",
+      "source_dimensions": [
+        1440,
+        1800
+      ],
+      "source_bytes": 295296,
+      "source_sha256": "a09969b1194ee3d4f5bdb2f070b76e3c97dafa926454923a4af373611bcf47bc",
+      "asset": "sp-original-sonny-heart.webp",
+      "replaces": [
+        "sp-work-04.webp"
+      ],
+      "alt": "Gold heart-shaped ear jewelry in a piercing by Sonny",
+      "reuse_existing": false,
+      "asset_path": "assets/sp-original-sonny-heart.webp",
+      "width": 1440,
+      "height": 1800,
+      "bytes": 342154,
+      "sha256": "3a53b105261a4137ac507e695f8eed8249baf7e0adfffc6f58274ab72d1b5127",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_author_name": "Sonny",
+      "prior_assets": [
+        {
+          "asset": "sp-work-04.webp",
+          "dimensions": [
+            730,
+            707
+          ],
+          "bytes": 78130
+        }
+      ],
+      "processing": "WebP quality 88, method 6. Full native source resolution. No crop, resize, enlargement, retouching, generated content, or artificial sharpening."
+    },
+    {
+      "artist": "Jake",
+      "section": "portfolio_yFkdkL",
+      "block": "author_nDfefr",
+      "field": "portfolio_image_9",
+      "reference": "shopify://shop_images/483440449_1868139724016053_5344666152142629261_n.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/483440449_1868139724016053_5344666152142629261_n.jpg",
+      "source_dimensions": [
+        750,
+        1000
+      ],
+      "source_bytes": 88187,
+      "source_sha256": "32e6a3a8c101a1d1bb0933d083aacadbe4a8d392f22be43a1219a4e7b20439f8",
+      "asset": "sp-original-jake-dragon.webp",
+      "replaces": [
+        "sp-work-05.webp"
+      ],
+      "alt": "Dragon linework tattoo beneath a crescent moon by Jake",
+      "reuse_existing": false,
+      "asset_path": "assets/sp-original-jake-dragon.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 76814,
+      "sha256": "a6cdc644cdd0d90c57bfa5cabb733c61c430ea9b627408fd3891b26785a81b90",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_author_name": "Jake",
+      "prior_assets": [
+        {
+          "asset": "sp-work-05.webp",
+          "dimensions": [
+            735,
+            733
+          ],
+          "bytes": 59918
+        }
+      ],
+      "processing": "WebP quality 88, method 6. Full native source resolution. No crop, resize, enlargement, retouching, generated content, or artificial sharpening."
+    },
+    {
+      "artist": "Megan",
+      "section": "portfolio_NhdxPw",
+      "block": "author_mLcbKx",
+      "field": "portfolio_image_6",
+      "reference": "shopify://shop_images/sideshowproductionstattoo_343440823_184852917761477_5979119919449896651_n_f9800b85-0105-41e8-9edf-4c857156adef.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/sideshowproductionstattoo_343440823_184852917761477_5979119919449896651_n_f9800b85-0105-41e8-9edf-4c857156adef.jpg",
+      "source_dimensions": [
+        1080,
+        1350
+      ],
+      "source_bytes": 156705,
+      "source_sha256": "91e2af3d7c21506b505596cac7a6b1ecd88acf4381a3fe3e78b73da66d0e6e14",
+      "asset": "sp-original-megan-gem.webp",
+      "replaces": [
+        "sp-work-06.webp"
+      ],
+      "alt": "Small tooth gem shown in Megan's portfolio",
+      "reuse_existing": false,
+      "asset_path": "assets/sp-original-megan-gem.webp",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 119228,
+      "sha256": "790796c2099be6e0187fb6dd3d53e4d39b957c1139fe029ca0c53ddfa0c4ca4d",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_author_name": "Megan",
+      "prior_assets": [
+        {
+          "asset": "sp-work-06.webp",
+          "dimensions": [
+            731,
+            724
+          ],
+          "bytes": 54150
+        }
+      ],
+      "processing": "WebP quality 88, method 6. Full native source resolution. No crop, resize, enlargement, retouching, generated content, or artificial sharpening."
+    },
+    {
+      "artist": "Jake",
+      "section": "portfolio_yFkdkL",
+      "block": "author_nDfefr",
+      "field": "portfolio_image_7",
+      "reference": "shopify://shop_images/527683797_3241014639397685_417521430636439300_n.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/527683797_3241014639397685_417521430636439300_n.jpg",
+      "source_dimensions": [
+        750,
+        1000
+      ],
+      "source_bytes": 81158,
+      "source_sha256": "6398765bb0e27dafa58eded7e9f45e6f2b247d71ac1ae102207ef637117734e8",
+      "asset": "sp-original-jake-figure.webp",
+      "replaces": [
+        "sp-work-08.webp"
+      ],
+      "alt": "Illustrative black tattoo of a seated figure beneath a crescent moon by Jake",
+      "reuse_existing": false,
+      "asset_path": "assets/sp-original-jake-figure.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 75212,
+      "sha256": "48c6118d84b4d5f79e2000f8ba6f7c5370d932987d9e73c6926bac4ebfc29eac",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_author_name": "Jake",
+      "prior_assets": [
+        {
+          "asset": "sp-work-08.webp",
+          "dimensions": [
+            736,
+            730
+          ],
+          "bytes": 51614
+        }
+      ],
+      "processing": "WebP quality 88, method 6. Full native source resolution. No crop, resize, enlargement, retouching, generated content, or artificial sharpening."
+    },
+    {
+      "artist": "Jake",
+      "section": "portfolio_yFkdkL",
+      "block": "author_nDfefr",
+      "field": "portfolio_image_4",
+      "reference": "shopify://shop_images/524304487_2748688328673773_643843769518182968_n.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/524304487_2748688328673773_643843769518182968_n.jpg",
+      "source_dimensions": [
+        750,
+        1000
+      ],
+      "source_bytes": 89313,
+      "source_sha256": "1f9ebc5eb73f141e8c6aa213805b10baf54c6a133e5992f298860ba6f5029ebb",
+      "asset": "sp-original-jake-sunflower.webp",
+      "replaces": [
+        "sp-work-09.webp"
+      ],
+      "alt": "Sunflower growing from a shoe tattoo by Jake",
+      "reuse_existing": false,
+      "asset_path": "assets/sp-original-jake-sunflower.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 76542,
+      "sha256": "ed201b517a1ef711dd0d48e2adcfbbf3c4b342ac13f231f2d75e66382e05755c",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_author_name": "Jake",
+      "prior_assets": [
+        {
+          "asset": "sp-work-09.webp",
+          "dimensions": [
+            739,
+            734
+          ],
+          "bytes": 55104
+        }
+      ],
+      "processing": "WebP quality 88, method 6. Full native source resolution. No crop, resize, enlargement, retouching, generated content, or artificial sharpening."
+    },
+    {
+      "artist": "Jake",
+      "section": "portfolio_yFkdkL",
+      "block": "author_nDfefr",
+      "field": "portfolio_image_6",
+      "reference": "shopify://shop_images/526477715_1147361930556400_595687546615032226_n.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/526477715_1147361930556400_595687546615032226_n.jpg",
+      "source_dimensions": [
+        750,
+        1000
+      ],
+      "source_bytes": 90496,
+      "source_sha256": "0d1a41507856c046c06ca2b80962d68d4417f893be49af4f8818802c8371c127",
+      "asset": "sp-original-jake-reaper.webp",
+      "replaces": [
+        "sp-work-dark-01.webp"
+      ],
+      "alt": "Black grim reaper tattoo holding a scythe by Jake",
+      "reuse_existing": false,
+      "asset_path": "assets/sp-original-jake-reaper.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 79152,
+      "sha256": "718ef9cc320709f56fdec0ff9ad89c61990f0ff1220eb349e05bb876f5a22394",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_author_name": "Jake",
+      "prior_assets": [
+        {
+          "asset": "sp-work-dark-01.webp",
+          "dimensions": [
+            729,
+            725
+          ],
+          "bytes": 47408
+        }
+      ],
+      "processing": "WebP quality 88, method 6. Full native source resolution. No crop, resize, enlargement, retouching, generated content, or artificial sharpening."
+    },
+    {
+      "artist": "Jake",
+      "section": "portfolio_yFkdkL",
+      "block": "author_nDfefr",
+      "field": "portfolio_image_8",
+      "reference": "shopify://shop_images/524723252_1058970603012472_3874108079096670009_n.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/524723252_1058970603012472_3874108079096670009_n.jpg",
+      "source_dimensions": [
+        1000,
+        750
+      ],
+      "source_bytes": 73222,
+      "source_sha256": "922265d402270da84a3220f9515e7b1ed2c1dfde31c45d829cb61926dd7e809b",
+      "asset": "sp-original-jake-spiders.webp",
+      "replaces": [
+        "sp-work-dark-02.webp"
+      ],
+      "alt": "Two black spider tattoos forming a heart shape by Jake",
+      "reuse_existing": false,
+      "asset_path": "assets/sp-original-jake-spiders.webp",
+      "width": 1000,
+      "height": 750,
+      "bytes": 62208,
+      "sha256": "8afc38c15c7cea5fab9b4867fc3c5b7a97f0f2601739d4890809903321977ad8",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_author_name": "Jake",
+      "prior_assets": [
+        {
+          "asset": "sp-work-dark-02.webp",
+          "dimensions": [
+            726,
+            721
+          ],
+          "bytes": 36414
+        }
+      ],
+      "processing": "WebP quality 88, method 6. Full native source resolution. No crop, resize, enlargement, retouching, generated content, or artificial sharpening."
+    }
+  ],
+  "retained_images": [
+    {
+      "asset": "sp-work-07.webp",
+      "artist": "Rigo",
+      "legacy_field": "portfolio_image_4",
+      "candidate_dimensions": [
+        730,
+        722
+      ],
+      "reason": "Same lettering subject, but the 730x722 original provides no meaningful resolution gain over the 735x729 retained asset."
+    },
+    {
+      "asset": "sp-work-10.webp",
+      "artist": "Rigo",
+      "legacy_field": "portfolio_image_3",
+      "candidate_dimensions": [
+        540,
+        1230
+      ],
+      "reason": "The source is a narrow screenshot with black letterboxing and visible interface marks; it is not a cleaner high-resolution photograph."
+    },
+    {
+      "asset": "sp-work-11.webp",
+      "artist": "Sonny",
+      "reason": "None of the six larger originals matched the currently used blue-hair ear-piercing subject. The retained subject remains unchanged."
+    },
+    {
+      "asset": "sp-work-12.webp",
+      "artist": "Megan",
+      "legacy_field": "portfolio_image_10",
+      "candidate_dimensions": [
+        480,
+        480
+      ],
+      "reason": "The matching original is only 480x480, below the 724x714 retained asset; it is not a resolution upgrade."
+    }
+  ],
+  "notes": [
+    "Jake and Megan are person photographs. Rigo and Sonny profile references show their work and must not be described as headshots.",
+    "Megan's profile remains a modest 480x481 source and Sonny's profile remains 461x461. Their native originals remove the baked-in circular screenshot masks; they do not become high-resolution portraits.",
+    "Jake's existing 750x1000 Welcome photograph is reused without creating another copy.",
+    "Rigo's 815x1228 floral tattoo photograph is shared by his artist card and its matching portfolio entry.",
+    "Sonny's portfolio_image_23 is marked adult content in the legacy section. It was excluded from the retrieval and selection set.",
+    "Larger before/after or differently posed treatment photos were not substituted for existing subjects merely because their pixel dimensions were greater.",
+    "Old optimized assets are retained for unchanged uses and provenance. This script does not rewrite templates or Shopify data.",
+    "WebP encoding bytes can differ with Pillow/libwebp versions. Source hash, subject, artist attribution, native dimensions, and processing instructions are fixed and verified."
+  ]
+}

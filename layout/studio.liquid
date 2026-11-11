@@ -19,6 +19,7 @@
   {{ 'sideshow-promo.css' | asset_url | stylesheet_tag }}
   {{ 'sideshow-welcome.css' | asset_url | stylesheet_tag }}
   {{ 'sideshow-marquee.css' | asset_url | stylesheet_tag }}
+  {{ 'sideshow-appearance.css' | asset_url | stylesheet_tag }}
   {{ content_for_header }}
   <script src="{{ 'sideshow-studio.js' | asset_url }}" defer></script>
   <script src="{{ 'sideshow-carousel.js' | asset_url }}" defer></script>
@@ -26,6 +27,7 @@
   <script src="{{ 'sideshow-wheel.js' | asset_url }}" defer></script>
   <script src="{{ 'sideshow-promo.js' | asset_url }}" defer></script>
   <script src="{{ 'sideshow-marquee.js' | asset_url }}" defer></script>
+  <script src="{{ 'sideshow-appearance.js' | asset_url }}" defer></script>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ shop.name | escape }}">
   <meta property="og:title" content="{{ page_title | default: shop.name | escape }}">
@@ -35,6 +37,7 @@
 </head>
 <body class="sp-site{% if request.page_type == 'index' or request.path == routes.root_url %} sp-home{% endif %}">
   <a class="sp-skip-link" href="#main-content">Skip to content</a>
+  {% section 'studio-appearance' %}
   {% section 'studio-header' %}
   <main id="main-content" tabindex="-1">{{ content_for_layout }}</main>
   {% section 'studio-footer' %}

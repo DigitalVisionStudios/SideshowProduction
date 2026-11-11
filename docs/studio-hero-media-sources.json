@@ -52,17 +52,17 @@
       },
       {
         "word": "piercings",
-        "asset": "assets/sp-work-04.webp",
+        "asset": "assets/sp-original-sonny-heart.webp",
         "dimensions": [
-          730,
-          707
+          1440,
+          1800
         ],
-        "bytes": 78130,
-        "sha256": "e91e0e85fad381ccab9fbb696a76dd3f814e01a083e1e6f8e1dd1303bc3b5912",
-        "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-152219.png",
-        "source_role": "Authentic source portfolio photograph, added to synchronize the redesigned hero with the rotating word",
-        "visual_description": "Ear piercing jewelry from Sonny's explicitly grouped portfolio",
-        "provenance": "docs/studio-asset-sources.json"
+        "bytes": 342154,
+        "sha256": "3a53b105261a4137ac507e695f8eed8249baf7e0adfffc6f58274ab72d1b5127",
+        "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/sonny.27__1676172151_3036274529756647097_48765499699.jpg",
+        "source_role": "Full-resolution original recovered from Sonny's retained Shopify portfolio, replacing the captured screenshot of the same work",
+        "visual_description": "Gold heart-shaped ear jewelry in a piercing by Sonny",
+        "provenance": "docs/studio-original-media-sources.json"
       },
       {
         "word": "tattoos",

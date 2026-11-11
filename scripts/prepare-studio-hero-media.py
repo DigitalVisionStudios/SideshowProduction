@@ -89,10 +89,10 @@ def main():
             "provenance": "docs/studio-authentic-media-sources.json",
         },
         "piercings": {
-            "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-152219.png",
-            "source_role": "Authentic source portfolio photograph, added to synchronize the redesigned hero with the rotating word",
-            "visual_description": "Ear piercing jewelry from Sonny's explicitly grouped portfolio",
-            "provenance": "docs/studio-asset-sources.json",
+            "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/sonny.27__1676172151_3036274529756647097_48765499699.jpg",
+            "source_role": "Full-resolution original recovered from Sonny's retained Shopify portfolio, replacing the captured screenshot of the same work",
+            "visual_description": "Gold heart-shaped ear jewelry in a piercing by Sonny",
+            "provenance": "docs/studio-original-media-sources.json",
         },
         "tattoos": {
             "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/534394909_1422782015498885_1036830063844308316_n_b3258798-eb61-4f4c-8f78-c0cd56a04cfc.jpg",
@@ -134,7 +134,7 @@ def main():
         },
         "redesign": {
             "interval_ms": 5500,
-            "difference": "Preserves the original storefront opening, exact rotating words, order, prefix and suffix. Adds two genuine photographs as synchronized scenes, smoother crossfades, accessible controls, environmental suspension, and a black bottom fade.",
+            "difference": "Preserves the original storefront opening, exact rotating words, order, prefix and suffix. Adds two genuine photographs as synchronized scenes, smoother crossfades, automatic playback without visitor controls, environmental suspension, and a black bottom fade.",
             "media": scene_media,
             "optional_video_scene": {
                 "type": "scene",
