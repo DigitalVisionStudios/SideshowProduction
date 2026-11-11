@@ -1,0 +1,2662 @@
+{
+  "audit_date": "2026-11-11",
+  "snapshot_commit": "d05093f",
+  "scope": "Read-only visual and provenance audit of the configured studio templates and static/default studio section image references, before remediation. No live Shopify media settings were queried.",
+  "coverage": {
+    "template_files": 11,
+    "template_image_usages": 170,
+    "unique_asset_filenames": 77,
+    "distinct_image_byte_hashes": 76,
+    "missing_assets": 0,
+    "core_and_context_assets": 23,
+    "product_images": 21,
+    "merchandise_images": 16,
+    "aftercare_images": 5,
+    "roulette_images": 27,
+    "roulette_design_photographs": 25,
+    "roulette_context_photographs": 2,
+    "flash_sheets": 6,
+    "portfolio_unique_work_images": 14,
+    "artist_profile_images": 4,
+    "social_images": 6,
+    "hero_scenes": 3,
+    "welcome_images": 3,
+    "original_shopify_artist_references_cross_checked": 13,
+    "catalog_asset_hash_checks_passed": 48
+  },
+  "methods": [
+    "Parsed index.json and all ten page.studio-*.json templates; inventoried configured block image filenames.",
+    "Inventoried hardcoded/default image asset references across studio sections.",
+    "Visually reviewed all 77 asset filenames through four contact sheets, plus detailed source and crop inspections.",
+    "Cross-checked all 13 recovered original artist references against retained templates/page.artist-portfolio.json and its author_name fields.",
+    "Checked four retained work images against the correct artist heading in the archived public portfolio.",
+    "Compared all 21 product image/title assignments with docs/studio-catalog-mapping.json; all 21 product and 27 roulette output hashes matched the recorded source mapping.",
+    "Simulated documented CSS cover crops for gallery, service and detailed artist images. No browser interaction was performed."
+  ],
+  "findings": [
+    {
+      "id": "MEDIA-01",
+      "severity": "correction",
+      "title": "Whitening service shows the artist instead of the service",
+      "assets": [
+        "sp-original-megan.webp"
+      ],
+      "locations": [
+        "templates/index.json: section_3/block_4",
+        "templates/page.studio-services.json: studio-services/block_4",
+        "sections/studio-services.liquid: Teeth whitening preset"
+      ],
+      "detail": "The photograph is Megan seated indoors, not teeth whitening or a whitening treatment. It remains valid for her artist and booking profile.",
+      "recommendation": "Replace only the whitening service image with an authentic whitening image; preserve Megan's profile uses.",
+      "resolution_status": "resolved",
+      "action_taken": "Homepage, services page, and preset now use the native1270x1081 whitening comparison from Megan; her portrait remains on artist/booking profiles."
+    },
+    {
+      "id": "MEDIA-02",
+      "severity": "correction",
+      "title": "Two contextual photos are selectable as tattoo designs",
+      "assets": [
+        "sp-roulette-22.webp",
+        "sp-roulette-25.webp"
+      ],
+      "locations": [
+        "templates/index.json: studio-roulette",
+        "templates/page.studio-ink-roulette.json: studio-roulette and studio-flash-gallery"
+      ],
+      "detail": "Image 22 is the complete numbered flash board; image 25 is the rules sign. Both are currently included in the random pool and described as individual numbered designs.",
+      "recommendation": "Remove these two blocks from both wheel pools, leaving 25 actual design photographs. Remove them from the single-design gallery or preserve them separately with explicit board/rules captions. Keep the different sp-source-flash-wall.webp photograph in the Welcome gallery and flash feature.",
+      "resolution_status": "resolved",
+      "action_taken": "Board and rules images removed from both wheel pools and single-design gallery;25 actual design photographs remain. Archived context images and the separate Welcome flash-wall image are preserved."
+    },
+    {
+      "id": "MEDIA-03",
+      "severity": "correction",
+      "title": "Imported gallery order is presented as physical design numbering",
+      "assets": [
+        "sp-roulette-01.webp",
+        "sp-roulette-02.webp",
+        "sp-roulette-03.webp",
+        "sp-roulette-04.webp",
+        "sp-roulette-05.webp",
+        "sp-roulette-06.webp",
+        "sp-roulette-07.webp",
+        "sp-roulette-08.webp",
+        "sp-roulette-09.webp",
+        "sp-roulette-10.webp",
+        "sp-roulette-11.webp",
+        "sp-roulette-12.webp",
+        "sp-roulette-13.webp",
+        "sp-roulette-14.webp",
+        "sp-roulette-15.webp",
+        "sp-roulette-16.webp",
+        "sp-roulette-17.webp",
+        "sp-roulette-18.webp",
+        "sp-roulette-19.webp",
+        "sp-roulette-20.webp",
+        "sp-roulette-21.webp",
+        "sp-roulette-22.webp",
+        "sp-roulette-23.webp",
+        "sp-roulette-24.webp",
+        "sp-roulette-25.webp",
+        "sp-roulette-26.webp",
+        "sp-roulette-27.webp"
+      ],
+      "detail": "The #1 through #27 titles were generated from import order. sp-roulette-11.webp visibly carries handwritten 15. The roulette board photo and the Welcome board photo each carry their own 1 through 18 sets with different designs. No verified one-to-one mapping between all 27 photographs and physical wheel numbers was found.",
+      "recommendation": "Use descriptive captions from roulette_inventory rather than claims about physical design numbers. Keep the online wheel explicitly an inspiration browser.",
+      "resolution_status": "resolved",
+      "action_taken": "All selectable roulette images have reviewed descriptive captions. Wheel status identifies collection-photo position, not an official physical design number."
+    },
+    {
+      "id": "MEDIA-04",
+      "severity": "correction",
+      "title": "Fixed cover crops remove parts of the work or working context",
+      "assets": [
+        "sp-original-jake-spiders.webp",
+        "sp-work-07.webp",
+        "sp-welcome-jake-session.webp",
+        "sp-original-rigo-floral.webp"
+      ],
+      "detail": "The gallery's 4:5 cover crop cuts the outside legs of both spiders and the outer strokes of Rigo's lettering. The detailed-artist 4:3 crop at center 30% removes Jake's gloved hands and the bottom of Rigo's floral composition.",
+      "recommendation": "Use full-frame contain or asset-specific fitting for these cases. Preserve lightbox access to full originals. The tattoo, piercing and tooth-gem service crops keep their main subjects visible.",
+      "resolution_status": "resolved",
+      "action_taken": "Full-image fitting for the spider pair and Rigo lettering in work grids; Jake, Rigo, and Sonny artist cards retain full original frames. Studio editor includes per-image framing controls."
+    },
+    {
+      "id": "MEDIA-05",
+      "severity": "source-quality",
+      "title": "Five aftercare photographs were inherited from generated-source files",
+      "assets": [
+        "sp-product-17.webp",
+        "sp-product-18.webp",
+        "sp-product-19.webp",
+        "sp-product-20.webp",
+        "sp-product-21.webp"
+      ],
+      "detail": "All five map to original current-site files named ChatGPT-Image-Mar-24-2026-*.png. They visually depict composed product scenes rather than the genuine studio photography used elsewhere. This is inherited source imagery, not newly generated by this redesign.",
+      "recommendation": "Replace with verified real product photography when available. Do not silently claim these are authentic camera photographs or invent packaging details.",
+      "resolution_status": "partly-resolved",
+      "action_taken": "Three official manufacturer images replace the inherited mockups after comparison with product-specific client source images. Repair gel and Enhance balm keep their catalog information in image-free text cards pending exact package-size/photo confirmation."
+    },
+    {
+      "id": "MEDIA-06",
+      "severity": "source-limitation",
+      "title": "Two artist cards deliberately show work samples, not portraits",
+      "assets": [
+        "sp-original-rigo-floral.webp",
+        "sp-original-sonny-ear.webp"
+      ],
+      "detail": "The retained Shopify profile_image fields for Rigo and Sonny already point to their floral tattoo and ear-jewelry photographs. Current alt text accurately describes the work. No incorrect artist assignment was found. Sonny's source is only 461x461 and Megan's portrait is 480x481.",
+      "recommendation": "Retain truthful work-image descriptions and optionally label them as work by the artist. Obtain verified portraits for a consistent team presentation; do not substitute an unrelated person.",
+      "resolution_status": "verified-source-limitation",
+      "action_taken": "Rigo and Sonny work images remain correctly attributed and truthfully described. No unrelated portraits were substituted."
+    }
+  ],
+  "validated_groups": {
+    "hero": "Storefront opening, Sonny heart-ear jewelry for piercings, and Jake at work for tattoos match their roles. The storefront with the word artists is studio context rather than an artist portrait.",
+    "welcome_story_visit": "Storefront, Jake working, and the physical flash wall match captions. sp-source-storefront.webp and sp-storefront.webp are byte-identical aliases.",
+    "artists": "All four assignments match retained named Shopify profile references. Rigo and Sonny show work, not headshots.",
+    "services": "Tattoo, piercing and tooth-gem assignments match. Whitening portrait needs replacement.",
+    "social": "All six work images and artist profile links match attribution. They are curated images, not verified individual Instagram post permalinks.",
+    "portfolio": "All 14 unique work images match visible subject and named artist provenance; framing corrections noted above.",
+    "flash": "All six current captions match the visible sheet themes.",
+    "products": "All 21 static fallback product image/title assignments match the archived catalog; no cross-product swap found. Five generated-source aftercare images need quality review. Several clothing images show only the printed artwork, so sleeve length or garment cut cannot be independently verified visually.",
+    "roulette": "Twenty-five tattoo/design images plus a board and a rules sign. No complete physical-number mapping verified.",
+    "support": "Original crest logo, event poster, and legacy background artwork match their decorative or contextual roles."
+  },
+  "roulette_inventory": [
+    {
+      "asset": "sp-roulette-01.webp",
+      "existing_display_order": 1,
+      "existing_title": "Ink Roulette design #1",
+      "visual_subject": "Cartoon dog with its tongue out",
+      "recommended_title": "Cartoon dog with its tongue out",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/0D497D0D-C972-4ECA-BCE2-DB93EA8CB3A3.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-02.webp",
+      "existing_display_order": 2,
+      "existing_title": "Ink Roulette design #2",
+      "visual_subject": "Black-haired portrait beside a colorful snake",
+      "recommended_title": "Black-haired portrait beside a colorful snake",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/2A197C2B-3720-423B-88E0-C97E91C2E370.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-03.webp",
+      "existing_display_order": 3,
+      "existing_title": "Ink Roulette design #3",
+      "visual_subject": "Jack-o-lantern with flowers",
+      "recommended_title": "Jack-o-lantern with flowers",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/2D8C199E-3D8B-4D8D-A7BC-8CDF0E9C62C1.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-04.webp",
+      "existing_display_order": 4,
+      "existing_title": "Ink Roulette design #4",
+      "visual_subject": "Skeletal hand making a horns gesture",
+      "recommended_title": "Skeletal hand making a horns gesture",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/3EF87B67-3FA8-4609-9BFD-525AF3F1D760.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-05.webp",
+      "existing_display_order": 5,
+      "existing_title": "Ink Roulette design #5",
+      "visual_subject": "Two dark flowers with a tape motif",
+      "recommended_title": "Two dark flowers with a tape motif",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/7D1C02F1-4D6E-4FF7-8277-6F1654FDF02D.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-06.webp",
+      "existing_display_order": 6,
+      "existing_title": "Ink Roulette design #6",
+      "visual_subject": "Black spider with red detailing",
+      "recommended_title": "Black spider with red detailing",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/8D2BF8D8-5519-45BC-A770-FF5AD1290257.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-07.webp",
+      "existing_display_order": 7,
+      "existing_title": "Ink Roulette design #7",
+      "visual_subject": "Green character with flowers",
+      "recommended_title": "Green character with flowers",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/43E8FD5B-A941-4B9D-9390-6C3A4A56FB80.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-08.webp",
+      "existing_display_order": 8,
+      "existing_title": "Ink Roulette design #8",
+      "visual_subject": "Black snake with pink flowers",
+      "recommended_title": "Black snake with pink flowers",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/57D43D4E-7DE6-4D16-AD1F-8BF26EABC298.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-09.webp",
+      "existing_display_order": 9,
+      "existing_title": "Ink Roulette design #9",
+      "visual_subject": "Fairy with purple wings",
+      "recommended_title": "Fairy with purple wings",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/59B6719C-9A00-43F0-B0E0-575471363726.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-10.webp",
+      "existing_display_order": 10,
+      "existing_title": "Ink Roulette design #10",
+      "visual_subject": "Ornate dagger",
+      "recommended_title": "Ornate dagger",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/67E6CD27-AC47-4090-BA3B-FA7706FD6605.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-11.webp",
+      "existing_display_order": 11,
+      "existing_title": "Ink Roulette design #11",
+      "visual_subject": "Floral snake design marked 15",
+      "recommended_title": "Floral snake design marked 15",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/90AACF72-CD6B-4F5B-8B56-1AE758D4EE04.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [
+        15
+      ],
+      "number_note": "Visible handwritten 15 conflicts with imported design #11.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-12.webp",
+      "existing_display_order": 12,
+      "existing_title": "Ink Roulette design #12",
+      "visual_subject": "Skeletal hand holding a red rose",
+      "recommended_title": "Skeletal hand holding a red rose",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/175F157F-E46D-49AC-86CB-8A887BAB7F03.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-13.webp",
+      "existing_display_order": 13,
+      "existing_title": "Ink Roulette design #13",
+      "visual_subject": "Red rose with stars",
+      "recommended_title": "Red rose with stars",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/590D921C-0F57-4BE4-9592-6DA1169BF200.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-14.webp",
+      "existing_display_order": 14,
+      "existing_title": "Ink Roulette design #14",
+      "visual_subject": "Black fish",
+      "recommended_title": "Black fish",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/7485E40C-FB50-4C5B-A4CD-52C0C17F6930.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-15.webp",
+      "existing_display_order": 15,
+      "existing_title": "Ink Roulette design #15",
+      "visual_subject": "Skull pierced by a dagger",
+      "recommended_title": "Skull pierced by a dagger",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/26736DBD-A7DC-42F4-9905-7AAB1B1E91B4.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-16.webp",
+      "existing_display_order": 16,
+      "existing_title": "Ink Roulette design #16",
+      "visual_subject": "Heart with a MOM banner",
+      "recommended_title": "Heart with a MOM banner",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/82685590-A70F-4DA2-8F02-1E689B9A0775.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-17.webp",
+      "existing_display_order": 17,
+      "existing_title": "Ink Roulette design #17",
+      "visual_subject": "Skeletal hand holding a rose",
+      "recommended_title": "Skeletal hand holding a rose",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/A0E69497-2D42-4D65-9EC8-E9696EE44DB4.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-18.webp",
+      "existing_display_order": 18,
+      "existing_title": "Ink Roulette design #18",
+      "visual_subject": "Bat with spread wings",
+      "recommended_title": "Bat with spread wings",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/A082A4CE-1223-4067-82DC-B20A5A54093C.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-19.webp",
+      "existing_display_order": 19,
+      "existing_title": "Ink Roulette design #19",
+      "visual_subject": "Half skull with roses and flame shapes",
+      "recommended_title": "Half skull with roses and flame shapes",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/AFF563DC-9DD1-4515-BA16-1BD2A3CB7DD9.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-20.webp",
+      "existing_display_order": 20,
+      "existing_title": "Ink Roulette design #20",
+      "visual_subject": "Skeleton character holding a small figure",
+      "recommended_title": "Skeleton character holding a small figure",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/BB91D86B-3332-4E53-837B-2ED54F84F0E0.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-21.webp",
+      "existing_display_order": 21,
+      "existing_title": "Ink Roulette design #21",
+      "visual_subject": "Lips holding a rolled banknote",
+      "recommended_title": "Lips holding a rolled banknote",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/BBF16812-C857-4532-8F41-2E3CBB300E7C.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-22.webp",
+      "existing_display_order": 22,
+      "existing_title": "Ink Roulette design #22",
+      "visual_subject": "Photograph of a numbered flash board",
+      "recommended_title": "Photograph of a numbered flash board",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/C01FD91D-CAAE-4A4C-ACF8-8250C63B7FE4.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": false,
+      "readable_design_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "number_note": "Numbers on this board are not the imported gallery order.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-23.webp",
+      "existing_display_order": 23,
+      "existing_title": "Ink Roulette design #23",
+      "visual_subject": "Pink and blue butterfly",
+      "recommended_title": "Pink and blue butterfly",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/F72F284F-B672-4817-B0EB-6F3C4C2D8E26.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-24.webp",
+      "existing_display_order": 24,
+      "existing_title": "Ink Roulette design #24",
+      "visual_subject": "Roaring cat head",
+      "recommended_title": "Roaring cat head",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/FC9AB94E-C4B1-422B-8ED8-7A0137B354D3.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-25.webp",
+      "existing_display_order": 25,
+      "existing_title": "Ink Roulette design #25",
+      "visual_subject": "Ink Roulette rules sign",
+      "recommended_title": "Ink Roulette rules sign",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/FF7F2026-E239-468B-89EB-517B03E43170.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": false,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-26.webp",
+      "existing_display_order": 26,
+      "existing_title": "Ink Roulette design #26",
+      "visual_subject": "Red rose with an outlined motif",
+      "recommended_title": "Red rose with an outlined motif",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    },
+    {
+      "asset": "sp-roulette-27.webp",
+      "existing_display_order": 27,
+      "existing_title": "Ink Roulette design #27",
+      "visual_subject": "Anatomical heart with flowers",
+      "recommended_title": "Anatomical heart with flowers",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/1EE0E93D-6FF3-40A9-AD0E-F05BD98309C8.jpg",
+      "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
+      "selectable_design": true,
+      "readable_design_numbers": [],
+      "number_note": "No verified physical-board number associated with this image.",
+      "output_hash_verified": true
+    }
+  ],
+  "asset_inventory": [
+    {
+      "asset": "sp-event-nov13.webp",
+      "width": 624,
+      "height": 780,
+      "bytes": 99464,
+      "sha256": "02160b231ccee9f5d68a8425fc3a9ce43c30ccb6bbaeeadbdb6fd459fac9e357",
+      "template_usage_count": 0,
+      "template_contexts": [],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-event.liquid"
+      ]
+    },
+    {
+      "asset": "sp-flash-01.webp",
+      "width": 536,
+      "height": 532,
+      "bytes": 16896,
+      "sha256": "cfa9e14e9cf4791ac257a68704ffa171367919370e7fa1d3f35577dc097161f1",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-flash.json / studio-flash-gallery / block_1"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-flash-gallery.liquid"
+      ]
+    },
+    {
+      "asset": "sp-flash-02.webp",
+      "width": 571,
+      "height": 571,
+      "bytes": 19974,
+      "sha256": "d0e81048ddbc25b57f98f1d6245672a26467ab2d4b844c531c8e660d47f2bb1b",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-flash.json / studio-flash-gallery / block_2"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-flash-03.webp",
+      "width": 699,
+      "height": 848,
+      "bytes": 21280,
+      "sha256": "ed6ff5b75bbf0b06a6a5c7920fe042f05446240b5c9652872edc12048e54bb89",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-flash.json / studio-flash-gallery / block_3"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-flash-04.webp",
+      "width": 827,
+      "height": 828,
+      "bytes": 60728,
+      "sha256": "4273169a34f9cfc6d890686ac83536c4cbcd553150a2a0935e123980a8433260",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-flash.json / studio-flash-gallery / block_4"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-flash-05.webp",
+      "width": 623,
+      "height": 845,
+      "bytes": 53576,
+      "sha256": "785a4205882d575859a7f549d43b37d5a6930c09f146ca226a78bd9aa9aea615",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-flash.json / studio-flash-gallery / block_5"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-flash-06.webp",
+      "width": 626,
+      "height": 846,
+      "bytes": 65276,
+      "sha256": "786876e28a284f89f23c791282c66e2e200a4482c4593fa55aec00f388c296df",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-flash.json / studio-flash-gallery / block_6"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-legacy-sign.webp",
+      "width": 1228,
+      "height": 2376,
+      "bytes": 370550,
+      "sha256": "133a37e4ba572218359f69f2b7a0b4758cd6d3733aec729c739a09057301d16f",
+      "template_usage_count": 0,
+      "template_contexts": [],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-appearance.liquid"
+      ]
+    },
+    {
+      "asset": "sp-logo.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 39052,
+      "sha256": "51a68d9006e89bb05694df8b505fa3b136b3cad4add532fc2e5701e8b0eebd02",
+      "template_usage_count": 0,
+      "template_contexts": [],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-footer.liquid",
+        "sections/studio-header.liquid",
+        "sections/studio-shop.liquid"
+      ]
+    },
+    {
+      "asset": "sp-original-jake-boot.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 94062,
+      "sha256": "63bda7dbbf93a9f92d0f370199b1300b606c386036376ba47f93b415323ad062",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-social / block_1",
+        "templates/page.studio-artists.json / studio-work / block_1",
+        "templates/page.studio-portfolio.json / studio-work / block_1"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-social.liquid",
+        "sections/studio-work.liquid"
+      ]
+    },
+    {
+      "asset": "sp-original-jake-dragon.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 76814,
+      "sha256": "a6cdc644cdd0d90c57bfa5cabb733c61c430ea9b627408fd3891b26785a81b90",
+      "template_usage_count": 2,
+      "template_contexts": [
+        "templates/page.studio-artists.json / studio-work / block_5",
+        "templates/page.studio-portfolio.json / studio-work / block_5"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-original-jake-figure.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 75212,
+      "sha256": "48c6118d84b4d5f79e2000f8ba6f7c5370d932987d9e73c6926bac4ebfc29eac",
+      "template_usage_count": 2,
+      "template_contexts": [
+        "templates/index.json / studio-work / block_4",
+        "templates/page.studio-portfolio.json / studio-work / block_8"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-work.liquid"
+      ]
+    },
+    {
+      "asset": "sp-original-jake-reaper.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 79152,
+      "sha256": "718ef9cc320709f56fdec0ff9ad89c61990f0ff1220eb349e05bb876f5a22394",
+      "template_usage_count": 2,
+      "template_contexts": [
+        "templates/index.json / studio-work / block_1",
+        "templates/page.studio-portfolio.json / studio-work / dark_work_1"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-work.liquid"
+      ]
+    },
+    {
+      "asset": "sp-original-jake-spiders.webp",
+      "width": 1000,
+      "height": 750,
+      "bytes": 62208,
+      "sha256": "8afc38c15c7cea5fab9b4867fc3c5b7a97f0f2601739d4890809903321977ad8",
+      "template_usage_count": 2,
+      "template_contexts": [
+        "templates/index.json / studio-work / block_3",
+        "templates/page.studio-portfolio.json / studio-work / dark_work_2"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-work.liquid"
+      ]
+    },
+    {
+      "asset": "sp-original-jake-sunflower.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 76542,
+      "sha256": "ed201b517a1ef711dd0d48e2adcfbbf3c4b342ac13f231f2d75e66382e05755c",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-portfolio.json / studio-work / block_9"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-original-jake-swallow.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 53538,
+      "sha256": "3e8b97dad8cdfce9207bfdbf527dfbb2e700d33532ea009d23d75e601b581f84",
+      "template_usage_count": 5,
+      "template_contexts": [
+        "templates/index.json / studio-services / block_1",
+        "templates/index.json / studio-social / block_4",
+        "templates/page.studio-artists.json / studio-work / block_4",
+        "templates/page.studio-portfolio.json / studio-work / block_4",
+        "templates/page.studio-services.json / studio-services / block_1"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-services.liquid",
+        "sections/studio-social.liquid"
+      ]
+    },
+    {
+      "asset": "sp-original-megan-gem.webp",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 119228,
+      "sha256": "790796c2099be6e0187fb6dd3d53e4d39b957c1139fe029ca0c53ddfa0c4ca4d",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-social / block_5",
+        "templates/page.studio-artists.json / studio-work / block_6",
+        "templates/page.studio-portfolio.json / studio-work / block_6"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-social.liquid"
+      ]
+    },
+    {
+      "asset": "sp-original-megan.webp",
+      "width": 480,
+      "height": 481,
+      "bytes": 29412,
+      "sha256": "106a2b4c7f5c335ee2f2bec16fc206685899dfdf36ec7ae7a18e6d251e0dc1ce",
+      "template_usage_count": 6,
+      "template_contexts": [
+        "templates/index.json / studio-artists / block_4",
+        "templates/index.json / studio-services / block_4",
+        "templates/page.studio-about.json / studio-artists / block_4",
+        "templates/page.studio-artists.json / studio-artists / block_4",
+        "templates/page.studio-book.json / studio-booking / block_4",
+        "templates/page.studio-services.json / studio-services / block_4"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-artists.liquid",
+        "sections/studio-services.liquid"
+      ]
+    },
+    {
+      "asset": "sp-original-rigo-floral.webp",
+      "width": 815,
+      "height": 1228,
+      "bytes": 75912,
+      "sha256": "1aed32ea29236348a5b2b0fbf706770ba0454c59566490f2edfc22efc1a051fb",
+      "template_usage_count": 7,
+      "template_contexts": [
+        "templates/index.json / studio-artists / block_2",
+        "templates/index.json / studio-work / block_2",
+        "templates/page.studio-about.json / studio-artists / block_2",
+        "templates/page.studio-artists.json / studio-artists / block_2",
+        "templates/page.studio-artists.json / studio-work / block_2",
+        "templates/page.studio-book.json / studio-booking / block_2",
+        "templates/page.studio-portfolio.json / studio-work / block_2"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-artists.liquid",
+        "sections/studio-work.liquid"
+      ]
+    },
+    {
+      "asset": "sp-original-sonny-ear.webp",
+      "width": 461,
+      "height": 461,
+      "bytes": 42778,
+      "sha256": "7e42a3c3715543815829f975daf62b6809695381181191c284f2d4cf24979575",
+      "template_usage_count": 4,
+      "template_contexts": [
+        "templates/index.json / studio-artists / block_3",
+        "templates/page.studio-about.json / studio-artists / block_3",
+        "templates/page.studio-artists.json / studio-artists / block_3",
+        "templates/page.studio-book.json / studio-booking / block_3"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-artists.liquid"
+      ]
+    },
+    {
+      "asset": "sp-original-sonny-heart.webp",
+      "width": 1440,
+      "height": 1800,
+      "bytes": 342154,
+      "sha256": "3a53b105261a4137ac507e695f8eed8249baf7e0adfffc6f58274ab72d1b5127",
+      "template_usage_count": 6,
+      "template_contexts": [
+        "templates/index.json / studio-hero / piercings",
+        "templates/index.json / studio-services / block_2",
+        "templates/index.json / studio-work / block_5",
+        "templates/page.studio-artists.json / studio-work / block_3",
+        "templates/page.studio-portfolio.json / studio-work / block_3",
+        "templates/page.studio-services.json / studio-services / block_2"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-hero.liquid",
+        "sections/studio-services.liquid",
+        "sections/studio-work.liquid"
+      ]
+    },
+    {
+      "asset": "sp-product-01.webp",
+      "width": 508,
+      "height": 676,
+      "bytes": 43340,
+      "sha256": "945037b43fb687f82b509a505a1e452f45a860d722cef5d4a0794c6df8f561c9",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_01"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-02.webp",
+      "width": 900,
+      "height": 900,
+      "bytes": 78612,
+      "sha256": "ff1178784d8bc3c357a7da2f5c4a4089824dd434c7d9ab8439cbbd7ae4a6f63c",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_02"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-03.webp",
+      "width": 552,
+      "height": 676,
+      "bytes": 121110,
+      "sha256": "c04ac046f60c5323a77ec5a4f0455ea124cadad3e5926a52d759ef192f838f58",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_03"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-04.webp",
+      "width": 583,
+      "height": 676,
+      "bytes": 71572,
+      "sha256": "aa88bbf466a9314878c2d2213a36d04a3ca3628b08dabed112358d21c865a8ab",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_04"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-05.webp",
+      "width": 600,
+      "height": 676,
+      "bytes": 143304,
+      "sha256": "cbfc2cd0f33fa530fcc766af6efa65de42fc54c522021d1fab0ca519a4a92ae8",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_05"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-06.webp",
+      "width": 619,
+      "height": 1100,
+      "bytes": 89814,
+      "sha256": "c7e7259d57589b0bddf919a6f3173544637d28e546cb0bdfed93d404e606fde5",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_06"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-07.webp",
+      "width": 560,
+      "height": 758,
+      "bytes": 65736,
+      "sha256": "d8355c2a1144c64d2b8d9cbb62c4ba9e7e1f76a16eecd0e6817da76e88f75b7e",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_07"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-08.webp",
+      "width": 674,
+      "height": 676,
+      "bytes": 131608,
+      "sha256": "c6062a6eab30a21d1505cbc91b15f21f4dc1625124e6b6cd853ef14060c24866",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_08"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-09.webp",
+      "width": 562,
+      "height": 676,
+      "bytes": 60842,
+      "sha256": "090943abb07f01f774f278830f31bdb29cd24473b2597d2f1d6dc06436255a70",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_09"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-10.webp",
+      "width": 508,
+      "height": 676,
+      "bytes": 62676,
+      "sha256": "978d8e877c666f265fc78a27ef0bd841a1373cc3e396c8f3c2b0f43f42beb2dd",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_10"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-11.webp",
+      "width": 508,
+      "height": 676,
+      "bytes": 65928,
+      "sha256": "e0b84ec040533547e3294879566f77509001af262bc534995c4aa1194c9319c6",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_11"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-12.webp",
+      "width": 578,
+      "height": 676,
+      "bytes": 97506,
+      "sha256": "ee62841b93fd5bf8e60b8e64736f93aecaf703703d843e1ec603a5f6390ac319",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_12"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-13.webp",
+      "width": 616,
+      "height": 640,
+      "bytes": 92062,
+      "sha256": "f591b65f72c851e225f92d575f5e9f7f6338ceaf7a7971f322c9d564332645ab",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_13"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-14.webp",
+      "width": 508,
+      "height": 676,
+      "bytes": 54636,
+      "sha256": "25482a58051b413a382accb5c35d1bb02f413579fa39f4c80baeb92047b50976",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_14"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-15.webp",
+      "width": 619,
+      "height": 1100,
+      "bytes": 43382,
+      "sha256": "69eb590bb8410ae0028a47944bdd6429bdf764e717e6dd5660a2a27863fa183e",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_15"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-16.webp",
+      "width": 706,
+      "height": 800,
+      "bytes": 88374,
+      "sha256": "f39186cb37b2f7397f4d4b10522666f7c60e1b6a03f8cc11770b56de77b5d6e2",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_16"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-17.webp",
+      "width": 733,
+      "height": 1100,
+      "bytes": 42960,
+      "sha256": "06d7cc1da7194b11e7aced23a80ac9160112ca10a5618bec2816ceccd95bb500",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_17"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-18.webp",
+      "width": 733,
+      "height": 1100,
+      "bytes": 55730,
+      "sha256": "7259df1ba0e35182b227e034ca38eeeb8891d940e3f5efdee824579b57e7ffee",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_18"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-19.webp",
+      "width": 733,
+      "height": 1100,
+      "bytes": 30692,
+      "sha256": "9f03ed85b31ccf4510e20eb6718bfac3a2e481cf85597aa1f902e0e1a7e2d2e0",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_19"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-20.webp",
+      "width": 733,
+      "height": 1100,
+      "bytes": 34820,
+      "sha256": "6211abfc5cdc66b7321c4d774eb8479d5eac9325e91a8816f159a6fc6a183a10",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_20"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-product-21.webp",
+      "width": 733,
+      "height": 1100,
+      "bytes": 33036,
+      "sha256": "e3e5e97b7681278d24ac934e4978e16100f6f8389ac869f9fa2e6414d0b27acc",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/page.studio-shop.json / studio-shop / product_21"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-01.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 61632,
+      "sha256": "e2e147bd7c0e84968d58a13901f20572257062643a456dedee77f71c9c4d10ff",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_01",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_01",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_01"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-roulette.liquid"
+      ]
+    },
+    {
+      "asset": "sp-roulette-02.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 69670,
+      "sha256": "d9cae8a1f4d00b297d44d6479be41a33326ab99c51240284c6c4995274461a80",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_02",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_02",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_02"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-03.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 88042,
+      "sha256": "2443c25c9913d598639e5fecf8acf927d0ce822564a1a2c38d801761e4df0af0",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_03",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_03",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_03"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-04.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 76962,
+      "sha256": "3b426b0d5ed2df805a9eb7c4acfd1b3350bf4811b23acce015a74a1e292c327a",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_04",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_04",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_04"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-05.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 126196,
+      "sha256": "b5671a6070d018fdba2a74a2f1b263a25345d10401b9c847802e49852d659a3c",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_05",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_05",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_05"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-06.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 43284,
+      "sha256": "72899323b522bb4974cdbf85b76d41aa2053a96b36b45a0ff055b77d4541585b",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_06",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_06",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_06"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-07.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 66140,
+      "sha256": "d0c393f8f83015e40d934b1197eab2198117b4ee8d1fc5ce2513a0c39869b9c4",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_07",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_07",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_07"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-08.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 52028,
+      "sha256": "44fe4fbdeb88a1f3e02f6e909c75f2ae3a169d51761417389d4b9d7fe8b9b86f",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_08",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_08",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_08"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-09.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 44474,
+      "sha256": "a185edb8093c9fcc9c17aaf7015430f773a786562ae8f28bbb3e807e7e573c1d",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_09",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_09",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_09"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-10.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 87464,
+      "sha256": "bada1b5aadffb6cdd28ad707ffaefcc299143de907f3564fb2c2628755ee1bf7",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_10",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_10",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_10"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-11.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 61350,
+      "sha256": "02fa31b49b473362b04b0a4e5487bcd6b438dc61b96c25e03e6d78840311af5d",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_11",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_11",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_11"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-12.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 87146,
+      "sha256": "57ed70cea1cc9cdc16150e0189830f7d9ad27c5ceddd4bf7a7c6362087ff220c",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_12",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_12",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_12"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-13.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 59704,
+      "sha256": "96ee7efddf44e150576ed190353c772b704dc1dc130567bbdf324e920d6da5f2",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_13",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_13",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_13"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-14.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 64376,
+      "sha256": "1a058f7f31052cc68f7870bfde33df51615d6c88f9493bae5e824a85992cc0f1",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_14",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_14",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_14"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-15.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 68966,
+      "sha256": "4b226bb7f99c70a4aa652084d4fea5fa5027e365fd7302ee7df2a88e4ee5729f",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_15",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_15",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_15"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-16.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 60922,
+      "sha256": "a910164589116c8419652f8c78b3630c4ec3fc14987e85e55f77581ccf366b06",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_16",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_16",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_16"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-17.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 84496,
+      "sha256": "b351617db1aa039f43d285f725e17849ee79f12c6e10433027fa79277305f1a7",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_17",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_17",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_17"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-18.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 65734,
+      "sha256": "f79263930bd14564adb4831dbb4910d76eec942619a921f484b81e0602b0c833",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_18",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_18",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_18"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-19.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 69586,
+      "sha256": "6b8e08f2262ac721845f64ed8b9c7db7c8c4c9c4d4325cca8e9414ceb23c0a5c",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_19",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_19",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_19"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-20.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 81646,
+      "sha256": "aec61704a1157c496178dadd4ad05ef38de700722b27aa70e1cb551e13a7a5fb",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_20",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_20",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_20"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-21.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 83950,
+      "sha256": "aa31be89ee04881770983fb72bc6e6855a8c1a345f2c0a302676ac0e0462d8b8",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_21",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_21",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_21"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-22.webp",
+      "width": 799,
+      "height": 599,
+      "bytes": 106840,
+      "sha256": "1dd80bddce03af5366d688ccd58fe98a1e30a8cd3bfbf26d201f929dbcf825cb",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_22",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_22",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_22"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-23.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 55092,
+      "sha256": "8f1f73b73683d893bba41aac90cecfcda745bcc815b3a035b11557608e206755",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_23",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_23",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_23"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-24.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 85936,
+      "sha256": "1a78a9fc869482c86b1008673cbf92f956a3768f09b03873635af5d6861c3e75",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_24",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_24",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_24"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-25.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 58616,
+      "sha256": "77c0f2cbf14a855d487c9839562a589f9e1c4f75ebef710bb6aa359c33ac7192",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_25",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_25",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_25"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-26.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 71366,
+      "sha256": "a1addc9ca3669fecfe48f32019d2a0b919fb5ef2e6b4b29747355fe87976d3bc",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_26",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_26",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_26"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-roulette-27.webp",
+      "width": 599,
+      "height": 799,
+      "bytes": 101402,
+      "sha256": "caabcf1183ad099159bcb93392f7eb320c0d48c267932642958d8a09ef24f3f9",
+      "template_usage_count": 3,
+      "template_contexts": [
+        "templates/index.json / studio-roulette / design_27",
+        "templates/page.studio-ink-roulette.json / studio-flash-gallery / design_27",
+        "templates/page.studio-ink-roulette.json / studio-roulette / design_27"
+      ],
+      "section_default_or_hardcoded_files": []
+    },
+    {
+      "asset": "sp-source-flash-wall.webp",
+      "width": 1588,
+      "height": 1200,
+      "bytes": 317742,
+      "sha256": "93465512824e10df6a55976e74128728b60e4719403a0a55ca3855aafc78c09e",
+      "template_usage_count": 1,
+      "template_contexts": [
+        "templates/index.json / studio-statement / studio_photo_3"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-flash.liquid",
+        "sections/studio-statement.liquid"
+      ]
+    },
+    {
+      "asset": "sp-source-storefront.webp",
+      "width": 1354,
+      "height": 759,
+      "bytes": 105922,
+      "sha256": "9d784297f976367b7f0a9d232f95bdde78ca8ad088399044c5cbb80e8ff324c8",
+      "template_usage_count": 2,
+      "template_contexts": [
+        "templates/index.json / studio-hero / artists",
+        "templates/index.json / studio-statement / studio_photo_1"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-hero.liquid",
+        "sections/studio-statement.liquid"
+      ]
+    },
+    {
+      "asset": "sp-storefront.webp",
+      "width": 1354,
+      "height": 759,
+      "bytes": 105922,
+      "sha256": "9d784297f976367b7f0a9d232f95bdde78ca8ad088399044c5cbb80e8ff324c8",
+      "template_usage_count": 0,
+      "template_contexts": [],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-editorial.liquid",
+        "sections/studio-visit.liquid"
+      ]
+    },
+    {
+      "asset": "sp-welcome-jake-session.webp",
+      "width": 750,
+      "height": 1000,
+      "bytes": 85728,
+      "sha256": "ea07c526554dabe8ca07a335a2b64371de557c1f58d3880993b92106d3f55165",
+      "template_usage_count": 6,
+      "template_contexts": [
+        "templates/index.json / studio-artists / block_1",
+        "templates/index.json / studio-hero / tattoos",
+        "templates/index.json / studio-statement / studio_photo_2",
+        "templates/page.studio-about.json / studio-artists / block_1",
+        "templates/page.studio-artists.json / studio-artists / block_1",
+        "templates/page.studio-book.json / studio-booking / block_1"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-artists.liquid",
+        "sections/studio-booking.liquid",
+        "sections/studio-hero.liquid",
+        "sections/studio-statement.liquid"
+      ]
+    },
+    {
+      "asset": "sp-work-07.webp",
+      "width": 735,
+      "height": 729,
+      "bytes": 28804,
+      "sha256": "c04f09c20f0fcb54000ef21d6d4b88c5b3118bfcb9b5a678d29483d1175fb9c8",
+      "template_usage_count": 2,
+      "template_contexts": [
+        "templates/index.json / studio-social / block_2",
+        "templates/page.studio-portfolio.json / studio-work / block_7"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-social.liquid"
+      ]
+    },
+    {
+      "asset": "sp-work-10.webp",
+      "width": 734,
+      "height": 736,
+      "bytes": 21980,
+      "sha256": "6a29c1ebf56120a6933113a1dbfc903b069beaf9de5d4eba54643bc45494f531",
+      "template_usage_count": 2,
+      "template_contexts": [
+        "templates/index.json / studio-social / block_6",
+        "templates/page.studio-portfolio.json / studio-work / block_10"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-social.liquid"
+      ]
+    },
+    {
+      "asset": "sp-work-11.webp",
+      "width": 735,
+      "height": 734,
+      "bytes": 49662,
+      "sha256": "6b21369729f92702392b6404e4093a3f536d46d3c9e230ef666b6dfacf678fe7",
+      "template_usage_count": 2,
+      "template_contexts": [
+        "templates/index.json / studio-social / block_3",
+        "templates/page.studio-portfolio.json / studio-work / block_11"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-social.liquid"
+      ]
+    },
+    {
+      "asset": "sp-work-12.webp",
+      "width": 724,
+      "height": 714,
+      "bytes": 39286,
+      "sha256": "31c739fb968351948e9e7351151944c847db3d47e3bef044b0a9ac31cef0f2d4",
+      "template_usage_count": 4,
+      "template_contexts": [
+        "templates/index.json / studio-services / block_3",
+        "templates/index.json / studio-work / block_6",
+        "templates/page.studio-portfolio.json / studio-work / block_12",
+        "templates/page.studio-services.json / studio-services / block_3"
+      ],
+      "section_default_or_hardcoded_files": [
+        "sections/studio-services.liquid",
+        "sections/studio-work.liquid"
+      ]
+    }
+  ],
+  "evidence_files": [
+    "docs/studio-original-media-sources.json",
+    "docs/studio-asset-sources.json",
+    "docs/studio-catalog-mapping.json",
+    "docs/studio-hero-media-sources.json",
+    "docs/studio-welcome-media-sources.json",
+    "templates/page.artist-portfolio.json",
+    "archive/current-site-2026-11-10/pages/portfolios.html",
+    "archive/current-site-2026-11-10/pages/ink-roulette.html"
+  ],
+  "source_urls": [
+    "https://sideshowproductionstattoo.com/",
+    "https://sideshowproductionstattoo.com/portfolios/",
+    "https://sideshowproductionstattoo.com/ink-roulette/",
+    "https://sideshowproductionstattoo.com/flash-tattoos/"
+  ],
+  "limitations": [
+    "This audits the committed template/default asset configuration, not unpublished merchant changes in the Shopify theme editor.",
+    "Dynamic Shopify product.featured_image values cannot be verified until actual products are connected. The current template uses static fallback assets.",
+    "Catalog/source attribution does not independently verify current inventory, product formulations, physical wheel availability, or artist identity beyond the studio's own labels.",
+    "The generated-looking aftercare images have source filenames identifying ChatGPT Image; the original generation/edit workflow itself is unavailable."
+  ],
+  "remediation": {
+    "date": "2026-11-11",
+    "template_image_usages": 162,
+    "template_unique_asset_filenames": 71,
+    "template_distinct_image_hashes": 71,
+    "service_provenance": "docs/studio-service-media-sources.json",
+    "aftercare_provenance": "docs/studio-aftercare-media-sources.json",
+    "roulette_curation": "docs/studio-roulette-curation.json",
+    "current_template_image_usages": [
+      {
+        "template": "templates/index.json",
+        "section": "studio-hero",
+        "block": "artists",
+        "asset": "sp-source-storefront.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-hero",
+        "block": "piercings",
+        "asset": "sp-original-sonny-heart.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-hero",
+        "block": "tattoos",
+        "asset": "sp-welcome-jake-session.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-services",
+        "block": "block_1",
+        "asset": "sp-original-jake-swallow.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-services",
+        "block": "block_2",
+        "asset": "sp-original-sonny-heart.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-services",
+        "block": "block_3",
+        "asset": "sp-service-tooth-gems.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-services",
+        "block": "block_4",
+        "asset": "sp-service-whitening.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-work",
+        "block": "block_1",
+        "asset": "sp-original-jake-reaper.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-work",
+        "block": "block_2",
+        "asset": "sp-original-rigo-floral.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-work",
+        "block": "block_3",
+        "asset": "sp-original-jake-spiders.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-work",
+        "block": "block_4",
+        "asset": "sp-original-jake-figure.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-work",
+        "block": "block_5",
+        "asset": "sp-original-sonny-heart.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-work",
+        "block": "block_6",
+        "asset": "sp-work-12.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-artists",
+        "block": "block_1",
+        "asset": "sp-welcome-jake-session.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-artists",
+        "block": "block_2",
+        "asset": "sp-original-rigo-floral.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-artists",
+        "block": "block_3",
+        "asset": "sp-original-sonny-ear.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-artists",
+        "block": "block_4",
+        "asset": "sp-original-megan.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-statement",
+        "block": "studio_photo_1",
+        "asset": "sp-source-storefront.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-statement",
+        "block": "studio_photo_2",
+        "asset": "sp-welcome-jake-session.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-statement",
+        "block": "studio_photo_3",
+        "asset": "sp-source-flash-wall.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_01",
+        "asset": "sp-roulette-01.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_02",
+        "asset": "sp-roulette-02.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_03",
+        "asset": "sp-roulette-03.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_04",
+        "asset": "sp-roulette-04.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_05",
+        "asset": "sp-roulette-05.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_06",
+        "asset": "sp-roulette-06.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_07",
+        "asset": "sp-roulette-07.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_08",
+        "asset": "sp-roulette-08.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_09",
+        "asset": "sp-roulette-09.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_10",
+        "asset": "sp-roulette-10.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_11",
+        "asset": "sp-roulette-11.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_12",
+        "asset": "sp-roulette-12.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_13",
+        "asset": "sp-roulette-13.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_14",
+        "asset": "sp-roulette-14.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_15",
+        "asset": "sp-roulette-15.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_16",
+        "asset": "sp-roulette-16.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_17",
+        "asset": "sp-roulette-17.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_18",
+        "asset": "sp-roulette-18.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_19",
+        "asset": "sp-roulette-19.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_20",
+        "asset": "sp-roulette-20.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_21",
+        "asset": "sp-roulette-21.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_23",
+        "asset": "sp-roulette-23.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_24",
+        "asset": "sp-roulette-24.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_26",
+        "asset": "sp-roulette-26.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-roulette",
+        "block": "design_27",
+        "asset": "sp-roulette-27.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-social",
+        "block": "block_1",
+        "asset": "sp-original-jake-boot.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-social",
+        "block": "block_2",
+        "asset": "sp-work-07.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-social",
+        "block": "block_3",
+        "asset": "sp-work-11.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-social",
+        "block": "block_4",
+        "asset": "sp-original-jake-swallow.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-social",
+        "block": "block_5",
+        "asset": "sp-original-megan-gem.webp"
+      },
+      {
+        "template": "templates/index.json",
+        "section": "studio-social",
+        "block": "block_6",
+        "asset": "sp-work-10.webp"
+      },
+      {
+        "template": "templates/page.studio-about.json",
+        "section": "studio-artists",
+        "block": "block_1",
+        "asset": "sp-welcome-jake-session.webp"
+      },
+      {
+        "template": "templates/page.studio-about.json",
+        "section": "studio-artists",
+        "block": "block_2",
+        "asset": "sp-original-rigo-floral.webp"
+      },
+      {
+        "template": "templates/page.studio-about.json",
+        "section": "studio-artists",
+        "block": "block_3",
+        "asset": "sp-original-sonny-ear.webp"
+      },
+      {
+        "template": "templates/page.studio-about.json",
+        "section": "studio-artists",
+        "block": "block_4",
+        "asset": "sp-original-megan.webp"
+      },
+      {
+        "template": "templates/page.studio-artists.json",
+        "section": "studio-artists",
+        "block": "block_1",
+        "asset": "sp-welcome-jake-session.webp"
+      },
+      {
+        "template": "templates/page.studio-artists.json",
+        "section": "studio-artists",
+        "block": "block_2",
+        "asset": "sp-original-rigo-floral.webp"
+      },
+      {
+        "template": "templates/page.studio-artists.json",
+        "section": "studio-artists",
+        "block": "block_3",
+        "asset": "sp-original-sonny-ear.webp"
+      },
+      {
+        "template": "templates/page.studio-artists.json",
+        "section": "studio-artists",
+        "block": "block_4",
+        "asset": "sp-original-megan.webp"
+      },
+      {
+        "template": "templates/page.studio-artists.json",
+        "section": "studio-work",
+        "block": "block_1",
+        "asset": "sp-original-jake-boot.webp"
+      },
+      {
+        "template": "templates/page.studio-artists.json",
+        "section": "studio-work",
+        "block": "block_2",
+        "asset": "sp-original-rigo-floral.webp"
+      },
+      {
+        "template": "templates/page.studio-artists.json",
+        "section": "studio-work",
+        "block": "block_3",
+        "asset": "sp-original-sonny-heart.webp"
+      },
+      {
+        "template": "templates/page.studio-artists.json",
+        "section": "studio-work",
+        "block": "block_4",
+        "asset": "sp-original-jake-swallow.webp"
+      },
+      {
+        "template": "templates/page.studio-artists.json",
+        "section": "studio-work",
+        "block": "block_5",
+        "asset": "sp-original-jake-dragon.webp"
+      },
+      {
+        "template": "templates/page.studio-artists.json",
+        "section": "studio-work",
+        "block": "block_6",
+        "asset": "sp-original-megan-gem.webp"
+      },
+      {
+        "template": "templates/page.studio-book.json",
+        "section": "studio-booking",
+        "block": "block_1",
+        "asset": "sp-welcome-jake-session.webp"
+      },
+      {
+        "template": "templates/page.studio-book.json",
+        "section": "studio-booking",
+        "block": "block_2",
+        "asset": "sp-original-rigo-floral.webp"
+      },
+      {
+        "template": "templates/page.studio-book.json",
+        "section": "studio-booking",
+        "block": "block_3",
+        "asset": "sp-original-sonny-ear.webp"
+      },
+      {
+        "template": "templates/page.studio-book.json",
+        "section": "studio-booking",
+        "block": "block_4",
+        "asset": "sp-original-megan.webp"
+      },
+      {
+        "template": "templates/page.studio-flash.json",
+        "section": "studio-flash-gallery",
+        "block": "block_1",
+        "asset": "sp-flash-01.webp"
+      },
+      {
+        "template": "templates/page.studio-flash.json",
+        "section": "studio-flash-gallery",
+        "block": "block_2",
+        "asset": "sp-flash-02.webp"
+      },
+      {
+        "template": "templates/page.studio-flash.json",
+        "section": "studio-flash-gallery",
+        "block": "block_3",
+        "asset": "sp-flash-03.webp"
+      },
+      {
+        "template": "templates/page.studio-flash.json",
+        "section": "studio-flash-gallery",
+        "block": "block_4",
+        "asset": "sp-flash-04.webp"
+      },
+      {
+        "template": "templates/page.studio-flash.json",
+        "section": "studio-flash-gallery",
+        "block": "block_5",
+        "asset": "sp-flash-05.webp"
+      },
+      {
+        "template": "templates/page.studio-flash.json",
+        "section": "studio-flash-gallery",
+        "block": "block_6",
+        "asset": "sp-flash-06.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_01",
+        "asset": "sp-roulette-01.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_02",
+        "asset": "sp-roulette-02.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_03",
+        "asset": "sp-roulette-03.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_04",
+        "asset": "sp-roulette-04.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_05",
+        "asset": "sp-roulette-05.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_06",
+        "asset": "sp-roulette-06.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_07",
+        "asset": "sp-roulette-07.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_08",
+        "asset": "sp-roulette-08.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_09",
+        "asset": "sp-roulette-09.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_10",
+        "asset": "sp-roulette-10.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_11",
+        "asset": "sp-roulette-11.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_12",
+        "asset": "sp-roulette-12.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_13",
+        "asset": "sp-roulette-13.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_14",
+        "asset": "sp-roulette-14.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_15",
+        "asset": "sp-roulette-15.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_16",
+        "asset": "sp-roulette-16.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_17",
+        "asset": "sp-roulette-17.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_18",
+        "asset": "sp-roulette-18.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_19",
+        "asset": "sp-roulette-19.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_20",
+        "asset": "sp-roulette-20.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_21",
+        "asset": "sp-roulette-21.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_23",
+        "asset": "sp-roulette-23.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_24",
+        "asset": "sp-roulette-24.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_26",
+        "asset": "sp-roulette-26.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-roulette",
+        "block": "design_27",
+        "asset": "sp-roulette-27.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_01",
+        "asset": "sp-roulette-01.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_02",
+        "asset": "sp-roulette-02.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_03",
+        "asset": "sp-roulette-03.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_04",
+        "asset": "sp-roulette-04.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_05",
+        "asset": "sp-roulette-05.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_06",
+        "asset": "sp-roulette-06.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_07",
+        "asset": "sp-roulette-07.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_08",
+        "asset": "sp-roulette-08.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_09",
+        "asset": "sp-roulette-09.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_10",
+        "asset": "sp-roulette-10.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_11",
+        "asset": "sp-roulette-11.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_12",
+        "asset": "sp-roulette-12.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_13",
+        "asset": "sp-roulette-13.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_14",
+        "asset": "sp-roulette-14.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_15",
+        "asset": "sp-roulette-15.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_16",
+        "asset": "sp-roulette-16.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_17",
+        "asset": "sp-roulette-17.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_18",
+        "asset": "sp-roulette-18.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_19",
+        "asset": "sp-roulette-19.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_20",
+        "asset": "sp-roulette-20.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_21",
+        "asset": "sp-roulette-21.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_23",
+        "asset": "sp-roulette-23.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_24",
+        "asset": "sp-roulette-24.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_26",
+        "asset": "sp-roulette-26.webp"
+      },
+      {
+        "template": "templates/page.studio-ink-roulette.json",
+        "section": "studio-flash-gallery",
+        "block": "design_27",
+        "asset": "sp-roulette-27.webp"
+      },
+      {
+        "template": "templates/page.studio-portfolio.json",
+        "section": "studio-work",
+        "block": "block_1",
+        "asset": "sp-original-jake-boot.webp"
+      },
+      {
+        "template": "templates/page.studio-portfolio.json",
+        "section": "studio-work",
+        "block": "block_2",
+        "asset": "sp-original-rigo-floral.webp"
+      },
+      {
+        "template": "templates/page.studio-portfolio.json",
+        "section": "studio-work",
+        "block": "block_3",
+        "asset": "sp-original-sonny-heart.webp"
+      },
+      {
+        "template": "templates/page.studio-portfolio.json",
+        "section": "studio-work",
+        "block": "block_4",
+        "asset": "sp-original-jake-swallow.webp"
+      },
+      {
+        "template": "templates/page.studio-portfolio.json",
+        "section": "studio-work",
+        "block": "block_5",
+        "asset": "sp-original-jake-dragon.webp"
+      },
+      {
+        "template": "templates/page.studio-portfolio.json",
+        "section": "studio-work",
+        "block": "block_6",
+        "asset": "sp-original-megan-gem.webp"
+      },
+      {
+        "template": "templates/page.studio-portfolio.json",
+        "section": "studio-work",
+        "block": "block_7",
+        "asset": "sp-work-07.webp"
+      },
+      {
+        "template": "templates/page.studio-portfolio.json",
+        "section": "studio-work",
+        "block": "block_8",
+        "asset": "sp-original-jake-figure.webp"
+      },
+      {
+        "template": "templates/page.studio-portfolio.json",
+        "section": "studio-work",
+        "block": "block_9",
+        "asset": "sp-original-jake-sunflower.webp"
+      },
+      {
+        "template": "templates/page.studio-portfolio.json",
+        "section": "studio-work",
+        "block": "block_10",
+        "asset": "sp-work-10.webp"
+      },
+      {
+        "template": "templates/page.studio-portfolio.json",
+        "section": "studio-work",
+        "block": "block_11",
+        "asset": "sp-work-11.webp"
+      },
+      {
+        "template": "templates/page.studio-portfolio.json",
+        "section": "studio-work",
+        "block": "block_12",
+        "asset": "sp-work-12.webp"
+      },
+      {
+        "template": "templates/page.studio-portfolio.json",
+        "section": "studio-work",
+        "block": "dark_work_1",
+        "asset": "sp-original-jake-reaper.webp"
+      },
+      {
+        "template": "templates/page.studio-portfolio.json",
+        "section": "studio-work",
+        "block": "dark_work_2",
+        "asset": "sp-original-jake-spiders.webp"
+      },
+      {
+        "template": "templates/page.studio-services.json",
+        "section": "studio-services",
+        "block": "block_1",
+        "asset": "sp-original-jake-swallow.webp"
+      },
+      {
+        "template": "templates/page.studio-services.json",
+        "section": "studio-services",
+        "block": "block_2",
+        "asset": "sp-original-sonny-heart.webp"
+      },
+      {
+        "template": "templates/page.studio-services.json",
+        "section": "studio-services",
+        "block": "block_3",
+        "asset": "sp-service-tooth-gems.webp"
+      },
+      {
+        "template": "templates/page.studio-services.json",
+        "section": "studio-services",
+        "block": "block_4",
+        "asset": "sp-service-whitening.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_01",
+        "asset": "sp-product-01.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_02",
+        "asset": "sp-product-02.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_03",
+        "asset": "sp-product-03.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_04",
+        "asset": "sp-product-04.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_05",
+        "asset": "sp-product-05.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_06",
+        "asset": "sp-product-06.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_07",
+        "asset": "sp-product-07.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_08",
+        "asset": "sp-product-08.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_09",
+        "asset": "sp-product-09.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_10",
+        "asset": "sp-product-10.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_11",
+        "asset": "sp-product-11.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_12",
+        "asset": "sp-product-12.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_13",
+        "asset": "sp-product-13.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_14",
+        "asset": "sp-product-14.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_15",
+        "asset": "sp-product-15.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_16",
+        "asset": "sp-product-16.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_18",
+        "asset": "sp-product-base-spray.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_20",
+        "asset": "sp-product-steri-wash.webp"
+      },
+      {
+        "template": "templates/page.studio-shop.json",
+        "section": "studio-shop",
+        "block": "product_21",
+        "asset": "sp-product-defend.webp"
+      }
+    ],
+    "remaining_client_input": [
+      "Actual stocked size and genuine photo for Mad Rabbit Repair Soothing Gel.",
+      "Actual stocked size and genuine photo for Mad Rabbit Enhance Balm.",
+      "Optional verified Rigo/Sonny portraits if a consistent face-portrait roster is desired."
+    ]
+  },
+  "validation": {
+    "preview": "https://desktop-u2s3cq9.taila6afe6.ts.net:9562/",
+    "routes_rendered": 11,
+    "rendered_unique_images_loaded": 75,
+    "image_load_failures": 0,
+    "browser_checks_passed": 21,
+    "browser_runtime_exceptions": 0,
+    "desktop_viewport": [
+      1440,
+      1000
+    ],
+    "phone_viewport": [
+      390,
+      844
+    ],
+    "schema_liquid_validation": {
+      "studio_section_schemas": 23,
+      "templates": 11,
+      "liquid_files": 28,
+      "javascript_files": 9,
+      "errors": 0,
+      "warnings": 0
+    },
+    "checks": [
+      "All eleven rendered routes fit the desktop viewport.",
+      "Every image reference extracted across the rendered routes loads at its native dimensions.",
+      "All21 catalog cards remain;19 use photos and2 use intentional text cards.",
+      "Five inherited staged product photos are no longer rendered.",
+      "Artist work images, spider pair, and lettering use full-frame fitting.",
+      "Both roulette pools include25 design photographs, with no board or rules photo.",
+      "A wheel spin selected a reviewed image and its matching descriptive caption.",
+      "The two smile service cards show the correct recovered images with complete frames.",
+      "Desktop and phone screenshots were visually inspected.",
+      "No browser runtime exceptions."
+    ]
+  }
+}

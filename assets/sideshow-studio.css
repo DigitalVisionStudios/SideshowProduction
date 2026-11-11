@@ -183,6 +183,8 @@ a.sp-service-artist:hover{color:#ff5967;border-color:#ff5967}
 .sp-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
 .sp-work{position:relative;display:block;width:100%;min-width:0;margin:0;padding:0;overflow:hidden;border:0;border-radius:0;background:#151518;text-align:left;cursor:zoom-in;isolation:isolate}
 .sp-work img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;transition:transform .65s var(--sp-ease),filter .65s}
+.sp-site .sp-work.sp-work--contain img{object-fit:contain;background:#0c0b0d}
+.sp-site .sp-work.sp-work--contain:hover img{transform:none}
 .sp-work:hover img{transform:scale(1.055);filter:brightness(1.07)}
 .sp-work-caption{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:54px 23px 22px;background:linear-gradient(0deg,rgba(0,0,0,.82),rgba(0,0,0,0));color:white;font-size:15px;font-weight:500;line-height:1.4}
 .sp-work-caption>span:first-child{max-width:27ch}
@@ -203,6 +205,8 @@ a.sp-service-artist:hover{color:#ff5967;border-color:#ff5967}
 .sp-artist-card{min-width:0}
 .sp-artist-photo{position:relative;display:block;overflow:hidden;background:#18171b}
 .sp-artist-photo img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:center 30%;transition:transform .65s var(--sp-ease)}
+.sp-artist-photo.sp-artist-photo--contain img{object-fit:contain;object-position:center;background:#0c0b0d}
+.sp-artist-card:hover .sp-artist-photo.sp-artist-photo--contain img{transform:none}
 .sp-artist-card:hover .sp-artist-photo img{transform:scale(1.045)}
 .sp-artist-photo>span{position:absolute;bottom:0;right:0;display:flex;align-items:center;justify-content:center;width:45px;height:45px;background:var(--sp-red);color:white;font-size:24px;line-height:1}
 .sp-artist-info{padding-top:22px}
@@ -359,6 +363,12 @@ a.sp-service-artist:hover{color:#ff5967;border-color:#ff5967}
 .sp-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:45px 27px}
 .sp-product{display:block;min-width:0}
 .sp-product img{width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;background:#1b191e;transition:transform .4s var(--sp-ease)}
+.sp-product img.sp-product-image--light{background:#f5f4f1}
+.sp-product-type{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:17px;aspect-ratio:1/1;border:1px solid #42232c;background:radial-gradient(ellipse at 45% 10%,#39131d,transparent 80%),#100d11;color:#f2d7df;text-align:center;padding:24px}
+.sp-product-type>svg{color:#dc3e59;margin-bottom:7px}
+.sp-product-type__brand{font-size:12px;line-height:1.4;letter-spacing:.12em;text-transform:uppercase;color:#c4abb3}
+.sp-product-type__label{font:400 clamp(28px,4vw,45px)/1.2 "SP Brush","SP Sans",sans-serif}
+@media(max-width:700px){.sp-product-type{padding:16px 12px;gap:10px}.sp-product-type>svg{width:28px;height:32px;margin-bottom:0}.sp-product-type__brand{font-size:10px;letter-spacing:.08em}.sp-product-type__label{font-size:clamp(22px,6vw,28px)}}
 .sp-product:hover img{transform:translateY(-5px)}
 .sp-product h3{margin-top:20px;font-size:31px;line-height:1.1}
 .sp-product p{margin-top:10px;color:#d2c9cf;font-size:15px;font-weight:500}

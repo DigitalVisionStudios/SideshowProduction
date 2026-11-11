@@ -160,45 +160,57 @@
           "type": "item",
           "settings": {
             "title": "Aftercare Soothing Gel for Tattoos | Mad Rabbit",
-            "asset": "sp-product-17.webp",
+            "asset": "#",
             "price": "$21.00",
-            "sold_out": false
+            "sold_out": false,
+            "show_image": false,
+            "brand": "Mad Rabbit",
+            "media_label": "Aftercare"
           }
         },
         "product_18": {
           "type": "item",
           "settings": {
             "title": "Base Laboratories | Piercing Aftercare Spray",
-            "asset": "sp-product-18.webp",
+            "asset": "sp-product-base-spray.webp",
             "price": "$22.00",
-            "sold_out": false
+            "sold_out": false,
+            "show_image": true,
+            "image_background": "light"
           }
         },
         "product_19": {
           "type": "item",
           "settings": {
             "title": "Enhance Balm for Tattoo Aftercare | Mad Rabbit",
-            "asset": "sp-product-19.webp",
+            "asset": "#",
             "price": "$18.00",
-            "sold_out": false
+            "sold_out": false,
+            "show_image": false,
+            "brand": "Mad Rabbit",
+            "media_label": "Aftercare"
           }
         },
         "product_20": {
           "type": "item",
           "settings": {
             "title": "Steri-Wash | Sterile Saline Piercing Wash",
-            "asset": "sp-product-20.webp",
+            "asset": "sp-product-steri-wash.webp",
             "price": "$16.00",
-            "sold_out": false
+            "sold_out": false,
+            "show_image": true,
+            "image_background": "light"
           }
         },
         "product_21": {
           "type": "item",
           "settings": {
             "title": "Tattoo Sunscreen - Defend | Mad Rabbit",
-            "asset": "sp-product-21.webp",
+            "asset": "sp-product-defend.webp",
             "price": "$21.00",
-            "sold_out": false
+            "sold_out": false,
+            "show_image": true,
+            "image_background": "light"
           }
         }
       },

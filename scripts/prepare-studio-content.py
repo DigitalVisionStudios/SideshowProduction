@@ -88,6 +88,9 @@ def main():
     assert len(catalog_items) == 21
     roulette_items = galleries["ink-roulette"]["images"]
     assert len(roulette_items) == 27
+    roulette_curation = json.loads((DOCS / "studio-roulette-curation.json").read_text(encoding="utf-8"))
+    reviewed_roulette = {item["asset"]: item for item in roulette_curation["items"]}
+    aftercare_overrides = json.loads((DOCS / "studio-aftercare-media-sources.json").read_text(encoding="utf-8"))["recommended_product_settings"]
 
     # Source brand-prefixed merchandise is presented before the five aftercare products.
     merch = [p for p in catalog_items if p["title"].startswith("Sideshow Productions ")]
@@ -122,6 +125,7 @@ def main():
                 "sold_out": product["inventory_state"] == "out_of_stock",
             },
         }
+        product_blocks[block_id]["settings"].update(aftercare_overrides.get(block_id, {}))
         product_mapping.append({
             "display_order": index,
             "display_group": "Merchandise" if product in merch else "Aftercare",
@@ -153,15 +157,16 @@ def main():
     for index, source in enumerate(roulette_items, 1):
         filename = f"sp-roulette-{index:02d}.webp"
         image = prepare_image(source["local_path"], filename, (1000, 1000))
-        raw_alt = (source.get("alt") or "").strip()
-        meaningful_alt = raw_alt and not re.match(r"^(screenshot|img[_ -]|image[_ -]?\d|[0-9a-f]{8}-)", raw_alt, re.I)
-        title = raw_alt if meaningful_alt else f"Ink Roulette design #{index}"
+        reviewed = reviewed_roulette[filename]
+        title = reviewed["recommended_title"]
         block_id = f"design_{index:02d}"
-        roulette_blocks[block_id] = {"type": "sheet", "settings": {"asset": filename, "title": title}}
+        if reviewed["selectable_design"]:
+            roulette_blocks[block_id] = {"type": "sheet", "settings": {"asset": filename, "title": title}}
         roulette_mapping.append({
             "display_order": index,
             "template_block_id": block_id,
             "title": title,
+            "selectable_design": reviewed["selectable_design"],
             "source_page": galleries["ink-roulette"]["source_page"],
             "source_image_url": source["source_url"],
             "original_image_url": source["original_url"],
@@ -188,6 +193,7 @@ def main():
         "merchandise_count": len(merch),
         "aftercare_count": len(care),
         "roulette_image_count": len(roulette_mapping),
+        "roulette_design_photo_count": len(roulette_blocks),
         "shopify_verified": False,
         "notes": [
             "Prepared entirely from verified archived local image bytes. No source downloads performed.",
@@ -195,7 +201,7 @@ def main():
             "Shopify product selectors remain unassigned; existing section contact links handle catalog inquiries.",
             "Unknown variants, quantities, and Shopify product handles remain unknown.",
             "Only obvious spelling/grammar corrections were made to display titles; original titles are retained.",
-            "Roulette image numbering is gallery display order, not an official in-studio game selection number.",
+            "Roulette captions describe the reviewed subjects. Imported display order is not a physical game number. Board and rules photographs remain archived but are excluded from design selection.",
         ],
         "products": product_mapping,
         "roulette_assets": roulette_mapping,

@@ -1,0 +1,11 @@
+{% if image != blank %}
+  <img src="{{ image | image_url: width: 900 }}" alt="{{ image.alt | default: alt | escape }}" width="{{ image.width }}" height="{{ image.height }}" loading="lazy" decoding="async">
+{% elsif show_image != false and asset_name != blank and asset_name != '#' %}
+  <img{% if background == 'light' %} class="sp-product-image--light"{% endif %} src="{{ asset_name | asset_url }}" alt="{{ alt | escape }}" width="900" height="900" loading="lazy" decoding="async">
+{% else %}
+  <div class="sp-product-type" aria-hidden="true">
+    <svg viewBox="0 0 40 48" width="40" height="48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 3C16 13 6 21 6 30a14 14 0 0 0 28 0C34 21 24 13 20 3Z"/><path d="M12 31a8 8 0 0 0 8 8" stroke-linecap="round"/></svg>
+    <span class="sp-product-type__brand">{{ brand | default: 'Sideshow' | escape }}</span>
+    <span class="sp-product-type__label">{{ label | default: 'Studio shop' | escape }}</span>
+  </div>
+{% endif %}

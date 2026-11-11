@@ -50,8 +50,8 @@ Shopify page resources and template assignments must be created/confirmed in the
 - A small palette button appears after 200 pixels of scrolling. Clean and Original presets plus separate Red motion, Studio artwork, and Section fades switches save a preference on that browser. The Studio appearance section controls the initial layers, animation opacity/scale, optional replacement artwork, and whether visitors see the button. When the button is disabled, the merchant's defaults apply instead of saved visitor choices.
 - The original animation player loads only when the background can be seen. It pauses behind overlays, on hidden tabs, above the content, or when motion is disabled. Reduced-motion preferences retain a static red atmosphere. The panel supports Escape, focus return, and phone safe areas.
 - Six original client reviews form a swipeable slider. A six-image social gallery uses real client work and links directly to the studio and artists’ Instagram profiles, with original Instagram and TikTok icons. It is a curated gallery, not a live social feed.
-- An interactive Ink Roulette wheel draws from all 27 recovered design images, with a synchronized result and image enlargement. Online spins provide inspiration; the published $150/two-spin and $20 extra-number terms describe the in-studio experience.
-- The 21 recovered products and all 27 actual Ink Roulette images remain available.
+- An interactive Ink Roulette wheel draws from 25 reviewed design photographs, with descriptive captions, a synchronized result, and image enlargement. Whole-board and rules photographs remain preserved as context and are excluded from random selection. Online spins provide inspiration; the published $150/two-spin and $20 extra-number terms describe the in-studio experience.
+- The 21 recovered product listings remain available. The original 27-image Ink Roulette archive is preserved, with 25 design photographs displayed in the active collection.
 - Native Shopify contact form, with artist/item and validated event booking context preserved when entering from a relevant CTA.
 - A lightweight alternate layout for the new pages, while retaining the original product and Meety code for recovery.
 
@@ -112,6 +112,8 @@ python scripts/prepare-studio-motion.py --build
 python scripts/prepare-welcome-gallery.py
 python scripts/prepare-legacy-appearance.py
 python scripts/prepare-studio-originals.py
+python scripts/prepare-studio-service-media.py
+python scripts/prepare-studio-aftercare-media.py
 ```
 
 The preparation scripts use Python with requests, BeautifulSoup, and Pillow. Asset preparation uses preserved originals and does not invent or retouch client artwork. Check the script documentation before recrawling. Source provenance is recorded in docs/studio-asset-sources.json, docs/studio-catalog-mapping.json, and docs/studio-authentic-media-sources.json. The authentic media script additionally requires FFmpeg and FFprobe. Original video is low resolution (498 × 246), so the current hero defaults to the sharper real photographs; the clip remains available as an optional scene asset.
@@ -121,6 +123,16 @@ The Welcome-photo helper uses Python's standard library and Pillow. The new Jake
 The appearance helper recovers the exact legacy Lottie JSON and a lossless WebP of the original shop-sign pattern. The artwork already has very faint transparency in its pixels, so 100% artwork opacity preserves the original rather than making it opaque. The local SVG player is lottie-web 5.7.4, matching the former theme, with its MIT license in `docs/licenses/`. `docs/studio-legacy-appearance-sources.json` records the source URLs, hashes, original settings, and conversion checks.
 
 The original-photo helper verifies the retained Shopify artist references and exact CDN file hashes. It creates twelve WebP assets at native resolution and reuses Jake's existing Welcome photograph. The hero, artists, portfolio, services, social tiles, about page, and booking cards use matching originals where they improve on the captured screenshots. Sonny's heart-ear photograph is 1440 × 1800; Megan's single tooth-gem photograph is 1080 × 1350; Rigo's blue floral tattoo is 815 × 1228. Jake's recovered work photographs are 750 × 1000, except the 1000 × 750 spider pair. `docs/studio-original-media-sources.json` contains exact replacements, attribution, dimensions, and rejected candidates. Megan's and Sonny's profile sources remain modest in resolution; their uncropped originals remove the old circular screenshot masks. No image was enlarged or artificially sharpened.
+
+## Image matching and source review
+
+The November 11 image audit reviewed all 11 studio templates, 170 configured image placements, 77 referenced filenames, and76 distinct images before corrections. The whitening card now shows Megan's authentic before/after comparison at 1270 × 1081. Tooth gems use her full 1736 × 928 original. Both keep the complete photograph, including the whitening labels and gem placements. The wider spider/lettering work and detailed artist photos now support full-frame fitting.
+
+Three inherited aftercare mockups were replaced with manufacturer photos matched to the client's product-specific source imagery: Base Laboratories spray, Steri-Wash 3 oz, and Mad Rabbit Defend SPF 30. Repair gel and Enhance balm have unresolved package-size conflicts, so their product details remain in clean text cards. The five prior staged photos remain archived but are no longer displayed. Connected Shopify product images take priority when products are assigned. These source comparisons do not verify current stock.
+
+`docs/studio-media-audit.json` records the original inventory, findings, resolutions, and remaining source limits. The two new preparation helpers pin source hashes and verify attribution/product mappings. `docs/studio-roulette-curation.json` distinguishes 25 design photographs from two contextual photographs and preserves the reviewed captions. Content preparation applies those decisions and the aftercare overrides so rerunning it does not reintroduce the mismatches.
+
+This revision passed 23 section schemas, 11 templates, 28 Liquid files, and 9 JavaScript files with zero errors or warnings. Browser verification through Tailscale loaded all 75 currently rendered image URLs across all 11 routes and passed 21 focused checks, including image matching, wheel selection, full-frame fitting, shop fallbacks, desktop/phone bounds, and no runtime exceptions. Desktop 1440 × 1000 and phone 390 × 844 screenshots were visually reviewed.
 
 ## Before launch
 

@@ -7,7 +7,7 @@
       <div class="sp-gallery-grid">
         {% for block in section.blocks %}
           {% if block.settings.image != blank %}{% assign image_src = block.settings.image | image_url: width: 1600 %}{% else %}{% assign image_src = block.settings.asset | asset_url %}{% endif %}
-          <button class="sp-work" type="button" data-lightbox-src="{{ image_src | escape }}" data-lightbox-alt="{{ block.settings.alt | escape }}" data-category="{{ block.settings.category }}" aria-label="Enlarge: {{ block.settings.alt | escape }}" {{ block.shopify_attributes }} data-reveal>
+          <button class="sp-work{% if block.settings.fit == 'contain' %} sp-work--contain{% endif %}" type="button" data-lightbox-src="{{ image_src | escape }}" data-lightbox-alt="{{ block.settings.alt | escape }}" data-category="{{ block.settings.category }}" aria-label="Enlarge: {{ block.settings.alt | escape }}" {{ block.shopify_attributes }} data-reveal>
             {% render 'studio-image', image: block.settings.image, asset_name: block.settings.asset, alt: block.settings.alt %}
             <span class="sp-work-caption"><span>{{ block.settings.title | escape }}</span><small>{{ block.settings.artist | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></small></span>
           </button>
@@ -24,7 +24,7 @@
           {% for block in section.blocks %}
             {% if block.settings.image != blank %}{% assign image_src = block.settings.image | image_url: width: 1600 %}{% else %}{% assign image_src = block.settings.asset | asset_url %}{% endif %}
             <div class="sp-carousel-slide" data-carousel-slide role="group" aria-roledescription="slide" aria-label="{{ forloop.index }} of {{ forloop.length }}" {{ block.shopify_attributes }}>
-              <button class="sp-work" type="button" data-lightbox-src="{{ image_src | escape }}" data-lightbox-alt="{{ block.settings.alt | escape }}" data-category="{{ block.settings.category }}" aria-label="Enlarge: {{ block.settings.alt | escape }}">
+              <button class="sp-work{% if block.settings.fit == 'contain' %} sp-work--contain{% endif %}" type="button" data-lightbox-src="{{ image_src | escape }}" data-lightbox-alt="{{ block.settings.alt | escape }}" data-category="{{ block.settings.category }}" aria-label="Enlarge: {{ block.settings.alt | escape }}">
                 {% render 'studio-image', image: block.settings.image, asset_name: block.settings.asset, alt: block.settings.alt %}
                 <span class="sp-work-caption"><span>{{ block.settings.title | escape }}</span><small>{{ block.settings.artist | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></small></span>
               </button>
@@ -82,6 +82,13 @@
           "id": "asset",
           "label": "Fallback asset filename",
           "default": "sp-original-jake-boot.webp"
+        },
+        {
+          "type": "select",
+          "id": "fit",
+          "label": "Photo framing",
+          "default": "cover",
+          "options": [{"value":"cover","label":"Fill the frame"},{"value":"contain","label":"Show the whole photograph"}]
         },
         {
           "type": "text",
@@ -152,6 +159,7 @@
           "type": "work",
           "settings": {
             "asset": "sp-original-jake-spiders.webp",
+            "fit": "contain",
             "alt": "Two black spider tattoos forming a heart shape by Jake",
             "title": "Spider heart",
             "artist": "JAKE",

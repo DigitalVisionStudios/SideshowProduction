@@ -13,7 +13,9 @@
     "Shopify product selectors remain unassigned; existing section contact links handle catalog inquiries.",
     "Unknown variants, quantities, and Shopify product handles remain unknown.",
     "Only obvious spelling/grammar corrections were made to display titles; original titles are retained.",
-    "Roulette image numbering is gallery display order, not an official in-studio game selection number."
+    "Roulette image numbering is gallery display order, not an official in-studio game selection number.",
+    "The November11 visual audit excludes two contextual photos from selection and uses descriptive subjects instead of inferred physical numbers. See docs/studio-roulette-curation.json.",
+    "Five aftercare fallback images were superseded by verified manufacturer photos or intentional text cards. Original archived image records remain provenance; current overrides are in docs/studio-aftercare-media-sources.json."
   ],
   "products": [
     {
@@ -819,7 +821,7 @@
     {
       "display_order": 1,
       "template_block_id": "design_01",
-      "title": "Ink Roulette design #1",
+      "title": "Cartoon dog with its tongue out",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/0D497D0D-C972-4ECA-BCE2-DB93EA8CB3A3-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/0D497D0D-C972-4ECA-BCE2-DB93EA8CB3A3.jpg",
@@ -837,12 +839,13 @@
       ],
       "output_bytes": 61632,
       "output_sha256": "e2e147bd7c0e84968d58a13901f20572257062643a456dedee77f71c9c4d10ff",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 2,
       "template_block_id": "design_02",
-      "title": "Ink Roulette design #2",
+      "title": "Black-haired portrait beside a colorful snake",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/2A197C2B-3720-423B-88E0-C97E91C2E370-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/2A197C2B-3720-423B-88E0-C97E91C2E370.jpg",
@@ -860,12 +863,13 @@
       ],
       "output_bytes": 69670,
       "output_sha256": "d9cae8a1f4d00b297d44d6479be41a33326ab99c51240284c6c4995274461a80",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 3,
       "template_block_id": "design_03",
-      "title": "Ink Roulette design #3",
+      "title": "Jack-o-lantern with flowers",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/2D8C199E-3D8B-4D8D-A7BC-8CDF0E9C62C1-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/2D8C199E-3D8B-4D8D-A7BC-8CDF0E9C62C1.jpg",
@@ -883,12 +887,13 @@
       ],
       "output_bytes": 88042,
       "output_sha256": "2443c25c9913d598639e5fecf8acf927d0ce822564a1a2c38d801761e4df0af0",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 4,
       "template_block_id": "design_04",
-      "title": "Ink Roulette design #4",
+      "title": "Skeletal hand making a horns gesture",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/3EF87B67-3FA8-4609-9BFD-525AF3F1D760-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/3EF87B67-3FA8-4609-9BFD-525AF3F1D760.jpg",
@@ -906,12 +911,13 @@
       ],
       "output_bytes": 76962,
       "output_sha256": "3b426b0d5ed2df805a9eb7c4acfd1b3350bf4811b23acce015a74a1e292c327a",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 5,
       "template_block_id": "design_05",
-      "title": "Ink Roulette design #5",
+      "title": "Two dark flowers with a tape motif",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/7D1C02F1-4D6E-4FF7-8277-6F1654FDF02D-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/7D1C02F1-4D6E-4FF7-8277-6F1654FDF02D.jpg",
@@ -929,12 +935,13 @@
       ],
       "output_bytes": 126196,
       "output_sha256": "b5671a6070d018fdba2a74a2f1b263a25345d10401b9c847802e49852d659a3c",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 6,
       "template_block_id": "design_06",
-      "title": "Ink Roulette design #6",
+      "title": "Black spider with red detailing",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/8D2BF8D8-5519-45BC-A770-FF5AD1290257-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/8D2BF8D8-5519-45BC-A770-FF5AD1290257.jpg",
@@ -952,12 +959,13 @@
       ],
       "output_bytes": 43284,
       "output_sha256": "72899323b522bb4974cdbf85b76d41aa2053a96b36b45a0ff055b77d4541585b",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 7,
       "template_block_id": "design_07",
-      "title": "Ink Roulette design #7",
+      "title": "Green character with flowers",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/43E8FD5B-A941-4B9D-9390-6C3A4A56FB80-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/43E8FD5B-A941-4B9D-9390-6C3A4A56FB80.jpg",
@@ -975,12 +983,13 @@
       ],
       "output_bytes": 66140,
       "output_sha256": "d0c393f8f83015e40d934b1197eab2198117b4ee8d1fc5ce2513a0c39869b9c4",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 8,
       "template_block_id": "design_08",
-      "title": "Ink Roulette design #8",
+      "title": "Black snake with pink flowers",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/57D43D4E-7DE6-4D16-AD1F-8BF26EABC298-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/57D43D4E-7DE6-4D16-AD1F-8BF26EABC298.jpg",
@@ -998,12 +1007,13 @@
       ],
       "output_bytes": 52028,
       "output_sha256": "44fe4fbdeb88a1f3e02f6e909c75f2ae3a169d51761417389d4b9d7fe8b9b86f",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 9,
       "template_block_id": "design_09",
-      "title": "Ink Roulette design #9",
+      "title": "Fairy with purple wings",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/59B6719C-9A00-43F0-B0E0-575471363726-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/59B6719C-9A00-43F0-B0E0-575471363726.jpg",
@@ -1021,12 +1031,13 @@
       ],
       "output_bytes": 44474,
       "output_sha256": "a185edb8093c9fcc9c17aaf7015430f773a786562ae8f28bbb3e807e7e573c1d",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 10,
       "template_block_id": "design_10",
-      "title": "Ink Roulette design #10",
+      "title": "Ornate dagger",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/67E6CD27-AC47-4090-BA3B-FA7706FD6605-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/67E6CD27-AC47-4090-BA3B-FA7706FD6605.jpg",
@@ -1044,12 +1055,13 @@
       ],
       "output_bytes": 87464,
       "output_sha256": "bada1b5aadffb6cdd28ad707ffaefcc299143de907f3564fb2c2628755ee1bf7",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 11,
       "template_block_id": "design_11",
-      "title": "Ink Roulette design #11",
+      "title": "Floral snake design marked 15",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/90AACF72-CD6B-4F5B-8B56-1AE758D4EE04-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/90AACF72-CD6B-4F5B-8B56-1AE758D4EE04.jpg",
@@ -1067,12 +1079,13 @@
       ],
       "output_bytes": 61350,
       "output_sha256": "02fa31b49b473362b04b0a4e5487bcd6b438dc61b96c25e03e6d78840311af5d",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 12,
       "template_block_id": "design_12",
-      "title": "Ink Roulette design #12",
+      "title": "Skeletal hand holding a red rose",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/175F157F-E46D-49AC-86CB-8A887BAB7F03-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/175F157F-E46D-49AC-86CB-8A887BAB7F03.jpg",
@@ -1090,12 +1103,13 @@
       ],
       "output_bytes": 87146,
       "output_sha256": "57ed70cea1cc9cdc16150e0189830f7d9ad27c5ceddd4bf7a7c6362087ff220c",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 13,
       "template_block_id": "design_13",
-      "title": "Ink Roulette design #13",
+      "title": "Red rose with stars",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/590D921C-0F57-4BE4-9592-6DA1169BF200-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/590D921C-0F57-4BE4-9592-6DA1169BF200.jpg",
@@ -1113,12 +1127,13 @@
       ],
       "output_bytes": 59704,
       "output_sha256": "96ee7efddf44e150576ed190353c772b704dc1dc130567bbdf324e920d6da5f2",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 14,
       "template_block_id": "design_14",
-      "title": "Ink Roulette design #14",
+      "title": "Black fish",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/7485E40C-FB50-4C5B-A4CD-52C0C17F6930-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/7485E40C-FB50-4C5B-A4CD-52C0C17F6930.jpg",
@@ -1136,12 +1151,13 @@
       ],
       "output_bytes": 64376,
       "output_sha256": "1a058f7f31052cc68f7870bfde33df51615d6c88f9493bae5e824a85992cc0f1",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 15,
       "template_block_id": "design_15",
-      "title": "Ink Roulette design #15",
+      "title": "Skull pierced by a dagger",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/26736DBD-A7DC-42F4-9905-7AAB1B1E91B4-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/26736DBD-A7DC-42F4-9905-7AAB1B1E91B4.jpg",
@@ -1159,12 +1175,13 @@
       ],
       "output_bytes": 68966,
       "output_sha256": "4b226bb7f99c70a4aa652084d4fea5fa5027e365fd7302ee7df2a88e4ee5729f",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 16,
       "template_block_id": "design_16",
-      "title": "Ink Roulette design #16",
+      "title": "Heart with a MOM banner",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/82685590-A70F-4DA2-8F02-1E689B9A0775-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/82685590-A70F-4DA2-8F02-1E689B9A0775.jpg",
@@ -1182,12 +1199,13 @@
       ],
       "output_bytes": 60922,
       "output_sha256": "a910164589116c8419652f8c78b3630c4ec3fc14987e85e55f77581ccf366b06",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 17,
       "template_block_id": "design_17",
-      "title": "Ink Roulette design #17",
+      "title": "Skeletal hand holding a rose",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/A0E69497-2D42-4D65-9EC8-E9696EE44DB4-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/A0E69497-2D42-4D65-9EC8-E9696EE44DB4.jpg",
@@ -1205,12 +1223,13 @@
       ],
       "output_bytes": 84496,
       "output_sha256": "b351617db1aa039f43d285f725e17849ee79f12c6e10433027fa79277305f1a7",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 18,
       "template_block_id": "design_18",
-      "title": "Ink Roulette design #18",
+      "title": "Bat with spread wings",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/A082A4CE-1223-4067-82DC-B20A5A54093C-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/A082A4CE-1223-4067-82DC-B20A5A54093C.jpg",
@@ -1228,12 +1247,13 @@
       ],
       "output_bytes": 65734,
       "output_sha256": "f79263930bd14564adb4831dbb4910d76eec942619a921f484b81e0602b0c833",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 19,
       "template_block_id": "design_19",
-      "title": "Ink Roulette design #19",
+      "title": "Half skull with roses and flame shapes",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/AFF563DC-9DD1-4515-BA16-1BD2A3CB7DD9-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/AFF563DC-9DD1-4515-BA16-1BD2A3CB7DD9.jpg",
@@ -1251,12 +1271,13 @@
       ],
       "output_bytes": 69586,
       "output_sha256": "6b8e08f2262ac721845f64ed8b9c7db7c8c4c9c4d4325cca8e9414ceb23c0a5c",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 20,
       "template_block_id": "design_20",
-      "title": "Ink Roulette design #20",
+      "title": "Skeleton character holding a small figure",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/BB91D86B-3332-4E53-837B-2ED54F84F0E0-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/BB91D86B-3332-4E53-837B-2ED54F84F0E0.jpg",
@@ -1274,12 +1295,13 @@
       ],
       "output_bytes": 81646,
       "output_sha256": "aec61704a1157c496178dadd4ad05ef38de700722b27aa70e1cb551e13a7a5fb",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 21,
       "template_block_id": "design_21",
-      "title": "Ink Roulette design #21",
+      "title": "Lips holding a rolled banknote",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/BBF16812-C857-4532-8F41-2E3CBB300E7C-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/BBF16812-C857-4532-8F41-2E3CBB300E7C.jpg",
@@ -1297,12 +1319,13 @@
       ],
       "output_bytes": 83950,
       "output_sha256": "aa31be89ee04881770983fb72bc6e6855a8c1a345f2c0a302676ac0e0462d8b8",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 22,
       "template_block_id": "design_22",
-      "title": "Ink Roulette design #22",
+      "title": "Photograph of a numbered flash board",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/C01FD91D-CAAE-4A4C-ACF8-8250C63B7FE4-300x225.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/C01FD91D-CAAE-4A4C-ACF8-8250C63B7FE4.jpg",
@@ -1320,12 +1343,13 @@
       ],
       "output_bytes": 106840,
       "output_sha256": "1dd80bddce03af5366d688ccd58fe98a1e30a8cd3bfbf26d201f929dbcf825cb",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": false
     },
     {
       "display_order": 23,
       "template_block_id": "design_23",
-      "title": "Ink Roulette design #23",
+      "title": "Pink and blue butterfly",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/F72F284F-B672-4817-B0EB-6F3C4C2D8E26-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/F72F284F-B672-4817-B0EB-6F3C4C2D8E26.jpg",
@@ -1343,12 +1367,13 @@
       ],
       "output_bytes": 55092,
       "output_sha256": "8f1f73b73683d893bba41aac90cecfcda745bcc815b3a035b11557608e206755",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 24,
       "template_block_id": "design_24",
-      "title": "Ink Roulette design #24",
+      "title": "Roaring cat head",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/FC9AB94E-C4B1-422B-8ED8-7A0137B354D3-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/FC9AB94E-C4B1-422B-8ED8-7A0137B354D3.jpg",
@@ -1366,12 +1391,13 @@
       ],
       "output_bytes": 85936,
       "output_sha256": "1a78a9fc869482c86b1008673cbf92f956a3768f09b03873635af5d6861c3e75",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 25,
       "template_block_id": "design_25",
-      "title": "Ink Roulette design #25",
+      "title": "Ink Roulette rules sign",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/FF7F2026-E239-468B-89EB-517B03E43170-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/FF7F2026-E239-468B-89EB-517B03E43170.jpg",
@@ -1389,12 +1415,13 @@
       ],
       "output_bytes": 58616,
       "output_sha256": "77c0f2cbf14a855d487c9839562a589f9e1c4f75ebef710bb6aa359c33ac7192",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": false
     },
     {
       "display_order": 26,
       "template_block_id": "design_26",
-      "title": "Ink Roulette design #26",
+      "title": "Red rose with an outlined motif",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/1BD8D83A-4B04-4F7C-8EFE-AD2E834FB218.jpg",
@@ -1412,12 +1439,13 @@
       ],
       "output_bytes": 71366,
       "output_sha256": "a1addc9ca3669fecfe48f32019d2a0b919fb5ef2e6b4b29747355fe87976d3bc",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     },
     {
       "display_order": 27,
       "template_block_id": "design_27",
-      "title": "Ink Roulette design #27",
+      "title": "Anatomical heart with flowers",
       "source_page": "https://sideshowproductionstattoo.com/ink-roulette/",
       "source_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/1EE0E93D-6FF3-40A9-AD0E-F05BD98309C8-225x300.jpg",
       "original_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/1EE0E93D-6FF3-40A9-AD0E-F05BD98309C8.jpg",
@@ -1435,7 +1463,9 @@
       ],
       "output_bytes": 101402,
       "output_sha256": "caabcf1183ad099159bcb93392f7eb320c0d48c267932642958d8a09ef24f3f9",
-      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch."
+      "processing": "EXIF display orientation, proportional downsize if needed, WebP quality 85. No crop, upscale, or creative retouch.",
+      "selectable_design": true
     }
-  ]
+  ],
+  "roulette_design_photo_count": 25
 }

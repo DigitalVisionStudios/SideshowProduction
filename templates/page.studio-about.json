@@ -59,7 +59,8 @@
             "meta": "CUSTOM TATTOOS · LETTERING",
             "rate": "From $100 / hour",
             "deposit": "$50 deposit, credited toward your total.",
-            "hours": "Tuesday & Friday: 4–10 pm. Wednesday, Thursday & Saturday: 3:30–10 pm. No Sunday or Monday appointments."
+            "hours": "Tuesday & Friday: 4–10 pm. Wednesday, Thursday & Saturday: 3:30–10 pm. No Sunday or Monday appointments.",
+            "fit": "contain"
           }
         },
         "block_2": {
@@ -74,7 +75,8 @@
             "meta": "ILLUSTRATIVE · ENGLISH / ESPAÑOL",
             "rate": "From $100 / hour",
             "deposit": "$50 deposit, credited toward your total.",
-            "hours": "Tuesday–Saturday: 3–8 pm. No Sunday or Monday appointments."
+            "hours": "Tuesday–Saturday: 3–8 pm. No Sunday or Monday appointments.",
+            "fit": "contain"
           }
         },
         "block_3": {
@@ -89,7 +91,8 @@
             "meta": "PIERCINGS · JEWELRY",
             "rate": "Pricing varies by piercing",
             "deposit": "20% deposit. Jewelry included with new piercings.",
-            "hours": "Tuesday–Friday: 2–8 pm. Saturday: noon–8 pm. No Sunday or Monday appointments."
+            "hours": "Tuesday–Friday: 2–8 pm. Saturday: noon–8 pm. No Sunday or Monday appointments.",
+            "fit": "contain"
           }
         },
         "block_4": {

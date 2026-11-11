@@ -1,0 +1,372 @@
+{
+  "schema_version": 1,
+  "prepared_at_utc": "2026-11-11T09:31:06.141002+00:00",
+  "helper": "scripts/prepare-studio-aftercare-media.py",
+  "pillow_version": "12.2.0",
+  "catalog_source": "archive/current-site-2026-11-10/catalog.json",
+  "processing": {
+    "max_edge": 1200,
+    "webp_quality": 88,
+    "webp_method": 6,
+    "full_frame": true,
+    "crop": false,
+    "upscale": false,
+    "retouch": false,
+    "ai_generation": false,
+    "palette_alpha_handling": "Convert Base Labs to RGBA before resizing; verify resized alpha unchanged after export."
+  },
+  "recommended_product_settings": {
+    "product_17": {
+      "asset": "#",
+      "show_image": false,
+      "brand": "Mad Rabbit",
+      "media_label": "Aftercare"
+    },
+    "product_18": {
+      "asset": "sp-product-base-spray.webp",
+      "show_image": true,
+      "image_background": "light"
+    },
+    "product_19": {
+      "asset": "#",
+      "show_image": false,
+      "brand": "Mad Rabbit",
+      "media_label": "Aftercare"
+    },
+    "product_20": {
+      "asset": "sp-product-steri-wash.webp",
+      "show_image": true,
+      "image_background": "light"
+    },
+    "product_21": {
+      "asset": "sp-product-defend.webp",
+      "show_image": true,
+      "image_background": "light"
+    }
+  },
+  "overrides": {
+    "product_17": {
+      "asset": "#",
+      "show_image": false,
+      "brand": "Mad Rabbit",
+      "media_label": "Aftercare"
+    },
+    "product_18": {
+      "asset": "sp-product-base-spray.webp",
+      "show_image": true,
+      "image_background": "light"
+    },
+    "product_19": {
+      "asset": "#",
+      "show_image": false,
+      "brand": "Mad Rabbit",
+      "media_label": "Aftercare"
+    },
+    "product_20": {
+      "asset": "sp-product-steri-wash.webp",
+      "show_image": true,
+      "image_background": "light"
+    },
+    "product_21": {
+      "asset": "sp-product-defend.webp",
+      "show_image": true,
+      "image_background": "light"
+    }
+  },
+  "recommended_orders": [
+    18,
+    20,
+    21
+  ],
+  "unresolved_orders": [
+    17,
+    19
+  ],
+  "notes": [
+    "This helper writes media and provenance only. It does not change templates, prices, product assignments, or stock declarations.",
+    "Current staged source images have ChatGPT filenames. They are replaced only where product family and size match stronger archived client-image evidence plus official manufacturer sources.",
+    "A manufacturer photograph does not verify Sideshow current inventory, formula equivalence, or SKU. Captured client catalog contains no explicit size or SKU.",
+    "Products 17 and 19 keep their information with asset '#' and show_image false until an exact stocked-size photograph is verified.",
+    "The Steri-Wash source page sells wholesale cases, but the chosen photograph shows one bottle. No wholesale case data is imported."
+  ],
+  "products": [
+    {
+      "display_order": 17,
+      "template_block_id": "product_17",
+      "title": "Aftercare Soothing Gel for Tattoo's | Mad Rabbit",
+      "client_product_url": "https://sideshowproductionstattoo.com/product/aftercare-soothing-gel-for-tattoos-mad-rabbit/",
+      "captured_price": "$21.00",
+      "prior_staged_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_08_34-PM.png",
+      "recommended_settings": {
+        "asset": "#",
+        "show_image": false,
+        "brand": "Mad Rabbit",
+        "media_label": "Aftercare"
+      },
+      "archive_evidence": [
+        {
+          "media_id": 1466,
+          "url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/02/Tyler-Hughes-Electric-Logo-13.png",
+          "dimensions": [
+            1563,
+            1563
+          ],
+          "sha256": "62ecfe3ef50ffc5e462bcc033b84e907792d5b7def86f10eadee9cbb9160b5de",
+          "archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/02/Tyler-Hughes-Electric-Logo-13.png",
+          "observed_label": "Mad Rabbit Repair Soothing Gel, 3.4 oz / 100 mL",
+          "used_on_captured_aftercare_page": false,
+          "page_evidence": "archive/current-site-2026-11-10/api-content/after-care.html",
+          "camera_origin_independently_verified": false
+        },
+        {
+          "media_id": 1580,
+          "url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/4925d1a9-600f-4967-9dce-6b8a0bb44c26.png",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "sha256": "fc97f03942b1a00c368267ba5b725e3950c4334a05e296a09d4043f6434ebc47",
+          "archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/4925d1a9-600f-4967-9dce-6b8a0bb44c26.png",
+          "observed_label": "Mad Rabbit Repair Soothing Gel, 1.7 oz / 50 mL",
+          "used_on_captured_aftercare_page": true,
+          "page_evidence": "archive/current-site-2026-11-10/api-content/after-care.html",
+          "camera_origin_independently_verified": false
+        }
+      ],
+      "shopify_verified": false,
+      "client_sku": null,
+      "client_variant_options": [],
+      "status": "unresolved_exact_stock_size_photo",
+      "reason": "Repair Soothing Gel package-size conflict: older client-library packshot shows 3.4 oz / 100 mL, while a later product-specific cutout shows 1.7 oz / 50 mL. The captured catalog has no size or SKU. Generated label text is not accepted as SKU evidence.",
+      "required_evidence": "Exact stocked package size and a corresponding genuine product photograph.",
+      "manufacturer_page": "https://www.madrabbit.com/products/soothing-gel",
+      "candidate_source_url": "https://cdn.shopify.com/s/files/1/0076/4156/3234/files/Gel_PDP.jpg?v=1773072796",
+      "candidate_sha256": "dddd4b76a530ae978b8189625d4493b7b99f632d96e33cb3e912b87c5b4aed8f",
+      "candidate_size": "3.4 oz / 100 mL",
+      "fallback_asset": "#",
+      "show_image": false
+    },
+    {
+      "display_order": 18,
+      "template_block_id": "product_18",
+      "title": "Base Laboratories | Piercing Aftercare Spray",
+      "client_product_url": "https://sideshowproductionstattoo.com/product/base-laboratories-aftercare-spray/",
+      "captured_price": "$22.00",
+      "prior_staged_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_40_36-PM.png",
+      "recommended_settings": {
+        "asset": "sp-product-base-spray.webp",
+        "show_image": true,
+        "image_background": "light"
+      },
+      "archive_evidence": [
+        {
+          "media_id": 1465,
+          "url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/02/tattoo-aftercare-1.png",
+          "dimensions": [
+            1563,
+            1563
+          ],
+          "sha256": "f2a78e6019374f37d142198120c2127fa7379daf8e89a6445b30adb51994c282",
+          "archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/02/tattoo-aftercare-1.png",
+          "observed_label": "Base Laboratories Piercing After Care Spray, 4 oz (120 mL)",
+          "used_on_captured_aftercare_page": true,
+          "page_evidence": "archive/current-site-2026-11-10/api-content/after-care.html",
+          "camera_origin_independently_verified": false
+        }
+      ],
+      "shopify_verified": false,
+      "client_sku": null,
+      "client_variant_options": [],
+      "status": "recommended_family_and_size_match",
+      "manufacturer_page": "https://baselaboratories.com/products/base-labs-piercing-aftercare-spray?variant=44495725363459",
+      "manufacturer_product_data": "https://baselaboratories.com/products/base-labs-piercing-aftercare-spray.js",
+      "manufacturer_product": "Base Laboratories Piercing Aftercare Spray",
+      "manufacturer_size": "4 oz / 120 mL",
+      "manufacturer_sku": "BSL-PIERCE-SPRY",
+      "alt": "Base Laboratories Piercing Aftercare Spray, 4 oz / 120 mL bottle",
+      "match_note": "Same product family, turquoise lotus bottle, and 4 oz / 120 mL size as the older client packshot used on the captured aftercare page. Current official packaging photograph; ingredient and formula equivalence were not independently assessed.",
+      "source_url": "https://cdn.shopify.com/s/files/1/0411/8711/5166/files/piercing-aftercare-spray-topical-base-laboratories-103489.png?v=1778124198",
+      "source_sha256": "e6a111c9068b41219f025eac66d38f7ac4fcac3c4ab4e4828b4009e3e89c9c32",
+      "source_bytes": 283155,
+      "source_dimensions": [
+        2000,
+        2000
+      ],
+      "source_alpha_extrema": [
+        0,
+        255
+      ],
+      "asset": "sp-product-base-spray.webp",
+      "asset_path": "assets/sp-product-base-spray.webp",
+      "output_dimensions": [
+        1200,
+        1200
+      ],
+      "output_bytes": 73754,
+      "output_sha256": "c03849e81ca4fec9863dda002f76c24b90aff601390eb4294dcbc5fc1c28e62a",
+      "alpha_preserved": true,
+      "upscaled": false,
+      "cropped": false
+    },
+    {
+      "display_order": 19,
+      "template_block_id": "product_19",
+      "title": "Ehance Balm for Tattoo Aftercare | Mad Rabbit",
+      "client_product_url": "https://sideshowproductionstattoo.com/product/ehance-balm-mad-rabbit/",
+      "captured_price": "$18.00",
+      "prior_staged_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_05_29-PM.png",
+      "recommended_settings": {
+        "asset": "#",
+        "show_image": false,
+        "brand": "Mad Rabbit",
+        "media_label": "Aftercare"
+      },
+      "archive_evidence": [
+        {
+          "media_id": 1585,
+          "url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/3cc950cc-cd78-4bf3-a72f-e6bc4bd4fffe.png",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "sha256": "a789ca582bfc5b8989a77ab00a75b9904302c2664c773b296e6897503d3317d8",
+          "archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/3cc950cc-cd78-4bf3-a72f-e6bc4bd4fffe.png",
+          "observed_label": "Mad Rabbit Enhance Tattoo Balm, Vanilla & Coconut, 0.7 oz / 20 g",
+          "used_on_captured_aftercare_page": true,
+          "page_evidence": "archive/current-site-2026-11-10/api-content/after-care.html",
+          "camera_origin_independently_verified": false
+        }
+      ],
+      "shopify_verified": false,
+      "client_sku": null,
+      "client_variant_options": [],
+      "status": "unresolved_exact_stock_size_photo",
+      "reason": "Archived Enhance Vanilla & Coconut box shows 0.7 oz / 20 g. The current official single-balm candidate shows 1.7 oz, so it is not an exact package-size replacement. Current 0.7 oz salve variety sets were not verified as the same single offering.",
+      "required_evidence": "Exact stocked size and formulation, plus a matching genuine single-product photograph.",
+      "manufacturer_page": "https://www.madrabbit.com/products/mad-rabbit-tattoo-balm?variant=39369174974562",
+      "candidate_source_url": "https://cdn.shopify.com/s/files/1/0076/4156/3234/files/Balm-Coco-1_PDP.jpg?v=1776364005",
+      "candidate_sha256": "6a5d16a4762d21fe166684f0a02d7edab373bdf67a83db805473bd675343d712",
+      "candidate_size": "1.7 oz / 50 mL on the photographed package",
+      "fallback_asset": "#",
+      "show_image": false
+    },
+    {
+      "display_order": 20,
+      "template_block_id": "product_20",
+      "title": "Steri-Wash | Sterile Saline Piercing Wash",
+      "client_product_url": "https://sideshowproductionstattoo.com/product/steri-wash-piercing-wash/",
+      "captured_price": "$16.00",
+      "prior_staged_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_41_48-PM.png",
+      "recommended_settings": {
+        "asset": "sp-product-steri-wash.webp",
+        "show_image": true,
+        "image_background": "light"
+      },
+      "archive_evidence": [
+        {
+          "media_id": 1609,
+          "url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5.png",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "sha256": "4a7553cec074b1fb9bf353200010af9869852a99072f486ad3bb8bdc1e9cf0ca",
+          "archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/04d75013-6a3b-4df1-93ed-4cf7a64a5ae5.png",
+          "observed_label": "Steri-Wash Sterile Saline Piercing Wash, 3.0 fl oz (90 mL)",
+          "used_on_captured_aftercare_page": true,
+          "page_evidence": "archive/current-site-2026-11-10/api-content/after-care.html",
+          "camera_origin_independently_verified": false
+        }
+      ],
+      "shopify_verified": false,
+      "client_sku": null,
+      "client_variant_options": [],
+      "status": "recommended_family_and_size_match",
+      "manufacturer_page": "https://www.steri-wash.com/products/copy-of-steri-wash-sterile-saline-piercing-spray-wholesale",
+      "manufacturer_product_data": "https://www.steri-wash.com/products/copy-of-steri-wash-sterile-saline-piercing-spray-wholesale.js",
+      "manufacturer_product": "Steri-Wash Sterile Saline Piercing Spray, 3 oz",
+      "manufacturer_size": "3.0 fl oz / 90 mL",
+      "manufacturer_sku": "4310 (wholesale case SKU; not a Sideshow SKU)",
+      "alt": "One Steri-Wash Sterile Saline Piercing Wash bottle, 3.0 fl oz / 90 mL",
+      "match_note": "The older product-specific client image shows the same 3.0 fl oz / 90 mL bottle. The selected manufacturer image is a single bottle, not the wholesale case photograph. No wholesale price, case quantity, or SKU is assigned to Sideshow.",
+      "source_url": "https://cdn.shopify.com/s/files/1/1025/0639/files/resizedsingle_3oz.jpg?v=1774412859",
+      "source_sha256": "4b570835d6c59cffbf4e43053b389516f145f7145e4abcf7e9cf1e8afe8949fe",
+      "source_bytes": 49885,
+      "source_dimensions": [
+        2047,
+        2047
+      ],
+      "source_alpha_extrema": null,
+      "asset": "sp-product-steri-wash.webp",
+      "asset_path": "assets/sp-product-steri-wash.webp",
+      "output_dimensions": [
+        1200,
+        1200
+      ],
+      "output_bytes": 16280,
+      "output_sha256": "af208c5c8d64507a99a48e26c78d9304f3f67a286101719517cbb6394505de69",
+      "alpha_preserved": false,
+      "upscaled": false,
+      "cropped": false
+    },
+    {
+      "display_order": 21,
+      "template_block_id": "product_21",
+      "title": "Tattoo Sunscreen - Defend | Mad Rabbit",
+      "client_product_url": "https://sideshowproductionstattoo.com/product/tattoo-sunscreen-defend-mad-rabbit/",
+      "captured_price": "$21.00",
+      "prior_staged_image_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-01_04_24-PM.png",
+      "recommended_settings": {
+        "asset": "sp-product-defend.webp",
+        "show_image": true,
+        "image_background": "light"
+      },
+      "archive_evidence": [
+        {
+          "media_id": 1583,
+          "url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/cac7298d-05a9-4b9c-8cec-f31b77aacc67.png",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "sha256": "f947f9c4ba1679a5e7daa98dc72a4ce7efb43e48cf499bd6c7af82d19b464442",
+          "archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/cac7298d-05a9-4b9c-8cec-f31b77aacc67.png",
+          "observed_label": "Mad Rabbit Defend SPF 30, 100 mL / 3.3 fl oz",
+          "used_on_captured_aftercare_page": true,
+          "page_evidence": "archive/current-site-2026-11-10/api-content/after-care.html",
+          "camera_origin_independently_verified": false
+        }
+      ],
+      "shopify_verified": false,
+      "client_sku": null,
+      "client_variant_options": [],
+      "status": "recommended_family_and_size_match",
+      "manufacturer_page": "https://www.madrabbit.com/products/spf-30",
+      "manufacturer_product_data": "https://www.madrabbit.com/products/spf-30.js",
+      "manufacturer_product": "Mad Rabbit Defend SPF 30 Tattoo Sunscreen",
+      "manufacturer_size": "3.4 oz / 100 mL",
+      "manufacturer_sku": "SPF30",
+      "alt": "One Mad Rabbit Defend SPF 30 Tattoo Sunscreen tube, 100 mL",
+      "match_note": "Same Defend SPF 30 product family and 100 mL size as the product-specific client cutout. Its old label states 3.3 fl oz and the current manufacturer label states 3.4 oz; both state 100 mL. Current official packaging photograph; formula equivalence was not independently assessed.",
+      "source_url": "https://cdn.shopify.com/s/files/1/0076/4156/3234/files/SPF_PDP.jpg?v=1773073104",
+      "source_sha256": "efc81bd77ee03fd0ab593d55c23d5c748cec3cd158137d0e813c27dd4678ed2f",
+      "source_bytes": 81708,
+      "source_dimensions": [
+        2000,
+        2000
+      ],
+      "source_alpha_extrema": null,
+      "asset": "sp-product-defend.webp",
+      "asset_path": "assets/sp-product-defend.webp",
+      "output_dimensions": [
+        1200,
+        1200
+      ],
+      "output_bytes": 18040,
+      "output_sha256": "5bc664314e37d33a4a01f2455ef050c2db95f0bcbd75e3b2509d22a71351b5d1",
+      "alpha_preserved": false,
+      "upscaled": false,
+      "cropped": false
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "review_date": "2026-11-11",
+  "purpose": "Match each smile service card to its actual service using Megan's retained original portfolio images.",
+  "reproduction_helper": "scripts/prepare-studio-service-media.py",
+  "recommended_service_settings": {
+    "whitening": {
+      "asset": "sp-service-whitening.webp",
+      "alt": "Before-and-after teeth-whitening comparison shown in Megan's portfolio",
+      "fit": "contain"
+    },
+    "tooth_gems": {
+      "asset": "sp-service-tooth-gems.webp",
+      "alt": "Clear tooth gems and gold accents on a smile shown in Megan's portfolio",
+      "fit": "contain"
+    }
+  },
+  "assets": [
+    {
+      "asset": "sp-service-whitening.webp",
+      "alt": "Before-and-after teeth-whitening comparison shown in Megan's portfolio",
+      "suggested_fit": "contain",
+      "subject": "Labeled before-and-after teeth-whitening photo comparison",
+      "artist": "Megan",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_section": "portfolio_NhdxPw",
+      "source_block": "author_mLcbKx",
+      "source_field": "portfolio_image_3",
+      "source_reference": "shopify://shop_images/427641519_413653254444875czxczcs_3625183506czxcz029295051_n.png",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/427641519_413653254444875czxczcs_3625183506czxcz029295051_n.png",
+      "source_sha256": "d7ea68dbc424cdf5a7d4b41d88553da4070aa4bb709631702c723d387520f489",
+      "source_bytes": 1551265,
+      "source_dimensions": [
+        1270,
+        1081
+      ],
+      "asset_path": "assets/sp-service-whitening.webp",
+      "width": 1270,
+      "height": 1081,
+      "bytes": 65496,
+      "sha256": "e284192c9931100592ea6785d00edbdfd11375240e7a1fc57664274542ec7df9",
+      "processing": "WebP quality 88, method 6. Full native resolution and full frame retained. No crop, enlargement, sharpening, color correction, retouching, or generated imagery."
+    },
+    {
+      "asset": "sp-service-tooth-gems.webp",
+      "alt": "Clear tooth gems and gold accents on a smile shown in Megan's portfolio",
+      "suggested_fit": "contain",
+      "subject": "Smile with clear tooth gems and gold tooth accents",
+      "artist": "Megan",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_section": "portfolio_NhdxPw",
+      "source_block": "author_mLcbKx",
+      "source_field": "portfolio_image_7",
+      "source_reference": "shopify://shop_images/428263552_423107206729451_22071626944793514dasdczxczas91_n.png",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/428263552_423107206729451_22071626944793514dasdczxczas91_n.png",
+      "source_sha256": "52d9801652e3aa59765ab4abac6986f3d14dfe29e1c1e185c7d565486180b610",
+      "source_bytes": 1507938,
+      "source_dimensions": [
+        1736,
+        928
+      ],
+      "asset_path": "assets/sp-service-tooth-gems.webp",
+      "width": 1736,
+      "height": 928,
+      "bytes": 67170,
+      "sha256": "5616c8e1a652a9013ff4ed668702fd7425384ccf9fb1239b68cf66c9ffabab5c",
+      "processing": "WebP quality 88, method 6. Full native resolution and full frame retained. No crop, enlargement, sharpening, color correction, retouching, or generated imagery."
+    }
+  ],
+  "attribution_evidence": [
+    "Both references are fields in templates/page.artist-portfolio.json > sections.portfolio_NhdxPw > blocks.author_mLcbKx.settings, where author_name is Megan and author_price identifies Tooth Gems and Whitening.",
+    "The same Megan images and service context are retained in templates/page.fit-to-recover.json.",
+    "The current-site archive also contains the same whitening comparison as media 277, Screenshot-2026-01-13-152928.png, at 730x720; the selected Shopify original is 1270x1081."
+  ],
+  "usage_notes": [
+    "Use the whitening image only for whitening service/result contexts. Keep Megan's portrait on her artist profile; do not globally replace all references to her portrait.",
+    "The whitening source is a comparison visibly labeled Before and After, not a photograph of a treatment in progress. Both labels and both sides should stay visible. Contain fit is recommended.",
+    "The whitening source is soft and tinted despite its larger native pixel dimensions. It is an authentic retained portfolio image; no new outcome or effectiveness claim is added.",
+    "The tooth-gem photo shows multiple clear gems and gold tooth accents. It represents tooth gems, not whitening. Retain the visible gem placements at both sides of the smile.",
+    "The WordPress teeth-whitening service graphic Untitled-design-15.png is a tooth icon, not a treatment photograph. The old Shopify combined smile-service landscape image shows tooth gems and does not establish whitening results.",
+    "Source hashes are pinned. WebP bytes may vary with Pillow/libwebp versions; decoded native dimensions and processing rules remain fixed."
+  ],
+  "review_sheet": ".ai-bridge/megan-service-review/megan-service-candidates.jpg"
+}

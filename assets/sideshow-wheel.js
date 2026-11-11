@@ -21,7 +21,7 @@
     state.photo.setAttribute("data-lightbox-alt", item.title);
     state.photo.setAttribute("aria-label", "Enlarge: " + item.title);
     state.title.textContent = item.title;
-    state.status.textContent = "Design " + (index + 1) + " of " + state.pool.length + ". Take a closer look, or spin again.";
+    state.status.textContent = "Collection photo " + (index + 1) + " of " + state.pool.length + ". Take a closer look, or spin again.";
     state.root.classList.remove("is-spinning");
     state.root.removeAttribute("aria-busy");
     state.button.disabled = false;

@@ -83,7 +83,8 @@
             "alt": "Script lettering tattoo by Rigo",
             "title": "Say it your way",
             "artist": "RIGO",
-            "category": "tattoo"
+            "category": "tattoo",
+            "fit": "contain"
           }
         },
         "block_8": {
@@ -153,7 +154,8 @@
             "alt": "Two black spider tattoos forming a heart shape by Jake",
             "title": "Spider heart",
             "artist": "JAKE",
-            "category": "tattoo"
+            "category": "tattoo",
+            "fit": "contain"
           }
         }
       },

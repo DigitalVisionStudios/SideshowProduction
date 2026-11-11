@@ -23,7 +23,7 @@
             <img data-wheel-image src="{{ first_design.settings.asset | asset_url }}" alt="{{ first_design.settings.title | escape }}" width="800" height="1000" loading="lazy" decoding="async">
             <span class="sp-wheel-photo-open" aria-hidden="true">View design {% render 'studio-icon', name: 'arrow-up-right' %}</span>
           </button>
-          <div class="sp-wheel-result-copy"><p class="sp-eyebrow">THE STUDIO'S INK ROULETTE COLLECTION</p><h3 data-wheel-title>Your next idea is a spin away.</h3><p class="sp-wheel-status" data-wheel-status role="status" aria-live="polite" aria-atomic="true">Spin to explore {{ section.blocks.size }} real designs from the studio.</p></div>
+          <div class="sp-wheel-result-copy"><p class="sp-eyebrow">THE STUDIO'S INK ROULETTE COLLECTION</p><h3 data-wheel-title>Your next idea is a spin away.</h3><p class="sp-wheel-status" data-wheel-status role="status" aria-live="polite" aria-atomic="true">Spin to browse {{ section.blocks.size }} design photos from the studio.</p></div>
         </div>
       </div>
       <div class="sp-wheel-details" data-reveal><p><strong>{{ section.settings.price | escape }}</strong><span>{{ section.settings.price_note | escape }}</span></p><p>{{ section.settings.terms | escape }}</p><a class="sp-link" href="/pages/contact?item=Ink%20Roulette">Ask an artist {% render 'studio-icon', name: 'arrow-up-right' %}</a></div>

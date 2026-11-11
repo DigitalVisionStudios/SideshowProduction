@@ -110,9 +110,9 @@
           "type": "service",
           "settings": {
             "title": "Tooth gems",
-            "asset": "sp-work-12.webp",
-            "alt": "Tooth gems shown in Megan's portfolio",
-            "fit": "cover",
+            "asset": "sp-service-tooth-gems.webp",
+            "alt": "Clear tooth gems and gold accents on a smile shown in Megan's portfolio",
+            "fit": "contain",
             "price": "From $60",
             "price_detail": "Additional gems $20 each. Heart/star $65. Fang $100. 20% deposit.",
             "description": "Crystals, shapes, and individual gem placements.",
@@ -126,8 +126,8 @@
           "type": "service",
           "settings": {
             "title": "Teeth whitening",
-            "asset": "sp-original-megan.webp",
-            "alt": "Megan, Sideshow Productions tooth-gem and whitening artist",
+            "asset": "sp-service-whitening.webp",
+            "alt": "Before-and-after teeth-whitening comparison shown in Megan's portfolio",
             "fit": "contain",
             "price": "From $89",
             "price_detail": "Single $89. Double $120. Triple $200. 20% deposit.",
@@ -177,7 +177,8 @@
             "alt": "Two black spider tattoos forming a heart shape by Jake",
             "title": "Spider heart",
             "artist": "JAKE",
-            "category": "tattoo"
+            "category": "tattoo",
+            "fit": "contain"
           }
         },
         "block_4": {
@@ -236,7 +237,8 @@
             "meta": "CUSTOM TATTOOS · LETTERING",
             "rate": "From $100 / hour",
             "deposit": "$50 deposit, credited toward your total.",
-            "hours": "Tuesday & Friday: 4–10 pm. Wednesday, Thursday & Saturday: 3:30–10 pm. No Sunday or Monday appointments."
+            "hours": "Tuesday & Friday: 4–10 pm. Wednesday, Thursday & Saturday: 3:30–10 pm. No Sunday or Monday appointments.",
+            "fit": "contain"
           }
         },
         "block_2": {
@@ -251,7 +253,8 @@
             "meta": "ILLUSTRATIVE · ENGLISH / ESPAÑOL",
             "rate": "From $100 / hour",
             "deposit": "$50 deposit, credited toward your total.",
-            "hours": "Tuesday–Saturday: 3–8 pm. No Sunday or Monday appointments."
+            "hours": "Tuesday–Saturday: 3–8 pm. No Sunday or Monday appointments.",
+            "fit": "contain"
           }
         },
         "block_3": {
@@ -266,7 +269,8 @@
             "meta": "PIERCINGS · JEWELRY",
             "rate": "Pricing varies by piercing",
             "deposit": "20% deposit. Jewelry included with new piercings.",
-            "hours": "Tuesday–Friday: 2–8 pm. Saturday: noon–8 pm. No Sunday or Monday appointments."
+            "hours": "Tuesday–Friday: 2–8 pm. Saturday: noon–8 pm. No Sunday or Monday appointments.",
+            "fit": "contain"
           }
         },
         "block_4": {
@@ -338,189 +342,175 @@
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-01.webp",
-            "title": "Ink Roulette design #1"
+            "title": "Cartoon dog with its tongue out"
           }
         },
         "design_02": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-02.webp",
-            "title": "Ink Roulette design #2"
+            "title": "Black-haired portrait beside a colorful snake"
           }
         },
         "design_03": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-03.webp",
-            "title": "Ink Roulette design #3"
+            "title": "Jack-o-lantern with flowers"
           }
         },
         "design_04": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-04.webp",
-            "title": "Ink Roulette design #4"
+            "title": "Skeletal hand making a horns gesture"
           }
         },
         "design_05": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-05.webp",
-            "title": "Ink Roulette design #5"
+            "title": "Two dark flowers with a tape motif"
           }
         },
         "design_06": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-06.webp",
-            "title": "Ink Roulette design #6"
+            "title": "Black spider with red detailing"
           }
         },
         "design_07": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-07.webp",
-            "title": "Ink Roulette design #7"
+            "title": "Green character with flowers"
           }
         },
         "design_08": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-08.webp",
-            "title": "Ink Roulette design #8"
+            "title": "Black snake with pink flowers"
           }
         },
         "design_09": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-09.webp",
-            "title": "Ink Roulette design #9"
+            "title": "Fairy with purple wings"
           }
         },
         "design_10": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-10.webp",
-            "title": "Ink Roulette design #10"
+            "title": "Ornate dagger"
           }
         },
         "design_11": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-11.webp",
-            "title": "Ink Roulette design #11"
+            "title": "Floral snake design marked 15"
           }
         },
         "design_12": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-12.webp",
-            "title": "Ink Roulette design #12"
+            "title": "Skeletal hand holding a red rose"
           }
         },
         "design_13": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-13.webp",
-            "title": "Ink Roulette design #13"
+            "title": "Red rose with stars"
           }
         },
         "design_14": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-14.webp",
-            "title": "Ink Roulette design #14"
+            "title": "Black fish"
           }
         },
         "design_15": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-15.webp",
-            "title": "Ink Roulette design #15"
+            "title": "Skull pierced by a dagger"
           }
         },
         "design_16": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-16.webp",
-            "title": "Ink Roulette design #16"
+            "title": "Heart with a MOM banner"
           }
         },
         "design_17": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-17.webp",
-            "title": "Ink Roulette design #17"
+            "title": "Skeletal hand holding a rose"
           }
         },
         "design_18": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-18.webp",
-            "title": "Ink Roulette design #18"
+            "title": "Bat with spread wings"
           }
         },
         "design_19": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-19.webp",
-            "title": "Ink Roulette design #19"
+            "title": "Half skull with roses and flame shapes"
           }
         },
         "design_20": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-20.webp",
-            "title": "Ink Roulette design #20"
+            "title": "Skeleton character holding a small figure"
           }
         },
         "design_21": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-21.webp",
-            "title": "Ink Roulette design #21"
-          }
-        },
-        "design_22": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-22.webp",
-            "title": "Ink Roulette design #22"
+            "title": "Lips holding a rolled banknote"
           }
         },
         "design_23": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-23.webp",
-            "title": "Ink Roulette design #23"
+            "title": "Pink and blue butterfly"
           }
         },
         "design_24": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-24.webp",
-            "title": "Ink Roulette design #24"
-          }
-        },
-        "design_25": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-25.webp",
-            "title": "Ink Roulette design #25"
+            "title": "Roaring cat head"
           }
         },
         "design_26": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-26.webp",
-            "title": "Ink Roulette design #26"
+            "title": "Red rose with an outlined motif"
           }
         },
         "design_27": {
           "type": "sheet",
           "settings": {
             "asset": "sp-roulette-27.webp",
-            "title": "Ink Roulette design #27"
+            "title": "Anatomical heart with flowers"
           }
         }
       },
@@ -546,10 +536,8 @@
         "design_19",
         "design_20",
         "design_21",
-        "design_22",
         "design_23",
         "design_24",
-        "design_25",
         "design_26",
         "design_27"
       ]
