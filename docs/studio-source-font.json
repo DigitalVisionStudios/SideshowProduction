@@ -1,0 +1,17 @@
+{
+  "family": "Sedgwick Ave Display",
+  "source_site_usage": "Original archived homepage H1/H2 and animated headline; font-weight 500/600 are source CSS settings, real font face weight is 400.",
+  "official_face_weight": 400,
+  "style": "normal",
+  "subset": "latin",
+  "asset": "assets/sp-brush.woff2",
+  "bytes": 34632,
+  "sha256": "33a12de3b608a011d3caad5bfd4e529f0f8d177cc5ba184c68ed6ba998fe02dc",
+  "css_url": "https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap",
+  "font_url": "https://fonts.gstatic.com/s/sedgwickavedisplay/v23/xfuu0XPgU3jZPUoUo3ScvmPi-NapQ8OxM1c0fec.woff2",
+  "source_face_css": "@font-face {\n  font-family: 'Sedgwick Ave Display';\n  font-style: normal;\n  font-weight: 400;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/sedgwickavedisplay/v23/xfuu0XPgU3jZPUoUo3ScvmPi-NapQ8OxM1c0fec.woff2) format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}",
+  "license_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/sedgwickavedisplay/OFL.txt",
+  "license_path": "docs/fonts/sedgwick-ave-display-OFL.txt",
+  "license": "SIL Open Font License 1.1",
+  "note": "Font was retrieved from the official Google Fonts endpoint because this stylesheet URL was not captured by the initial extension-based static asset crawl."
+}

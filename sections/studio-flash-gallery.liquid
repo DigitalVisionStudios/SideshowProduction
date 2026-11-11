@@ -1,4 +1,45 @@
-<section class="sp-section sp-section--paper"><div class="sp-shell"><div class="sp-section-heading"><div><p class="sp-eyebrow">{{ section.settings.kicker | escape }}</p><h2>{{ section.settings.heading | escape }}</h2></div><a class="sp-link" href="/pages/book">Talk to an artist <span aria-hidden="true">↗</span></a></div><div class="sp-gallery-grid sp-gallery-grid--flash">{% for block in section.blocks %}<button class="sp-work" type="button" data-lightbox-src="{{ block.settings.asset | asset_url }}" data-lightbox-alt="{{ block.settings.title | escape }}" aria-label="Enlarge {{ block.settings.title | escape }}" {{ block.shopify_attributes }}><img src="{{ block.settings.asset | asset_url }}" alt="{{ block.settings.title | escape }}" width="800" height="1000" loading="lazy"><span class="sp-work-caption"><span>{{ block.settings.title | escape }}</span><small>EXPLORE <span aria-hidden="true">↗</span></small></span></button>{% endfor %}</div><p class="sp-notice">Design, size, placement, artist, and availability affect the final price. Your artist will confirm the details before your session.</p></div></section>
+<section class="sp-section sp-section--paper"><div class="sp-shell"><div class="sp-section-heading"><h2>{{ section.settings.heading | escape }}</h2><a class="sp-link" href="/pages/book">Talk to an artist <span aria-hidden="true">↗</span></a></div><div class="sp-gallery-grid sp-gallery-grid--flash">{% for block in section.blocks %}<button class="sp-work" type="button" data-lightbox-src="{{ block.settings.asset | asset_url }}" data-lightbox-alt="{{ block.settings.title | escape }}" aria-label="Enlarge {{ block.settings.title | escape }}" {{ block.shopify_attributes }}><img src="{{ block.settings.asset | asset_url }}" alt="{{ block.settings.title | escape }}" width="800" height="1000" loading="lazy"><span class="sp-work-caption"><span>{{ block.settings.title | escape }}</span><span aria-hidden="true">↗</span></span></button>{% endfor %}</div><p class="sp-notice">Design, size, placement, artist, and availability affect the final price. Your artist will confirm the details before your session.</p></div></section>
 {% schema %}
-{"name":"Studio flash gallery","settings":[{"type":"text","id":"kicker","label":"Eyebrow","default":"PICK YOUR NEXT LITTLE OBSESSION"},{"type":"text","id":"heading","label":"Heading","default":"STRAIGHT FROM THE FLASH SHEETS."}],"blocks":[{"type":"sheet","name":"Flash sheet","settings":[{"type":"text","id":"asset","label":"Image asset filename","default":"sp-flash-01.webp"},{"type":"text","id":"title","label":"Description","default":"Sideshow flash designs"}]}],"presets":[{"name":"Studio flash gallery"}]}
+{
+  "name": "Studio flash gallery",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Eyebrow",
+      "default": "PICK YOUR NEXT LITTLE OBSESSION"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "FLASH DESIGNS."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "sheet",
+      "name": "Flash sheet",
+      "settings": [
+        {
+          "type": "text",
+          "id": "asset",
+          "label": "Image asset filename",
+          "default": "sp-flash-01.webp"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Description",
+          "default": "Sideshow flash designs"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Studio flash gallery"
+    }
+  ]
+}
 {% endschema %}

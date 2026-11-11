@@ -1,9 +1,15 @@
-<section class="sp-section sp-section--dark">
+<section class="sp-section sp-section--dark sp-studio-section">
   <div class="sp-shell sp-statement">
-    <div data-reveal><p class="sp-eyebrow">{{ section.settings.eyebrow | escape }}</p><h2>{{ section.settings.heading | escape }}</h2></div>
-    <div class="sp-statement-copy" data-reveal><p>{{ section.settings.copy | escape }}</p><p>{{ section.settings.copy_two | escape }}</p><a class="sp-link" href="/pages/about">Get to know Sideshow <span aria-hidden="true">↗</span></a></div>
+    <div class="sp-statement-media" data-reveal>
+      <img src="{{ 'sp-studio-interior.webp' | asset_url }}" alt="Inside Sideshow Productions tattoo studio in Murray" width="502" height="288" loading="lazy">
+    </div>
+    <div class="sp-statement-copy" data-reveal>
+      <h2>{{ section.settings.heading | escape }}</h2>
+      <p>{{ section.settings.copy | escape }}</p>
+      <a class="sp-link" href="/pages/about">About Sideshow <span aria-hidden="true">↗</span></a>
+    </div>
   </div>
 </section>
 {% schema %}
-{"name":"Studio statement","settings":[{"type":"text","id":"eyebrow","label":"Eyebrow","default":"A PLACE FOR YOUR PEOPLE"},{"type":"text","id":"heading","label":"Heading","default":"COME AS YOU ARE. LEAVE A LITTLE MORE YOU."},{"type":"textarea","id":"copy","label":"First paragraph","default":"We're a studio for the first-timers, the collectors, and everyone with an idea they can't stop thinking about."},{"type":"textarea","id":"copy_two","label":"Second paragraph","default":"Sideshow brings tattoos, piercings, tooth gems, and teeth whitening together in Murray, Utah. Different styles, shared creativity, and a connection to the community around us."}],"presets":[{"name":"Studio statement"}]}
+{"name":"Studio story","settings":[{"type":"text","id":"heading","label":"Heading","default":"WELCOME TO SIDESHOW."},{"type":"textarea","id":"copy","label":"Studio introduction","default":"Tattoos, piercings, tooth gems, and teeth whitening under one roof in Murray. Meet the artists, explore their work, and bring us your next idea."}],"presets":[{"name":"Studio story"}]}
 {% endschema %}

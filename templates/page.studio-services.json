@@ -4,9 +4,8 @@
     "section_1": {
       "type": "studio-page",
       "settings": {
-        "title": "MORE WAYS TO BE YOU.",
-        "copy": "A custom tattoo, a new piercing, a little sparkle. Explore the studio's services and find your next thing.",
-        "kicker": "WHAT WE DO"
+        "title": "TATTOOS & MORE.",
+        "copy": "Custom tattoos, piercings, tooth gems, and teeth whitening."
       }
     },
     "section_2": {
@@ -17,8 +16,8 @@
           "type": "service",
           "settings": {
             "title": "Custom tattoos",
-            "description": "Black and grey, fine lines, lettering, bold ideas. Made for you.",
-            "note": "JAKE & RIGO",
+            "description": "Custom designs, black and grey, color, and lettering.",
+            "note": "Jake & Rigo",
             "link": "/pages/artists"
           }
         },
@@ -26,8 +25,8 @@
           "type": "service",
           "settings": {
             "title": "Piercings",
-            "description": "A thoughtful placement. A little edge. Find your next favorite piece.",
-            "note": "WITH SONNY",
+            "description": "Explore placements and jewelry with Sonny.",
+            "note": "Sonny",
             "link": "/pages/artists#sonny"
           }
         },
@@ -35,8 +34,8 @@
           "type": "service",
           "settings": {
             "title": "Tooth gems",
-            "description": "Something small that makes a statement. Add a little sparkle.",
-            "note": "WITH MEGAN",
+            "description": "Crystals, shapes, and individual gem placements.",
+            "note": "Megan",
             "link": "/pages/artists#megan"
           }
         },
@@ -44,8 +43,8 @@
           "type": "service",
           "settings": {
             "title": "Teeth whitening",
-            "description": "Make room for a brighter smile. Explore sessions with Megan.",
-            "note": "WITH MEGAN",
+            "description": "Single, double, and triple sessions with Megan.",
+            "note": "Megan",
             "link": "/pages/artists#megan"
           }
         },

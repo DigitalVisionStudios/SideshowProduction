@@ -17,8 +17,8 @@
           "type": "service",
           "settings": {
             "title": "Custom tattoos",
-            "description": "Black and grey, fine lines, lettering, bold ideas. Made for you.",
-            "note": "JAKE & RIGO",
+            "description": "Custom designs, black and grey, color, and lettering.",
+            "note": "Jake & Rigo",
             "link": "/pages/artists"
           }
         },
@@ -26,8 +26,8 @@
           "type": "service",
           "settings": {
             "title": "Piercings",
-            "description": "A thoughtful placement. A little edge. Find your next favorite piece.",
-            "note": "WITH SONNY",
+            "description": "Explore placements and jewelry with Sonny.",
+            "note": "Sonny",
             "link": "/pages/artists#sonny"
           }
         },
@@ -35,8 +35,8 @@
           "type": "service",
           "settings": {
             "title": "Tooth gems",
-            "description": "Something small that makes a statement. Add a little sparkle.",
-            "note": "WITH MEGAN",
+            "description": "Crystals, shapes, and individual gem placements.",
+            "note": "Megan",
             "link": "/pages/artists#megan"
           }
         },
@@ -44,8 +44,8 @@
           "type": "service",
           "settings": {
             "title": "Teeth whitening",
-            "description": "Make room for a brighter smile. Explore sessions with Megan.",
-            "note": "WITH MEGAN",
+            "description": "Single, double, and triple sessions with Megan.",
+            "note": "Megan",
             "link": "/pages/artists#megan"
           }
         }
@@ -64,9 +64,9 @@
         "block_1": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-01.webp",
-            "alt": "Fine-line cowboy boot with flowers by Jake",
-            "title": "A little western",
+            "asset": "sp-work-dark-01.webp",
+            "alt": "Bold black grim reaper tattoo with a scythe by Jake",
+            "title": "Grim reaper",
             "artist": "JAKE",
             "category": "tattoo"
           }
@@ -75,8 +75,8 @@
           "type": "work",
           "settings": {
             "asset": "sp-work-02.webp",
-            "alt": "Blue floral tattoo by Rigo",
-            "title": "Color that stays with you",
+            "alt": "Blue and purple floral tattoo by Rigo",
+            "title": "Color florals",
             "artist": "RIGO",
             "category": "tattoo"
           }
@@ -84,19 +84,19 @@
         "block_3": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-04.webp",
-            "alt": "Heart-shaped ear jewelry in a piercing by Sonny",
-            "title": "Small details. Big personality.",
-            "artist": "SONNY",
-            "category": "piercing"
+            "asset": "sp-work-dark-02.webp",
+            "alt": "Two black spider tattoos forming a heart shape by Jake",
+            "title": "Spider heart",
+            "artist": "JAKE",
+            "category": "tattoo"
           }
         },
         "block_4": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-03.webp",
-            "alt": "Swallow and sun linework tattoo by Jake",
-            "title": "Made to move with you",
+            "asset": "sp-work-08.webp",
+            "alt": "Illustrative blackwork tattoo by Jake",
+            "title": "Illustrative blackwork",
             "artist": "JAKE",
             "category": "tattoo"
           }
@@ -104,19 +104,19 @@
         "block_5": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-05.webp",
-            "alt": "Dragon linework tattoo by Jake",
-            "title": "Your kind of bold",
-            "artist": "JAKE",
-            "category": "tattoo"
+            "asset": "sp-work-04.webp",
+            "alt": "Heart-shaped ear jewelry in a piercing by Sonny",
+            "title": "Heart jewelry",
+            "artist": "SONNY",
+            "category": "piercing"
           }
         },
         "block_6": {
           "type": "work",
           "settings": {
-            "asset": "sp-work-06.webp",
-            "alt": "A small tooth gem applied by Megan",
-            "title": "A little extra shine",
+            "asset": "sp-work-12.webp",
+            "alt": "Tooth gems shown in Megan’s portfolio",
+            "title": "Tooth gems",
             "artist": "MEGAN",
             "category": "gems"
           }
@@ -143,7 +143,7 @@
             "role": "TATTOO ARTIST",
             "asset": "sp-jake.webp",
             "alt": "Jake working on a tattoo at Sideshow",
-            "bio": "Graphic details, black-and-grey shading, lettering, and illustrative customs. A clear idea, made personal.",
+            "bio": "Custom tattoo work, black and grey, lettering, and fine-line designs.",
             "meta": "CUSTOM TATTOOS · LETTERING",
             "rate": "From $100 / hour",
             "deposit": "$50 deposit, credited toward your total.",
@@ -158,7 +158,7 @@
             "role": "TATTOO ARTIST",
             "asset": "sp-rigo.webp",
             "alt": "Blue floral tattoo work by Rigo",
-            "bio": "Clean lines, smooth blends, and illustrative pieces with personality. Consultations in English or Spanish.",
+            "bio": "Custom tattoos and color work. Consultations in English or Spanish.",
             "meta": "ILLUSTRATIVE · ENGLISH / ESPAÑOL",
             "rate": "From $100 / hour",
             "deposit": "$50 deposit, credited toward your total.",
@@ -173,7 +173,7 @@
             "role": "PIERCING ARTIST",
             "asset": "sp-sonny.webp",
             "alt": "Ear piercing work by Sonny",
-            "bio": "Thoughtful placement and a sharp eye for the details. Explore your next piercing with Sonny.",
+            "bio": "Body piercings and jewelry. Contact Sonny about your placement and availability.",
             "meta": "PIERCINGS · JEWELRY",
             "rate": "Pricing varies by piercing",
             "deposit": "20% deposit. Jewelry included with new piercings.",
@@ -188,7 +188,7 @@
             "role": "TOOTH GEMS & WHITENING",
             "asset": "sp-megan.webp",
             "alt": "Megan at Sideshow Productions",
-            "bio": "A little sparkle or a brighter smile. Personalize the details with tooth gems and whitening sessions.",
+            "bio": "Tooth gems and teeth whitening. Explore gem options and whitening sessions.",
             "meta": "TOOTH GEMS · TEETH WHITENING",
             "rate": "Tooth gems from $60",
             "deposit": "Additional gems $20 each. Heart/star $65. Fang $100. Whitening: single $89, double $120, triple $200. 20% deposit.",
@@ -219,8 +219,8 @@
   "order": [
     "section_1",
     "section_2",
-    "section_3",
     "section_4",
+    "section_3",
     "section_5",
     "section_6",
     "section_7",

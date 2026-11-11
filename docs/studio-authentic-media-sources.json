@@ -1,0 +1,97 @@
+{
+  "visual_review": "Sampled all seven source clips and inspected the selected photographs. Reviewed both tattooing clips at one-second intervals to select a continuous hands-and-forearm excerpt without large customer face closeups. All clips show continuous real-looking shop activity with no obvious generated imagery. Selection is based on visible content and original public-site provenance, not a forensic authenticity certification.",
+  "limitations": [
+    "The selected tattooing source is only 498 by 246 pixels. It is suitable for a dimmed motion backdrop, not a sharp full-screen hero.",
+    "The original homepage embed is instead a 496 by 892 portrait clip of Ink Roulette and the shop tour.",
+    "The sharper source storefront photograph is available as an alternative static hero image."
+  ],
+  "assets": [
+    {
+      "asset": "assets/sp-authentic-hero.mp4",
+      "source": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/tats-and-piercings.mp4",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/tats-and-piercings.mp4",
+      "source_sha256": "1d4baed23cafd5b85bf77bd529a0769fea3c825181734420c4501c51c1d0ba28",
+      "start_seconds": 1.4,
+      "duration_seconds": 6.4,
+      "processing": "Continuous source excerpt showing tattooing hands and client forearm. 24fps H.264, muted, fast-start, short black fades for a quieter loop. No upscale, generated frames, or creative retouch.",
+      "bytes": 395452,
+      "sha256": "d9dcec7959e1d4d096612e7d62456e9b23e13b575a2fab3c12facbaaabbc9939",
+      "duration": 6.416667,
+      "width": 498,
+      "height": 246,
+      "codec": "h264",
+      "fps": "24/1",
+      "audio": false
+    },
+    {
+      "asset": "assets/sp-authentic-hero-poster.webp",
+      "source": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/tats-and-piercings.mp4",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/tats-and-piercings.mp4",
+      "source_sha256": "1d4baed23cafd5b85bf77bd529a0769fea3c825181734420c4501c51c1d0ba28",
+      "frame_seconds": 3.6,
+      "description": "Tattoo artist's gloved hands, machine, and client forearm, matching the hero excerpt",
+      "width": 498,
+      "height": 246,
+      "bytes": 14822,
+      "sha256": "7e6d1f89810b39a77d07a3b40a03dba13b341ae394ed03da43df7bc7b891c87d",
+      "processing": "Single original video frame encoded WebP. No crop or upscale."
+    },
+    {
+      "asset": "assets/sp-studio-interior.webp",
+      "source": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/tattoos.mp4",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/tattoos.mp4",
+      "source_sha256": "759a76a1f07a2b299750d595de8b19e35b599968e9e9e6c364be04dbfb82fca0",
+      "frame_seconds": 13.2,
+      "description": "Real customer and staff inside the red-walled Sideshow studio",
+      "width": 502,
+      "height": 288,
+      "bytes": 15488,
+      "sha256": "68595ca810bd2dab503b8bd2633504359683066db1a4ec822cf90bb4b97211ad",
+      "processing": "Single original video frame encoded WebP. No crop or upscale."
+    },
+    {
+      "asset": "assets/sp-source-tattoo-session.webp",
+      "source": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/tattoos.mp4",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/tattoos.mp4",
+      "source_sha256": "759a76a1f07a2b299750d595de8b19e35b599968e9e9e6c364be04dbfb82fca0",
+      "frame_seconds": 1.8,
+      "description": "Real tattoo session captured in original studio footage",
+      "width": 502,
+      "height": 288,
+      "bytes": 13564,
+      "sha256": "c03612597abf798b331252f719194550b22847708e2652b9cc554f743f3b2225",
+      "processing": "Single original video frame encoded WebP. No crop or upscale."
+    },
+    {
+      "asset": "assets/sp-source-storefront.webp",
+      "source": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-09-101734.png",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-09-101734.png",
+      "source_sha256": "02fc536497074bc24785ae0b60b8e806f5164252aa024a3dbae1dc744d03bd1a",
+      "description": "Actual Sideshow Productions sign and entrance at 4973 S State Street",
+      "width": 1354,
+      "height": 759,
+      "bytes": 105922,
+      "sha256": "9d784297f976367b7f0a9d232f95bdde78ca8ad088399044c5cbb80e8ff324c8",
+      "processing": "Proportional downsize if needed and WebP encoding. No crop or upscale."
+    },
+    {
+      "asset": "assets/sp-source-flash-wall.webp",
+      "source": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/522130610_72896906cv6420601_2836253316634858983_n.webp",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/522130610_72896906cv6420601_2836253316634858983_n.webp",
+      "source_sha256": "c9dca50ff4562b29fce092bba5598c14145671fedc770670214d0ab8e33e9e41",
+      "description": "Actual Ink Roulette flash board mounted on the studio red wall",
+      "width": 1588,
+      "height": 1200,
+      "bytes": 317742,
+      "sha256": "93465512824e10df6a55976e74128728b60e4719403a0a55ca3855aafc78c09e",
+      "processing": "Proportional downsize if needed and WebP encoding. No crop or upscale."
+    }
+  ],
+  "original_homepage_video_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/6-Instagram-Google-Chrome-9-January-2026-1.mp4",
+  "review_contact_sheets": [
+    "docs/studio-media-review/video-contact-sheet-1.jpg",
+    "docs/studio-media-review/video-contact-sheet-2.jpg",
+    "docs/studio-media-review/tattoos-detailed-contact-sheet.jpg",
+    "docs/studio-media-review/tats-and-piercings-detailed-contact-sheet.jpg"
+  ]
+}

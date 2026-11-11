@@ -4,9 +4,8 @@
     "section_1": {
       "type": "studio-page",
       "settings": {
-        "title": "A LITTLE DIFFERENT. JUST LIKE YOU.",
-        "copy": "A place for self-expression, good company, and work you want to wear for a long time.",
-        "kicker": "THE STUDIO"
+        "title": "ABOUT SIDESHOW.",
+        "copy": "Meet the studio and the artists behind the work."
       }
     },
     "section_2": {
@@ -17,8 +16,8 @@
           "type": "story",
           "settings": {
             "kicker": "OUR CORNER OF MURRAY",
-            "heading": "YOUR IDEAS BELONG HERE.",
-            "body": "<p>Sideshow Productions brings tattoos, piercings, tooth gems, and teeth whitening together at 4973 South State Street in Murray, Utah. Bring your reference, your rough sketch, or the idea you've been carrying around.</p><p>Find the artist whose work speaks to you. Talk through the details. Make something that feels like yours.</p>"
+            "heading": "A STUDIO IN THE HEART OF MURRAY.",
+            "body": "<p>Sideshow Productions brings tattoos, piercings, tooth gems, and teeth whitening together at 4973 South State Street in Murray, Utah.</p><p>Explore the crew's work and talk with your artist about the design, placement, and appointment you have in mind.</p>"
           }
         },
         "block_2": {
@@ -33,7 +32,7 @@
           "type": "story",
           "settings": {
             "kicker": "THE SAME CARE, DIFFERENT STYLES",
-            "heading": "ROOM FOR YOUR KIND OF ART.",
+            "heading": "MEET THE CREW.",
             "body": "<p>From Jake and Rigo's tattoo work to Sonny's piercings and Megan's tooth gems and whitening, each member of the crew brings their own approach. Explore their portfolios and get to know your artist.</p>"
           }
         }
@@ -56,7 +55,7 @@
             "role": "TATTOO ARTIST",
             "asset": "sp-jake.webp",
             "alt": "Jake working on a tattoo at Sideshow",
-            "bio": "Graphic details, black-and-grey shading, lettering, and illustrative customs. A clear idea, made personal.",
+            "bio": "Custom tattoo work, black and grey, lettering, and fine-line designs.",
             "meta": "CUSTOM TATTOOS · LETTERING",
             "rate": "From $100 / hour",
             "deposit": "$50 deposit, credited toward your total.",
@@ -71,7 +70,7 @@
             "role": "TATTOO ARTIST",
             "asset": "sp-rigo.webp",
             "alt": "Blue floral tattoo work by Rigo",
-            "bio": "Clean lines, smooth blends, and illustrative pieces with personality. Consultations in English or Spanish.",
+            "bio": "Custom tattoos and color work. Consultations in English or Spanish.",
             "meta": "ILLUSTRATIVE · ENGLISH / ESPAÑOL",
             "rate": "From $100 / hour",
             "deposit": "$50 deposit, credited toward your total.",
@@ -86,7 +85,7 @@
             "role": "PIERCING ARTIST",
             "asset": "sp-sonny.webp",
             "alt": "Ear piercing work by Sonny",
-            "bio": "Thoughtful placement and a sharp eye for the details. Explore your next piercing with Sonny.",
+            "bio": "Body piercings and jewelry. Contact Sonny about your placement and availability.",
             "meta": "PIERCINGS · JEWELRY",
             "rate": "Pricing varies by piercing",
             "deposit": "20% deposit. Jewelry included with new piercings.",
@@ -101,7 +100,7 @@
             "role": "TOOTH GEMS & WHITENING",
             "asset": "sp-megan.webp",
             "alt": "Megan at Sideshow Productions",
-            "bio": "A little sparkle or a brighter smile. Personalize the details with tooth gems and whitening sessions.",
+            "bio": "Tooth gems and teeth whitening. Explore gem options and whitening sessions.",
             "meta": "TOOTH GEMS · TEETH WHITENING",
             "rate": "Tooth gems from $60",
             "deposit": "Additional gems $20 each. Heart/star $65. Fang $100. Whitening: single $89, double $120, triple $200. 20% deposit.",

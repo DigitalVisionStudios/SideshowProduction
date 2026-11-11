@@ -4,9 +4,8 @@
     "section_1": {
       "type": "studio-page",
       "settings": {
-        "title": "SOME THINGS SPEAK FOR THEMSELVES.",
-        "copy": "Real work from the studio. Find a style, explore the details, and meet the artist behind it.",
-        "kicker": "THE WORK"
+        "title": "OUR WORK.",
+        "copy": "Tattoos, piercings, and tooth gems by the Sideshow crew."
       }
     },
     "section_2": {
@@ -22,7 +21,7 @@
           "settings": {
             "asset": "sp-work-01.webp",
             "alt": "Fine-line cowboy boot with flowers by Jake",
-            "title": "A little western",
+            "title": "Cowboy boot & florals",
             "artist": "JAKE",
             "category": "tattoo"
           }
@@ -32,7 +31,7 @@
           "settings": {
             "asset": "sp-work-02.webp",
             "alt": "Blue floral tattoo by Rigo",
-            "title": "Color that stays with you",
+            "title": "Blue florals",
             "artist": "RIGO",
             "category": "tattoo"
           }
@@ -42,7 +41,7 @@
           "settings": {
             "asset": "sp-work-04.webp",
             "alt": "Heart-shaped ear jewelry in a piercing by Sonny",
-            "title": "Small details. Big personality.",
+            "title": "Heart jewelry",
             "artist": "SONNY",
             "category": "piercing"
           }
@@ -52,7 +51,7 @@
           "settings": {
             "asset": "sp-work-03.webp",
             "alt": "Swallow and sun linework tattoo by Jake",
-            "title": "Made to move with you",
+            "title": "Swallow & sun",
             "artist": "JAKE",
             "category": "tattoo"
           }
@@ -62,7 +61,7 @@
           "settings": {
             "asset": "sp-work-05.webp",
             "alt": "Dragon linework tattoo by Jake",
-            "title": "Your kind of bold",
+            "title": "Dragon linework",
             "artist": "JAKE",
             "category": "tattoo"
           }
@@ -72,7 +71,7 @@
           "settings": {
             "asset": "sp-work-06.webp",
             "alt": "A small tooth gem applied by Megan",
-            "title": "A little extra shine",
+            "title": "Tooth gem",
             "artist": "MEGAN",
             "category": "gems"
           }
@@ -91,8 +90,8 @@
           "type": "work",
           "settings": {
             "asset": "sp-work-08.webp",
-            "alt": "Blackwork witch hat tattoo by Jake",
-            "title": "For the darker side",
+            "alt": "Illustrative blackwork tattoo by Jake",
+            "title": "Illustrative blackwork",
             "artist": "JAKE",
             "category": "tattoo"
           }
@@ -131,14 +130,36 @@
           "type": "work",
           "settings": {
             "asset": "sp-work-12.webp",
-            "alt": "Tooth gem work from Megan's portfolio",
-            "title": "Make your smile yours",
+            "alt": "Tooth gems shown in Megan’s portfolio",
+            "title": "Tooth gems",
             "artist": "MEGAN",
             "category": "gems"
+          }
+        },
+        "dark_work_1": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-dark-01.webp",
+            "alt": "Bold black grim reaper tattoo with a scythe by Jake",
+            "title": "Grim reaper",
+            "artist": "JAKE",
+            "category": "tattoo"
+          }
+        },
+        "dark_work_2": {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-dark-02.webp",
+            "alt": "Two black spider tattoos forming a heart shape by Jake",
+            "title": "Spider heart",
+            "artist": "JAKE",
+            "category": "tattoo"
           }
         }
       },
       "block_order": [
+        "dark_work_1",
+        "dark_work_2",
         "block_1",
         "block_2",
         "block_3",

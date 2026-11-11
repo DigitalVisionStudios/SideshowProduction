@@ -1,0 +1,125 @@
+{
+  "source_site": "https://sideshowproductionstattoo.com/",
+  "archive": "archive/current-site-2026-11-10",
+  "observed_from": "Captured public HTML, CSS and verified local media",
+  "stylesheet_evidence": [
+    "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/elementor/css/post-6-886d4004.css",
+    "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/elementor/css/post-20-3894d4c2.css",
+    "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/elementor/css/post-14-886d4004.css"
+  ],
+  "original_palette": {
+    "primary": "#FFFFFF",
+    "secondary": "#FF0000",
+    "text": "#FFFFFF",
+    "accent": "#CC0815",
+    "background": "#000000",
+    "homepage_overlay": "linear-gradient(360deg, #940A0A 46%, #000000 89%)",
+    "animated_headline_color": "#D30E0E"
+  },
+  "original_typography": [
+    {
+      "family": "Sedgwick Ave Display",
+      "usage": "Original homepage primary headings and animated headline",
+      "new_asset": "assets/sp-brush.woff2",
+      "weight": 400,
+      "subset": "latin",
+      "provenance": "docs/studio-source-font.json",
+      "license": "docs/fonts/sedgwick-ave-display-OFL.txt"
+    },
+    {
+      "family": "RocknRoll One",
+      "usage": "Source body text, navigation and h3"
+    },
+    {
+      "family": "Sedgwick Ave",
+      "usage": "Source secondary/h5 typography"
+    },
+    {
+      "family": "Poppins",
+      "usage": "Some source dropdown typography"
+    },
+    {
+      "family": "Figtree",
+      "usage": "Some smaller source footer labels"
+    }
+  ],
+  "original_headline": {
+    "prefix": "Unleashing your creativity starts with",
+    "rotating_words": [
+      "artists",
+      "piercings",
+      "tattoos"
+    ],
+    "suffix": "that inspire.",
+    "source": "archive/current-site-2026-11-10/pages/home.html"
+  },
+  "video": {
+    "original_homepage_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/6-Instagram-Google-Chrome-9-January-2026-1.mp4",
+    "original_homepage_content": "Portrait Ink Roulette and shop tour",
+    "selected_hero_source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/tats-and-piercings.mp4",
+    "selected_hero_content": "Continuous close tattooing footage of blue-gloved hands and client forearm, source interval 1.4 to 7.8 seconds",
+    "selected_asset": "assets/sp-authentic-hero.mp4",
+    "provenance": "docs/studio-authentic-media-sources.json",
+    "reproduction_helper": "scripts/prepare-studio-motion.py",
+    "limitations": "498x246 source resolution, suited to a dimmed backdrop. Visual review found no obvious generated content in the seven source clips. Original provenance and visual consistency are not forensic authentication.",
+    "final_output_review": "docs/studio-media-review/hero-final-contact-sheet.jpg"
+  },
+  "source_logo": {
+    "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/cropped-03a6efc0-6cdd-401a-a8ba-775ffa79f4a0.png",
+    "width": 512,
+    "height": 512
+  },
+  "artist_portrait_check": {
+    "scope": "All 314 media entries reviewed for artist-name metadata, and captured homepage/About/artist booking HTML inspected for image attribution.",
+    "confirmed_alternate_portraits": [],
+    "conclusion": "No confirmed Rigo or Sonny portrait available in the archived public sources. Do not label unconfirmed people as those artists.",
+    "source_pages": [
+      "archive/current-site-2026-11-10/pages/home.html",
+      "archive/current-site-2026-11-10/pages/about.html",
+      "archive/current-site-2026-11-10/pages/book-with-rigo.html",
+      "archive/current-site-2026-11-10/pages/book-with-sonny.html"
+    ],
+    "named_roster_images": [
+      {
+        "artist": "Rigo",
+        "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-165356-e1774365245548.png",
+        "source_dimensions": [
+          363,
+          364
+        ],
+        "visible_content": "Floral tattoo work, not a portrait",
+        "source_title": "Rigo Tattoo's"
+      },
+      {
+        "artist": "Sonny",
+        "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-163923-e1774365062847.png",
+        "source_dimensions": [
+          365,
+          362
+        ],
+        "visible_content": "Ear piercing work, not a portrait",
+        "source_title": "Sonny Piercing's"
+      }
+    ],
+    "pre_edit_portraits": [
+      {
+        "artist": "Jake",
+        "source_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-162353.png",
+        "dimensions": [
+          563,
+          421
+        ],
+        "finding": "Pre-edit original exists but circular mask is already baked into the source. No unmasked portrait export created."
+      },
+      {
+        "artist": "Megan",
+        "source_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-163956.png",
+        "dimensions": [
+          543,
+          430
+        ],
+        "finding": "Pre-edit original exists but circular mask is already baked into the source. No unmasked portrait export created."
+      }
+    ]
+  }
+}

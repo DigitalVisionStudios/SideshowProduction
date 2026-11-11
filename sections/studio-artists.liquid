@@ -1,10 +1,10 @@
 <section class="sp-section sp-section--dark" id="artists">
   <div class="sp-shell">
-    <div class="sp-section-heading" data-reveal><div><p class="sp-eyebrow">03 / FIND YOUR PEOPLE</p><h2>{{ section.settings.heading | escape }}</h2></div><p>{{ section.settings.intro | escape }}</p></div>
+    {% unless section.settings.show_details %}<div class="sp-section-heading" data-reveal><h2>{{ section.settings.heading | escape }}</h2></div>{% endunless %}
     <div class="sp-artist-grid{% if section.settings.show_details %} sp-artist-grid--full{% endif %}">
       {% for block in section.blocks %}<article class="sp-artist-card" id="{{ block.settings.anchor | escape }}" {{ block.shopify_attributes }} data-reveal>
         <a href="{% if section.settings.show_details %}/pages/book#{{ block.settings.anchor | escape }}{% else %}/pages/artists#{{ block.settings.anchor | escape }}{% endif %}" class="sp-artist-photo" aria-label="Meet {{ block.settings.name | escape }}">{% render 'studio-image', image: block.settings.image, asset_name: block.settings.asset, alt: block.settings.alt %}<span aria-hidden="true">↗</span></a>
-        <div class="sp-artist-info"><p class="sp-eyebrow">{{ block.settings.role | escape }}</p><h3>{{ block.settings.name | escape }}</h3><p>{{ block.settings.bio | escape }}</p><p class="sp-artist-meta">{{ block.settings.meta | escape }}</p>
+        <div class="sp-artist-info"><h3>{{ block.settings.name | escape }}</h3><p class="sp-artist-role">{{ block.settings.role | escape }}</p>{% if section.settings.show_details %}<p>{{ block.settings.bio | escape }}</p>{% endif %}
         {% if section.settings.show_details %}
           <details class="sp-artist-details"><summary>Rates &amp; availability</summary><div><p><strong>{{ block.settings.rate | escape }}</strong></p><p>{{ block.settings.deposit | escape }}</p><p>{{ block.settings.hours | escape }}</p><p>All times are local to the Murray studio. 48-hour notice for appointment changes. Final availability is confirmed when booking.</p></div></details>
           <a class="sp-link" href="/pages/book#{{ block.settings.anchor | escape }}">Book with {{ block.settings.name | escape }} <span aria-hidden="true">↗</span></a>
@@ -23,13 +23,13 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "YOUR NEXT FAVORITE ARTIST."
+      "default": "MEET THE ARTISTS."
     },
     {
       "type": "textarea",
       "id": "intro",
       "label": "Introduction",
-      "default": "Different styles. The same care for the craft. Get to know the people behind the work."
+      "default": "Tattoos, piercings, tooth gems, and whitening. Find your artist and view their availability."
     },
     {
       "type": "checkbox",
@@ -123,7 +123,7 @@
             "role": "TATTOO ARTIST",
             "asset": "sp-jake.webp",
             "alt": "Jake working on a tattoo at Sideshow",
-            "bio": "Graphic details, black-and-grey shading, lettering, and illustrative customs. A clear idea, made personal.",
+            "bio": "Custom tattoo work, black and grey, lettering, and fine-line designs.",
             "meta": "CUSTOM TATTOOS · LETTERING",
             "rate": "From $100 / hour",
             "deposit": "$50 deposit, credited toward your total.",
@@ -138,7 +138,7 @@
             "role": "TATTOO ARTIST",
             "asset": "sp-rigo.webp",
             "alt": "Blue floral tattoo work by Rigo",
-            "bio": "Clean lines, smooth blends, and illustrative pieces with personality. Consultations in English or Spanish.",
+            "bio": "Custom tattoos and color work. Consultations in English or Spanish.",
             "meta": "ILLUSTRATIVE · ENGLISH / ESPAÑOL",
             "rate": "From $100 / hour",
             "deposit": "$50 deposit, credited toward your total.",
@@ -153,7 +153,7 @@
             "role": "PIERCING ARTIST",
             "asset": "sp-sonny.webp",
             "alt": "Ear piercing work by Sonny",
-            "bio": "Thoughtful placement and a sharp eye for the details. Explore your next piercing with Sonny.",
+            "bio": "Body piercings and jewelry. Contact Sonny about your placement and availability.",
             "meta": "PIERCINGS · JEWELRY",
             "rate": "Pricing varies by piercing",
             "deposit": "20% deposit. Jewelry included with new piercings.",
@@ -168,7 +168,7 @@
             "role": "TOOTH GEMS & WHITENING",
             "asset": "sp-megan.webp",
             "alt": "Megan at Sideshow Productions",
-            "bio": "A little sparkle or a brighter smile. Personalize the details with tooth gems and whitening sessions.",
+            "bio": "Tooth gems and teeth whitening. Explore gem options and whitening sessions.",
             "meta": "TOOTH GEMS · TEETH WHITENING",
             "rate": "Tooth gems from $60",
             "deposit": "Additional gems $20 each. Heart/star $65. Fang $100. Whitening: single $89, double $120, triple $200. 20% deposit.",

@@ -1,9 +1,8 @@
 <section class="sp-section sp-section--paper"><div class="sp-shell">
-<div class="sp-steps"><article><span>01</span><h2>Find your person.</h2><p>Explore each artist's style and choose the service you have in mind.</p></article><article><span>02</span><h2>Talk through the idea.</h2><p>Design, placement, timing, and price. Get the details right together.</p></article><article><span>03</span><h2>Make it yours.</h2><p>Confirm your appointment and deposit with the studio before your visit.</p></article></div>
 <div class="sp-booking-grid">
 {% for block in section.blocks %}{% if block.type == '@app' %}{% render block %}{% else %}{% assign booking_product = block.settings.product %}<article class="sp-artist-card" id="{{ block.settings.anchor | escape }}" {{ block.shopify_attributes }}>
   <div class="sp-artist-photo">{% render 'studio-image', asset_name: block.settings.asset, alt: block.settings.alt %}</div>
-  <div class="sp-artist-info"><p class="sp-eyebrow">{{ block.settings.role | escape }}</p><h2>{{ block.settings.name | escape }}</h2><p>{{ block.settings.rate | escape }}</p><p>{{ block.settings.description | escape }}</p>
+  <div class="sp-artist-info"><h2>{{ block.settings.name | escape }}</h2><p class="sp-artist-role">{{ block.settings.role | escape }}</p><p>{{ block.settings.rate | escape }}</p><p>{{ block.settings.description | escape }}</p>
   {% if section.settings.booking_ready and booking_product != blank %}<a class="sp-button sp-button--red" href="{{ booking_product.url }}">Choose a session <span aria-hidden="true">↗</span></a>{% elsif section.settings.booking_ready and block.settings.booking_url != blank %}<a class="sp-button sp-button--red" href="{{ block.settings.booking_url }}">Choose a session <span aria-hidden="true">↗</span></a>{% else %}<a class="sp-button sp-button--red" href="/pages/contact?artist={{ block.settings.name | url_encode }}">Contact to book <span aria-hidden="true">↗</span></a>{% endif %}
   </div></article>{% endif %}{% endfor %}
 </div>

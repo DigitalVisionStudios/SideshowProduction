@@ -1,6 +1,6 @@
-<section class="sp-section sp-section--paper" id="work" data-gallery>
+<section class="sp-section sp-section--dark sp-work-section" id="work" data-gallery>
   <div class="sp-shell">
-    <div class="sp-section-heading" data-reveal><div><p class="sp-eyebrow">02 / ON SKIN, NOT A MOODBOARD</p><h2>{{ section.settings.heading | escape }}</h2></div>{% unless section.settings.full_gallery %}<a class="sp-link" href="/pages/portfolio">View the whole gallery <span aria-hidden="true">↗</span></a>{% endunless %}</div>
+    {% unless section.settings.full_gallery %}<div class="sp-section-heading" data-reveal><h2>{{ section.settings.heading | escape }}</h2><a class="sp-link" href="/pages/portfolio">View all work <span aria-hidden="true">↗</span></a></div>{% endunless %}
     {% if section.settings.show_filters %}<div class="sp-filters" aria-label="Filter work"><button type="button" data-filter="all" aria-pressed="true">All work</button><button type="button" data-filter="tattoo" aria-pressed="false">Tattoos</button><button type="button" data-filter="piercing" aria-pressed="false">Piercings</button><button type="button" data-filter="gems" aria-pressed="false">Tooth gems</button></div>{% endif %}
     <div class="sp-gallery-grid">
       {% for block in section.blocks %}{% if block.settings.image != blank %}{% assign image_src = block.settings.image | image_url: width: 1600 %}{% else %}{% assign image_src = block.settings.asset | asset_url %}{% endif %}
@@ -20,7 +20,7 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "LET THE WORK TALK."
+      "default": "OUR WORK."
     },
     {
       "type": "checkbox",
@@ -61,7 +61,7 @@
           "type": "text",
           "id": "title",
           "label": "Caption",
-          "default": "Made for you"
+          "default": "Tattoo work"
         },
         {
           "type": "text",
@@ -99,9 +99,9 @@
         {
           "type": "work",
           "settings": {
-            "asset": "sp-work-01.webp",
-            "alt": "Fine-line cowboy boot with flowers by Jake",
-            "title": "A little western",
+            "asset": "sp-work-dark-01.webp",
+            "alt": "Bold black grim reaper tattoo with a scythe by Jake",
+            "title": "Grim reaper",
             "artist": "JAKE",
             "category": "tattoo"
           }
@@ -110,9 +110,29 @@
           "type": "work",
           "settings": {
             "asset": "sp-work-02.webp",
-            "alt": "Blue floral tattoo by Rigo",
-            "title": "Color that stays with you",
+            "alt": "Blue and purple floral tattoo by Rigo",
+            "title": "Color florals",
             "artist": "RIGO",
+            "category": "tattoo"
+          }
+        },
+        {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-dark-02.webp",
+            "alt": "Two black spider tattoos forming a heart shape by Jake",
+            "title": "Spider heart",
+            "artist": "JAKE",
+            "category": "tattoo"
+          }
+        },
+        {
+          "type": "work",
+          "settings": {
+            "asset": "sp-work-08.webp",
+            "alt": "Illustrative blackwork tattoo by Jake",
+            "title": "Illustrative blackwork",
+            "artist": "JAKE",
             "category": "tattoo"
           }
         },
@@ -121,7 +141,7 @@
           "settings": {
             "asset": "sp-work-04.webp",
             "alt": "Heart-shaped ear jewelry in a piercing by Sonny",
-            "title": "Small details. Big personality.",
+            "title": "Heart jewelry",
             "artist": "SONNY",
             "category": "piercing"
           }
@@ -129,29 +149,9 @@
         {
           "type": "work",
           "settings": {
-            "asset": "sp-work-03.webp",
-            "alt": "Swallow and sun linework tattoo by Jake",
-            "title": "Made to move with you",
-            "artist": "JAKE",
-            "category": "tattoo"
-          }
-        },
-        {
-          "type": "work",
-          "settings": {
-            "asset": "sp-work-05.webp",
-            "alt": "Dragon linework tattoo by Jake",
-            "title": "Your kind of bold",
-            "artist": "JAKE",
-            "category": "tattoo"
-          }
-        },
-        {
-          "type": "work",
-          "settings": {
-            "asset": "sp-work-06.webp",
-            "alt": "A small tooth gem applied by Megan",
-            "title": "A little extra shine",
+            "asset": "sp-work-12.webp",
+            "alt": "Tooth gems shown in Megan’s portfolio",
+            "title": "Tooth gems",
             "artist": "MEGAN",
             "category": "gems"
           }
