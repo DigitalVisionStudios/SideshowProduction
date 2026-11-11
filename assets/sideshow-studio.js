@@ -51,29 +51,260 @@
     }
   }
 
+  var menuStates = new Map();
+  var activeMenu = null;
+  var menuScrollLock = null;
+
   function menuFor(toggle) {
     var id = toggle.getAttribute("aria-controls");
     return id ? document.getElementById(id) : document.querySelector("[data-mobile-menu]");
   }
 
-  function setMenu(toggle, open, restoreFocus) {
-    var menu = menuFor(toggle);
-    if (!menu) return;
-    menu.hidden = !open;
-    toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-    toggle.classList.toggle("is-open", open);
-    var header = toggle.closest(".sp-header");
-    if (header) header.classList.toggle("is-menu-open", open);
-    document.body.classList.toggle("sp-menu-open", !!document.querySelector('[data-menu-toggle][aria-expanded="true"]'));
-    if (open) focusElement(menu.querySelector('a[href], button:not([disabled]), [tabindex="0"]'));
-    else if (restoreFocus) focusElement(toggle);
+  function saveStyles(element, names) {
+    return names.map(function (name) {
+      return { name: name, value: element.style.getPropertyValue(name), priority: element.style.getPropertyPriority(name) };
+    });
   }
 
-  function closeMenus(restoreFocus) {
-    document.querySelectorAll('[data-menu-toggle][aria-expanded="true"]').forEach(function (toggle) {
-      setMenu(toggle, false, restoreFocus);
+  function restoreStyles(element, saved) {
+    saved.forEach(function (item) {
+      if (item.value) element.style.setProperty(item.name, item.value, item.priority);
+      else element.style.removeProperty(item.name);
     });
+  }
+
+  function lockMenuScroll() {
+    if (menuScrollLock) return;
+    var body = document.body;
+    var root = document.documentElement;
+    var scrollbar = Math.max(0, window.innerWidth - root.clientWidth);
+    menuScrollLock = {
+      x: window.scrollX || 0,
+      y: window.scrollY || window.pageYOffset || 0,
+      body: saveStyles(body, ["position", "top", "left", "right", "width", "overflow", "padding-right", "box-sizing"]),
+      root: saveStyles(root, ["overflow", "scroll-behavior"])
+    };
+    var padding = parseFloat(window.getComputedStyle(body).paddingRight) || 0;
+    root.style.setProperty("overflow", "hidden");
+    root.style.setProperty("scroll-behavior", "auto", "important");
+    body.style.setProperty("box-sizing", "border-box");
+    body.style.setProperty("position", "fixed");
+    body.style.setProperty("top", -menuScrollLock.y + "px");
+    body.style.setProperty("left", -menuScrollLock.x + "px");
+    body.style.setProperty("right", "0");
+    body.style.setProperty("width", "100%");
+    body.style.setProperty("overflow", "hidden");
+    if (scrollbar) body.style.setProperty("padding-right", padding + scrollbar + "px");
+    body.classList.add("sp-menu-open");
+  }
+
+  function unlockMenuScroll() {
+    if (!menuScrollLock) return;
+    var saved = menuScrollLock;
+    menuScrollLock = null;
+    restoreStyles(document.body, saved.body);
+    document.body.classList.remove("sp-menu-open");
+    // Keep smooth scrolling off until the exact pre-menu position is restored.
+    saved.root.forEach(function (item) {
+      if (item.name !== "overflow") return;
+      if (item.value) document.documentElement.style.setProperty(item.name, item.value, item.priority);
+      else document.documentElement.style.removeProperty(item.name);
+    });
+    window.scrollTo(saved.x, saved.y);
+    restoreStyles(document.documentElement, saved.root);
+    updateHeader();
+  }
+
+  function menuFocusable(state) {
+    return Array.prototype.slice.call(state.menu.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')).filter(function (element) {
+      return !element.closest("[hidden], [inert]") && element.getClientRects().length > 0;
+    });
+  }
+
+  function cancelMenuMotion(state) {
+    window.cancelAnimationFrame(state.frame);
+    window.clearTimeout(state.timer);
+    state.frame = null;
+    state.timer = null;
+  }
+
+  function restoreMenuBackground(state) {
+    (state.background || []).forEach(function (item) {
+      if (item.inert === null) item.element.removeAttribute("inert");
+      else item.element.setAttribute("inert", item.inert);
+      if (item.hidden === null) item.element.removeAttribute("aria-hidden");
+      else item.element.setAttribute("aria-hidden", item.hidden);
+    });
+    state.background = [];
+  }
+
+  function finishMenuClose(state, restoreFocus) {
+    cancelMenuMotion(state);
+    var focusWasInside = state.menu.contains(document.activeElement);
+    state.open = false;
+    state.closing = false;
+    state.menu.classList.remove("is-open", "is-closing");
+    state.menu.setAttribute("data-menu-state", "closed");
+    state.toggle.setAttribute("aria-expanded", "false");
+    state.toggle.setAttribute("aria-label", "Open menu");
+    state.toggle.classList.remove("is-open");
+    if (state.header) state.header.classList.remove("is-menu-open");
+    if (activeMenu === state) activeMenu = null;
+    if (state.menu.hasAttribute("open")) {
+      if (typeof state.menu.close === "function") state.menu.close();
+      else state.menu.removeAttribute("open");
+    }
+    state.menu.hidden = true;
+    restoreMenuBackground(state);
+    if (!activeMenu) unlockMenuScroll();
+    if (restoreFocus) {
+      var target = state.toggle;
+      if (desktop.matches || !target.getClientRects().length) target = state.header && state.header.querySelector(".sp-brand");
+      focusElement(target);
+    } else if (desktop.matches && focusWasInside) {
+      focusElement(state.header && state.header.querySelector(".sp-nav .is-current, .sp-brand"));
+    }
+  }
+
+  function initMenus(scope) {
+    elements(scope, "[data-menu-toggle]").forEach(function (toggle) {
+      var menu = menuFor(toggle);
+      if (!menu || menuStates.has(menu)) return;
+      var marker = document.createComment("Sideshow mobile menu");
+      menu.parentNode.insertBefore(marker, menu);
+      var state = {
+        menu: menu, toggle: toggle, header: toggle.closest(".sp-header"),
+        owner: toggle.closest(".shopify-section") || toggle.parentElement,
+        marker: marker, open: false, closing: false, frame: null, timer: null,
+        background: [], lastFocus: null, restoreFocus: false
+      };
+      menuStates.set(menu, state);
+      // A body portal also keeps the non-dialog fallback clear of header blur.
+      document.body.appendChild(menu);
+      menu.hidden = true;
+      menu.setAttribute("data-menu-state", "closed");
+      menu.querySelectorAll(".sp-menu-enter").forEach(function (item, index) {
+        item.style.setProperty("--sp-menu-order", index);
+      });
+      state.cancel = function (event) {
+        event.preventDefault();
+        setMenu(toggle, false, true);
+      };
+      state.close = function () {
+        if (!menu.hasAttribute("open") && (state.open || state.closing)) finishMenuClose(state, true);
+      };
+      state.transition = function (event) {
+        if (event.target !== menu || (event.propertyName !== "clip-path" && event.propertyName !== "-webkit-clip-path")) return;
+        if (state.closing) finishMenuClose(state, state.restoreFocus);
+        else if (state.open) menu.setAttribute("data-menu-state", "open");
+      };
+      menu.addEventListener("cancel", state.cancel);
+      menu.addEventListener("close", state.close);
+      menu.addEventListener("transitionend", state.transition);
+    });
+  }
+
+  function setMenu(toggle, open, restoreFocus, immediate) {
+    var menu = menuFor(toggle);
+    if (!menu) return;
+    if (!menuStates.has(menu)) initMenus(toggle);
+    var state = menuStates.get(menu);
+    if (!state) return;
+    if (open) {
+      if (desktop.matches || state.open) return;
+      if (activeMenu && activeMenu !== state) finishMenuClose(activeMenu, false);
+      var wasVisible = !menu.hidden && menu.hasAttribute("open");
+      cancelMenuMotion(state);
+      state.open = true;
+      state.closing = false;
+      state.restoreFocus = false;
+      activeMenu = state;
+      lockMenuScroll();
+      menu.hidden = false;
+      menu.classList.remove("is-closing");
+      menu.setAttribute("data-menu-state", "opening");
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.setAttribute("aria-label", "Close menu");
+      toggle.classList.add("is-open");
+      if (state.header) state.header.classList.add("is-menu-open");
+      if (!wasVisible) {
+        var scroller = menu.querySelector(".sp-menu-scroll");
+        if (scroller) scroller.scrollTop = 0;
+        try {
+          if (typeof menu.showModal !== "function") throw new Error("Dialog fallback");
+          menu.showModal();
+        } catch (error) {
+          menu.setAttribute("open", "");
+          state.background = Array.prototype.slice.call(document.body.children).filter(function (element) {
+            return element !== menu && element.tagName !== "SCRIPT" && element.tagName !== "STYLE";
+          }).map(function (element) {
+            var saved = { element: element, inert: element.getAttribute("inert"), hidden: element.getAttribute("aria-hidden") };
+            element.setAttribute("inert", "");
+            element.setAttribute("aria-hidden", "true");
+            return saved;
+          });
+        }
+      }
+      state.lastFocus = menu.querySelector("[data-menu-close]") || menu;
+      focusElement(state.lastFocus);
+      function revealMenu() {
+        if (!state.open) return;
+        menu.classList.add("is-open");
+        if (reducedMotion.matches) menu.setAttribute("data-menu-state", "open");
+        else state.timer = window.setTimeout(function () {
+          if (state.open) menu.setAttribute("data-menu-state", "open");
+        }, 680);
+      }
+      if (wasVisible || reducedMotion.matches) revealMenu();
+      else state.frame = window.requestAnimationFrame(function () {
+        state.frame = window.requestAnimationFrame(revealMenu);
+      });
+      return;
+    }
+    if (!state.open && !state.closing) return;
+    cancelMenuMotion(state);
+    state.open = false;
+    state.closing = true;
+    state.restoreFocus = !!restoreFocus;
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
+    toggle.classList.remove("is-open");
+    menu.classList.remove("is-open");
+    menu.classList.add("is-closing");
+    menu.setAttribute("data-menu-state", "closing");
+    if (immediate || reducedMotion.matches || desktop.matches) {
+      finishMenuClose(state, state.restoreFocus);
+    } else {
+      var duration = parseFloat(window.getComputedStyle(menu).getPropertyValue("--sp-menu-exit-ms")) || 520;
+      state.timer = window.setTimeout(function () { finishMenuClose(state, state.restoreFocus); }, duration + 40);
+    }
+  }
+
+  function closeMenus(restoreFocus, immediate) {
+    menuStates.forEach(function (state) {
+      if (state.open || state.closing) setMenu(state.toggle, false, restoreFocus, immediate);
+    });
+  }
+
+  function trapMenuFocus(event) {
+    if (!activeMenu || (!activeMenu.open && !activeMenu.closing)) return;
+    if (event.key === "Escape") {
+      event.preventDefault();
+      setMenu(activeMenu.toggle, false, true);
+      return;
+    }
+    if (event.key !== "Tab") return;
+    var items = menuFocusable(activeMenu);
+    var first = items[0] || activeMenu.menu;
+    var last = items[items.length - 1] || first;
+    var inside = activeMenu.menu.contains(document.activeElement);
+    if (!inside || (event.shiftKey && document.activeElement === first)) {
+      event.preventDefault();
+      focusElement(event.shiftKey ? last : first);
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      focusElement(first);
+    }
   }
 
   function reveal(element) {
@@ -109,6 +340,11 @@
         reveal(element);
         return;
       }
+      var siblings = Array.prototype.filter.call(element.parentElement.children, function (sibling) {
+        return sibling.hasAttribute("data-reveal");
+      });
+      var stagger = Math.min(240, Math.max(0, siblings.indexOf(element)) * 65);
+      element.style.setProperty("--sp-reveal-delay", stagger + "ms");
       try {
         observer.observe(element);
         observed.add(element);
@@ -606,7 +842,7 @@
   function updateHeader() {
     scrollPending = false;
     if (!document.body) return;
-    var scrollY = Math.max(0, window.scrollY || window.pageYOffset || 0);
+    var scrollY = menuScrollLock ? menuScrollLock.y : Math.max(0, window.scrollY || window.pageYOffset || 0);
     var isHome = document.body.classList.contains("sp-home");
     document.body.classList.toggle("sp-scrolled", scrollY > 48);
     document.querySelectorAll(".sp-header").forEach(function (header) {
@@ -635,6 +871,7 @@
     if (!document.body || !document.body.classList.contains("sp-site")) return;
     scope = scope || document;
     document.body.classList.add("sp-enhanced");
+    initMenus(scope);
     initGalleries(scope);
     initRoulette(scope);
     initContactContext(scope);
@@ -653,8 +890,14 @@
       setMenu(toggle, toggle.getAttribute("aria-expanded") !== "true", false);
       return;
     }
+    var menuClose = event.target.closest("[data-menu-close]");
+    if (menuClose) {
+      event.preventDefault();
+      var closingState = menuStates.get(menuClose.closest("[data-mobile-menu]"));
+      if (closingState) setMenu(closingState.toggle, false, true);
+      return;
+    }
     if (event.target.closest("[data-mobile-menu] a")) closeMenus(false);
-    else if (!event.target.closest("[data-mobile-menu]")) closeMenus(false);
 
     var videoToggle = event.target.closest("[data-sp-video-toggle]");
     if (videoToggle) {
@@ -701,7 +944,7 @@
       }
       return;
     }
-    if (event.key === "Escape") closeMenus(true);
+    trapMenuFocus(event);
   });
 
   window.addEventListener("scroll", function () {
@@ -720,8 +963,12 @@
   }, { passive: true });
 
   document.addEventListener("focusin", function (event) {
-    if (!(event.target instanceof Element)) return;
-    if (!event.target.closest("[data-mobile-menu]") && !event.target.closest("[data-menu-toggle]")) closeMenus(false);
+    if (!(event.target instanceof Element) || !activeMenu) return;
+    if (activeMenu.menu.contains(event.target)) {
+      activeMenu.lastFocus = event.target;
+    } else {
+      focusElement(activeMenu.lastFocus || activeMenu.menu.querySelector("[data-menu-close]") || activeMenu.menu);
+    }
   });
 
   document.addEventListener("visibilitychange", function () {
@@ -729,6 +976,7 @@
   });
 
   window.addEventListener("pagehide", function () {
+    closeMenus(false, true);
     pageActive = false;
     heroVideos.forEach(function (state, video) { updateVideo(video, state, false); });
   });
@@ -741,10 +989,18 @@
   });
 
   function desktopChanged(event) {
-    if (event.matches) closeMenus(false);
+    if (event.matches) closeMenus(false, true);
   }
   function motionChanged(event) {
     if (event.matches) {
+      menuStates.forEach(function (state) {
+        if (state.closing) finishMenuClose(state, state.restoreFocus);
+        else if (state.open) {
+          cancelMenuMotion(state);
+          state.menu.classList.add("is-open");
+          state.menu.setAttribute("data-menu-state", "open");
+        }
+      });
       observed.forEach(reveal);
       if (observer) observer.disconnect();
       observer = null;
@@ -762,7 +1018,16 @@
 
   document.addEventListener("shopify:section:load", function (event) { init(event.target); });
   document.addEventListener("shopify:section:unload", function (event) {
-    elements(event.target, '[data-menu-toggle][aria-expanded="true"]').forEach(function (toggle) { setMenu(toggle, false, false); });
+    menuStates.forEach(function (state, menu) {
+      if (event.target !== state.owner && !event.target.contains(state.toggle)) return;
+      finishMenuClose(state, false);
+      menu.removeEventListener("cancel", state.cancel);
+      menu.removeEventListener("close", state.close);
+      menu.removeEventListener("transitionend", state.transition);
+      menu.remove();
+      state.marker.remove();
+      menuStates.delete(menu);
+    });
     observed.forEach(function (element) {
       if (event.target.contains(element)) {
         if (observer) observer.unobserve(element);

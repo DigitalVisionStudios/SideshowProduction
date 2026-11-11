@@ -316,7 +316,7 @@ body.sp-site.sp-home{padding-top:var(--sp-preview-offset)}
 .sp-roulette-panel [data-spin-result]{display:block;color:#d0c3ca;font-size:14px;line-height:1.8}
 .sp-roulette-panel [data-spin-result]:empty{display:none}
 
-/* Footer and mobile booking access. */
+/* Studio footer. */
 .sp-footer{padding:70px 0 26px;border-top:1px solid rgba(255,255,255,.1);background:#050506;color:var(--sp-text)}
 .sp-footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr 1.2fr;gap:48px;padding-bottom:58px}
 .sp-footer-grid>div{min-width:0}
@@ -335,10 +335,9 @@ body.sp-site.sp-home{padding-top:var(--sp-preview-offset)}
 .sp-footer-bottom p{max-width:none;margin:0;color:inherit;font-size:12px}
 .sp-footer-bottom nav{flex-direction:row;flex-wrap:wrap;gap:8px 21px}
 .sp-footer-bottom a{font-size:12px!important}
-.sp-book-bar{display:none}
 
 /* Progressive motion remains legible in long screenshots and without JS. */
-.sp-reveal-ready{opacity:.82;transform:translate3d(0,22px,0);transition:opacity .7s var(--sp-ease),transform .7s var(--sp-ease)}
+.sp-reveal-ready{opacity:.4;transform:translate3d(0,38px,0);transition:opacity .85s var(--sp-ease),transform .85s var(--sp-ease);transition-delay:var(--sp-reveal-delay,0ms)}
 .sp-reveal-ready.is-visible{opacity:1;transform:translate3d(0,0,0)}
 .sp-lightbox{position:fixed;inset:0;width:max-content;max-width:min(1080px,94vw);max-height:94vh;margin:auto;padding:0;overflow:auto;border:1px solid #3e333c;background:#09080a;color:white}
 .sp-lightbox::backdrop{background:rgba(0,0,0,.93)}
@@ -360,6 +359,51 @@ body.sp-site.sp-home{padding-top:var(--sp-preview-offset)}
 .sp-site>.design-preview{position:fixed;top:0;left:0;right:0;z-index:100000;min-height:29px;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:3px 11px;padding:6px 16px;border-bottom:1px solid #393239;background:#1b171c;color:#c5b9c2;font:11px/1.4 "SP Sans",Arial,sans-serif}
 .sp-site>.design-preview strong{color:#f2eaf0;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .sp-site .preview-form-status{padding:17px 20px;border:1px solid #70444b;background:#241116;color:#ead9e0;font:14px/1.7 "SP Sans",Arial,sans-serif}
+
+
+/* The studio's original brush lettering gives the page its own voice. */
+.sp-site .sp-heading-lead{display:block;font-size:.64em;line-height:1.25;letter-spacing:-.02em}
+.sp-site .sp-brush-accent{display:block;margin-top:.1em;color:var(--sp-red-light);font-family:"SP Brush","SP Sans",sans-serif;font-size:1.3em;font-weight:400;font-style:normal;line-height:1.13;letter-spacing:0}
+.sp-section-heading h2.sp-work-heading--brush{font-family:"SP Brush","SP Sans",sans-serif;font-size:clamp(64px,6.7vw,96px);font-weight:400;line-height:1.08;letter-spacing:0;color:var(--sp-red-light)}
+.sp-artist-info h3{font-family:"SP Brush","SP Sans",sans-serif;font-size:40px;font-weight:400;line-height:1.18;letter-spacing:0}
+.sp-artist-grid--full .sp-artist-info h3{font-size:50px}
+.sp-home #artists .sp-section-heading{margin-bottom:48px}
+.sp-home #artists .sp-section-heading h2{font-size:clamp(42px,4.6vw,66px)}
+.sp-home #artists{background:radial-gradient(ellipse at 100% 24%,rgba(148,10,10,.2),transparent 62%),#0b090c}
+.sp-studio-section{background:radial-gradient(ellipse at 4% 40%,rgba(148,10,10,.22),transparent 68%),#0e0b0d}
+.sp-work-section{background:radial-gradient(ellipse at 14% 0%,rgba(148,10,10,.2),transparent 64%),#0e0c0f}
+.sp-visit-section{background:radial-gradient(ellipse at 0% 90%,rgba(148,10,10,.14),transparent 60%),#09080a}
+.sp-statement h2 .sp-brush-accent{font-size:1.25em}
+.sp-flash-copy h2 .sp-brush-accent{font-size:1.12em}
+.sp-statement-media{position:relative;border:1px solid rgba(255,255,255,.08)}
+.sp-statement-media::after{content:"";position:absolute;inset:0;border:1px solid rgba(255,255,255,.06);pointer-events:none}
+.sp-statement-media img,.sp-flash-art img{transition:transform 1.25s cubic-bezier(.16,1,.3,1)}
+.sp-statement-media.sp-reveal-ready:not(.is-visible) img,.sp-flash-art.sp-reveal-ready:not(.is-visible) img{transform:scale(1.12)}
+.sp-artist-card.sp-reveal-ready:not(.is-visible) .sp-artist-photo img{transform:scale(1.09)}
+.sp-artist-photo>span{transition:background .3s,transform .45s var(--sp-ease)}
+.sp-artist-photo>span .sp-icon{transition:transform .45s var(--sp-ease)}
+.sp-artist-photo:hover>span .sp-icon{transform:translate(3px,-3px)}
+.sp-service-row{position:relative;isolation:isolate}
+.sp-service-row::before{content:"";position:absolute;z-index:-1;inset:0 -22px;background:linear-gradient(90deg,rgba(148,10,10,.2),transparent 88%);opacity:0;transform:scaleX(.85);transform-origin:left center;transition:opacity .45s,transform .6s var(--sp-ease);pointer-events:none}
+.sp-service-row:hover::before,.sp-service-row:focus-visible::before{opacity:1;transform:scaleX(1)}
+.sp-button .sp-icon,.sp-link .sp-icon{transition:transform .35s var(--sp-ease)}
+.sp-button:hover .sp-icon,.sp-link:hover .sp-icon{transform:translate(2px,-2px)}
+.sp-hero h1{animation:none}
+.sp-hero h1>span{animation:sp-hero-line 1s cubic-bezier(.16,1,.3,1) both}
+.sp-hero h1 em{transform-origin:left center;animation:sp-hero-brush 1.2s cubic-bezier(.16,1,.3,1) .12s both}
+.sp-hero .sp-intro{animation:sp-enter .95s var(--sp-ease) .23s both}
+.sp-hero .sp-actions{animation:sp-enter .95s var(--sp-ease) .36s both}
+@keyframes sp-hero-line{from{opacity:.2;transform:translate3d(0,34px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes sp-hero-brush{from{opacity:.2;clip-path:inset(0 100% 0 0);transform:translate3d(-14px,12px,0) rotate(-2deg)}to{opacity:1;clip-path:inset(0 -8% -20% -4%);transform:translate3d(0,0,0) rotate(0)}}
+@media(max-width:700px){
+  .sp-section-heading h2.sp-work-heading--brush{font-size:clamp(54px,15vw,74px)}
+  .sp-home #artists .sp-section-heading{margin-bottom:34px}
+  .sp-home #artists .sp-section-heading h2{font-size:clamp(36px,10.5vw,52px)}
+  .sp-site .sp-heading-lead{font-size:.7em}
+  .sp-site .sp-brush-accent{font-size:1.28em}
+  .sp-service-row::before{inset-inline:-12px}
+  .sp-hero h1 em{font-size:1.28em}
+}
 
 @media(min-width:1600px){
   .sp-hero-content{padding-block:190px 135px}
@@ -456,7 +500,7 @@ body.sp-site.sp-home{padding-top:var(--sp-preview-offset)}
   .sp-hero .sp-intro{max-width:37ch;margin-top:25px;font-size:16px;line-height:1.7}
   .sp-hero .sp-actions{gap:11px;margin-top:28px}
   .sp-hero .sp-button{min-height:53px;padding:16px;font-size:12px;gap:9px}
-  .sp-hero-controls{right:20px;bottom:80px}
+  .sp-hero-controls{right:20px;bottom:24px}
   .sp-section{padding-block:66px}
   .sp-section-heading{display:block;margin-bottom:30px}
   .sp-section-heading h2,.sp-heading{font-size:clamp(30px,8vw,45px)}
@@ -482,7 +526,7 @@ body.sp-site.sp-home{padding-top:var(--sp-preview-offset)}
   .sp-artist-photo img{aspect-ratio:3/4}
   .sp-artist-photo>span{width:35px;height:35px;font-size:20px}
   .sp-artist-info{padding-top:18px}
-  .sp-artist-info h2,.sp-artist-info h3{font-size:28px}
+  .sp-artist-info h2,.sp-artist-info h3{font-size:34px}
   .sp-artist-info p:not(.sp-eyebrow){margin-top:9px;font-size:12px;line-height:1.7}
   .sp-artist-info .sp-eyebrow{font-size:11px!important}
   .sp-artist-info .sp-link{margin-top:14px;font-size:12px;gap:8px}
@@ -519,7 +563,7 @@ body.sp-site.sp-home{padding-top:var(--sp-preview-offset)}
   .sp-visit-info{padding-top:0;font-size:15px}
   .sp-visit-info .sp-visit-note{font-size:13px}
   .sp-visit-map{grid-column:auto;min-height:280px;padding:24px}
-  .sp-footer{padding:50px 0 94px}
+  .sp-footer{padding:50px 0 calc(34px + env(safe-area-inset-bottom,0px))}
   .sp-footer-grid{grid-template-columns:1fr 1fr;gap:36px 22px;padding-bottom:36px}
   .sp-footer-grid>div:first-child,.sp-footer-grid>div:last-child{grid-column:1/-1}
   .sp-footer .sp-brand img{width:61px;height:61px}
@@ -531,9 +575,6 @@ body.sp-site.sp-home{padding-top:var(--sp-preview-offset)}
   .sp-footer-bottom{flex-direction:column;gap:13px;padding-top:21px;font-size:11px}
   .sp-footer-bottom a{font-size:11px!important}
   .sp-footer-bottom nav{gap:7px 16px}
-  .sp-book-bar{position:fixed;left:0;right:0;bottom:0;z-index:65;display:grid;grid-template-columns:1fr 1fr;padding-bottom:env(safe-area-inset-bottom,0px);border-top:1px solid #45353b;background:#0b090b;color:white}
-  .sp-book-bar a{display:flex;align-items:center;justify-content:center;gap:10px;min-height:59px;padding:15px 12px;font-size:13px;font-weight:500;line-height:1.4;text-align:center}
-  .sp-book-bar a:last-child{background:var(--sp-red)}
   .sp-page-hero{padding-block:50px 43px}
   .sp-page-hero h1{font-size:clamp(38px,10.5vw,64px)}
   .sp-page-hero p:not(.sp-eyebrow){margin-top:22px;font-size:16px}
@@ -589,17 +630,18 @@ body.sp-site.sp-home{padding-top:var(--sp-preview-offset)}
   .sp-hero h1{font-size:clamp(31px,10.3vw,38px)}
   .sp-hero .sp-intro{font-size:15px}
   .sp-hero .sp-button{padding-inline:14px;font-size:12px;gap:7px}
-  .sp-artist-info h2,.sp-artist-info h3{font-size:26px}
+  .sp-artist-info h2,.sp-artist-info h3{font-size:30px}
   .sp-work-caption{padding-inline:10px;font-size:11px}
 }
 @media(prefers-reduced-motion:reduce){
   .sp-site *,.sp-site *::before,.sp-site *::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
   .sp-reveal-ready{opacity:1;transform:none}
+  .sp-statement-media.sp-reveal-ready:not(.is-visible) img,.sp-flash-art.sp-reveal-ready:not(.is-visible) img,.sp-artist-card.sp-reveal-ready:not(.is-visible) .sp-artist-photo img{transform:none}
   .sp-hero-media{transform:none;will-change:auto}
   .sp-work:hover img,.sp-artist-card:hover .sp-artist-photo img,.sp-flash-art:hover img,.sp-visit-map:hover>img,.sp-product:hover img,.sp-button:hover,.sp-service-row:hover>div{transform:none}
 }
 @media print{
-  .sp-header,#shopify-section-studio-header,.sp-footer,.sp-book-bar,.sp-mobile-menu,.sp-filters,.sp-lightbox,.sp-button,.sp-hero-media,.sp-hero-shade,.sp-hero-controls,.design-preview{display:none!important}
+  .sp-header,#shopify-section-studio-header,.sp-footer,.sp-mobile-menu,.sp-filters,.sp-lightbox,.sp-button,.sp-hero-media,.sp-hero-shade,.sp-hero-controls,.design-preview{display:none!important}
   body.sp-site,body.sp-site.sp-home{padding:0;background:white;color:black}
   .sp-section--dark,.sp-section--paper,.sp-hero{background:white;color:black}
   .sp-shell{width:100%}

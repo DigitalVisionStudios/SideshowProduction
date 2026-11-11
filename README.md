@@ -36,11 +36,12 @@ Shopify page resources and template assignments must be created/confirmed in the
 
 - Black and deep red backgrounds, the source site's original Sedgwick Ave Display brush lettering, and the studio's actual artwork.
 - A full-width hero using a 6.4-second muted excerpt of real tattooing footage from the archived site. No generated photos or videos.
-- Lighter DM Sans headings, artist names, and navigation, paired with the original brush accent. Simplified copy, larger artwork, and the original studio crest.
+- Lighter DM Sans text paired with the source site's SP Brush lettering across the artwork heading, artist names, studio story, flash and location accents, and mobile menu. Larger real artwork and the original studio crest.
 - Inline SVG arrows, gallery controls, and FAQ chevrons for consistent rendering on phones, with accessible button labels.
 - Editable section settings and blocks for the hero, services, artists, portfolio, products, events, and common questions.
-- Fixed navigation that starts transparent on the homepage, becomes dark and compact after 48 pixels of scroll, and stays solid on inner pages. Responsive mobile navigation and a mobile booking bar.
-- Portfolio filtering, a keyboard-accessible image viewer, image hover motion, gentle scroll reveals, and a small hero background shift.
+- Fixed navigation that starts transparent on the homepage, becomes dark and compact after 48 pixels of scroll, and stays solid on inner pages. The fixed bottom booking bar has been removed. A full-height mobile menu uses a staged panel and link reveal, with native dialog focus management and scroll restoration.
+- A swipeable homepage artwork slider with SVG controls, progress feedback, and the existing image viewer. The full portfolio keeps its filterable grid.
+- Stronger staggered scroll reveals, staged hero typography, and image transitions. A moving service strip uses the original brush font, with a pause control and reduced-motion fallback.
 - Video pauses when offscreen or the tab is hidden. Reduced-motion preferences start on the poster without downloading the video, with an explicit play control available.
 - Automatic promotion expiry in both Liquid and JavaScript.
 - The 21 recovered products and all 27 actual Ink Roulette images.
@@ -84,9 +85,9 @@ npm run check
 
 The check validates the new studio section schemas, template references, Liquid rendering, JavaScript syntax, local routes, and asset references. It does not prove live booking, payment, email delivery, or Shopify inventory correctness.
 
-The current draft rendered all 11 routes without errors. Official Shopify Theme Check found no errors in the new studio files; its scoped warnings suggest using Shopify's preload_tag for the font preloads. Existing Debutify files have preexisting findings that were not rewritten as part of this draft.
+The current draft rendered all 11 routes without errors. A previous official Shopify Theme Check found no errors in the new studio files; its scoped warnings suggest using Shopify's preload_tag for the font preloads. Existing Debutify files have preexisting findings that were not rewritten as part of this draft.
 
-Browser review covered the home page at desktop and mobile sizes, artist cards on mobile, the services and shop layouts, the sticky header, portfolio filtering, image viewer opening/Escape, contact artist context, and the roulette design shuffle.
+Browser review covered the home page at desktop and mobile sizes, the brush headings at 320 pixels, and the artwork and artist layouts. Focused browser checks verified the mobile menu's entrance/exit, focus trap, scroll restoration, rapid reversal, desktop resize cleanup, reduced motion, and Shopify section reload. The artwork slider passed arrow controls, keyboard navigation, drag suppression, and deliberate lightbox opening; the service strip passed pause/resume. The portfolio grid and filtering remain functional. Earlier review also covered contact artist context and the roulette design shuffle.
 
 ## Source preparation
 

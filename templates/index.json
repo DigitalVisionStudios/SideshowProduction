@@ -115,7 +115,7 @@
           "type": "work",
           "settings": {
             "asset": "sp-work-12.webp",
-            "alt": "Tooth gems shown in Megan’s portfolio",
+            "alt": "Tooth gems shown in Megan\u2019s portfolio",
             "title": "Tooth gems",
             "artist": "MEGAN",
             "category": "gems"
@@ -144,10 +144,10 @@
             "asset": "sp-jake.webp",
             "alt": "Jake working on a tattoo at Sideshow",
             "bio": "Custom tattoo work, black and grey, lettering, and fine-line designs.",
-            "meta": "CUSTOM TATTOOS · LETTERING",
+            "meta": "CUSTOM TATTOOS \u00b7 LETTERING",
             "rate": "From $100 / hour",
             "deposit": "$50 deposit, credited toward your total.",
-            "hours": "Tuesday & Friday: 4–10 pm. Wednesday, Thursday & Saturday: 3:30–10 pm. No Sunday or Monday appointments."
+            "hours": "Tuesday & Friday: 4\u201310 pm. Wednesday, Thursday & Saturday: 3:30\u201310 pm. No Sunday or Monday appointments."
           }
         },
         "block_2": {
@@ -159,10 +159,10 @@
             "asset": "sp-rigo.webp",
             "alt": "Blue floral tattoo work by Rigo",
             "bio": "Custom tattoos and color work. Consultations in English or Spanish.",
-            "meta": "ILLUSTRATIVE · ENGLISH / ESPAÑOL",
+            "meta": "ILLUSTRATIVE \u00b7 ENGLISH / ESPA\u00d1OL",
             "rate": "From $100 / hour",
             "deposit": "$50 deposit, credited toward your total.",
-            "hours": "Tuesday–Saturday: 3–8 pm. No Sunday or Monday appointments."
+            "hours": "Tuesday\u2013Saturday: 3\u20138 pm. No Sunday or Monday appointments."
           }
         },
         "block_3": {
@@ -174,10 +174,10 @@
             "asset": "sp-sonny.webp",
             "alt": "Ear piercing work by Sonny",
             "bio": "Body piercings and jewelry. Contact Sonny about your placement and availability.",
-            "meta": "PIERCINGS · JEWELRY",
+            "meta": "PIERCINGS \u00b7 JEWELRY",
             "rate": "Pricing varies by piercing",
             "deposit": "20% deposit. Jewelry included with new piercings.",
-            "hours": "Tuesday–Friday: 2–8 pm. Saturday: noon–8 pm. No Sunday or Monday appointments."
+            "hours": "Tuesday\u2013Friday: 2\u20138 pm. Saturday: noon\u20138 pm. No Sunday or Monday appointments."
           }
         },
         "block_4": {
@@ -189,10 +189,10 @@
             "asset": "sp-megan.webp",
             "alt": "Megan at Sideshow Productions",
             "bio": "Tooth gems and teeth whitening. Explore gem options and whitening sessions.",
-            "meta": "TOOTH GEMS · TEETH WHITENING",
+            "meta": "TOOTH GEMS \u00b7 TEETH WHITENING",
             "rate": "Tooth gems from $60",
             "deposit": "Additional gems $20 each. Heart/star $65. Fang $100. Whitening: single $89, double $120, triple $200. 20% deposit.",
-            "hours": "Tuesday–Saturday: 7–8:30 pm."
+            "hours": "Tuesday\u2013Saturday: 7\u20138:30 pm."
           }
         }
       },
@@ -214,6 +214,10 @@
     "section_8": {
       "type": "studio-visit",
       "settings": {}
+    },
+    "section_marquee": {
+      "type": "studio-marquee",
+      "settings": {}
     }
   },
   "order": [
@@ -221,6 +225,7 @@
     "section_2",
     "section_4",
     "section_3",
+    "section_marquee",
     "section_5",
     "section_6",
     "section_7",

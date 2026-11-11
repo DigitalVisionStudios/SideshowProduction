@@ -1,0 +1,32 @@
+{% capture marquee_terms %}
+  <span class="sp-marquee__term">{{ section.settings.first_term | default: 'Custom tattoos' | escape }}</span>
+  <svg class="sp-marquee__separator" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M12 1.5 15.1 8.9 22.5 12l-7.4 3.1-3.1 7.4-3.1-7.4L1.5 12l7.4-3.1Z" fill="currentColor"/></svg>
+  <span class="sp-marquee__term sp-marquee__term--red">{{ section.settings.second_term | default: 'Piercings' | escape }}</span>
+  <svg class="sp-marquee__separator" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M12 1.5 15.1 8.9 22.5 12l-7.4 3.1-3.1 7.4-3.1-7.4L1.5 12l7.4-3.1Z" fill="currentColor"/></svg>
+  <span class="sp-marquee__term">{{ section.settings.third_term | default: 'Tooth gems' | escape }}</span>
+  <svg class="sp-marquee__separator sp-marquee__separator--last" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M12 1.5 15.1 8.9 22.5 12l-7.4 3.1-3.1 7.4-3.1-7.4L1.5 12l7.4-3.1Z" fill="currentColor"/></svg>
+{% endcapture %}
+<section class="sp-marquee" data-sp-marquee aria-label="Studio services" style="--sp-marquee-duration: {{ section.settings.duration | default: 40 }}s;">
+  <div class="sp-marquee__window">
+    <div class="sp-marquee__track" id="StudioMarqueeTrack-{{ section.id }}">
+      <div class="sp-marquee__group">{{ marquee_terms }}</div>
+      <div class="sp-marquee__group" data-marquee-copy aria-hidden="true" hidden>{{ marquee_terms }}</div>
+    </div>
+  </div>
+  <button class="sp-marquee__toggle" type="button" data-marquee-toggle aria-label="Pause moving text" aria-controls="StudioMarqueeTrack-{{ section.id }}" title="Pause moving text" hidden>
+    <svg data-marquee-pause viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M7 5h3v14H7zm7 0h3v14h-3z" fill="currentColor"/></svg>
+    <svg data-marquee-play viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" hidden><path d="m8 5 11 7-11 7Z" fill="currentColor"/></svg>
+  </button>
+</section>
+{% schema %}
+{
+  "name": "Studio marquee",
+  "settings": [
+    {"type": "text", "id": "first_term", "label": "First service", "default": "Custom tattoos"},
+    {"type": "text", "id": "second_term", "label": "Second service", "default": "Piercings"},
+    {"type": "text", "id": "third_term", "label": "Third service", "default": "Tooth gems"},
+    {"type": "range", "id": "duration", "label": "Loop duration", "min": 20, "max": 80, "step": 5, "unit": "s", "default": 40}
+  ],
+  "presets": [{"name": "Studio marquee"}]
+}
+{% endschema %}

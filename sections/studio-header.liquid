@@ -14,14 +14,45 @@
     </nav>
     <div class="sp-header-actions">
       <a class="sp-button sp-button--red" href="{{ section.settings.booking_url | default: '/pages/book' }}">{{ section.settings.booking_label | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
-      <button class="sp-menu-toggle" type="button" data-menu-toggle aria-controls="sp-mobile-menu" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span class="sp-sr-only">Menu</span></button>
+      <button class="sp-menu-toggle" type="button" data-menu-toggle aria-controls="sp-mobile-menu-{{ section.id }}" aria-expanded="false" aria-haspopup="dialog" aria-label="Open menu"><span aria-hidden="true"></span><span aria-hidden="true"></span><span class="sp-sr-only">Menu</span></button>
     </div>
   </div>
-  <nav id="sp-mobile-menu" class="sp-mobile-menu" data-mobile-menu aria-label="Mobile navigation" hidden>
-    <a href="/pages/portfolio">Our work</a><a href="/pages/artists">Artists</a><a href="/pages/services">Services</a><a href="/pages/flash">Flash tattoos</a><a href="/pages/ink-roulette">Ink Roulette</a><a href="/pages/shop">Shop</a><a href="/pages/about">About the studio</a><a href="/pages/aftercare">Aftercare</a><a href="/pages/contact">Contact</a>
-  </nav>
   <noscript><nav class="sp-noscript-nav" aria-label="Navigation"><a href="/pages/artists">Artists</a><a href="/pages/services">Services</a><a href="/pages/portfolio">Our work</a><a href="/pages/shop">Shop</a><a href="/pages/contact">Contact</a></nav></noscript>
 </header>
+<dialog id="sp-mobile-menu-{{ section.id }}" class="sp-menu-panel" data-mobile-menu aria-label="Site navigation" aria-modal="true" tabindex="-1" hidden>
+  <div class="sp-menu-ambient" aria-hidden="true"></div>
+  <div class="sp-menu-top">
+    <a class="sp-menu-brand" href="{{ routes.root_url }}" aria-label="Sideshow Productions home">
+      <img src="{{ 'sp-logo.webp' | asset_url }}" alt="" width="48" height="48">
+      <span class="sp-brand-type"><strong>SIDESHOW</strong><small>PRODUCTIONS</small></span>
+    </a>
+    <button class="sp-menu-close" type="button" data-menu-close aria-label="Close menu"><span aria-hidden="true"></span><span aria-hidden="true"></span><span class="sp-sr-only">Close menu</span></button>
+  </div>
+  <div class="sp-menu-scroll">
+    <div class="sp-menu-body">
+      <nav class="sp-menu-primary" aria-label="Main navigation">
+        <a class="sp-menu-link sp-menu-enter" href="/pages/portfolio"{% if request.path == '/pages/portfolio' %} aria-current="page"{% endif %}><span>Our work</span>{% render 'studio-icon', name: 'arrow-up-right' %}</a>
+        <a class="sp-menu-link sp-menu-enter" href="/pages/artists"{% if request.path == '/pages/artists' %} aria-current="page"{% endif %}><span>Artists</span>{% render 'studio-icon', name: 'arrow-up-right' %}</a>
+        <a class="sp-menu-link sp-menu-enter" href="/pages/services"{% if request.path == '/pages/services' %} aria-current="page"{% endif %}><span>Services</span>{% render 'studio-icon', name: 'arrow-up-right' %}</a>
+        <a class="sp-menu-link sp-menu-enter" href="/pages/flash"{% if request.path == '/pages/flash' %} aria-current="page"{% endif %}><span>Flash tattoos</span>{% render 'studio-icon', name: 'arrow-up-right' %}</a>
+        <a class="sp-menu-link sp-menu-enter" href="/pages/about"{% if request.path == '/pages/about' %} aria-current="page"{% endif %}><span>The studio</span>{% render 'studio-icon', name: 'arrow-up-right' %}</a>
+      </nav>
+      <div class="sp-menu-aside">
+        <a class="sp-button sp-button--red sp-menu-book sp-menu-enter" href="{{ section.settings.booking_url | default: '/pages/book' }}">{{ section.settings.booking_label | escape }} {% render 'studio-icon', name: 'arrow-up-right' %}</a>
+        <nav class="sp-menu-secondary sp-menu-enter" aria-label="More from Sideshow">
+          <a href="/pages/shop"{% if request.path == '/pages/shop' %} aria-current="page"{% endif %}>Shop</a>
+          <a href="/pages/ink-roulette"{% if request.path == '/pages/ink-roulette' %} aria-current="page"{% endif %}>Ink Roulette</a>
+          <a href="/pages/aftercare"{% if request.path == '/pages/aftercare' %} aria-current="page"{% endif %}>Aftercare</a>
+          <a href="/pages/contact"{% if request.path == '/pages/contact' %} aria-current="page"{% endif %}>Contact</a>
+        </nav>
+        <div class="sp-menu-contact sp-menu-enter">
+          <a href="tel:+13855479547">(385) 547-9547</a>
+          <p>4973 S State St, Murray, UT</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
 {% schema %}
 {"name":"Studio header","settings":[{"type":"text","id":"booking_label","label":"Booking button","default":"Book now"},{"type":"url","id":"booking_url","label":"Booking page"}]}
 {% endschema %}

@@ -4,7 +4,7 @@
       <img src="{{ 'sp-studio-interior.webp' | asset_url }}" alt="Inside Sideshow Productions tattoo studio in Murray" width="502" height="288" loading="lazy">
     </div>
     <div class="sp-statement-copy" data-reveal>
-      <h2>{{ section.settings.heading | escape }}</h2>
+      <h2>{% render 'studio-heading', heading: section.settings.heading, accent: 'SIDESHOW.' %}</h2>
       <p>{{ section.settings.copy | escape }}</p>
       <a class="sp-link" href="/pages/about">About Sideshow <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
     </div>

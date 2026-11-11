@@ -1,0 +1,10 @@
+{%- assign heading_text = heading | strip -%}
+{%- if accent != blank and heading_text contains accent -%}
+  {%- assign heading_parts = heading_text | split: accent -%}
+  {%- assign heading_before = heading_parts | first -%}
+  {%- assign heading_after = heading_text | remove_first: heading_before | remove_first: accent -%}
+  {% if heading_before != blank %}<span class="sp-heading-lead">{{ heading_before | escape }}</span>{% endif %}
+  <span class="sp-brush-accent">{{ accent | escape }}</span>{% if heading_after != blank %}<span>{{ heading_after | escape }}</span>{% endif %}
+{%- else -%}
+  {{- heading_text | escape -}}
+{%- endif -%}

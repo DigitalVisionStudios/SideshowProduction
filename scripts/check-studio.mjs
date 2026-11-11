@@ -112,7 +112,7 @@ for (const relative of liquidFiles) {
   }
 }
 
-const assetScripts = (await readdir(path.join(ROOT, 'assets'))).filter(function (name) { return /studio.*\.js$/i.test(name); });
+const assetScripts = (await readdir(path.join(ROOT, 'assets'))).filter(function (name) { return /^sideshow-.*\.js$/i.test(name); });
 for (const relative of ['scripts/preview-studio.mjs', 'scripts/check-studio.mjs', ...assetScripts.map(function (name) { return 'assets/' + name; })]) {
   const result = spawnSync(process.execPath, ['--check', path.join(ROOT, relative)], { encoding: 'utf8' });
   if (result.status !== 0) fail(relative + ': JavaScript syntax check failed\n' + result.stderr);

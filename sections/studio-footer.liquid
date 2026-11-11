@@ -9,7 +9,6 @@
     <div class="sp-footer-bottom"><span>© {{ 'now' | date: '%Y' }} Sideshow Productions LLC.</span><a href="/pages/contact">Murray, Utah <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a></div>
   </div>
 </footer>
-<div class="sp-book-bar"><a href="tel:{{ section.settings.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' }}">Call the studio</a><a href="/pages/book">Book a session <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a></div>
 {% schema %}
 {"name":"Studio footer","settings":[{"type":"text","id":"address","label":"Address","default":"4973 S State St, Murray, UT 84107"},{"type":"text","id":"phone","label":"Phone","default":"(385) 547-9547"},{"type":"text","id":"email","label":"Studio email","default":"club@sideshowproductionstattoo.com"}]}
 {% endschema %}

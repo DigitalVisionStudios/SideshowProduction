@@ -1,15 +1,47 @@
 <section class="sp-section sp-section--dark sp-work-section" id="work" data-gallery>
   <div class="sp-shell">
-    {% unless section.settings.full_gallery %}<div class="sp-section-heading" data-reveal><h2>{{ section.settings.heading | escape }}</h2><a class="sp-link" href="/pages/portfolio">View all work <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a></div>{% endunless %}
-    {% if section.settings.show_filters %}<div class="sp-filters" aria-label="Filter work"><button type="button" data-filter="all" aria-pressed="true">All work</button><button type="button" data-filter="tattoo" aria-pressed="false">Tattoos</button><button type="button" data-filter="piercing" aria-pressed="false">Piercings</button><button type="button" data-filter="gems" aria-pressed="false">Tooth gems</button></div>{% endif %}
-    <div class="sp-gallery-grid">
-      {% for block in section.blocks %}{% if block.settings.image != blank %}{% assign image_src = block.settings.image | image_url: width: 1600 %}{% else %}{% assign image_src = block.settings.asset | asset_url %}{% endif %}
-        <button class="sp-work" type="button" data-lightbox-src="{{ image_src | escape }}" data-lightbox-alt="{{ block.settings.alt | escape }}" data-category="{{ block.settings.category }}" aria-label="Enlarge: {{ block.settings.alt | escape }}" {{ block.shopify_attributes }} data-reveal>
-          {% render 'studio-image', image: block.settings.image, asset_name: block.settings.asset, alt: block.settings.alt %}
-          <span class="sp-work-caption"><span>{{ block.settings.title | escape }}</span><small>{{ block.settings.artist | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></small></span>
-        </button>
-      {% endfor %}
-    </div>
+    {% if section.settings.full_gallery %}
+      {% if section.settings.show_filters %}
+        <div class="sp-filters" aria-label="Filter work"><button type="button" data-filter="all" aria-pressed="true">All work</button><button type="button" data-filter="tattoo" aria-pressed="false">Tattoos</button><button type="button" data-filter="piercing" aria-pressed="false">Piercings</button><button type="button" data-filter="gems" aria-pressed="false">Tooth gems</button></div>
+      {% endif %}
+      <div class="sp-gallery-grid">
+        {% for block in section.blocks %}
+          {% if block.settings.image != blank %}{% assign image_src = block.settings.image | image_url: width: 1600 %}{% else %}{% assign image_src = block.settings.asset | asset_url %}{% endif %}
+          <button class="sp-work" type="button" data-lightbox-src="{{ image_src | escape }}" data-lightbox-alt="{{ block.settings.alt | escape }}" data-category="{{ block.settings.category }}" aria-label="Enlarge: {{ block.settings.alt | escape }}" {{ block.shopify_attributes }} data-reveal>
+            {% render 'studio-image', image: block.settings.image, asset_name: block.settings.asset, alt: block.settings.alt %}
+            <span class="sp-work-caption"><span>{{ block.settings.title | escape }}</span><small>{{ block.settings.artist | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></small></span>
+          </button>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="sp-section-heading" data-reveal>
+        <h2 id="sp-work-heading-{{ section.id }}" class="sp-work-heading--brush">{{ section.settings.heading | escape }}</h2>
+        <a class="sp-link" href="/pages/portfolio">View all work <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
+      </div>
+      <div class="sp-artwork-carousel" data-sp-carousel role="region" aria-roledescription="carousel" aria-labelledby="sp-work-heading-{{ section.id }}">
+        <p class="sp-carousel-instructions" id="sp-carousel-help-{{ section.id }}">Swipe or use the arrow buttons to explore. Use the Left and Right Arrow keys when the gallery is focused. Select an image to enlarge it.</p>
+        <div class="sp-carousel-track" id="sp-carousel-track-{{ section.id }}" data-carousel-track dir="ltr" tabindex="0" aria-label="Artwork gallery" aria-describedby="sp-carousel-help-{{ section.id }}">
+          {% for block in section.blocks %}
+            {% if block.settings.image != blank %}{% assign image_src = block.settings.image | image_url: width: 1600 %}{% else %}{% assign image_src = block.settings.asset | asset_url %}{% endif %}
+            <div class="sp-carousel-slide" data-carousel-slide role="group" aria-roledescription="slide" aria-label="{{ forloop.index }} of {{ forloop.length }}" {{ block.shopify_attributes }}>
+              <button class="sp-work" type="button" data-lightbox-src="{{ image_src | escape }}" data-lightbox-alt="{{ block.settings.alt | escape }}" data-category="{{ block.settings.category }}" aria-label="Enlarge: {{ block.settings.alt | escape }}">
+                {% render 'studio-image', image: block.settings.image, asset_name: block.settings.asset, alt: block.settings.alt %}
+                <span class="sp-work-caption"><span>{{ block.settings.title | escape }}</span><small>{{ block.settings.artist | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></small></span>
+              </button>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="sp-carousel-controls" data-carousel-controls hidden>
+          <span class="sp-carousel-counter" data-carousel-counter aria-hidden="true">01 / {{ section.blocks.size }}</span>
+          <div class="sp-carousel-progress" aria-hidden="true"><span data-carousel-progress></span></div>
+          <div class="sp-carousel-buttons">
+            <button class="sp-carousel-button" type="button" data-carousel-prev aria-label="Previous artwork" aria-controls="sp-carousel-track-{{ section.id }}" disabled><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"/></svg></button>
+            <button class="sp-carousel-button" type="button" data-carousel-next aria-label="Next artwork" aria-controls="sp-carousel-track-{{ section.id }}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></button>
+          </div>
+        </div>
+        <p class="sp-sr-only" role="status" aria-live="polite" aria-atomic="true" data-carousel-status></p>
+      </div>
+    {% endif %}
   </div>
 </section>
 {% schema %}

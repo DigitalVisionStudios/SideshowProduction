@@ -11,8 +11,13 @@
   <link rel="preload" as="font" type="font/woff2" href="{{ 'sp-body.woff2' | asset_url }}" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="{{ 'sp-brush.woff2' | asset_url }}" crossorigin>
   {{ 'sideshow-studio.css' | asset_url | stylesheet_tag }}
+  {{ 'sideshow-menu.css' | asset_url | stylesheet_tag }}
+  {{ 'sideshow-carousel.css' | asset_url | stylesheet_tag }}
+  {{ 'sideshow-marquee.css' | asset_url | stylesheet_tag }}
   {{ content_for_header }}
   <script src="{{ 'sideshow-studio.js' | asset_url }}" defer></script>
+  <script src="{{ 'sideshow-carousel.js' | asset_url }}" defer></script>
+  <script src="{{ 'sideshow-marquee.js' | asset_url }}" defer></script>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ shop.name | escape }}">
   <meta property="og:title" content="{{ page_title | default: shop.name | escape }}">

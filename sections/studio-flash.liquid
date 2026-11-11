@@ -1,7 +1,7 @@
 <section class="sp-section sp-flash-section">
   <div class="sp-shell sp-flash-feature">
     <div class="sp-flash-copy" data-reveal>
-      <h2>{{ section.settings.heading | escape }}</h2>
+      <h2>{% render 'studio-heading', heading: section.settings.heading, accent: 'INK ROULETTE.' %}</h2>
       <p>{{ section.settings.copy | escape }}</p>
       <div class="sp-actions"><a class="sp-button sp-button--red" href="/pages/flash">Browse flash <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a><a class="sp-link" href="/pages/ink-roulette">Ink Roulette <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a></div>
     </div>
