@@ -1,46 +1,126 @@
-<section class="sp-hero" aria-labelledby="sp-hero-heading-{{ section.id }}">
-  <div class="sp-hero-media" aria-hidden="true">
-    {% if section.settings.image != blank %}
-      <img class="sp-hero-poster" src="{{ section.settings.image | image_url: width: 2000 }}" alt="" width="1920" height="1080" fetchpriority="high">
-    {% else %}
-      <img class="sp-hero-poster" src="{{ 'sp-authentic-hero-poster.webp' | asset_url }}" alt="" width="498" height="246" fetchpriority="high">
-      {% if section.settings.show_video %}
-        <video data-sp-hero-video muted loop playsinline preload="none" poster="{{ 'sp-authentic-hero-poster.webp' | asset_url }}" tabindex="-1" aria-hidden="true">
-          <source data-src="{{ 'sp-authentic-hero.mp4' | asset_url }}" type="video/mp4">
-        </video>
+{% assign hero_interval = section.settings.interval | default: 5.5 | times: 1000 %}
+{% assign hero_has_video = false %}
+<section class="sp-hero-deck" data-sp-hero-deck data-hero-interval="{{ hero_interval }}" data-hero-autoplay="{{ section.settings.autoplay }}" aria-labelledby="sp-hero-heading-{{ section.id }}" aria-roledescription="carousel">
+  <div class="sp-hero-deck__media" aria-hidden="true">
+    {% for block in section.blocks %}
+      {% assign hero_asset = block.settings.asset | default: 'sp-source-storefront.webp' %}
+      {% if block.settings.image != blank %}
+        {% assign hero_src = block.settings.image | image_url: width: 2000 %}
+        {% assign hero_width = block.settings.image.width %}
+        {% assign hero_height = block.settings.image.height %}
+      {% else %}
+        {% assign hero_src = hero_asset | asset_url %}
+        {% assign hero_width = block.settings.width | default: 1354 %}
+        {% assign hero_height = block.settings.height | default: 759 %}
       {% endif %}
-    {% endif %}
-  </div>
-  <div class="sp-hero-shade" aria-hidden="true"></div>
-  <div class="sp-shell sp-hero-content">
-    <div class="sp-hero-copy">
-      <h1 id="sp-hero-heading-{{ section.id }}"><span>{{ section.settings.heading_line_one | escape }}</span><em>{{ section.settings.heading_accent | escape }}</em></h1>
-      <p class="sp-intro">{{ section.settings.description | escape }}</p>
-      <div class="sp-actions">
-        <a class="sp-button sp-button--red" href="/pages/book">Book an appointment <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
-        <a class="sp-button sp-button--outline" href="/pages/portfolio">View our work <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
+      <div class="sp-hero-deck__frame sp-hero-deck__frame--{{ block.settings.media_style | default: 'cover' }}{% if forloop.first %} is-active{% endif %}" data-sp-hero-frame data-block-id="{{ block.id }}" style="--sp-hero-focus-x:{{ block.settings.focus_x | default: 50 }}%;--sp-hero-focus-y:{{ block.settings.focus_y | default: 50 }}%;" {% unless forloop.first %}hidden{% endunless %} {{ block.shopify_attributes }}>
+        <img src="{{ hero_src }}" alt="" width="{{ hero_width }}" height="{{ hero_height }}" decoding="async" {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy" fetchpriority="low"{% endif %}>
+        {% if section.settings.enable_video and block.settings.video_asset != blank and block.settings.video_asset != '#' %}
+          {% assign hero_has_video = true %}
+          <video data-sp-hero-deck-video muted loop playsinline preload="none" poster="{{ hero_src }}" tabindex="-1" aria-hidden="true">
+            <source data-src="{{ block.settings.video_asset | asset_url }}" type="video/mp4">
+          </video>
+        {% endif %}
       </div>
+    {% else %}
+      <div class="sp-hero-deck__frame sp-hero-deck__frame--cover is-active" data-sp-hero-frame>
+        <img src="{{ 'sp-source-storefront.webp' | asset_url }}" alt="" width="1354" height="759" fetchpriority="high">
+      </div>
+    {% endfor %}
+  </div>
+  <div class="sp-hero-deck__ambient" aria-hidden="true"></div>
+  <div class="sp-hero-deck__shade" aria-hidden="true"></div>
+  <div class="sp-hero-deck__floor" aria-hidden="true"></div>
+  <div class="sp-shell sp-hero-deck__content">
+    <div class="sp-hero-deck__copy">
+      <h1 id="sp-hero-heading-{{ section.id }}">
+        <span class="sp-hero-deck__prefix">{{ section.settings.prefix | default: 'Unleashing your creativity starts with' | escape }}</span>
+        <span class="sp-hero-deck__words">
+          {% for block in section.blocks %}
+            <span class="sp-hero-deck__word{% if forloop.first %} is-active{% endif %}" data-sp-hero-word {% unless forloop.first %}aria-hidden="true" hidden{% endunless %}>{{ block.settings.word | default: 'artists' | escape }}</span>
+          {% else %}
+            <span class="sp-hero-deck__word is-active" data-sp-hero-word>artists</span>
+          {% endfor %}
+        </span>
+        <span class="sp-hero-deck__suffix">{{ section.settings.suffix | default: 'that inspire.' | escape }}</span>
+      </h1>
+      <p class="sp-hero-deck__intro">{{ section.settings.description | escape }}</p>
+      <div class="sp-actions sp-hero-deck__actions">
+        <a class="sp-button sp-button--red" href="{{ section.settings.primary_link | default: '/pages/book' }}">{{ section.settings.primary_label | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
+        <a class="sp-button sp-button--outline" href="{{ section.settings.secondary_link | default: '/pages/artists' }}">{{ section.settings.secondary_label | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
+      </div>
+      {% if section.blocks.size > 1 or hero_has_video %}
+        <div class="sp-hero-deck__controls" data-sp-hero-deck-controls hidden>
+          {% if section.blocks.size > 1 %}
+          <div class="sp-hero-deck__pager" data-sp-hero-pager role="group" aria-label="Choose a hero scene">
+            {% for block in section.blocks %}
+              <button class="sp-hero-deck__step{% if forloop.first %} is-active{% endif %}" type="button" data-sp-hero-go="{{ forloop.index0 }}" aria-label="Show {{ block.settings.word | escape }} scene" {% if forloop.first %}aria-current="true"{% endif %}>
+                <span aria-hidden="true">0{{ forloop.index }}</span>
+                <span class="sp-hero-deck__step-line" aria-hidden="true"></span>
+              </button>
+            {% endfor %}
+          </div>
+          {% endif %}
+          <div class="sp-hero-deck__transport" role="group" aria-label="Hero motion controls">
+            {% if section.blocks.size > 1 %}
+            <button class="sp-hero-deck__control" type="button" data-sp-hero-prev aria-label="Previous hero scene"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="m14 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            {% endif %}
+            <button class="sp-hero-deck__control sp-hero-deck__motion" type="button" data-sp-hero-motion aria-label="Pause slideshow and video" title="Pause slideshow and video">
+              <svg data-sp-hero-pause-icon viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M7 5h3v14H7zm7 0h3v14h-3z" fill="currentColor"/></svg>
+              <svg data-sp-hero-play-icon viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" hidden><path d="m8 5 11 7-11 7Z" fill="currentColor"/></svg>
+            </button>
+            {% if section.blocks.size > 1 %}
+              <button class="sp-hero-deck__control" type="button" data-sp-hero-next aria-label="Next hero scene"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="m10 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            {% endif %}
+          </div>
+          <span class="sp-hero-deck__status" data-sp-hero-status role="status" aria-live="polite" aria-atomic="true"></span>
+        </div>
+      {% endif %}
     </div>
   </div>
-  {% if section.settings.show_video and section.settings.image == blank %}
-    <div class="sp-hero-controls">
-      <button class="sp-video-toggle" type="button" data-sp-video-toggle aria-label="Pause background video" aria-pressed="false" hidden>
-        <svg data-sp-video-pause-icon width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14" fill="none" stroke="currentColor" stroke-width="3"/></svg>
-        <svg data-sp-video-play-icon width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="m8 5 11 7-11 7Z" fill="currentColor"/></svg>
-      </button>
-    </div>
-  {% endif %}
 </section>
 {% schema %}
 {
   "name": "Studio hero",
+  "max_blocks": 6,
   "settings": [
-    {"type":"text","id":"heading_line_one","label":"First heading line","default":"UNLEASH YOUR"},
-    {"type":"text","id":"heading_accent","label":"Brush heading","default":"CREATIVITY."},
-    {"type":"textarea","id":"description","label":"Introduction","default":"Custom tattoos, piercings, and more. Sideshow Productions in Murray, Utah."},
-    {"type":"checkbox","id":"show_video","label":"Play original studio footage","default":true},
-    {"type":"image_picker","id":"image","label":"Optional hero photograph"}
+    {"type":"text","id":"prefix","label":"Heading before rotating word","default":"Unleashing your creativity starts with"},
+    {"type":"text","id":"suffix","label":"Heading after rotating word","default":"that inspire."},
+    {"type":"textarea","id":"description","label":"Introduction","default":"Our artists bring bold ideas to life, ensuring every detail is perfect."},
+    {"type":"text","id":"primary_label","label":"Booking button","default":"Book Now"},
+    {"type":"url","id":"primary_link","label":"Booking destination"},
+    {"type":"text","id":"secondary_label","label":"Artists button","default":"Our Artists"},
+    {"type":"url","id":"secondary_link","label":"Artists destination"},
+    {"type":"checkbox","id":"autoplay","label":"Rotate scenes automatically","default":true},
+    {"type":"range","id":"interval","label":"Seconds between scenes","min":4,"max":10,"step":0.5,"unit":"s","default":5.5},
+    {"type":"checkbox","id":"enable_video","label":"Allow optional scene videos","default":true}
   ],
-  "presets": [{"name":"Studio hero"}]
+  "blocks": [
+    {
+      "type":"scene",
+      "name":"Hero scene",
+      "settings":[
+        {"type":"text","id":"word","label":"Rotating word","default":"artists"},
+        {"type":"image_picker","id":"image","label":"Optional uploaded photograph"},
+        {"type":"text","id":"asset","label":"Fallback photograph asset","default":"sp-source-storefront.webp"},
+        {"type":"number","id":"width","label":"Fallback image width","default":1354},
+        {"type":"number","id":"height","label":"Fallback image height","default":759},
+        {"type":"select","id":"media_style","label":"Photo framing","options":[{"value":"cover","label":"Full background"},{"value":"right","label":"Full photo on the right"}],"default":"cover"},
+        {"type":"range","id":"focus_x","label":"Horizontal photo focus","min":0,"max":100,"step":5,"unit":"%","default":50},
+        {"type":"range","id":"focus_y","label":"Vertical photo focus","min":0,"max":100,"step":5,"unit":"%","default":50},
+        {"type":"text","id":"video_asset","label":"Optional MP4 asset","info":"Use # for a still photograph.","default":"#"}
+      ]
+    }
+  ],
+  "presets":[
+    {
+      "name":"Studio hero",
+      "blocks":[
+        {"type":"scene","settings":{"word":"artists","asset":"sp-source-storefront.webp","width":1354,"height":759,"media_style":"cover","focus_x":50,"focus_y":50,"video_asset":"#"}},
+        {"type":"scene","settings":{"word":"piercings","asset":"sp-work-04.webp","width":730,"height":707,"media_style":"right","focus_x":50,"focus_y":50,"video_asset":"#"}},
+        {"type":"scene","settings":{"word":"tattoos","asset":"sp-welcome-jake-session.webp","width":750,"height":1000,"media_style":"right","focus_x":50,"focus_y":55,"video_asset":"#"}}
+      ]
+    }
+  ]
 }
 {% endschema %}

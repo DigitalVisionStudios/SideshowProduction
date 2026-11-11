@@ -1,4 +1,50 @@
-<section class="sp-section sp-section--paper"><div class="sp-shell sp-flash-feature sp-roulette-panel"><div class="sp-flash-copy"><h2>TAKE A SPIN.</h2><p>The studio's Ink Roulette experience includes two spins for $150. Choose a number from your spins and a design from the board. Prefer another number? The published option is an additional $20.</p><p>For a little inspiration before your visit, shuffle through the studio's Ink Roulette designs below. This gallery shuffle does not make an official Ink Roulette selection or reserve an appointment.</p><button class="sp-button sp-button--red" type="button" data-spin>Shuffle designs <span aria-hidden="true">{% render 'studio-icon', name: 'refresh' %}</span></button><p><output data-spin-result aria-live="polite">Explore a design, then talk to an artist.</output></p><a class="sp-link" href="/pages/contact">Ask about Ink Roulette <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a></div><div class="sp-roulette-image"><img src="{{ 'sp-roulette-01.webp' | asset_url }}" alt="An Ink Roulette design from Sideshow Productions" width="800" height="1000" loading="lazy"></div><script type="application/json" data-flash-pool>[{% for block in section.blocks %}{"image":{{ block.settings.asset | asset_url | json }},"title":{{ block.settings.title | json }}}{% unless forloop.last %},{% endunless %}{% endfor %}]</script></div></section>
+<section class="sp-section sp-wheel-section" aria-labelledby="sp-wheel-title-{{ section.id }}" data-sp-wheel>
+  <div class="sp-shell">
+    <div class="sp-section-heading" data-reveal>
+      <div><h2 id="sp-wheel-title-{{ section.id }}"><span class="sp-heading-lead">{{ section.settings.heading | escape }}</span><em class="sp-brush-accent">{{ section.settings.accent | escape }}</em></h2><p>{{ section.settings.copy | escape }}</p></div>
+      <a class="sp-link" href="/pages/ink-roulette">Explore Ink Roulette {% render 'studio-icon', name: 'arrow-up-right' %}</a>
+    </div>
+    {% if section.blocks.size > 0 %}
+      <div class="sp-wheel-grid">
+        <div class="sp-wheel-play" data-reveal>
+          <div class="sp-wheel-stage" style="--sp-wheel-count: {{ section.blocks.size }};">
+            <span class="sp-wheel-pointer" aria-hidden="true"><svg viewBox="0 0 30 38" width="30" height="38"><path d="M3 3h24L15 34Z" fill="currentColor"/></svg></span>
+            <div class="sp-wheel-rotor" data-wheel-rotor aria-hidden="true">
+              {% for block in section.blocks %}<span class="sp-wheel-number" style="--sp-wheel-index: {{ forloop.index0 }};"><b>{{ forloop.index }}</b></span>{% endfor %}
+            </div>
+            <button class="sp-wheel-spin" type="button" data-wheel-spin aria-label="Spin the wheel to explore a tattoo design" disabled><span data-wheel-button-text>SPIN</span>{% render 'studio-icon', name: 'arrow-right' %}</button>
+          </div>
+          <p class="sp-wheel-hint">{{ section.settings.hint | escape }}</p>
+          <noscript><p class="sp-wheel-hint">Browse the <a href="/pages/ink-roulette">full Ink Roulette collection</a> to find your next idea.</p></noscript>
+        </div>
+        <div class="sp-wheel-result" data-gallery data-reveal>
+          {% assign first_design = section.blocks.first %}
+          <button class="sp-wheel-photo" type="button" data-wheel-photo data-lightbox-src="{{ first_design.settings.asset | asset_url }}" data-lightbox-alt="{{ first_design.settings.title | escape }}" aria-label="Enlarge: {{ first_design.settings.title | escape }}">
+            <img data-wheel-image src="{{ first_design.settings.asset | asset_url }}" alt="{{ first_design.settings.title | escape }}" width="800" height="1000" loading="lazy" decoding="async">
+            <span class="sp-wheel-photo-open" aria-hidden="true">View design {% render 'studio-icon', name: 'arrow-up-right' %}</span>
+          </button>
+          <div class="sp-wheel-result-copy"><p class="sp-eyebrow">THE STUDIO'S INK ROULETTE COLLECTION</p><h3 data-wheel-title>Your next idea is a spin away.</h3><p class="sp-wheel-status" data-wheel-status role="status" aria-live="polite" aria-atomic="true">Spin to explore {{ section.blocks.size }} real designs from the studio.</p></div>
+        </div>
+      </div>
+      <div class="sp-wheel-details" data-reveal><p><strong>{{ section.settings.price | escape }}</strong><span>{{ section.settings.price_note | escape }}</span></p><p>{{ section.settings.terms | escape }}</p><a class="sp-link" href="/pages/contact?item=Ink%20Roulette">Ask an artist {% render 'studio-icon', name: 'arrow-up-right' %}</a></div>
+      <script type="application/json" data-wheel-pool>[{% for block in section.blocks %}{"image":{{ block.settings.asset | asset_url | json }},"title":{{ block.settings.title | json }}}{% unless forloop.last %},{% endunless %}{% endfor %}]</script>
+    {% endif %}
+  </div>
+</section>
 {% schema %}
-{"name":"Studio ink inspiration","settings":[],"blocks":[{"type":"sheet","name":"Roulette design","settings":[{"type":"text","id":"asset","label":"Image asset filename","default":"sp-roulette-01.webp"},{"type":"text","id":"title","label":"Description","default":"A little inspiration from Sideshow"}]}],"presets":[{"name":"Studio ink inspiration"}]}
+{
+  "name": "Studio wheel of ink",
+  "max_blocks": 50,
+  "settings": [
+    {"type":"text","id":"heading","label":"Heading","default":"DISCOVER YOUR STYLE."},
+    {"type":"text","id":"accent","label":"Brush heading","default":"SPIN THE WHEEL."},
+    {"type":"textarea","id":"copy","label":"Introduction","default":"A little adventure. A new idea. Explore the studio's real Ink Roulette designs and find something that speaks to you."},
+    {"type":"text","id":"hint","label":"Wheel instruction","default":"Tap the center and see where it takes you."},
+    {"type":"text","id":"price","label":"In-studio price","default":"Two spins for $150"},
+    {"type":"text","id":"price_note","label":"Price detail","default":"The in-studio Ink Roulette experience"},
+    {"type":"textarea","id":"terms","label":"Experience detail","default":"Choose a number from your two spins, then a design from the board. Choosing another number is an additional $20. This online wheel is for inspiration; your artist confirms your in-studio selection."}
+  ],
+  "blocks":[{"type":"sheet","name":"Roulette design","settings":[{"type":"text","id":"asset","label":"Image asset filename","default":"sp-roulette-01.webp"},{"type":"text","id":"title","label":"Description","default":"A design from Sideshow's Ink Roulette collection"}]}],
+  "presets":[{"name":"Studio wheel of ink"}]
+}
 {% endschema %}

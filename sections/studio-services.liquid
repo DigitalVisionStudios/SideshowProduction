@@ -1,13 +1,39 @@
-<section class="sp-section sp-services-section" id="services">
+<section class="sp-section sp-services-section" id="services" aria-labelledby="sp-services-heading-{{ section.id }}">
   <div class="sp-shell">
-    <div class="sp-section-heading" data-reveal><h2>{{ section.settings.heading | escape }}</h2></div>
-    <div class="sp-service-list">
+    <div class="sp-section-heading sp-services-heading" data-reveal>
+      <div>
+        <h2 id="sp-services-heading-{{ section.id }}">{% render 'studio-heading', heading: section.settings.heading, accent: 'DO.' %}</h2>
+        {% if section.settings.intro != blank and section.settings.intro != '#' %}<p>{{ section.settings.intro | escape }}</p>{% endif %}
+      </div>
+    </div>
+    <div class="sp-service-grid">
       {% for block in section.blocks %}
-        <a class="sp-service-row" href="{{ block.settings.link | default: '/pages/book' }}" {{ block.shopify_attributes }} data-reveal>
-          <div><h3>{{ block.settings.title | escape }}</h3><p>{{ block.settings.description | escape }}</p></div>
-          <span class="sp-service-meta">{{ block.settings.note | escape }}</span>
-          <span class="sp-arrow" aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span>
-        </a>
+        {% assign has_photo = false %}
+        {% if block.settings.image != blank %}{% assign has_photo = true %}{% elsif block.settings.asset != blank and block.settings.asset != '#' %}{% assign has_photo = true %}{% endif %}
+        <article class="sp-service-card{% unless has_photo %} sp-service-card--text{% endunless %}" {{ block.shopify_attributes }} data-reveal>
+          <div class="sp-service-surface">
+            {% if has_photo %}
+              <div class="sp-service-photo{% if block.settings.fit == 'contain' %} sp-service-photo--contain{% endif %}">
+                {% assign photo_alt = block.settings.alt | default: block.settings.title %}
+                {% render 'studio-image', image: block.settings.image, asset_name: block.settings.asset, alt: photo_alt, width: 800, height: 600 %}
+              </div>
+            {% endif %}
+            <div class="sp-service-body">
+              <h3>{{ block.settings.title | escape }}</h3>
+              {% if block.settings.price != blank and block.settings.price != '#' %}<p class="sp-service-price">{{ block.settings.price | escape }}</p>{% endif %}
+              <p class="sp-service-description">{{ block.settings.description | escape }}</p>
+              {% if block.settings.price_detail != blank and block.settings.price_detail != '#' %}<p class="sp-service-price-detail">{{ block.settings.price_detail | escape }}</p>{% endif %}
+              <div class="sp-service-links">
+                <a class="sp-button sp-service-cta" href="{{ block.settings.link | default: '/pages/book' }}">{{ block.settings.link_label | default: 'View service' | escape }} {% render 'studio-icon', name: 'arrow-up-right' %}</a>
+                {% if block.settings.artist_link != blank and block.settings.note != blank and block.settings.note != '#' %}
+                  <a class="sp-service-artist" href="{{ block.settings.artist_link }}">{{ block.settings.note | escape }} {% render 'studio-icon', name: 'arrow-right' %}</a>
+                {% elsif block.settings.note != blank and block.settings.note != '#' %}
+                  <span class="sp-service-artist">{{ block.settings.note | escape }}</span>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </article>
       {% endfor %}
     </div>
   </div>
@@ -15,18 +41,30 @@
 {% schema %}
 {
   "name":"Studio services",
-  "settings":[{"type":"text","id":"heading","label":"Heading","default":"WHAT WE DO."}],
+  "max_blocks":8,
+  "settings":[
+    {"type":"text","id":"heading","label":"Heading","default":"WHAT WE DO."},
+    {"type":"textarea","id":"intro","label":"Introduction","default":"Tattoos, piercings, tooth gems, and teeth whitening. Find your service and meet the artist."}
+  ],
   "blocks":[{"type":"service","name":"Service","settings":[
     {"type":"text","id":"title","label":"Title","default":"Custom tattoos"},
+    {"type":"image_picker","id":"image","label":"Service photograph"},
+    {"type":"text","id":"asset","label":"Fallback image asset","default":"#"},
+    {"type":"text","id":"alt","label":"Image description","default":"Sideshow Productions service photograph"},
+    {"type":"select","id":"fit","label":"Photo framing","default":"cover","options":[{"value":"cover","label":"Fill the frame"},{"value":"contain","label":"Show the whole photograph"}]},
+    {"type":"text","id":"price","label":"Published starting price","default":"#"},
+    {"type":"textarea","id":"price_detail","label":"Price or deposit details","default":"#"},
     {"type":"textarea","id":"description","label":"Description","default":"Custom designs, black and grey, color, and lettering."},
-    {"type":"text","id":"note","label":"Artist","default":"Jake & Rigo"},
-    {"type":"url","id":"link","label":"Destination"}
+    {"type":"text","id":"note","label":"Artist name or service note","default":"#"},
+    {"type":"url","id":"artist_link","label":"Artist profile"},
+    {"type":"text","id":"link_label","label":"Service link label","default":"View service"},
+    {"type":"url","id":"link","label":"Service or booking destination"}
   ]}],
   "presets":[{"name":"Studio services","blocks":[
-    {"type":"service","settings":{"title":"Custom tattoos","description":"Custom designs, black and grey, color, and lettering.","note":"Jake & Rigo","link":"/pages/artists"}},
-    {"type":"service","settings":{"title":"Piercings","description":"Explore placements and jewelry with Sonny.","note":"Sonny","link":"/pages/artists#sonny"}},
-    {"type":"service","settings":{"title":"Tooth gems","description":"Crystals, shapes, and individual gem placements.","note":"Megan","link":"/pages/artists#megan"}},
-    {"type":"service","settings":{"title":"Teeth whitening","description":"Single, double, and triple sessions with Megan.","note":"Megan","link":"/pages/artists#megan"}}
+    {"type":"service","settings":{"title":"Custom tattoos","asset":"sp-work-03.webp","alt":"Swallow and sun linework tattoo by Jake","fit":"cover","price":"From $100 / hour","price_detail":"$50 deposit, credited toward your total.","description":"Custom designs, black and grey, color, and lettering.","note":"Jake & Rigo","artist_link":"/pages/artists","link_label":"Book tattoos","link":"/pages/book"}},
+    {"type":"service","settings":{"title":"Piercings","asset":"sp-work-04.webp","alt":"Heart-shaped ear jewelry in a piercing by Sonny","fit":"cover","price":"Pricing by placement","price_detail":"20% deposit. Jewelry included with new piercings.","description":"Explore placements and jewelry with Sonny.","note":"Sonny","artist_link":"/pages/artists#sonny","link_label":"Book piercings","link":"/pages/book"}},
+    {"type":"service","settings":{"title":"Tooth gems","asset":"sp-work-12.webp","alt":"Tooth gems shown in Megan's portfolio","fit":"cover","price":"From $60","price_detail":"Additional gems $20 each. Heart/star $65. Fang $100. 20% deposit.","description":"Crystals, shapes, and individual gem placements.","note":"Megan","artist_link":"/pages/artists#megan","link_label":"Book tooth gems","link":"/pages/book"}},
+    {"type":"service","settings":{"title":"Teeth whitening","asset":"sp-megan.webp","alt":"Megan at Sideshow Productions","fit":"contain","price":"From $89","price_detail":"Single $89. Double $120. Triple $200. 20% deposit.","description":"Single, double, and triple whitening sessions with Megan.","note":"Megan","artist_link":"/pages/artists#megan","link_label":"Book whitening","link":"/pages/book"}}
   ]}]
 }
 {% endschema %}

@@ -1,0 +1,130 @@
+{% comment %}
+  Review copy and attribution restored from the client's archived website:
+  archive/current-site-2026-11-10/pages/home.txt and pages/about.txt.
+  Source labels reflect the attribution supplied by that site.
+  No independent verification badge, star rating, or aggregate is inferred.
+{% endcomment %}
+{% if section.blocks.size > 0 %}
+  <section class="sp-section sp-community-section sp-reviews-section" id="reviews" aria-labelledby="sp-reviews-heading-{{ section.id }}">
+    <div class="sp-shell">
+      <div class="sp-section-heading" data-reveal>
+        <div>
+          <h2 id="sp-reviews-heading-{{ section.id }}" class="sp-community-heading">{{ section.settings.heading | escape }}</h2>
+          {% if section.settings.intro != blank %}<p>{{ section.settings.intro | escape }}</p>{% endif %}
+        </div>
+      </div>
+      <div class="sp-artwork-carousel sp-review-carousel" data-sp-carousel data-carousel-item-name="review" role="region" aria-roledescription="carousel" aria-labelledby="sp-reviews-heading-{{ section.id }}">
+        <p class="sp-carousel-instructions" id="sp-reviews-help-{{ section.id }}">Swipe or use the arrow buttons to explore the reviews. Use the Left and Right Arrow keys when a review is focused.</p>
+        <div class="sp-carousel-track" id="sp-reviews-track-{{ section.id }}" data-carousel-track dir="ltr" tabindex="0" aria-label="Client reviews" aria-describedby="sp-reviews-help-{{ section.id }}">
+          {% for block in section.blocks %}
+            <div class="sp-carousel-slide" data-carousel-slide role="group" aria-roledescription="slide" aria-label="{{ forloop.index }} of {{ forloop.length }}" {{ block.shopify_attributes }}>
+              <figure class="sp-review" tabindex="0">
+                <span class="sp-review-mark" aria-hidden="true">“</span>
+                <blockquote{% if block.settings.source_url != blank %} cite="{{ block.settings.source_url | escape }}"{% endif %}>
+                  <p>{{ block.settings.quote | escape | newline_to_br }}</p>
+                </blockquote>
+                <figcaption>
+                  <span class="sp-review-author">{{ block.settings.author | escape }}</span>
+                  <span class="sp-review-source">{{ block.settings.source_label | escape }}</span>
+                </figcaption>
+              </figure>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="sp-carousel-controls" data-carousel-controls hidden>
+          <span class="sp-carousel-counter" data-carousel-counter aria-hidden="true">01 / {{ section.blocks.size }}</span>
+          <div class="sp-carousel-progress" aria-hidden="true"><span data-carousel-progress></span></div>
+          <div class="sp-carousel-buttons">
+            <button class="sp-carousel-button" type="button" data-carousel-prev aria-label="Previous reviews" aria-controls="sp-reviews-track-{{ section.id }}" disabled>{% render 'studio-icon', name: 'arrow-left' %}</button>
+            <button class="sp-carousel-button" type="button" data-carousel-next aria-label="Next reviews" aria-controls="sp-reviews-track-{{ section.id }}">{% render 'studio-icon', name: 'arrow-right' %}</button>
+          </div>
+        </div>
+        <p class="sp-sr-only" role="status" aria-live="polite" aria-atomic="true" data-carousel-status></p>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Studio client reviews",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "WHAT OUR CLIENTS SAY." },
+    { "type": "textarea", "id": "intro", "label": "Introduction", "default": "A few words from the people who've been in the chair." }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Client review",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Original review text", "default": "I got my first professional tattoo here and it looks amazing! Definitely coming back for my next one" },
+        { "type": "text", "id": "author", "label": "Reviewer name", "default": "Lindsay Palmatier" },
+        { "type": "text", "id": "source_label", "label": "Published source label", "default": "Google Review" },
+        { "type": "url", "id": "source_url", "label": "Page where this review was published", "info": "Used as the quotation's source, not as a claim of a current Google rating." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Studio client reviews",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "quote": "I love this shop! I've had both tattoos and piercings done here, and they always turn out amazing  They have a clean, friendly, and welcoming atmosphere. The staff are all very knowledgeable, professional, and kind. They are also very affordable! Jake and James are my favorite, but I'd recommend any of the artists/piercers there! 100/10!! I know I'll definitely be a long returning client of theirs",
+            "author": "Dakota Fuller",
+            "source_label": "A Local Guide | Google Review",
+            "source_url": "https://sideshowproductionstattoo.com/"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "I absolutely loveeeeee this tattoo shop!! I have gotten my last 3 tattoos from them and my dad has gotten one as well and all the time I have been everyone has been super nice and the environment is very welcoming! Every artist there does amazing work and they are very accommodating. Highly recommend this shop for your next tattoo!",
+            "author": "Ashleigh Jensen",
+            "source_label": "A Local Guide | Google Review",
+            "source_url": "https://sideshowproductionstattoo.com/"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "I know the owner and he’s super dope. He gave me an awesome tattoo and I love it. He’s got a light touch and checked to make sure I was okay throughout the tattoo. He answered all my questions and concerns and I couldn’t be happier with the result of my tat!",
+            "author": "Kayla Burnett",
+            "source_label": "Google Review",
+            "source_url": "https://sideshowproductionstattoo.com/"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "This shop is so clean! Jake was light handed and hit the fine lines of my tattoo are exceptional. A fun warm welcome and very comfortable seating. I'll be back for more ink in the future.",
+            "author": "Jessica Repman",
+            "source_label": "Google Review",
+            "source_url": "https://sideshowproductionstattoo.com/"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "We happen to see that they were doing a fundraiser for the Trevor Project when we drove by. We went in to say Thank You for supporting something that is important to us. Then we ended up getting impromptu tattoos. They are amazing",
+            "author": "Teinamarrie Scuderi",
+            "source_label": "Google Review",
+            "source_url": "https://sideshowproductionstattoo.com/about/"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "I got my first professional tattoo here and it looks amazing! Definitely coming back for my next one",
+            "author": "Lindsay Palmatier",
+            "source_label": "Google Review",
+            "source_url": "https://sideshowproductionstattoo.com/about/"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

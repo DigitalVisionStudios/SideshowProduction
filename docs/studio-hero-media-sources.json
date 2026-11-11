@@ -1,0 +1,145 @@
+{
+  "prepared_at": "2026-11-11T08:30:04.610246+00:00",
+  "original_hero": {
+    "source_html": "archive/current-site-2026-11-10/pages/home.html",
+    "elementor_outer_container": "20dfcbf",
+    "elementor_inner_container": "f8f8798",
+    "elementor_headline_widget": "68354fb",
+    "prefix": "Unleashing your creativity starts with",
+    "rotating_words": [
+      "artists",
+      "piercings",
+      "tattoos"
+    ],
+    "suffix": "that inspire.",
+    "original_delay_ms": 2500,
+    "original_animation": "wave, loop yes, slideInDown entrance",
+    "original_background": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-09-101734.png",
+    "original_background_css": "background-image:url(\"https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-09-101734.png\");background-position:center center;background-size:cover;",
+    "original_overlay_css": "linear-gradient(360deg, #940A0A 46%, #000000 89%)",
+    "source_css_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/elementor/css/post-20-3894d4c2.css",
+    "source_css_url": "https://sideshowproductionstattoo.com/wp-content/uploads/elementor/css/post-20.css?ver=1793722961",
+    "source_css_sha256": "e1344d77d5b9fec1ef88691cd95ca9f82a12deb4c9521a59a3ed12e14baeb710",
+    "important_distinction": "The original homepage uses one storefront background with independently rotating words. No homepage hero image slideshow list was found. The inner container names video as a background type but supplies no video URL.",
+    "homepage_video_embed": {
+      "url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/6-Instagram-Google-Chrome-9-January-2026-1.mp4",
+      "placement": "The Ink Roulette feature lower on the homepage, not the hero background",
+      "attributes": [
+        "autoplay",
+        "loop",
+        "muted",
+        "controls"
+      ]
+    }
+  },
+  "redesign": {
+    "interval_ms": 5500,
+    "difference": "Preserves the original storefront opening, exact rotating words, order, prefix and suffix. Adds two genuine photographs as synchronized scenes, smoother crossfades, accessible controls, environmental suspension, and a black bottom fade.",
+    "media": [
+      {
+        "word": "artists",
+        "asset": "assets/sp-source-storefront.webp",
+        "dimensions": [
+          1354,
+          759
+        ],
+        "bytes": 105922,
+        "sha256": "9d784297f976367b7f0a9d232f95bdde78ca8ad088399044c5cbb80e8ff324c8",
+        "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-09-101734.png",
+        "source_role": "Exact original homepage hero background",
+        "visual_description": "Sideshow storefront sign and entrance",
+        "provenance": "docs/studio-authentic-media-sources.json"
+      },
+      {
+        "word": "piercings",
+        "asset": "assets/sp-work-04.webp",
+        "dimensions": [
+          730,
+          707
+        ],
+        "bytes": 78130,
+        "sha256": "e91e0e85fad381ccab9fbb696a76dd3f814e01a083e1e6f8e1dd1303bc3b5912",
+        "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-152219.png",
+        "source_role": "Authentic source portfolio photograph, added to synchronize the redesigned hero with the rotating word",
+        "visual_description": "Ear piercing jewelry from Sonny's explicitly grouped portfolio",
+        "provenance": "docs/studio-asset-sources.json"
+      },
+      {
+        "word": "tattoos",
+        "asset": "assets/sp-welcome-jake-session.webp",
+        "dimensions": [
+          750,
+          1000
+        ],
+        "bytes": 85728,
+        "sha256": "ea07c526554dabe8ca07a335a2b64371de557c1f58d3880993b92106d3f55165",
+        "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/534394909_1422782015498885_1036830063844308316_n_b3258798-eb61-4f4c-8f78-c0cd56a04cfc.jpg",
+        "source_role": "Authentic retained Shopify artist photograph, added to synchronize the redesigned hero with the rotating word",
+        "visual_description": "Jake tattooing a client's arm inside the studio",
+        "provenance": "docs/studio-welcome-media-sources.json"
+      }
+    ],
+    "optional_video_scene": {
+      "type": "scene",
+      "settings": {
+        "word": "tattoos",
+        "asset": "sp-authentic-hero-poster.webp",
+        "width": 498,
+        "height": 246,
+        "media_style": "cover",
+        "focus_x": 50,
+        "focus_y": 50,
+        "video_asset": "sp-authentic-hero.mp4"
+      },
+      "note": "Optional only. The 498x246 hands-and-arm clip is genuine but soft at large hero sizes; the default uses the clearer Jake photograph.",
+      "provenance": "docs/studio-authentic-media-sources.json"
+    }
+  },
+  "promotion_poster": {
+    "asset": "assets/sp-event-nov13.webp",
+    "dimensions": [
+      624,
+      780
+    ],
+    "bytes": 99464,
+    "sha256": "02160b231ccee9f5d68a8425fc3a9ce43c30ccb6bbaeeadbdb6fd459fac9e357",
+    "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/11/1793627365890_image.png",
+    "source_archive_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/11/1793627365890_image.png",
+    "source_sha256": "bb2e1f6cc36cd70e586d7c89c18bdfd8517b23020662e4108ae4693c0a90af37",
+    "source_bytes": 175633,
+    "source_dimensions": [
+      624,
+      780
+    ],
+    "processing": "WebP quality 88 at the original dimensions. No enlargement, crop, color change, retouching, or generated content. Initial cloud asset transferred using GPT Bridge's image preview from the verified archived PNG."
+  },
+  "popup_source": {
+    "source_html": "archive/current-site-2026-11-10/pages/home.html",
+    "popup_id": "pum-1905",
+    "slug": "friday-the-13th-weekend-nov-13-14",
+    "auto_open_delay_ms": 500,
+    "fade_ms": 350,
+    "frequency_cookies": [],
+    "original_escape_close": false,
+    "original_backdrop_close": false,
+    "friday": "November 13, 2026, 10am-8pm, walk-ins welcome",
+    "saturday": "November 14, 2026, noon-8pm, appointment only",
+    "offer_from_poster_alt": "Flash tattoos, tooth gems and ear lobe piercings starting at $13 plus $7 gratuity",
+    "saturday_booking_deadline": "Thursday, November 12, at 11:59 PM",
+    "source_booking_urls": [
+      "https://api.apexmediasol.com/widget/booking/IVNMdjDFzeriqu0yNk25",
+      "https://api.apexmediasol.com/widget/booking/XhB33wLjo8Rfly7hNlTb"
+    ],
+    "stale_popup_note": "Separate Elementor popup 1810 ended August 2. Elementor popup 1899 retained an October 25 schedule end and a separate image-swap script ending November 15 at 07:00 UTC. That swap script does not govern Popup Maker 1905."
+  },
+  "wheel_source": {
+    "source_html": "archive/current-site-2026-11-10/pages/ink-roulette.html",
+    "type": "Physical in-studio Ink Roulette experience",
+    "price": "$150 for two spins",
+    "selection": "Choose a favorite number from the spins, then a design from the physical board",
+    "extra_option": "Choose another number for an extra $20",
+    "customization": "Color or shading mentioned in source copy",
+    "no_invented_rewards": "No discount prize list, reward probabilities, or browser redemption rules were present in the captured implementation."
+  },
+  "reproduction_helper": "scripts/prepare-studio-hero-media.py"
+}

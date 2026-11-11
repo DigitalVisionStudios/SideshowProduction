@@ -1,0 +1,61 @@
+{
+  "type": "studio-hero",
+  "settings": {
+    "prefix": "Unleashing your creativity starts with",
+    "suffix": "that inspire.",
+    "description": "Our artists bring bold ideas to life, ensuring every detail is perfect.",
+    "primary_label": "Book Now",
+    "primary_link": "/pages/book",
+    "secondary_label": "Our Artists",
+    "secondary_link": "/pages/artists",
+    "autoplay": true,
+    "interval": 5.5,
+    "enable_video": true
+  },
+  "blocks": {
+    "artists": {
+      "type": "scene",
+      "settings": {
+        "word": "artists",
+        "asset": "sp-source-storefront.webp",
+        "width": 1354,
+        "height": 759,
+        "media_style": "cover",
+        "focus_x": 50,
+        "focus_y": 50,
+        "video_asset": "#"
+      }
+    },
+    "piercings": {
+      "type": "scene",
+      "settings": {
+        "word": "piercings",
+        "asset": "sp-work-04.webp",
+        "width": 730,
+        "height": 707,
+        "media_style": "right",
+        "focus_x": 50,
+        "focus_y": 50,
+        "video_asset": "#"
+      }
+    },
+    "tattoos": {
+      "type": "scene",
+      "settings": {
+        "word": "tattoos",
+        "asset": "sp-welcome-jake-session.webp",
+        "width": 750,
+        "height": 1000,
+        "media_style": "right",
+        "focus_x": 50,
+        "focus_y": 55,
+        "video_asset": "#"
+      }
+    }
+  },
+  "block_order": [
+    "artists",
+    "piercings",
+    "tattoos"
+  ]
+}

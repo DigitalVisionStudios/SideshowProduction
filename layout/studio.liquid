@@ -13,11 +13,18 @@
   {{ 'sideshow-studio.css' | asset_url | stylesheet_tag }}
   {{ 'sideshow-menu.css' | asset_url | stylesheet_tag }}
   {{ 'sideshow-carousel.css' | asset_url | stylesheet_tag }}
+  {{ 'sideshow-hero.css' | asset_url | stylesheet_tag }}
+  {{ 'sideshow-community.css' | asset_url | stylesheet_tag }}
+  {{ 'sideshow-wheel.css' | asset_url | stylesheet_tag }}
+  {{ 'sideshow-promo.css' | asset_url | stylesheet_tag }}
   {{ 'sideshow-welcome.css' | asset_url | stylesheet_tag }}
   {{ 'sideshow-marquee.css' | asset_url | stylesheet_tag }}
   {{ content_for_header }}
   <script src="{{ 'sideshow-studio.js' | asset_url }}" defer></script>
   <script src="{{ 'sideshow-carousel.js' | asset_url }}" defer></script>
+  <script src="{{ 'sideshow-hero.js' | asset_url }}" defer></script>
+  <script src="{{ 'sideshow-wheel.js' | asset_url }}" defer></script>
+  <script src="{{ 'sideshow-promo.js' | asset_url }}" defer></script>
   <script src="{{ 'sideshow-marquee.js' | asset_url }}" defer></script>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ shop.name | escape }}">

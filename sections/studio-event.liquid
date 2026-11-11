@@ -1,5 +1,41 @@
 {% assign now_seconds = 'now' | date: '%s' | plus: 0 %}{% assign expires_seconds = section.settings.expires_at | date: '%s' | plus: 0 %}
-{% if section.settings.enabled and expires_seconds > now_seconds %}<section class="sp-event" data-expires="{{ section.settings.expires_at | escape }}"><div class="sp-shell"><span class="sp-tag">{{ section.settings.label | escape }}</span><div><strong>{{ section.settings.title | escape }}</strong><p>{{ section.settings.copy | escape }}</p></div><a class="sp-link" href="{{ section.settings.link | default: '/pages/flash' }}">{{ section.settings.link_label | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a></div></section>{% endif %}
+{% assign booking_date = section.settings.booking_date | strip %}
+{% assign booking_date_noon = booking_date | append: 'T12:00:00Z' %}
+{% assign normalized_booking_date = booking_date_noon | date: '%Y-%m-%d' %}
+{% assign booking_date_seconds = booking_date_noon | date: '%s' | plus: 0 %}
+{% assign booking_date_valid = false %}
+{% if booking_date.size == 10 and normalized_booking_date == booking_date and booking_date_seconds >= 946684800 %}{% assign booking_date_valid = true %}{% endif %}
+{% if section.settings.enabled and expires_seconds > now_seconds %}
+<section class="sp-event" data-expires="{{ section.settings.expires_at | escape }}"{% if section.settings.show_popup %} data-sp-promo data-campaign="{{ section.settings.campaign | escape }}" data-auto-popup="{{ section.settings.auto_popup }}" data-popup-delay="{{ section.settings.popup_delay | times: 1000 }}" data-booking-closes="{{ section.settings.booking_closes | escape }}"{% endif %}>
+  <div class="sp-shell"><span class="sp-tag">{{ section.settings.label | escape }}</span><div><strong>{{ section.settings.title | escape }}</strong><p>{{ section.settings.copy | escape }}</p></div>
+    {% if section.settings.show_popup %}<a class="sp-link sp-event-trigger" href="{{ section.settings.link | default: '/pages/flash' }}" data-promo-open aria-haspopup="dialog" aria-controls="sp-event-dialog-{{ section.id }}">{{ section.settings.link_label | escape }} {% render 'studio-icon', name: 'arrow-up-right' %}</a>{% else %}<a class="sp-link" href="{{ section.settings.link | default: '/pages/flash' }}">{{ section.settings.link_label | escape }} {% render 'studio-icon', name: 'arrow-up-right' %}</a>{% endif %}
+  </div>
+  {% if section.settings.show_popup %}
+    <dialog class="sp-promo" id="sp-event-dialog-{{ section.id }}" data-promo-dialog aria-labelledby="sp-promo-title-{{ section.id }}">
+      <div class="sp-promo-top"><span>{{ section.settings.label | escape }}</span><button class="sp-promo-close" type="button" data-promo-close aria-label="Close event popup"><span>Close</span><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></button></div>
+      <div class="sp-promo-grid">
+        <div class="sp-promo-art">{% if section.settings.poster != blank %}<img src="{{ section.settings.poster | image_url: width: 900 }}" alt="Sideshow's Friday the 13th weekend event poster" width="624" height="780" loading="lazy">{% else %}<img src="{{ section.settings.poster_asset | asset_url }}" alt="Sideshow's Friday the 13th weekend event poster" width="624" height="780" loading="lazy">{% endif %}</div>
+        <div class="sp-promo-copy"><p class="sp-eyebrow">ALL WEEKEND AT SIDESHOW</p><h2 id="sp-promo-title-{{ section.id }}">{{ section.settings.popup_title | escape }}</h2><p class="sp-promo-offer">{{ section.settings.offer | escape }}</p>
+          <div class="sp-promo-dates"><div><strong>Friday</strong><p>{{ section.settings.friday | escape }}</p><span>Walk-ins welcome</span></div><div><strong>Saturday</strong><p>{{ section.settings.saturday | escape }}</p><span>Appointment only</span></div></div>
+          <p class="sp-promo-terms">{{ section.settings.offer_terms | escape }}</p>
+          {% if section.settings.friday_bonus != blank %}<p class="sp-promo-terms">{{ section.settings.friday_bonus | escape }}</p>{% endif %}
+          {% if section.settings.partner_offer != blank %}<p class="sp-promo-terms">{{ section.settings.partner_offer | escape }}</p>{% endif %}
+          <div data-promo-booking><div class="sp-promo-actions">
+            {% if booking_date_valid %}
+              <a class="sp-button sp-button--red" href="/pages/book?event={{ section.settings.title | url_encode }}&amp;date={{ booking_date | url_encode }}&amp;services=1">Saturday: 1 service {% render 'studio-icon', name: 'arrow-up-right' %}</a>
+              <a class="sp-button sp-button--outline" href="/pages/book?event={{ section.settings.title | url_encode }}&amp;date={{ booking_date | url_encode }}&amp;services=2">Saturday: 2 services {% render 'studio-icon', name: 'arrow-up-right' %}</a>
+            {% else %}
+              <a class="sp-button sp-button--red" href="/pages/contact?event={{ section.settings.title | url_encode }}">Ask about this event {% render 'studio-icon', name: 'arrow-up-right' %}</a>
+            {% endif %}
+          </div><p class="sp-promo-cutoff">{{ section.settings.booking_note | escape }}</p></div>
+          <p class="sp-promo-cutoff" data-promo-booking-closed hidden>Saturday online booking has closed. Contact the studio for availability.</p>
+          <a class="sp-link" href="{{ section.settings.link | default: '/pages/flash' }}">See flash & event details {% render 'studio-icon', name: 'arrow-up-right' %}</a>
+        </div>
+      </div>
+    </dialog>
+  {% endif %}
+</section>
+{% endif %}
 {% schema %}
 {
   "name": "Studio timed event",
@@ -26,7 +62,7 @@
       "type": "textarea",
       "id": "copy",
       "label": "Description",
-      "default": "Friday: 10 am–8 pm, walk-ins. Saturday: noon–8 pm, appointments."
+      "default": "Friday: 10 am\u20138 pm, walk-ins. Saturday: noon\u20138 pm, appointments."
     },
     {
       "type": "text",
@@ -44,6 +80,106 @@
       "id": "link_label",
       "label": "Link text",
       "default": "View event"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_popup",
+      "label": "Show event poster popup",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_popup",
+      "label": "Open once per browser session",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "popup_delay",
+      "label": "Popup delay",
+      "min": 5,
+      "max": 30,
+      "step": 1,
+      "unit": "s",
+      "default": 12
+    },
+    {
+      "type": "text",
+      "id": "campaign",
+      "label": "Campaign identifier",
+      "default": "friday-13-november-2026"
+    },
+    {
+      "type": "image_picker",
+      "id": "poster",
+      "label": "Event poster"
+    },
+    {
+      "type": "text",
+      "id": "poster_asset",
+      "label": "Fallback poster asset",
+      "default": "sp-event-nov13.webp"
+    },
+    {
+      "type": "text",
+      "id": "popup_title",
+      "label": "Popup heading",
+      "default": "FRIDAY THE 13TH."
+    },
+    {
+      "type": "textarea",
+      "id": "offer",
+      "label": "Offer summary",
+      "default": "Flash tattoos, tooth gems and ear-lobe piercings from $13 plus $7 gratuity."
+    },
+    {
+      "type": "textarea",
+      "id": "offer_terms",
+      "label": "Offer details",
+      "default": "Flash is black ink only. Additional colors and placements other than arms or legs are an extra $13 each."
+    },
+    {
+      "type": "textarea",
+      "id": "friday_bonus",
+      "label": "Friday-only bonus",
+      "default": "Friday only: The first 13 people get a free $13 tattoo with the purchase of a tattoo, a free ear-lobe piercing with the purchase of a piercing, or a free tooth gem with the purchase of a tooth gem."
+    },
+    {
+      "type": "textarea",
+      "id": "partner_offer",
+      "label": "Partner offer",
+      "default": "Get a service and receive a discount code for Nightmare on 13th, which is open Friday the 13th only."
+    },
+    {
+      "type": "text",
+      "id": "friday",
+      "label": "Friday hours",
+      "default": "November 13 \u00b7 10 am\u20138 pm"
+    },
+    {
+      "type": "text",
+      "id": "saturday",
+      "label": "Saturday hours",
+      "default": "November 14 \u00b7 Noon\u20138 pm"
+    },
+    {
+      "type": "text",
+      "id": "booking_date",
+      "label": "Saturday appointment date",
+      "info": "Use YYYY-MM-DD and keep this date consistent with the displayed Saturday hours.",
+      "default": "2026-11-14"
+    },
+    {
+      "type": "text",
+      "id": "booking_closes",
+      "label": "Saturday cutoff (ISO timezone)",
+      "default": "2026-11-13T06:59:00Z"
+    },
+    {
+      "type": "text",
+      "id": "booking_note",
+      "label": "Saturday cutoff text",
+      "default": "Saturday booking closes Thursday, November 12 at 11:59 pm, studio local time."
     }
   ],
   "presets": [

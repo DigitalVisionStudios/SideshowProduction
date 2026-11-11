@@ -5,15 +5,16 @@
       "type": "studio-page",
       "settings": {
         "title": "FLASH TATTOOS.",
-        "copy": "Browse the studio’s designs and upcoming flash events."
+        "copy": "Browse the studio\u2019s designs and upcoming flash events."
       }
     },
     "section_2": {
       "type": "studio-event",
       "settings": {
-        "copy": "Flash tattoos, tooth gems and ear-lobe piercings from $13 plus $7 gratuity. Friday Nov 13: 10 am–8 pm, walk-ins. Saturday Nov 14: noon–8 pm, appointment only. Contact the studio for availability.",
+        "copy": "Flash tattoos, tooth gems and ear-lobe piercings from $13 plus $7 gratuity. Friday Nov 13: 10 am\u20138 pm, walk-ins. Saturday Nov 14: noon\u20138 pm, appointment only. Contact the studio for availability.",
         "link": "/pages/contact",
-        "link_label": "Ask about the event"
+        "link_label": "Ask about the event",
+        "show_popup": false
       }
     },
     "section_3": {

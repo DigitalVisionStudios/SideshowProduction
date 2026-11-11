@@ -16,36 +16,64 @@
           "type": "service",
           "settings": {
             "title": "Custom tattoos",
+            "asset": "sp-work-03.webp",
+            "alt": "Swallow and sun linework tattoo by Jake",
+            "fit": "cover",
+            "price": "From $100 / hour",
+            "price_detail": "$50 deposit, credited toward your total.",
             "description": "Custom designs, black and grey, color, and lettering.",
             "note": "Jake & Rigo",
-            "link": "/pages/artists"
+            "artist_link": "/pages/artists",
+            "link_label": "Book tattoos",
+            "link": "/pages/book"
           }
         },
         "block_2": {
           "type": "service",
           "settings": {
             "title": "Piercings",
+            "asset": "sp-work-04.webp",
+            "alt": "Heart-shaped ear jewelry in a piercing by Sonny",
+            "fit": "cover",
+            "price": "Pricing by placement",
+            "price_detail": "20% deposit. Jewelry included with new piercings.",
             "description": "Explore placements and jewelry with Sonny.",
             "note": "Sonny",
-            "link": "/pages/artists#sonny"
+            "artist_link": "/pages/artists#sonny",
+            "link_label": "Book piercings",
+            "link": "/pages/book"
           }
         },
         "block_3": {
           "type": "service",
           "settings": {
             "title": "Tooth gems",
+            "asset": "sp-work-12.webp",
+            "alt": "Tooth gems shown in Megan's portfolio",
+            "fit": "cover",
+            "price": "From $60",
+            "price_detail": "Additional gems $20 each. Heart/star $65. Fang $100. 20% deposit.",
             "description": "Crystals, shapes, and individual gem placements.",
             "note": "Megan",
-            "link": "/pages/artists#megan"
+            "artist_link": "/pages/artists#megan",
+            "link_label": "Book tooth gems",
+            "link": "/pages/book"
           }
         },
         "block_4": {
           "type": "service",
           "settings": {
             "title": "Teeth whitening",
-            "description": "Single, double, and triple sessions with Megan.",
+            "asset": "sp-megan.webp",
+            "alt": "Megan at Sideshow Productions",
+            "fit": "contain",
+            "price": "From $89",
+            "price_detail": "Single $89. Double $120. Triple $200. 20% deposit.",
+            "description": "Single, double, and triple whitening sessions with Megan.",
             "note": "Megan",
-            "link": "/pages/artists#megan"
+            "artist_link": "/pages/artists#megan",
+            "link_label": "Book whitening",
+            "link": "/pages/book"
           }
         },
         "block_5": {
@@ -54,7 +82,11 @@
             "title": "Microblading",
             "description": "Interested in brows? Contact the studio to confirm the current service and availability.",
             "note": "ASK THE STUDIO",
-            "link": "/pages/contact"
+            "link": "/pages/contact",
+            "asset": "#",
+            "price": "#",
+            "price_detail": "#",
+            "link_label": "Ask the studio"
           }
         }
       },

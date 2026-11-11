@@ -35,7 +35,7 @@ Shopify page resources and template assignments must be created/confirmed in the
 ## Design and behavior
 
 - Black and deep red backgrounds, the source site's original Sedgwick Ave Display brush lettering, and the studio's actual artwork.
-- A full-width hero using a 6.4-second muted excerpt of real tattooing footage from the archived site. No generated photos or videos.
+- A three-scene hero restores the source wording, “Unleashing your creativity starts with” artists, piercings, and tattoos “that inspire.” It uses the original storefront hero photo, Sonny’s piercing photograph, and the uncropped photo of Jake at work. Scenes crossfade with coordinated word transitions and optional authentic video assets. No generated photos or videos.
 - Lighter DM Sans text paired with the source site's SP Brush lettering across the artwork heading, artist names, studio story, flash and location accents, and mobile menu. Larger real artwork and the original studio crest.
 - Inline SVG arrows, gallery controls, and FAQ chevrons for consistent rendering on phones, with accessible button labels.
 - Editable section settings and blocks for the hero, services, artists, portfolio, products, events, and common questions.
@@ -44,10 +44,13 @@ Shopify page resources and template assignments must be created/confirmed in the
 - A logo-only main header and mobile menu header. The Welcome section now has a separate three-photo studio gallery with swipe/drag navigation, thumbnail selection, SVG controls, keyboard support, and image enlargement.
 - The Welcome gallery uses the real storefront, an uncropped photo of Jake tattooing recovered from the old Shopify theme, and the physical studio flash board. Full-photo framing keeps the shop sign and working hands visible. Up to six photos, captions, descriptions, and framing choices are editable in Shopify.
 - Stronger staggered scroll reveals, staged hero typography, and image transitions. A moving service strip uses the original brush font, with a pause control and reduced-motion fallback.
-- Video pauses when offscreen or the tab is hidden. Reduced-motion preferences start on the poster without downloading the video, with an explicit play control available.
-- Automatic promotion expiry in both Liquid and JavaScript.
-- The 21 recovered products and all 27 actual Ink Roulette images.
-- Native Shopify contact form, with artist/item context preserved when entering from a relevant CTA.
+- Hero rotation and optional video stop offscreen, while a modal is open, while focused, or when the tab is hidden. Manual scene changes pause autoplay. Reduced-motion preferences leave manual scene navigation available without animated transitions or video playback.
+- The original November 13–14 event poster and promotion return in a native dialog. It opens after 12 seconds at most once per session, can be reopened from the event banner, closes with Escape or its close control, and retires automatically. Saturday booking choices close at the original studio-local cutoff.
+- Photo service cards bring starting prices, deposit details, artist links, and booking inquiries into a clear grid. One continuous ambient red background spans the content sections.
+- Six original client reviews form a swipeable slider. A six-image social gallery uses real client work and links directly to the studio and artists’ Instagram profiles, with original Instagram and TikTok icons. It is a curated gallery, not a live social feed.
+- An interactive Ink Roulette wheel draws from all 27 recovered design images, with a synchronized result and image enlargement. Online spins provide inspiration; the published $150/two-spin and $20 extra-number terms describe the in-studio experience.
+- The 21 recovered products and all 27 actual Ink Roulette images remain available.
+- Native Shopify contact form, with artist/item and validated event booking context preserved when entering from a relevant CTA.
 - A lightweight alternate layout for the new pages, while retaining the original product and Meety code for recovery.
 
 The homepage is changed only in this draft branch. The former homepage is preserved in Git history at e9b908d.
@@ -91,7 +94,9 @@ The current draft rendered all 11 routes without errors. A previous official Sho
 
 The November 11 Welcome/header revision passed the existing validator with 20 section schemas, 11 templates, 24 Liquid files, five JavaScript files, zero errors, and zero warnings. All three source photographs were visually reviewed. The studio gallery is manual and does not automatically advance while a visitor is reading. Fresh Chrome captures verified the logo-only header and Welcome gallery at 1440 × 1000 and 390 × 844. The updated page was also opened through the existing private Tailscale endpoint, where selecting Jake's thumbnail displayed his photo and the 02 / 03 counter.
 
-Browser review covered the home page at desktop and mobile sizes, the brush headings at 320 pixels, and the artwork and artist layouts. Focused browser checks verified the mobile menu's entrance/exit, focus trap, scroll restoration, rapid reversal, desktop resize cleanup, reduced motion, and Shopify section reload. The artwork slider passed arrow controls, keyboard navigation, drag suppression, and deliberate lightbox opening; the service strip passed pause/resume. The portfolio grid and filtering remain functional. Earlier review also covered contact artist context and the roulette design shuffle.
+Browser review covered the home page at desktop and mobile sizes, the brush headings at 320 pixels, and the artwork and artist layouts. Focused browser checks verified the mobile menu's entrance/exit, focus trap, scroll restoration, rapid reversal, desktop resize cleanup, reduced motion, and Shopify section reload. The artwork slider passed arrow controls, keyboard navigation, drag suppression, and deliberate lightbox opening; the service strip passed pause/resume. The portfolio grid and filtering remain functional. Earlier review also covered contact artist context and the previous roulette design shuffle.
+
+The November 11 homepage restoration passed the validator with 22 studio section schemas, 11 templates, 26 Liquid files, eight JavaScript files, zero errors, and zero warnings. Sixteen focused Chrome checks verified hero autoplay/manual pause, overlay/offscreen suspension, event focus and expiry handling, wheel/result alignment, lightbox interaction, review navigation, reduced motion, and 320/390-pixel layouts. Six additional checks through the private Tailscale endpoint verified the event-to-artist-to-contact request context, the new homepage content, once-per-session popup behavior, and no browser runtime errors. Desktop and mobile screenshots were visually reviewed, and the long brush-letter descender received additional space above the hero suffix.
 
 ## Source preparation
 
@@ -103,7 +108,7 @@ python scripts/prepare-studio-motion.py --build
 python scripts/prepare-welcome-gallery.py
 ```
 
-The preparation scripts use Python with requests, BeautifulSoup, and Pillow. Asset preparation uses preserved originals and does not invent or retouch client artwork. Check the script documentation before recrawling. Source provenance is recorded in docs/studio-asset-sources.json, docs/studio-catalog-mapping.json, and docs/studio-authentic-media-sources.json. The authentic media script additionally requires FFmpeg and FFprobe. Original video is low resolution (498 × 246) and is used as a dark atmospheric background, preserving its real character rather than synthesizing replacement footage.
+The preparation scripts use Python with requests, BeautifulSoup, and Pillow. Asset preparation uses preserved originals and does not invent or retouch client artwork. Check the script documentation before recrawling. Source provenance is recorded in docs/studio-asset-sources.json, docs/studio-catalog-mapping.json, and docs/studio-authentic-media-sources.json. The authentic media script additionally requires FFmpeg and FFprobe. Original video is low resolution (498 × 246), so the current hero defaults to the sharper real photographs; the clip remains available as an optional scene asset.
 
 The Welcome-photo helper uses Python's standard library and Pillow. The new Jake image retains its original 750 × 1000 resolution; the storefront and flash-wall assets are reused without recompression. `docs/studio-welcome-media-sources.json` records their original sources and dimensions. `docs/studio-visual-references.md` links the current Sideshow site and the additional design references. Other studios' photography is for reference and is not included in this theme.
 
@@ -117,3 +122,7 @@ The Welcome-photo helper uses Python's standard library and Pillow. The new Jake
 6. Confirm legacy redirects and the domain cutover only after the staged store is ready.
 
 No live theme, domain, app settings, billing, appointments, notifications, products, or payment configuration was changed during this draft.
+
+## Homepage restoration sources
+
+The November 11 homepage pass is grounded in the archived `home.html`, `home.txt`, `about.txt`, and Ink Roulette page. `docs/studio-hero-media-sources.json` records the original storefront hero, rotating headline, additional scene photographs, and recovered event poster. The review section retains the original names, wording, and source labels. Instagram tiles link to verified profile URLs preserved in the archive, since individual post URLs were not available. The event uses the original November 2026 dates and explicit Utah time offsets; expired older promotions were not reintroduced.

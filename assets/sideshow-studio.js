@@ -51,6 +51,12 @@
     }
   }
 
+  function notifyOverlay() {
+    document.dispatchEvent(new CustomEvent("sideshow:overlaychange", { detail: {
+      open: !!document.querySelector("dialog[open]") || document.body.classList.contains("sp-menu-open")
+    } }));
+  }
+
   var menuStates = new Map();
   var activeMenu = null;
   var menuScrollLock = null;
@@ -157,6 +163,7 @@
     state.menu.hidden = true;
     restoreMenuBackground(state);
     if (!activeMenu) unlockMenuScroll();
+    notifyOverlay();
     if (restoreFocus) {
       var target = state.toggle;
       if (desktop.matches || !target.getClientRects().length) target = state.header && state.header.querySelector(".sp-brand");
@@ -246,6 +253,7 @@
         }
       }
       state.lastFocus = menu.querySelector("[data-menu-close]") || menu;
+      notifyOverlay();
       focusElement(state.lastFocus);
       function revealMenu() {
         if (!state.open) return;
@@ -453,6 +461,7 @@
 
   function lightboxCleanup() {
     document.body.classList.remove("sp-lightbox-open");
+    notifyOverlay();
     focusElement(lightboxOpener);
     lightboxOpener = null;
   }
@@ -566,6 +575,7 @@
     try {
       if (typeof lightbox.showModal === "function") lightbox.showModal();
       else lightbox.setAttribute("open", "");
+      notifyOverlay();
       focusElement(lightbox.querySelector(".sp-lightbox-close"));
     } catch (error) {
       document.body.classList.remove("sp-lightbox-open");
@@ -591,12 +601,71 @@
     });
   }
 
+  function bookingRequestContext(parameters) {
+    var eventName = (parameters.get("event") || "").replace(/[\u0000-\u001f\u007f]/g, "").trim().slice(0, 120);
+    if (/[<>]/.test(eventName)) eventName = "";
+    var date = (parameters.get("date") || "").trim();
+    if (!/^[2-9]\d{3}-\d{2}-\d{2}$/.test(date)) date = "";
+    if (date) {
+      var parsed = new Date(date + "T00:00:00.000Z");
+      if (!Number.isFinite(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== date) date = "";
+    }
+    var services = (parameters.get("services") || "").trim();
+    if (services !== "1" && services !== "2") services = "";
+    return { event: eventName, date: date, services: services };
+  }
+
+  function bookingRequestNotes(context) {
+    var notes = [];
+    if (context.event) notes.push(context.event);
+    if (context.date) {
+      try {
+        notes.push(new Intl.DateTimeFormat("en-US", {
+          weekday: "long", month: "long", day: "numeric", year: "numeric", timeZone: "UTC"
+        }).format(new Date(context.date + "T00:00:00.000Z")));
+      } catch (error) { notes.push(context.date); }
+    }
+    if (context.services) notes.push(context.services + (context.services === "1" ? " service" : " services"));
+    return notes;
+  }
+
+  function initBookingContext(scope) {
+    var context = bookingRequestContext(new URLSearchParams(window.location.search));
+    var notes = bookingRequestNotes(context);
+    elements(scope, "[data-sp-booking]").forEach(function (section) {
+      var notice = section.querySelector("[data-booking-context]");
+      var note = notice && notice.querySelector("[data-booking-context-text]");
+      if (note) {
+        note.textContent = notes.length ? "Your event request: " + notes.join(" / ") : "";
+        notice.hidden = notes.length === 0;
+      }
+      section.querySelectorAll("a[data-booking-contact]").forEach(function (link) {
+        var original = link.getAttribute("data-sp-booking-href");
+        if (original === null) {
+          original = link.getAttribute("href");
+          if (!original) return;
+          link.setAttribute("data-sp-booking-href", original);
+        }
+        try {
+          var destination = new URL(original, window.location.href);
+          if (destination.origin !== window.location.origin || !/\/pages\/contact\/?$/.test(destination.pathname)) return;
+          ["event", "date", "services"].forEach(function (key) {
+            destination.searchParams.delete(key);
+            if (context[key]) destination.searchParams.set(key, context[key]);
+          });
+          link.setAttribute("href", destination.pathname + destination.search + destination.hash);
+        } catch (error) { /* Keep the original contact link when its URL cannot be parsed. */ }
+      });
+    });
+  }
+
   function initContactContext(scope) {
     elements(scope, "form#StudioContactForm").forEach(function (form) {
       if (form.hasAttribute("data-sp-context-ready")) return;
       form.setAttribute("data-sp-context-ready", "");
       var parameters = new URLSearchParams(window.location.search);
       var notes = [];
+      var booking = bookingRequestContext(parameters);
       [
         { query: "artist", field: "requested_artist" },
         { query: "item", field: "requested_item" }
@@ -610,6 +679,19 @@
         form.appendChild(field);
         notes.push(value);
       });
+      [
+        { value: booking.event, field: "requested_event" },
+        { value: booking.date, field: "requested_date" },
+        { value: booking.services, field: "requested_services" }
+      ].forEach(function (context) {
+        if (!context.value) return;
+        var field = document.createElement("input");
+        field.type = "hidden";
+        field.name = "contact[" + context.field + "]";
+        field.value = context.value;
+        form.appendChild(field);
+      });
+      notes = notes.concat(bookingRequestNotes(booking));
       if (notes.length) {
         var note = document.createElement("p");
         note.className = "sp-form-context";
@@ -789,7 +871,7 @@
   }
 
   function initHeroMedia(scope) {
-    elements(scope, ".sp-hero-media").forEach(function (media) { heroMedia.add(media); });
+    elements(scope, ".sp-hero-media").forEach(function (media) { if (!media.closest("[data-sp-hero-deck]")) heroMedia.add(media); });
     ensureVideoObserver();
     elements(scope, "[data-sp-hero-video]").forEach(function (video) {
       if (heroVideos.has(video)) return;
@@ -874,6 +956,7 @@
     initMenus(scope);
     initGalleries(scope);
     initRoulette(scope);
+    initBookingContext(scope);
     initContactContext(scope);
     initHeroMedia(scope);
     initPreviewOffset();

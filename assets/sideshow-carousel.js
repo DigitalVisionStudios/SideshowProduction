@@ -250,7 +250,8 @@
       itemName: root.getAttribute("data-carousel-item-name") || "artwork",
       thumbnails: Array.prototype.slice.call(root.querySelectorAll("[data-carousel-goto]")),
       controller: controller, observer: null, maximum: 0, positions: [], widths: [], points: [0],
-      frame: null, settleTimer: null, gesture: null, blockClickUntil: 0, targetLeft: null, range: null
+      frame: null, settleTimer: null, gesture: null, blockClickUntil: 0, targetLeft: null, range: null,
+      entranceObserver: null, entranceFrame: null
     };
     instances.set(root, state);
     root.classList.add("is-carousel-ready");
@@ -258,9 +259,26 @@
       slide.querySelectorAll("img").forEach(function (image) { image.draggable = false; });
     });
 
+    function enter() {
+      root.classList.add("sp-carousel-has-entered");
+      if (state.entranceObserver) state.entranceObserver.disconnect();
+      state.entranceObserver = null;
+    }
+    if (!motion.matches && "IntersectionObserver" in window && !(window.Shopify && window.Shopify.designMode)) {
+      slides.forEach(function (slide, index) { slide.style.setProperty("--sp-slide-delay", Math.min(index, 3) * 85 + "ms"); });
+      root.classList.add("sp-carousel-reveal-ready");
+      state.entranceObserver = new IntersectionObserver(function (entries) {
+        if (entries.some(function (entry) { return entry.isIntersecting; })) {
+          state.entranceFrame = window.requestAnimationFrame(enter);
+        }
+      }, { threshold: .06, rootMargin: "0px 0px -28px 0px" });
+      state.entranceObserver.observe(root);
+    } else enter();
+
     function listen(target, type, listener, options) {
       target.addEventListener(type, listener, Object.assign({}, options || {}, { signal: controller.signal }));
     }
+    listen(root, "focusin", enter);
     listen(previous, "click", function () { if (!previous.disabled) navigate(state, -1); });
     listen(next, "click", function () { if (!next.disabled) navigate(state, 1); });
     state.thumbnails.forEach(function (button) {
@@ -301,10 +319,13 @@
     if (!state) return;
     state.controller.abort();
     if (state.observer) state.observer.disconnect();
+    if (state.entranceObserver) state.entranceObserver.disconnect();
+    if (state.entranceFrame) window.cancelAnimationFrame(state.entranceFrame);
     if (state.frame) window.cancelAnimationFrame(state.frame);
     window.clearTimeout(state.settleTimer);
     state.track.classList.remove("is-dragging");
     state.root.classList.remove("is-carousel-ready");
+    state.root.classList.remove("sp-carousel-reveal-ready", "sp-carousel-has-entered");
     state.controls.hidden = true;
     instances.delete(root);
   }
