@@ -41,6 +41,8 @@ Shopify page resources and template assignments must be created/confirmed in the
 - Editable section settings and blocks for the hero, services, artists, portfolio, products, events, and common questions.
 - Fixed navigation that starts transparent on the homepage, becomes dark and compact after 48 pixels of scroll, and stays solid on inner pages. The fixed bottom booking bar has been removed. A full-height mobile menu uses a staged panel and link reveal, with native dialog focus management and scroll restoration.
 - A swipeable homepage artwork slider with SVG controls, progress feedback, and the existing image viewer. The full portfolio keeps its filterable grid.
+- A logo-only main header and mobile menu header. The Welcome section now has a separate three-photo studio gallery with swipe/drag navigation, thumbnail selection, SVG controls, keyboard support, and image enlargement.
+- The Welcome gallery uses the real storefront, an uncropped photo of Jake tattooing recovered from the old Shopify theme, and the physical studio flash board. Full-photo framing keeps the shop sign and working hands visible. Up to six photos, captions, descriptions, and framing choices are editable in Shopify.
 - Stronger staggered scroll reveals, staged hero typography, and image transitions. A moving service strip uses the original brush font, with a pause control and reduced-motion fallback.
 - Video pauses when offscreen or the tab is hidden. Reduced-motion preferences start on the poster without downloading the video, with an explicit play control available.
 - Automatic promotion expiry in both Liquid and JavaScript.
@@ -87,6 +89,8 @@ The check validates the new studio section schemas, template references, Liquid 
 
 The current draft rendered all 11 routes without errors. A previous official Shopify Theme Check found no errors in the new studio files; its scoped warnings suggest using Shopify's preload_tag for the font preloads. Existing Debutify files have preexisting findings that were not rewritten as part of this draft.
 
+The November 11 Welcome/header revision passed the existing validator with 20 section schemas, 11 templates, 24 Liquid files, five JavaScript files, zero errors, and zero warnings. All three source photographs were visually reviewed. The studio gallery is manual and does not automatically advance while a visitor is reading. Fresh Chrome captures verified the logo-only header and Welcome gallery at 1440 × 1000 and 390 × 844. The updated page was also opened through the existing private Tailscale endpoint, where selecting Jake's thumbnail displayed his photo and the 02 / 03 counter.
+
 Browser review covered the home page at desktop and mobile sizes, the brush headings at 320 pixels, and the artwork and artist layouts. Focused browser checks verified the mobile menu's entrance/exit, focus trap, scroll restoration, rapid reversal, desktop resize cleanup, reduced motion, and Shopify section reload. The artwork slider passed arrow controls, keyboard navigation, drag suppression, and deliberate lightbox opening; the service strip passed pause/resume. The portfolio grid and filtering remain functional. Earlier review also covered contact artist context and the roulette design shuffle.
 
 ## Source preparation
@@ -96,9 +100,12 @@ python scripts/archive-site.py
 python scripts/prepare-studio-assets.py
 python scripts/prepare-studio-content.py
 python scripts/prepare-studio-motion.py --build
+python scripts/prepare-welcome-gallery.py
 ```
 
 The preparation scripts use Python with requests, BeautifulSoup, and Pillow. Asset preparation uses preserved originals and does not invent or retouch client artwork. Check the script documentation before recrawling. Source provenance is recorded in docs/studio-asset-sources.json, docs/studio-catalog-mapping.json, and docs/studio-authentic-media-sources.json. The authentic media script additionally requires FFmpeg and FFprobe. Original video is low resolution (498 × 246) and is used as a dark atmospheric background, preserving its real character rather than synthesizing replacement footage.
+
+The Welcome-photo helper uses Python's standard library and Pillow. The new Jake image retains its original 750 × 1000 resolution; the storefront and flash-wall assets are reused without recompression. `docs/studio-welcome-media-sources.json` records their original sources and dimensions. `docs/studio-visual-references.md` links the current Sideshow site and the additional design references. Other studios' photography is for reference and is not included in this theme.
 
 ## Before launch
 

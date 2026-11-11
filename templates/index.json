@@ -205,7 +205,41 @@
     },
     "section_6": {
       "type": "studio-statement",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "studio_photo_1": {
+          "type": "photo",
+          "settings": {
+            "asset": "sp-source-storefront.webp",
+            "alt": "Sideshow Productions sign above the studio entrance in Murray",
+            "caption": "The studio",
+            "fit": "contain"
+          }
+        },
+        "studio_photo_2": {
+          "type": "photo",
+          "settings": {
+            "asset": "sp-welcome-jake-session.webp",
+            "alt": "Jake working on a client's tattoo at Sideshow Productions, wearing blue gloves",
+            "caption": "At work with Jake",
+            "fit": "contain"
+          }
+        },
+        "studio_photo_3": {
+          "type": "photo",
+          "settings": {
+            "asset": "sp-source-flash-wall.webp",
+            "alt": "Hand-drawn Ink Roulette designs pinned to the studio's physical flash board",
+            "caption": "On the flash wall",
+            "fit": "contain"
+          }
+        }
+      },
+      "block_order": [
+        "studio_photo_1",
+        "studio_photo_2",
+        "studio_photo_3"
+      ]
     },
     "section_7": {
       "type": "studio-flash",

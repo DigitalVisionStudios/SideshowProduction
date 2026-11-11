@@ -1,15 +1,72 @@
-<section class="sp-section sp-section--dark sp-studio-section">
-  <div class="sp-shell sp-statement">
-    <div class="sp-statement-media" data-reveal>
-      <img src="{{ 'sp-studio-interior.webp' | asset_url }}" alt="Inside Sideshow Productions tattoo studio in Murray" width="502" height="288" loading="lazy">
+<section class="sp-section sp-section--dark sp-studio-section" aria-labelledby="sp-studio-heading-{{ section.id }}">
+  <div class="sp-shell sp-statement sp-statement--gallery">
+    <div class="sp-welcome-gallery" data-gallery data-reveal>
+      {% if section.blocks.size > 0 %}
+        <div class="sp-artwork-carousel sp-welcome-carousel" data-sp-carousel data-carousel-item-name="photo" role="region" aria-roledescription="carousel" aria-label="Inside the Sideshow story">
+          <p class="sp-carousel-instructions" id="sp-welcome-help-{{ section.id }}">Swipe or choose a photo below. Use the Left and Right Arrow keys when the gallery is focused. Select the large photo to enlarge it.</p>
+          <div class="sp-carousel-track" id="sp-welcome-track-{{ section.id }}" data-carousel-track tabindex="0" aria-label="Studio photographs" aria-describedby="sp-welcome-help-{{ section.id }}">
+            {% for block in section.blocks %}
+              {% if block.settings.image != blank %}{% assign photo_url = block.settings.image | image_url: width: 1800 %}{% else %}{% assign photo_url = block.settings.asset | asset_url %}{% endif %}
+              <div class="sp-carousel-slide sp-welcome-slide" data-carousel-slide role="group" aria-roledescription="slide" aria-label="{{ forloop.index }} of {{ forloop.length }}" {{ block.shopify_attributes }}>
+                <button class="sp-work" type="button" data-lightbox-src="{{ photo_url | escape }}" data-lightbox-alt="{{ block.settings.alt | escape }}" aria-label="Enlarge: {{ block.settings.alt | escape }}">
+                  <span class="sp-welcome-frame">
+                    <img src="{{ photo_url | escape }}" alt="{{ block.settings.alt | escape }}" width="{{ block.settings.image.width | default: 1600 }}" height="{{ block.settings.image.height | default: 1200 }}" loading="lazy" decoding="async" style="object-fit: {{ block.settings.fit | default: 'cover' | escape }};">
+                  </span>
+                  <span class="sp-work-caption"><span>{{ block.settings.caption | escape }}</span>{% render 'studio-icon', name: 'arrow-up-right' %}</span>
+                </button>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="sp-carousel-controls" data-carousel-controls hidden>
+            <span class="sp-carousel-counter" data-carousel-counter aria-hidden="true">01 / {{ section.blocks.size }}</span>
+            <div class="sp-carousel-progress" aria-hidden="true"><span data-carousel-progress></span></div>
+            <div class="sp-carousel-buttons">
+              <button class="sp-carousel-button" type="button" data-carousel-prev aria-label="Previous studio photo" aria-controls="sp-welcome-track-{{ section.id }}" disabled>{% render 'studio-icon', name: 'arrow-left' %}</button>
+              <button class="sp-carousel-button" type="button" data-carousel-next aria-label="Next studio photo" aria-controls="sp-welcome-track-{{ section.id }}">{% render 'studio-icon', name: 'arrow-right' %}</button>
+            </div>
+          </div>
+          <div class="sp-welcome-thumbnails" role="group" aria-label="Choose a studio photo">
+            {% for block in section.blocks %}
+              {% if block.settings.image != blank %}{% assign thumbnail_url = block.settings.image | image_url: width: 220 %}{% else %}{% assign thumbnail_url = block.settings.asset | asset_url %}{% endif %}
+              <button class="sp-welcome-thumbnail" type="button" data-carousel-goto="{{ forloop.index0 }}" aria-controls="sp-welcome-track-{{ section.id }}" aria-label="Show photo: {{ block.settings.caption | escape }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"><img src="{{ thumbnail_url | escape }}" alt="" width="110" height="84" loading="lazy" decoding="async"></button>
+            {% endfor %}
+          </div>
+          <p class="sp-sr-only" role="status" aria-live="polite" aria-atomic="true" data-carousel-status></p>
+        </div>
+      {% else %}
+        <img class="sp-welcome-fallback" src="{{ 'sp-source-storefront.webp' | asset_url }}" alt="Sideshow Productions sign above the studio entrance in Murray" width="1354" height="759" loading="lazy">
+      {% endif %}
     </div>
     <div class="sp-statement-copy" data-reveal>
-      <h2>{% render 'studio-heading', heading: section.settings.heading, accent: 'SIDESHOW.' %}</h2>
+      <h2 id="sp-studio-heading-{{ section.id }}">{% render 'studio-heading', heading: section.settings.heading, accent: 'SIDESHOW.' %}</h2>
       <p>{{ section.settings.copy | escape }}</p>
       <a class="sp-link" href="/pages/about">About Sideshow <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
     </div>
   </div>
 </section>
 {% schema %}
-{"name":"Studio story","settings":[{"type":"text","id":"heading","label":"Heading","default":"WELCOME TO SIDESHOW."},{"type":"textarea","id":"copy","label":"Studio introduction","default":"Tattoos, piercings, tooth gems, and teeth whitening under one roof in Murray. Meet the artists, explore their work, and bring us your next idea."}],"presets":[{"name":"Studio story"}]}
+{
+  "name": "Studio story",
+  "max_blocks": 6,
+  "settings": [
+    {"type":"text","id":"heading","label":"Heading","default":"WELCOME TO SIDESHOW."},
+    {"type":"textarea","id":"copy","label":"Studio introduction","default":"Tattoos, piercings, tooth gems, and teeth whitening under one roof in Murray. Meet the artists, explore their work, and bring us your next idea."}
+  ],
+  "blocks": [{
+    "type":"photo",
+    "name":"Studio photograph",
+    "settings":[
+      {"type":"image_picker","id":"image","label":"Photograph"},
+      {"type":"text","id":"asset","label":"Fallback image asset","default":"sp-source-storefront.webp"},
+      {"type":"text","id":"alt","label":"Image description","default":"Sideshow Productions sign above the studio entrance in Murray"},
+      {"type":"text","id":"caption","label":"Caption","default":"The studio"},
+      {"type":"select","id":"fit","label":"Photo framing","default":"cover","options":[{"value":"cover","label":"Fill the frame"},{"value":"contain","label":"Show the full photograph"}]}
+    ]
+  }],
+  "presets":[{"name":"Studio story","blocks":[
+    {"type":"photo","settings":{"asset":"sp-source-storefront.webp","alt":"Sideshow Productions sign above the studio entrance in Murray","caption":"The studio","fit":"contain"}},
+    {"type":"photo","settings":{"asset":"sp-welcome-jake-session.webp","alt":"Jake working on a client's tattoo at Sideshow Productions, wearing blue gloves","caption":"At work with Jake","fit":"contain"}},
+    {"type":"photo","settings":{"asset":"sp-source-flash-wall.webp","alt":"Hand-drawn Ink Roulette designs pinned to the studio's physical flash board","caption":"On the flash wall","fit":"contain"}}
+  ]}]
+}
 {% endschema %}

@@ -471,16 +471,16 @@
     if (lightbox) return;
     lightbox = document.createElement("dialog");
     lightbox.className = "sp-lightbox";
-    lightbox.setAttribute("aria-label", "Artwork viewer");
+    lightbox.setAttribute("aria-label", "Image viewer");
     lightbox.setAttribute("aria-modal", "true");
 
     var top = document.createElement("div");
     top.className = "sp-lightbox-top";
     var label = document.createElement("p");
-    label.textContent = "Selected work / Sideshow Productions";
+    label.textContent = "Sideshow Productions";
     var close = makeButton("Close", "sp-lightbox-close");
     close.appendChild(makeIcon("close"));
-    close.setAttribute("aria-label", "Close artwork viewer");
+    close.setAttribute("aria-label", "Close image viewer");
     close.addEventListener("click", closeLightbox);
     top.append(label, close);
 
@@ -499,10 +499,10 @@
     controls.className = "sp-lightbox-controls";
     lightboxPrevious = makeButton("", "sp-lightbox-previous");
     lightboxPrevious.appendChild(makeIcon("arrow-left"));
-    lightboxPrevious.setAttribute("aria-label", "Previous artwork");
+    lightboxPrevious.setAttribute("aria-label", "Previous image");
     lightboxNext = makeButton("", "sp-lightbox-next");
     lightboxNext.appendChild(makeIcon("arrow-right"));
-    lightboxNext.setAttribute("aria-label", "Next artwork");
+    lightboxNext.setAttribute("aria-label", "Next image");
     lightboxCounter = document.createElement("span");
     lightboxCounter.className = "sp-lightbox-counter";
     lightboxCounter.setAttribute("aria-hidden", "true");

@@ -50,10 +50,8 @@
   padding: 12px max(24px, env(safe-area-inset-right, 0px)) 12px max(24px, env(safe-area-inset-left, 0px));
   border-bottom: 1px solid rgba(255, 255, 255, .09);
 }
-.sp-menu-brand { display: inline-flex; align-items: center; gap: 11px; line-height: 1; }
-.sp-menu-brand img { width: 48px; height: 48px; object-fit: contain; }
-.sp-menu-brand .sp-brand-type strong { font-size: 21px; }
-.sp-menu-brand .sp-brand-type small { font-size: 8px; margin-top: 6px; }
+.sp-menu-brand { display: inline-flex; align-items: center; line-height: 1; }
+.sp-menu-brand img { width: 56px; height: 56px; object-fit: contain; }
 .sp-menu-close {
   position: relative;
   flex: 0 0 46px;
@@ -178,7 +176,6 @@
 }
 @media (max-width: 359px) {
   .sp-menu-top { padding-inline: 19px; }
-  .sp-menu-brand .sp-brand-type strong { font-size: 19px; }
   .sp-menu-body { padding-inline: 23px; gap: 24px; }
   .sp-menu-primary .sp-menu-link { font-size: 38px; min-height: 51px; }
 }

@@ -1,0 +1,88 @@
+{
+  "prepared_at": "2026-11-11T07:38:48.475292+00:00",
+  "recommendation": "Three different, genuine views: shop exterior, physical studio flash board, and Jake tattooing a client. Use the two existing assets directly and the one new working-artist WebP.",
+  "assets": [
+    {
+      "asset": "assets/sp-source-storefront.webp",
+      "category": "storefront exterior",
+      "caption": "Our Murray studio",
+      "alt": "Sideshow Productions studio sign above the entrance at 4973 S State Street.",
+      "source_filename": "Screenshot-2026-01-09-101734.png",
+      "sha256": "9d784297f976367b7f0a9d232f95bdde78ca8ad088399044c5cbb80e8ff324c8",
+      "new_asset": false,
+      "width": 1354,
+      "height": 759,
+      "bytes": 105922,
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-09-101734.png",
+      "original_source_dimensions": [
+        1354,
+        759
+      ],
+      "original_source_sha256": null,
+      "original_source_alt": "Tattoo Shop Murray Utah",
+      "source_provenance": "docs/studio-authentic-media-sources.json",
+      "processing": "Reuse the existing optimized WebP as-is. No duplicate image asset, enlargement, crop, recompression, or retouching."
+    },
+    {
+      "asset": "assets/sp-source-flash-wall.webp",
+      "category": "studio wall detail",
+      "caption": "Ideas on the wall",
+      "alt": "A board of tattoo designs mounted on the red wall inside the Sideshow studio.",
+      "source_filename": "522130610_72896906cv6420601_2836253316634858983_n.webp",
+      "sha256": "93465512824e10df6a55976e74128728b60e4719403a0a55ca3855aafc78c09e",
+      "new_asset": false,
+      "width": 1588,
+      "height": 1200,
+      "bytes": 317742,
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/522130610_72896906cv6420601_2836253316634858983_n.webp",
+      "original_source_dimensions": [
+        1906,
+        1440
+      ],
+      "original_source_sha256": null,
+      "original_source_alt": "",
+      "source_provenance": "docs/studio-authentic-media-sources.json",
+      "processing": "Reuse the existing optimized WebP as-is. No duplicate image asset, enlargement, crop, recompression, or retouching."
+    },
+    {
+      "asset": "assets/sp-welcome-jake-session.webp",
+      "new_asset": true,
+      "category": "artist working inside the studio",
+      "caption": "Jake at work",
+      "alt": "Jake wearing blue gloves while tattooing a client's arm inside the Sideshow studio.",
+      "artist": "Jake",
+      "width": 750,
+      "height": 1000,
+      "bytes": 85728,
+      "sha256": "ea07c526554dabe8ca07a335a2b64371de557c1f58d3880993b92106d3f55165",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/534394909_1422782015498885_1036830063844308316_n_b3258798-eb61-4f4c-8f78-c0cd56a04cfc.jpg",
+      "source_reference": "shopify://shop_images/534394909_1422782015498885_1036830063844308316_n_b3258798-eb61-4f4c-8f78-c0cd56a04cfc.jpg",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_section": "portfolio_yFkdkL",
+      "source_block": "author_nDfefr",
+      "source_field": "profile_image",
+      "source_author_name": "Jake",
+      "original_source_dimensions": [
+        750,
+        1000
+      ],
+      "original_source_bytes": 94576,
+      "original_source_sha256": "62308da617f3f97b97299a4e6f5fe14ac707298b19289be943cf6c2bdc5006f9",
+      "reviewed_source_cache": ".ai-bridge/welcome-source/534394909_1422782015498885_1036830063844308316_n_b3258798-eb61-4f4c-8f78-c0cd56a04cfc.jpg",
+      "processing": "WebP quality 88, method 6. Original 750x1000 resolution retained. No crop, enlargement, color alteration, creative retouching, or generated imagery.",
+      "display_note": "Portrait photograph. Preserve the full 3:4 frame where possible so both Jake and his working hands remain visible."
+    }
+  ],
+  "findings": [
+    "The retained Shopify profile reference supplied the uncropped 750x1000 original of Jake's previously circle-masked photograph.",
+    "The current WordPress host returned HTTP 200 with 195-byte text/html Site Unavailable responses to attempted original photo downloads. Those responses failed Pillow validation and were not saved as images.",
+    "The existing sp-source-tattoo-session.webp is a 502x288 video frame. It was visually inspected and excluded because it remains too soft for the requested larger Welcome image.",
+    "The old Shopify testimonial images inspected are only 50x50 or 100x100 avatar files, unsuitable for this gallery.",
+    "The retained Sonny and Rigo profile references show their work, not portraits. Megan's uncropped cover is 480x481 and is not a working-studio image.",
+    "No new full-width studio interior photograph was recovered. The flash-board photograph is a studio wall detail, and Jake's photograph shows a working area.",
+    "Existing portfolio artwork from the main homepage slider is not repeated in this recommendation."
+  ],
+  "review_sheet": ".ai-bridge/welcome-review/welcome-final-contact-sheet.jpg",
+  "additional_review": ".ai-bridge/welcome-review/shopify-artist-candidates.jpg",
+  "reproduction_helper": "scripts/prepare-welcome-gallery.py"
+}

@@ -1,0 +1,29 @@
+/* Real studio photographs, with a separate gallery from the finished artwork. */
+.sp-statement--gallery { grid-template-columns: 1.12fr 1fr; gap: clamp(36px, 5vw, 75px); }
+.sp-welcome-gallery { min-width: 0; }
+.sp-welcome-carousel .sp-carousel-track { gap: 16px; padding: 0; border: 1px solid rgba(255,255,255,.1); background: #0c0b0d; }
+.sp-welcome-carousel .sp-carousel-slide { flex: 0 0 100%; }
+.sp-welcome-carousel .sp-carousel-slide > .sp-work { display: flex; flex-direction: column; height: 100%; background: #100d10; }
+.sp-welcome-frame { position: relative; display: block; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: radial-gradient(ellipse at 50% 100%, #301017, #0c0b0d 75%); }
+.sp-welcome-carousel .sp-carousel-slide > .sp-work .sp-welcome-frame img { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; object-position: center; }
+.sp-welcome-carousel .sp-carousel-slide > .sp-work:hover .sp-welcome-frame img { transform: none; filter: none; }
+.sp-welcome-carousel .sp-carousel-slide .sp-work-caption { position: static; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 18px; min-height: 61px; padding: 18px 22px; background: #100d10; font-size: 16px; line-height: 1.5; }
+.sp-welcome-carousel .sp-work-caption > .sp-icon { width: 18px; height: 18px; color: #c6b8be; }
+.sp-welcome-carousel .sp-carousel-controls { margin-top: 18px; }
+.sp-welcome-thumbnails { display: none; }
+.is-carousel-ready .sp-welcome-thumbnails { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.sp-welcome-thumbnail { display: block; width: 82px; height: 64px; margin: 0; padding: 3px; border: 1px solid #423039; border-radius: 0; background: #100d10; cursor: pointer; opacity: .56; transition: border-color .25s, opacity .25s, transform .25s var(--sp-ease); }
+.sp-welcome-thumbnail img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.sp-welcome-thumbnail:hover, .sp-welcome-thumbnail[aria-pressed="true"] { opacity: 1; border-color: var(--sp-red-light); }
+.sp-welcome-thumbnail:hover { transform: translateY(-2px); }
+.sp-welcome-fallback { display: block; width: 100%; height: auto; }
+@media (max-width: 1000px) { .sp-statement--gallery { gap: 36px; } }
+@media (max-width: 700px) {
+  .sp-statement--gallery { grid-template-columns: 1fr; gap: 30px; }
+  .sp-statement--gallery .sp-statement-copy { order: -1; }
+  .sp-welcome-carousel .sp-carousel-slide .sp-work-caption { min-height: 55px; padding: 15px 17px; font-size: 14px; }
+  .sp-welcome-thumbnail { width: 72px; height: 58px; }
+  .is-carousel-ready .sp-welcome-thumbnails { gap: 10px; margin-top: 15px; }
+}
+@media (prefers-reduced-motion: reduce) { .sp-welcome-thumbnail { transition: none; } .sp-welcome-thumbnail:hover { transform: none; } }
+@media print { .sp-welcome-thumbnails { display: none !important; } .sp-welcome-frame { break-inside: avoid; } }

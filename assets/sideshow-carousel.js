@@ -59,6 +59,11 @@
     var label = pad(range.first + 1);
     if (range.last !== range.first) label += "–" + pad(range.last + 1);
     state.counter.textContent = label + " / " + pad(state.slides.length);
+    var selected = range.first;
+    if (left - state.positions[selected] > state.widths[selected] / 2) selected = Math.min(selected + 1, state.slides.length - 1);
+    state.thumbnails.forEach(function (button) {
+      button.setAttribute("aria-pressed", String(Number(button.getAttribute("data-carousel-goto")) === selected));
+    });
 
     var fraction = canScroll ? clamp(state.track.clientWidth / state.track.scrollWidth, 0.04, 1) : 1;
     state.progress.style.width = (fraction * 100).toFixed(4) + "%";
@@ -67,7 +72,7 @@
     state.progress.style.transform = "translate3d(" + offset.toFixed(2) + "px,0,0)";
 
     if (announce) {
-      var message = "Showing artwork " + (range.first + 1);
+      var message = "Showing " + state.itemName + " " + (range.first + 1);
       if (range.last !== range.first) message += " through " + (range.last + 1);
       state.status.textContent = message + " of " + state.slides.length + ".";
     }
@@ -242,6 +247,8 @@
     var state = {
       root: root, track: track, controls: controls, previous: previous, next: next,
       progress: progress, counter: counter, status: status, slides: slides,
+      itemName: root.getAttribute("data-carousel-item-name") || "artwork",
+      thumbnails: Array.prototype.slice.call(root.querySelectorAll("[data-carousel-goto]")),
       controller: controller, observer: null, maximum: 0, positions: [], widths: [], points: [0],
       frame: null, settleTimer: null, gesture: null, blockClickUntil: 0, targetLeft: null, range: null
     };
@@ -256,6 +263,12 @@
     }
     listen(previous, "click", function () { if (!previous.disabled) navigate(state, -1); });
     listen(next, "click", function () { if (!next.disabled) navigate(state, 1); });
+    state.thumbnails.forEach(function (button) {
+      listen(button, "click", function () {
+        var index = Number(button.getAttribute("data-carousel-goto"));
+        if (Number.isInteger(index) && index >= 0 && index < state.slides.length) scrollTo(state, state.positions[index]);
+      });
+    });
     listen(track, "scroll", function () { scheduleUpdate(state, true); }, { passive: true });
     listen(track, "wheel", function () { state.targetLeft = null; }, { passive: true });
     listen(track, "keydown", function (event) { onKeyDown(state, event); });
