@@ -8,7 +8,6 @@
   {% if page_description != blank %}<meta name="description" content="{{ page_description | escape }}">{% else %}<meta name="description" content="Custom tattoos, piercings, tooth gems and teeth whitening at Sideshow Productions in Murray, Utah. Meet the artists and find your next piece.">{% endif %}
   <link rel="canonical" href="{{ canonical_url }}">
   <link rel="icon" type="image/webp" href="{{ 'sp-logo.webp' | asset_url }}">
-  <link rel="preload" as="font" type="font/woff2" href="{{ 'sp-display.woff2' | asset_url }}" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="{{ 'sp-body.woff2' | asset_url }}" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="{{ 'sp-brush.woff2' | asset_url }}" crossorigin>
   {{ 'sideshow-studio.css' | asset_url | stylesheet_tag }}

@@ -1,5 +1,5 @@
 {% assign now_seconds = 'now' | date: '%s' | plus: 0 %}{% assign expires_seconds = section.settings.expires_at | date: '%s' | plus: 0 %}
-{% if section.settings.enabled and expires_seconds > now_seconds %}<section class="sp-event" data-expires="{{ section.settings.expires_at | escape }}"><div class="sp-shell"><span class="sp-tag">{{ section.settings.label | escape }}</span><div><strong>{{ section.settings.title | escape }}</strong><p>{{ section.settings.copy | escape }}</p></div><a class="sp-link" href="{{ section.settings.link | default: '/pages/flash' }}">{{ section.settings.link_label | escape }} <span aria-hidden="true">↗</span></a></div></section>{% endif %}
+{% if section.settings.enabled and expires_seconds > now_seconds %}<section class="sp-event" data-expires="{{ section.settings.expires_at | escape }}"><div class="sp-shell"><span class="sp-tag">{{ section.settings.label | escape }}</span><div><strong>{{ section.settings.title | escape }}</strong><p>{{ section.settings.copy | escape }}</p></div><a class="sp-link" href="{{ section.settings.link | default: '/pages/flash' }}">{{ section.settings.link_label | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a></div></section>{% endif %}
 {% schema %}
 {
   "name": "Studio timed event",

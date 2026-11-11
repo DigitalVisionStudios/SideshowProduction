@@ -6,7 +6,7 @@
         <a class="sp-service-row" href="{{ block.settings.link | default: '/pages/book' }}" {{ block.shopify_attributes }} data-reveal>
           <div><h3>{{ block.settings.title | escape }}</h3><p>{{ block.settings.description | escape }}</p></div>
           <span class="sp-service-meta">{{ block.settings.note | escape }}</span>
-          <span class="sp-arrow" aria-hidden="true">↗</span>
+          <span class="sp-arrow" aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span>
         </a>
       {% endfor %}
     </div>

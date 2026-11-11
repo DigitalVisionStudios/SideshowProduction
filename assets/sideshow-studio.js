@@ -183,6 +183,38 @@
     return button;
   }
 
+  function makeIcon(name) {
+    var paths = {
+      "arrow-up-right": "M6 18 18 6M6 6h12v12",
+      "arrow-right": "M4 12h16m-6-6 6 6-6 6",
+      "arrow-left": "M20 12H4m6-6-6 6 6 6",
+      "arrow-down": "M12 4v16m-6-6 6 6 6-6",
+      "chevron": "m6 9 6 6 6-6",
+      "refresh": "M3 12a9 9 0 0 1 15.36-6.36L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.36 6.36L3 16M8 16H3v5",
+      "close": "m6 6 12 12M18 6 6 18"
+    };
+    var namespace = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(namespace, "svg");
+    var attributes = {
+      "class": "sp-icon",
+      "viewBox": "0 0 24 24",
+      "width": "20",
+      "height": "20",
+      "fill": "none",
+      "stroke": "currentColor",
+      "stroke-width": "1.65",
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "aria-hidden": "true",
+      "focusable": "false"
+    };
+    Object.keys(attributes).forEach(function (key) { svg.setAttribute(key, attributes[key]); });
+    var shape = document.createElementNS(namespace, "path");
+    shape.setAttribute("d", paths[name] || paths["arrow-up-right"]);
+    svg.appendChild(shape);
+    return svg;
+  }
+
   function lightboxCleanup() {
     document.body.classList.remove("sp-lightbox-open");
     focusElement(lightboxOpener);
@@ -210,7 +242,8 @@
     top.className = "sp-lightbox-top";
     var label = document.createElement("p");
     label.textContent = "Selected work / Sideshow Productions";
-    var close = makeButton("Close ×", "sp-lightbox-close");
+    var close = makeButton("Close", "sp-lightbox-close");
+    close.appendChild(makeIcon("close"));
     close.setAttribute("aria-label", "Close artwork viewer");
     close.addEventListener("click", closeLightbox);
     top.append(label, close);
@@ -228,9 +261,11 @@
     lightboxCaption.setAttribute("aria-live", "polite");
     var controls = document.createElement("div");
     controls.className = "sp-lightbox-controls";
-    lightboxPrevious = makeButton("←", "sp-lightbox-previous");
+    lightboxPrevious = makeButton("", "sp-lightbox-previous");
+    lightboxPrevious.appendChild(makeIcon("arrow-left"));
     lightboxPrevious.setAttribute("aria-label", "Previous artwork");
-    lightboxNext = makeButton("→", "sp-lightbox-next");
+    lightboxNext = makeButton("", "sp-lightbox-next");
+    lightboxNext.appendChild(makeIcon("arrow-right"));
     lightboxNext.setAttribute("aria-label", "Next artwork");
     lightboxCounter = document.createElement("span");
     lightboxCounter.className = "sp-lightbox-counter";

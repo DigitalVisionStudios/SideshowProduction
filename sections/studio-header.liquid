@@ -13,7 +13,7 @@
       <a href="/pages/about" class="sp-nav-link{% if request.path == '/pages/about' %} is-current{% endif %}">About</a>
     </nav>
     <div class="sp-header-actions">
-      <a class="sp-button sp-button--red" href="{{ section.settings.booking_url | default: '/pages/book' }}">{{ section.settings.booking_label | escape }} <span aria-hidden="true">↗</span></a>
+      <a class="sp-button sp-button--red" href="{{ section.settings.booking_url | default: '/pages/book' }}">{{ section.settings.booking_label | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
       <button class="sp-menu-toggle" type="button" data-menu-toggle aria-controls="sp-mobile-menu" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span class="sp-sr-only">Menu</span></button>
     </div>
   </div>

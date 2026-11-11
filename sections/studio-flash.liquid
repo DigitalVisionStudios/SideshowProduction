@@ -3,7 +3,7 @@
     <div class="sp-flash-copy" data-reveal>
       <h2>{{ section.settings.heading | escape }}</h2>
       <p>{{ section.settings.copy | escape }}</p>
-      <div class="sp-actions"><a class="sp-button sp-button--red" href="/pages/flash">Browse flash <span aria-hidden="true">↗</span></a><a class="sp-link" href="/pages/ink-roulette">Ink Roulette <span aria-hidden="true">↗</span></a></div>
+      <div class="sp-actions"><a class="sp-button sp-button--red" href="/pages/flash">Browse flash <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a><a class="sp-link" href="/pages/ink-roulette">Ink Roulette <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a></div>
     </div>
     <a class="sp-flash-art" href="/pages/ink-roulette" aria-label="Explore Sideshow Ink Roulette designs" data-reveal><img src="{{ 'sp-source-flash-wall.webp' | asset_url }}" alt="Hand-drawn Ink Roulette designs displayed on the wall at Sideshow Productions" width="1588" height="1200" loading="lazy"></a>
   </div>

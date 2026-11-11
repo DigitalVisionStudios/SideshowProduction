@@ -1,0 +1,12 @@
+{%- assign icon_name = name | default: 'arrow-up-right' -%}
+<svg class="sp-icon{% if extra_class != blank %} {{ extra_class | escape }}{% endif %}" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  {%- case icon_name -%}
+    {%- when 'arrow-right' -%}<path d="M4 12h16m-6-6 6 6-6 6"/>
+    {%- when 'arrow-left' -%}<path d="M20 12H4m6-6-6 6 6 6"/>
+    {%- when 'arrow-down' -%}<path d="M12 4v16m-6-6 6 6 6-6"/>
+    {%- when 'chevron', 'chevron-down' -%}<path d="m6 9 6 6 6-6"/>
+    {%- when 'refresh' -%}<path d="M3 12a9 9 0 0 1 15.36-6.36L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.36 6.36L3 16M8 16H3v5"/>
+    {%- when 'close' -%}<path d="m6 6 12 12M18 6 6 18"/>
+    {%- else -%}<path d="M6 18 18 6M6 6h12v12"/>
+  {%- endcase -%}
+</svg>

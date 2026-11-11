@@ -12,7 +12,7 @@ npm ci
 npm run preview
 ```
 
-The preview is local only. It renders the actual Liquid templates and sections, adds a preview notice, and never submits a booking, inquiry, order, or payment. If port 8794 is occupied, the server reports its next available port.
+The preview renders the actual Liquid templates and sections, adds a preview notice, and never submits a booking, inquiry, order, or payment. It can also be viewed from authorized devices through the configured private Tailscale Serve endpoint. If port 8794 is occupied, the server reports its next available port.
 
 ## Included pages
 
@@ -36,7 +36,8 @@ Shopify page resources and template assignments must be created/confirmed in the
 
 - Black and deep red backgrounds, the source site's original Sedgwick Ave Display brush lettering, and the studio's actual artwork.
 - A full-width hero using a 6.4-second muted excerpt of real tattooing footage from the archived site. No generated photos or videos.
-- Simplified headings and copy, larger artwork, and the original studio crest.
+- Lighter DM Sans headings, artist names, and navigation, paired with the original brush accent. Simplified copy, larger artwork, and the original studio crest.
+- Inline SVG arrows, gallery controls, and FAQ chevrons for consistent rendering on phones, with accessible button labels.
 - Editable section settings and blocks for the hero, services, artists, portfolio, products, events, and common questions.
 - Fixed navigation that starts transparent on the homepage, becomes dark and compact after 48 pixels of scroll, and stays solid on inner pages. Responsive mobile navigation and a mobile booking bar.
 - Portfolio filtering, a keyboard-accessible image viewer, image hover motion, gentle scroll reveals, and a small hero background shift.
@@ -83,7 +84,7 @@ npm run check
 
 The check validates the new studio section schemas, template references, Liquid rendering, JavaScript syntax, local routes, and asset references. It does not prove live booking, payment, email delivery, or Shopify inventory correctness.
 
-The current draft rendered all 11 routes without errors. Official Shopify Theme Check found no errors in the new studio files; its only three scoped warnings suggest using Shopify's preload_tag for the font preloads. Existing Debutify files have preexisting findings that were not rewritten as part of this draft.
+The current draft rendered all 11 routes without errors. Official Shopify Theme Check found no errors in the new studio files; its scoped warnings suggest using Shopify's preload_tag for the font preloads. Existing Debutify files have preexisting findings that were not rewritten as part of this draft.
 
 Browser review covered the home page at desktop and mobile sizes, artist cards on mobile, the services and shop layouts, the sticky header, portfolio filtering, image viewer opening/Escape, contact artist context, and the roulette design shuffle.
 

@@ -3,13 +3,13 @@
     {% unless section.settings.show_details %}<div class="sp-section-heading" data-reveal><h2>{{ section.settings.heading | escape }}</h2></div>{% endunless %}
     <div class="sp-artist-grid{% if section.settings.show_details %} sp-artist-grid--full{% endif %}">
       {% for block in section.blocks %}<article class="sp-artist-card" id="{{ block.settings.anchor | escape }}" {{ block.shopify_attributes }} data-reveal>
-        <a href="{% if section.settings.show_details %}/pages/book#{{ block.settings.anchor | escape }}{% else %}/pages/artists#{{ block.settings.anchor | escape }}{% endif %}" class="sp-artist-photo" aria-label="Meet {{ block.settings.name | escape }}">{% render 'studio-image', image: block.settings.image, asset_name: block.settings.asset, alt: block.settings.alt %}<span aria-hidden="true">↗</span></a>
+        <a href="{% if section.settings.show_details %}/pages/book#{{ block.settings.anchor | escape }}{% else %}/pages/artists#{{ block.settings.anchor | escape }}{% endif %}" class="sp-artist-photo" aria-label="Meet {{ block.settings.name | escape }}">{% render 'studio-image', image: block.settings.image, asset_name: block.settings.asset, alt: block.settings.alt %}<span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
         <div class="sp-artist-info"><h3>{{ block.settings.name | escape }}</h3><p class="sp-artist-role">{{ block.settings.role | escape }}</p>{% if section.settings.show_details %}<p>{{ block.settings.bio | escape }}</p>{% endif %}
         {% if section.settings.show_details %}
-          <details class="sp-artist-details"><summary>Rates &amp; availability</summary><div><p><strong>{{ block.settings.rate | escape }}</strong></p><p>{{ block.settings.deposit | escape }}</p><p>{{ block.settings.hours | escape }}</p><p>All times are local to the Murray studio. 48-hour notice for appointment changes. Final availability is confirmed when booking.</p></div></details>
-          <a class="sp-link" href="/pages/book#{{ block.settings.anchor | escape }}">Book with {{ block.settings.name | escape }} <span aria-hidden="true">↗</span></a>
+          <details class="sp-artist-details"><summary>Rates &amp; availability{% render 'studio-icon', name: 'chevron', extra_class: 'sp-faq-chevron' %}</summary><div><p><strong>{{ block.settings.rate | escape }}</strong></p><p>{{ block.settings.deposit | escape }}</p><p>{{ block.settings.hours | escape }}</p><p>All times are local to the Murray studio. 48-hour notice for appointment changes. Final availability is confirmed when booking.</p></div></details>
+          <a class="sp-link" href="/pages/book#{{ block.settings.anchor | escape }}">Book with {{ block.settings.name | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
         {% else %}
-          <a class="sp-link" href="/pages/artists#{{ block.settings.anchor | escape }}">Meet {{ block.settings.name | escape }} <span aria-hidden="true">↗</span></a>
+          <a class="sp-link" href="/pages/artists#{{ block.settings.anchor | escape }}">Meet {{ block.settings.name | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
         {% endif %}</div>
       </article>{% endfor %}
     </div>

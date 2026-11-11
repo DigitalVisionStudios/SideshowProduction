@@ -17,8 +17,8 @@
       <h1 id="sp-hero-heading-{{ section.id }}"><span>{{ section.settings.heading_line_one | escape }}</span><em>{{ section.settings.heading_accent | escape }}</em></h1>
       <p class="sp-intro">{{ section.settings.description | escape }}</p>
       <div class="sp-actions">
-        <a class="sp-button sp-button--red" href="/pages/book">Book an appointment <span aria-hidden="true">↗</span></a>
-        <a class="sp-button sp-button--outline" href="/pages/portfolio">View our work <span aria-hidden="true">↗</span></a>
+        <a class="sp-button sp-button--red" href="/pages/book">Book an appointment <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
+        <a class="sp-button sp-button--outline" href="/pages/portfolio">View our work <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
       </div>
     </div>
   </div>
