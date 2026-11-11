@@ -34,7 +34,7 @@
   },
   "redesign": {
     "interval_ms": 5500,
-    "difference": "Preserves the original storefront opening, exact rotating words, order, prefix and suffix. Adds two genuine photographs as synchronized scenes, smoother crossfades, accessible controls, environmental suspension, and a black bottom fade.",
+    "difference": "Preserves the original storefront opening, exact rotating words, order, prefix and suffix. Adds two genuine photographs as synchronized scenes, smoother crossfades, automatic playback without visitor controls, environmental suspension, and a black bottom fade.",
     "media": [
       {
         "word": "artists",

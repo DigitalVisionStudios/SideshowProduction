@@ -1,5 +1,4 @@
 {% assign hero_interval = section.settings.interval | default: 5.5 | times: 1000 %}
-{% assign hero_has_video = false %}
 <section class="sp-hero-deck" data-sp-hero-deck data-hero-interval="{{ hero_interval }}" data-hero-autoplay="{{ section.settings.autoplay }}" aria-labelledby="sp-hero-heading-{{ section.id }}" aria-roledescription="carousel">
   <div class="sp-hero-deck__media" aria-hidden="true">
     {% for block in section.blocks %}
@@ -16,7 +15,6 @@
       <div class="sp-hero-deck__frame sp-hero-deck__frame--{{ block.settings.media_style | default: 'cover' }}{% if forloop.first %} is-active{% endif %}" data-sp-hero-frame data-block-id="{{ block.id }}" style="--sp-hero-focus-x:{{ block.settings.focus_x | default: 50 }}%;--sp-hero-focus-y:{{ block.settings.focus_y | default: 50 }}%;" {% unless forloop.first %}hidden{% endunless %} {{ block.shopify_attributes }}>
         <img src="{{ hero_src }}" alt="" width="{{ hero_width }}" height="{{ hero_height }}" decoding="async" {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy" fetchpriority="low"{% endif %}>
         {% if section.settings.enable_video and block.settings.video_asset != blank and block.settings.video_asset != '#' %}
-          {% assign hero_has_video = true %}
           <video data-sp-hero-deck-video muted loop playsinline preload="none" poster="{{ hero_src }}" tabindex="-1" aria-hidden="true">
             <source data-src="{{ block.settings.video_asset | asset_url }}" type="video/mp4">
           </video>
@@ -49,33 +47,6 @@
         <a class="sp-button sp-button--red" href="{{ section.settings.primary_link | default: '/pages/book' }}">{{ section.settings.primary_label | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
         <a class="sp-button sp-button--outline" href="{{ section.settings.secondary_link | default: '/pages/artists' }}">{{ section.settings.secondary_label | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
       </div>
-      {% if section.blocks.size > 1 or hero_has_video %}
-        <div class="sp-hero-deck__controls" data-sp-hero-deck-controls hidden>
-          {% if section.blocks.size > 1 %}
-          <div class="sp-hero-deck__pager" data-sp-hero-pager role="group" aria-label="Choose a hero scene">
-            {% for block in section.blocks %}
-              <button class="sp-hero-deck__step{% if forloop.first %} is-active{% endif %}" type="button" data-sp-hero-go="{{ forloop.index0 }}" aria-label="Show {{ block.settings.word | escape }} scene" {% if forloop.first %}aria-current="true"{% endif %}>
-                <span aria-hidden="true">0{{ forloop.index }}</span>
-                <span class="sp-hero-deck__step-line" aria-hidden="true"></span>
-              </button>
-            {% endfor %}
-          </div>
-          {% endif %}
-          <div class="sp-hero-deck__transport" role="group" aria-label="Hero motion controls">
-            {% if section.blocks.size > 1 %}
-            <button class="sp-hero-deck__control" type="button" data-sp-hero-prev aria-label="Previous hero scene"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="m14 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            {% endif %}
-            <button class="sp-hero-deck__control sp-hero-deck__motion" type="button" data-sp-hero-motion aria-label="Pause slideshow and video" title="Pause slideshow and video">
-              <svg data-sp-hero-pause-icon viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M7 5h3v14H7zm7 0h3v14h-3z" fill="currentColor"/></svg>
-              <svg data-sp-hero-play-icon viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" hidden><path d="m8 5 11 7-11 7Z" fill="currentColor"/></svg>
-            </button>
-            {% if section.blocks.size > 1 %}
-              <button class="sp-hero-deck__control" type="button" data-sp-hero-next aria-label="Next hero scene"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="m10 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            {% endif %}
-          </div>
-          <span class="sp-hero-deck__status" data-sp-hero-status role="status" aria-live="polite" aria-atomic="true"></span>
-        </div>
-      {% endif %}
     </div>
   </div>
 </section>

@@ -1,4 +1,4 @@
-/* Hero scene rotation. One user choice controls both the timer and optional video. */
+/* Automatic hero scenes and optional video, suspended when they are not being viewed. */
 (function () {
   "use strict";
   if (window.__sideshowHeroDeckLoaded) return;
@@ -23,7 +23,7 @@
   }
 
   function running(state) {
-    return !state.destroyed && !reduced.matches && !state.paused && state.visible && !state.focusPaused &&
+    return !state.destroyed && !reduced.matches && state.autoplay && state.visible &&
       !state.editorPaused && !overlayOpen && !document.hidden;
   }
 
@@ -34,7 +34,7 @@
     else if (state.frames.length > 1 && state.timer === null) {
       state.timer = window.setTimeout(function () {
         state.timer = null;
-        select(state, state.index + 1, false);
+        select(state, state.index + 1);
       }, state.interval);
     }
     state.frames.forEach(function (frame, index) {
@@ -61,19 +61,11 @@
         } else delete video.dataset.playPending;
       }
     });
-    if (state.motion) {
-      state.motion.hidden = reduced.matches;
-      state.motion.setAttribute("aria-label", state.paused ? "Play slideshow and video" : "Pause slideshow and video");
-      state.motion.title = state.paused ? "Play slideshow and video" : "Pause slideshow and video";
-      state.motion.querySelector("[data-sp-hero-pause-icon]").toggleAttribute("hidden", state.paused);
-      state.motion.querySelector("[data-sp-hero-play-icon]").toggleAttribute("hidden", !state.paused);
-    }
   }
 
-  function select(state, requested, manual) {
+  function select(state, requested) {
     cancelTimer(state);
     state.index = (requested + state.frames.length) % state.frames.length;
-    if (manual) state.paused = true;
     state.frames.forEach(function (frame, index) {
       frame.classList.toggle("is-active", index === state.index);
     });
@@ -81,14 +73,6 @@
       word.classList.toggle("is-active", index === state.index);
       word.setAttribute("aria-hidden", String(index !== state.index));
     });
-    state.steps.forEach(function (step, index) {
-      step.classList.toggle("is-active", index === state.index);
-      if (index === state.index) step.setAttribute("aria-current", "true");
-      else step.removeAttribute("aria-current");
-    });
-    if (manual && state.status) {
-      state.status.textContent = "Scene " + (state.index + 1) + " of " + state.frames.length + ": " + state.words[state.index].textContent.trim() + ".";
-    }
     sync(state);
   }
 
@@ -109,14 +93,10 @@
         element: element,
         frames: frames,
         words: words,
-        steps: Array.from(element.querySelectorAll("[data-sp-hero-go]")),
-        motion: element.querySelector("[data-sp-hero-motion]"),
-        status: element.querySelector("[data-sp-hero-status]"),
         index: 0,
         interval: Math.max(4000, Number(element.dataset.heroInterval) || 5500),
-        paused: element.dataset.heroAutoplay === "false",
+        autoplay: element.dataset.heroAutoplay !== "false",
         visible: !observer || (bounds.bottom > 0 && bounds.top < window.innerHeight),
-        focusPaused: false,
         editorPaused: false,
         destroyed: false,
         timer: null,
@@ -137,36 +117,9 @@
         on(video, "error", function () { frame.classList.remove("is-video-ready"); });
       });
       words.forEach(function (word) { word.hidden = false; });
-      state.steps.forEach(function (step) {
-        on(step, "click", function () { select(state, Number(step.dataset.spHeroGo), true); });
-      });
-      on(element.querySelector("[data-sp-hero-prev]"), "click", function () { select(state, state.index - 1, true); });
-      on(element.querySelector("[data-sp-hero-next]"), "click", function () { select(state, state.index + 1, true); });
-      on(state.motion, "click", function () {
-        state.paused = !state.paused;
-        state.focusPaused = false;
-        sync(state);
-      });
-      on(element, "focusin", function () { state.focusPaused = true; sync(state); });
-      on(element, "focusout", function (event) {
-        if (!element.contains(event.relatedTarget)) { state.focusPaused = false; sync(state); }
-      });
-      on(element.querySelector("[data-sp-hero-pager]"), "keydown", function (event) {
-        var index;
-        if (event.key === "ArrowRight") index = (state.index + 1) % frames.length;
-        else if (event.key === "ArrowLeft") index = (state.index + frames.length - 1) % frames.length;
-        else if (event.key === "Home") index = 0;
-        else if (event.key === "End") index = frames.length - 1;
-        else return;
-        event.preventDefault();
-        select(state, index, true);
-        state.steps[index].focus();
-      });
-      var controls = element.querySelector("[data-sp-hero-deck-controls]");
-      if (controls) controls.hidden = false;
       element.setAttribute("data-hero-ready", "");
       instances.set(element, state);
-      select(state, 0, false);
+      select(state, 0);
       if (observer) observer.observe(element);
     });
   }
@@ -190,8 +143,6 @@
         word.setAttribute("aria-hidden", String(index !== 0));
       });
       if (observer) observer.unobserve(element);
-      var controls = element.querySelector("[data-sp-hero-deck-controls]");
-      if (controls) controls.hidden = true;
       element.removeAttribute("data-hero-ready");
       element.removeAttribute("data-hero-running");
       instances.delete(element);
@@ -207,7 +158,7 @@
     if (selected) {
       var blockId = event.detail && event.detail.blockId;
       var index = state.frames.findIndex(function (frame) { return frame.dataset.blockId === blockId; });
-      if (index >= 0) select(state, index, false);
+      if (index >= 0) select(state, index);
     }
     sync(state);
   }
