@@ -1,30 +1,31 @@
 <header class="sp-header">
   <div class="sp-shell sp-header-inner">
+    <div class="sp-header-start">
+      <button class="sp-menu-toggle" type="button" data-menu-toggle aria-controls="sp-mobile-menu-{{ section.id }}" aria-expanded="false" aria-haspopup="dialog" aria-label="Open menu"><span aria-hidden="true"></span><span aria-hidden="true"></span><span class="sp-sr-only">Menu</span></button>
+    </div>
     <a class="sp-brand" href="{{ routes.root_url }}" aria-label="Sideshow Productions home">
       <img src="{{ 'sp-logo.webp' | asset_url }}" alt="" width="68" height="68">
     </a>
-    <nav class="sp-nav" aria-label="Main navigation">
-      <a href="/" class="sp-nav-link{% if request.path == '/' %} is-current{% endif %}">Home</a>
-      <a href="/pages/about" class="sp-nav-link{% if request.path == '/pages/about' %} is-current{% endif %}">About</a>
-      <a href="/pages/aftercare" class="sp-nav-link{% if request.path == '/pages/aftercare' %} is-current{% endif %}">Aftercare</a>
-      <a href="/pages/flash" class="sp-nav-link{% if request.path == '/pages/flash' %} is-current{% endif %}">Flash Tattoos</a>
-      <a href="/pages/ink-roulette" class="sp-nav-link{% if request.path == '/pages/ink-roulette' %} is-current{% endif %}">Ink Roulette</a>
-      <a href="/pages/shop" class="sp-nav-link{% if request.path == '/pages/shop' %} is-current{% endif %}">Merch Shop</a>
-    </nav>
     <div class="sp-header-actions">
-      <a class="sp-button sp-button--red" href="{{ section.settings.booking_url | default: '/pages/book' }}">{{ section.settings.booking_label | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
-      <button class="sp-menu-toggle" type="button" data-menu-toggle aria-controls="sp-mobile-menu-{{ section.id }}" aria-expanded="false" aria-haspopup="dialog" aria-label="Open menu"><span aria-hidden="true"></span><span aria-hidden="true"></span><span class="sp-sr-only">Menu</span></button>
+      <a class="sp-cart-link" href="{{ routes.cart_url }}" aria-label="Cart{% if cart.item_count > 0 %}, {{ cart.item_count }} item{% if cart.item_count != 1 %}s{% endif %}{% endif %}">
+        {% render 'studio-icon', name: 'cart' %}
+        {% if cart.item_count > 0 %}<span class="sp-cart-count" aria-hidden="true">{{ cart.item_count }}</span>{% endif %}
+      </a>
     </div>
   </div>
   <noscript><nav class="sp-noscript-nav" aria-label="Navigation"><a href="/pages/artists">Artists</a><a href="/pages/services">Services</a><a href="/pages/portfolio">Our work</a><a href="/pages/shop">Shop</a><a href="/pages/contact">Contact</a></nav></noscript>
 </header>
 <dialog id="sp-mobile-menu-{{ section.id }}" class="sp-menu-panel" data-mobile-menu aria-label="Site navigation" aria-modal="true" tabindex="-1" hidden>
   <div class="sp-menu-ambient" aria-hidden="true"></div>
-  <div class="sp-menu-top">
+  <div class="sp-menu-top sp-shell">
+    <button class="sp-menu-close" type="button" data-menu-close aria-label="Close menu"><span aria-hidden="true"></span><span aria-hidden="true"></span><span class="sp-sr-only">Close menu</span></button>
     <a class="sp-menu-brand" href="{{ routes.root_url }}" aria-label="Sideshow Productions home">
       <img src="{{ 'sp-logo.webp' | asset_url }}" alt="" width="56" height="56">
     </a>
-    <button class="sp-menu-close" type="button" data-menu-close aria-label="Close menu"><span aria-hidden="true"></span><span aria-hidden="true"></span><span class="sp-sr-only">Close menu</span></button>
+    <a class="sp-cart-link" href="{{ routes.cart_url }}" aria-label="Cart{% if cart.item_count > 0 %}, {{ cart.item_count }} item{% if cart.item_count != 1 %}s{% endif %}{% endif %}">
+        {% render 'studio-icon', name: 'cart' %}
+        {% if cart.item_count > 0 %}<span class="sp-cart-count" aria-hidden="true">{{ cart.item_count }}</span>{% endif %}
+      </a>
   </div>
   <div class="sp-menu-scroll">
     <div class="sp-menu-body">

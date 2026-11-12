@@ -1,4 +1,4 @@
-/* Sideshow mobile navigation. Kept separate from the storefront layout. */
+/* Sideshow site navigation, shared by phone and desktop. */
 .sp-menu-panel {
   --sp-menu-exit-ms: 520;
   position: fixed;
@@ -42,18 +42,20 @@
 .sp-menu-top {
   position: relative;
   flex: 0 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
   gap: 20px;
   min-height: 83px;
-  padding: 12px max(24px, env(safe-area-inset-right, 0px)) 12px max(24px, env(safe-area-inset-left, 0px));
+  padding-block: 12px;
   border-bottom: 1px solid rgba(255, 255, 255, .09);
 }
-.sp-menu-brand { display: inline-flex; align-items: center; line-height: 1; }
-.sp-menu-brand img { width: 56px; height: 56px; object-fit: contain; }
+.sp-menu-brand { display: inline-flex; justify-self: center; align-items: center; line-height: 1; }
+.sp-menu-top .sp-cart-link { justify-self: end; }
+.sp-menu-brand img { width: 55px; height: 55px; object-fit: contain; }
 .sp-menu-close {
   position: relative;
+  justify-self: start;
   flex: 0 0 46px;
   width: 46px;
   height: 46px;
@@ -159,15 +161,12 @@
   transition-delay: min(240ms, calc(70ms + var(--sp-menu-order, 0) * 34ms));
 }
 .sp-menu-panel.is-closing .sp-menu-enter { opacity: 0; transform: translate3d(0, -10px, 0); transition-duration: .2s; transition-delay: 0ms; }
-@media (max-width: 1000px) {
-  .sp-menu-toggle { width: 46px; height: 46px; flex-basis: 46px; border-radius: 50%; background: rgba(0, 0, 0, .12); transition: background .25s ease, border-color .25s ease; }
-  .sp-menu-toggle > span:not(.sp-sr-only) { height: 1.5px; transition: transform .45s cubic-bezier(.22, .61, .36, 1), width .3s ease; }
-  .sp-menu-toggle > span:nth-child(2) { width: 16px; align-self: flex-end; margin-right: 2px; }
-  .sp-menu-toggle.is-open > span:first-child { transform: translateY(3.75px) rotate(45deg); }
-  .sp-menu-toggle.is-open > span:nth-child(2) { width: 21px; margin-right: 0; align-self: center; transform: translateY(-3.75px) rotate(-45deg); }
-}
+.sp-menu-toggle > span:not(.sp-sr-only) { height: 1.5px; transition: transform .45s cubic-bezier(.22, .61, .36, 1), width .3s ease; }
+.sp-menu-toggle > span:nth-child(2) { width: 16px; align-self: flex-end; margin-right: 2px; }
+.sp-menu-toggle.is-open > span:first-child { transform: translateY(3.75px) rotate(45deg); }
+.sp-menu-toggle.is-open > span:nth-child(2) { width: 21px; margin-right: 0; align-self: center; transform: translateY(-3.75px) rotate(-45deg); }
 @media (min-width: 600px) and (max-width: 1000px) {
-  .sp-menu-top { min-height: 88px; padding-inline: 40px; }
+  .sp-menu-top { min-height: 84px; }
   .sp-menu-body { display: grid; grid-template-columns: 1.3fr 1fr; align-items: center; gap: 48px; padding: 36px 40px 44px; }
   .sp-menu-primary { gap: 8px; }
   .sp-menu-primary .sp-menu-link { font-size: clamp(48px, 6.8vw, 68px); }
@@ -175,16 +174,29 @@
   .sp-menu-secondary { grid-template-columns: 1fr; gap: 6px; }
 }
 @media (max-width: 359px) {
-  .sp-menu-top { padding-inline: 19px; }
+  .sp-menu-top { gap: 16px; }
   .sp-menu-body { padding-inline: 23px; gap: 24px; }
   .sp-menu-primary .sp-menu-link { font-size: 38px; min-height: 51px; }
 }
 @media (max-height: 700px) and (max-width: 599px) {
-  .sp-menu-top { min-height: 74px; padding-block: 10px; }
+  .sp-menu-top { padding-block: 10px; }
   .sp-menu-body { padding-top: 16px; gap: 22px; }
   .sp-menu-primary .sp-menu-link { min-height: 50px; font-size: clamp(36px, 10.6vw, 44px); }
 }
-@media (min-width: 1001px) { .sp-menu-panel { display: none !important; } }
+@media (min-width: 768px) and (max-width: 1000px) {
+  .sp-menu-brand img { width: 58px; height: 58px; }
+}
+@media (min-width: 1001px) {
+  .sp-menu-top { min-height: 96px; }
+  .sp-menu-brand img { width: 68px; height: 68px; }
+  .sp-menu-body { display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 80px; width: min(1120px, calc(100% - 112px)); margin-inline: auto; padding: 40px 0 56px; }
+  .sp-menu-primary { gap: 6px; }
+  .sp-menu-primary .sp-menu-link { font-size: clamp(58px, 5.4vw, 80px); }
+  .sp-menu-primary .sp-menu-link .sp-icon { width: 27px; height: 27px; }
+  .sp-menu-aside { width: 100%; max-width: 360px; justify-self: end; gap: 28px; }
+  .sp-menu-secondary { grid-template-columns: 1fr; gap: 8px; }
+  .sp-menu-secondary a { font-size: 18px; }
+}
 @media (prefers-reduced-motion: reduce) {
   .sp-menu-panel, .sp-menu-panel::backdrop, .sp-menu-ambient, .sp-menu-enter,
   .sp-menu-primary .sp-menu-link, .sp-menu-primary .sp-menu-link .sp-icon,

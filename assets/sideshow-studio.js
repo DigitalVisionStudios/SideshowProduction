@@ -7,7 +7,7 @@
   }
 
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  var desktop = window.matchMedia("(min-width: 1001px)");
+
   var revealed = new WeakSet();
   var observed = new Set();
   var rouletteStates = new WeakMap();
@@ -166,10 +166,10 @@
     notifyOverlay();
     if (restoreFocus) {
       var target = state.toggle;
-      if (desktop.matches || !target.getClientRects().length) target = state.header && state.header.querySelector(".sp-brand");
+      if (!target.getClientRects().length) target = state.header && state.header.querySelector(".sp-brand");
       focusElement(target);
-    } else if (desktop.matches && focusWasInside) {
-      focusElement(state.header && state.header.querySelector(".sp-nav .is-current, .sp-brand"));
+    } else if (focusWasInside) {
+      focusElement(state.toggle);
     }
   }
 
@@ -177,7 +177,7 @@
     elements(scope, "[data-menu-toggle]").forEach(function (toggle) {
       var menu = menuFor(toggle);
       if (!menu || menuStates.has(menu)) return;
-      var marker = document.createComment("Sideshow mobile menu");
+      var marker = document.createComment("Sideshow site menu");
       menu.parentNode.insertBefore(marker, menu);
       var state = {
         menu: menu, toggle: toggle, header: toggle.closest(".sp-header"),
@@ -218,7 +218,7 @@
     var state = menuStates.get(menu);
     if (!state) return;
     if (open) {
-      if (desktop.matches || state.open) return;
+      if (state.open) return;
       if (activeMenu && activeMenu !== state) finishMenuClose(activeMenu, false);
       var wasVisible = !menu.hidden && menu.hasAttribute("open");
       cancelMenuMotion(state);
@@ -280,7 +280,7 @@
     menu.classList.remove("is-open");
     menu.classList.add("is-closing");
     menu.setAttribute("data-menu-state", "closing");
-    if (immediate || reducedMotion.matches || desktop.matches) {
+    if (immediate || reducedMotion.matches) {
       finishMenuClose(state, state.restoreFocus);
     } else {
       var duration = parseFloat(window.getComputedStyle(menu).getPropertyValue("--sp-menu-exit-ms")) || 520;
@@ -1071,9 +1071,6 @@
     heroVideos.forEach(function (state, video) { updateVideo(video, state, false); });
   });
 
-  function desktopChanged(event) {
-    if (event.matches) closeMenus(false, true);
-  }
   function motionChanged(event) {
     if (event.matches) {
       menuStates.forEach(function (state) {
@@ -1094,8 +1091,6 @@
     });
     updateHeader();
   }
-  if (desktop.addEventListener) desktop.addEventListener("change", desktopChanged);
-  else if (desktop.addListener) desktop.addListener(desktopChanged);
   if (reducedMotion.addEventListener) reducedMotion.addEventListener("change", motionChanged);
   else if (reducedMotion.addListener) reducedMotion.addListener(motionChanged);
 
