@@ -1,34 +1,29 @@
 {
   "site_id": "d89eb8b7-a74a-4269-8167-fbebfba7493a",
   "site_name": "dvs-html-previews-netlify6",
-  "deploy_id": "6af54fccf2febd0ede62e683",
+  "deploy_id": "6af5532d11c902435394bbc6",
   "mode": "production",
   "alias": null,
   "state": "ready",
   "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/",
   "v1_url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/",
-  "source_commit": "230275d35b41b47d68ae3c4038127c36c6dc7a7e",
+  "source_commit": "ef867287158947d0c5d533b98ebb69a072889352",
   "uploaded_with": "Scoped Netlify API snapshot upload via .ai-bridge/apply-scoped-netlify.mjs",
   "project": "sideshow-productions-v2",
   "public_verification": {
-    "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/",
+    "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/?v=ef86728",
     "homepageStatus": 200,
     "homepageMatchesExport": true,
-    "stylesAndScripts": 26,
+    "changedFilesVerified": 9,
     "assetFailures": [],
-    "artistCSSMatchesExport": true,
-    "catalogCount": 109,
-    "sideshowListed": true,
-    "existingEntriesPreserved": true,
-    "passed": true,
-    "expectedStylesAndScripts": 26
+    "passed": true
   },
   "shopify_live_changes": false,
   "latest_changes": [
-    "Opaque black background behind the entire artist carousel, with transparent fades at the top and bottom",
-    "Versioned stylesheet and script URLs so mobile clients receive updated preview assets",
-    "Listed Sideshow Productions in the main previews directory with its current hero thumbnail and logo icon",
-    "Published the homepage-only preview under previews.digitalvisionstudios.net with matching sharing metadata"
+    "Centered logo with animated menu on the left and Shopify cart on the right at all screen widths",
+    "Desktop and phone menu share entrance, exit, focus and scroll restoration behavior",
+    "White hero text uses locally hosted Barlow Semi Condensed at weights600and500; original brush words retained",
+    "Updated the main previews directory thumbnail"
   ],
   "visual_verification": {
     "component": "Artists section background",
@@ -47,9 +42,13 @@
     "runtime_errors": []
   },
   "changed_asset_verification": {
-    "version": "230275d",
-    "styles_and_scripts_verified": 26,
-    "artist_css_matches_export": true
+    "version": "ef86728",
+    "changed_files_verified": 9,
+    "all_public_files_match_export": true,
+    "font_weights_loaded": [
+      500,
+      600
+    ]
   },
   "preview_mode": "homepage-only",
   "homepage_navigation_verification": {
@@ -67,13 +66,13 @@
     "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/"
   },
   "directory_url": "https://previews.digitalvisionstudios.net/",
-  "completed_at": "2026-11-12T05:34:12.810Z",
+  "completed_at": "2026-11-12T05:48:39.471Z",
   "production_snapshot": {
-    "previous_deploy": "6ae8cd731ab0a173061a2bd3",
-    "validated_draft": "6af54f659a505b703547664a",
-    "total_files": 25411,
-    "existing_files_unchanged": 25324,
-    "changed_files": 87,
+    "previous_deploy": "6af54fccf2febd0ede62e683",
+    "validated_draft": "6af5531fead876b7b880eff9",
+    "total_files": 25413,
+    "existing_files_unchanged": 25404,
+    "changed_files": 9,
     "removed_paths": [],
     "functions_preserved": [
       "mpa-api",
@@ -92,13 +91,42 @@
       800
     ],
     "icon_loaded": true,
-    "existing_entries_preserved": true
+    "existing_entries_preserved": true,
+    "thumbnail_sha256": "a5bf394e9be7b8e16bbe61ec2a528ffb16ee84e3a371de738921a022f7c63676"
   },
   "production_browser_verification": {
     "passed": true,
-    "homepage_destination_correct": true,
-    "book_now_to_coming_soon_and_back": true,
+    "logo_centered": true,
+    "menu_left_cart_right": true,
+    "desktop_menu_focus_restored": true,
+    "cart_to_coming_soon_and_back": true,
     "phone_overflow": false,
     "runtime_errors": []
+  },
+  "previous_production": {
+    "deploy_id": "6af54fccf2febd0ede62e683",
+    "source_commit": "230275d35b41b47d68ae3c4038127c36c6dc7a7e"
+  },
+  "header_and_hero_verification": {
+    "local_checks_passed": 20,
+    "local_viewports": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "logo_center_offset_px": 0,
+    "menu_and_cart_target_px": 46,
+    "published_checks_passed": 10,
+    "published_viewports": [
+      390,
+      1440
+    ],
+    "hero_font": "Barlow Semi Condensed",
+    "headline_weight": 600,
+    "copy_weight": 500,
+    "brush_font": "SP Brush",
+    "desktop_and_phone_menu_animated": true,
+    "cart_uses_coming_soon_in_preview": true
   }
 }

@@ -1,12 +1,12 @@
 {
-  "source_commit": "230275d35b41b47d68ae3c4038127c36c6dc7a7e",
-  "generated_at": "2026-11-12T05:26:30.515Z",
+  "source_commit": "ef867287158947d0c5d533b98ebb69a072889352",
+  "generated_at": "2026-11-12T05:47:45.035Z",
   "share_url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/",
   "routes": [
     {
       "route": "/sideshow-productions-v2/",
       "file": "index.html",
-      "bytes": 62094
+      "bytes": 61712
     },
     {
       "route": "/sideshow-productions-v2/coming-soon/",
@@ -87,8 +87,8 @@
     },
     {
       "file": "assets/sideshow-hero.css",
-      "bytes": 7808,
-      "sha256": "73a45c224d4fd328ef53bad4a6612b0b6782279b45a380dd91c2b04f617958ee"
+      "bytes": 13059,
+      "sha256": "9db1a5e22a123e93b28b4a520cd2e50c7d1b1aca85bdd1ee5db86a4d0647092f"
     },
     {
       "file": "assets/sideshow-hero.js",
@@ -107,8 +107,8 @@
     },
     {
       "file": "assets/sideshow-menu.css",
-      "bytes": 8180,
-      "sha256": "e8a06cfd532e1c099bb735f3df33f2ba607ab42839a96a7d1da6b70d36810903"
+      "bytes": 8652,
+      "sha256": "729edd44232ba9ea1509bd288243a8eeb833ba67a49e1e14425d2e800eee86fe"
     },
     {
       "file": "assets/sideshow-original-pages.css",
@@ -142,13 +142,13 @@
     },
     {
       "file": "assets/sideshow-studio.css",
-      "bytes": 54155,
-      "sha256": "74d4b012e761cae45f27f2c2b569d5e019af857c0b921c0f8beec0d063e6ccb3"
+      "bytes": 55065,
+      "sha256": "b3260154cd59f6d71025cbb2ff0973a385d453e2d0f3e723fe9e5156a922b1e4"
     },
     {
       "file": "assets/sideshow-studio.js",
-      "bytes": 45908,
-      "sha256": "d33b67b9b15c3c221bd3fa52bd72b0cd702b911017545ef2b7f5c5882766350a"
+      "bytes": 45464,
+      "sha256": "eb79290804b91253c68d6931eabb8066d3c8df7d1dc4bc590be9747374b1c600"
     },
     {
       "file": "assets/sideshow-welcome.css",
@@ -179,6 +179,16 @@
       "file": "assets/sp-event-nov13.webp",
       "bytes": 99464,
       "sha256": "02160b231ccee9f5d68a8425fc3a9ce43c30ccb6bbaeeadbdb6fd459fac9e357"
+    },
+    {
+      "file": "assets/sp-hero-barlow-medium.woff2",
+      "bytes": 22428,
+      "sha256": "0d7513795eaf8fdab7f340144841bd2d9fac7d9303c03aa6b525a2c908e9b371"
+    },
+    {
+      "file": "assets/sp-hero-barlow-semibold.woff2",
+      "bytes": 22984,
+      "sha256": "f158417e9207b5362f9b71a2fe779ce5bb836ad972f38445c3163af39d2c998d"
     },
     {
       "file": "assets/sp-legacy-background.json",
@@ -309,7 +319,7 @@
     "assets/icons/favicon.ico",
     "assets/icons/site.webmanifest"
   ],
-  "bytes": 6652969,
+  "bytes": 6704570,
   "notes": [
     "Homepage-only preview rendered from the current Shopify studio templates.",
     "Only used storefront assets are copied; source archives and working files are excluded.",
