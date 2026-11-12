@@ -1,0 +1,26 @@
+{
+  "site_id": "d89eb8b7-a74a-4269-8167-fbebfba7493a",
+  "site_name": "dvs-html-previews-netlify6",
+  "deploy_id": "6af51868e09a9e3240de9953",
+  "mode": "draft",
+  "alias": "sideshow-original",
+  "state": "ready",
+  "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
+  "v1_url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/",
+  "source_commit": "33f2763",
+  "uploaded_with": "C:\\Users\\jesus\\Documents\\Work\\HTML Preview\\deploy_to_netlify.ps1",
+  "project": "sideshow-productions-v2",
+  "public_verification": {
+    "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
+    "checked": 145,
+    "failures": [],
+    "homepageStatus": 200,
+    "exportMatchesLive": true,
+    "v1Status": 200,
+    "v1ExportMatchesLive": true,
+    "canonical": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
+    "sharing": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/icons/sharing-card.png",
+    "map": "https://maps.google.com/maps?q=4973%20S%20State%20St%2C%20Murray%2C%20UT%2084107&amp;t=m&amp;z=13&amp;output=embed&amp;iwloc=near"
+  },
+  "shopify_live_changes": false
+}

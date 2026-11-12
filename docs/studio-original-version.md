@@ -25,7 +25,7 @@ Booking, checkout, policies and form submissions remain disconnected design-prev
 - Local source: `C:\Users\jesus\Documents\Work\Shopify Stores\SideshowProduction-v2`
 - Local preview: `http://127.0.0.1:8797/`
 - Static export: `C:\Users\jesus\Documents\Work\HTML Preview\sideshow-productions-v2`
-- Planned share URL: `https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/`
+- Share URL: `https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/`
 
 ## Validation
 

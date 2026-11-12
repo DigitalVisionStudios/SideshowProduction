@@ -1,62 +1,62 @@
 {
-  "source_commit": "3feb8d59b818201cbf5d0140bc65bade3359d6ff",
-  "generated_at": "2026-11-12T00:56:41.101Z",
-  "share_url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/",
+  "source_commit": "33f276317c7368ef0c07e2a06b7c745e03f2781d",
+  "generated_at": "2026-11-12T01:36:32.890Z",
+  "share_url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
   "routes": [
     {
-      "route": "/sideshow-productions/",
+      "route": "/sideshow-productions-v2/",
       "file": "index.html",
-      "bytes": 92649
+      "bytes": 53545
     },
     {
-      "route": "/sideshow-productions/pages/about",
+      "route": "/sideshow-productions-v2/pages/about",
       "file": "pages/about/index.html",
-      "bytes": 28804
+      "bytes": 43536
     },
     {
-      "route": "/sideshow-productions/pages/aftercare",
+      "route": "/sideshow-productions-v2/pages/aftercare",
       "file": "pages/aftercare/index.html",
-      "bytes": 24266
+      "bytes": 25308
     },
     {
-      "route": "/sideshow-productions/pages/artists",
+      "route": "/sideshow-productions-v2/pages/artists",
       "file": "pages/artists/index.html",
-      "bytes": 38881
+      "bytes": 40041
     },
     {
-      "route": "/sideshow-productions/pages/book",
+      "route": "/sideshow-productions-v2/pages/book",
       "file": "pages/book/index.html",
-      "bytes": 26114
+      "bytes": 27179
     },
     {
-      "route": "/sideshow-productions/pages/contact",
+      "route": "/sideshow-productions-v2/pages/contact",
       "file": "pages/contact/index.html",
-      "bytes": 22883
+      "bytes": 23902
     },
     {
-      "route": "/sideshow-productions/pages/flash",
+      "route": "/sideshow-productions-v2/pages/flash",
       "file": "pages/flash/index.html",
-      "bytes": 30558
+      "bytes": 42808
     },
     {
-      "route": "/sideshow-productions/pages/ink-roulette",
+      "route": "/sideshow-productions-v2/pages/ink-roulette",
       "file": "pages/ink-roulette/index.html",
-      "bytes": 49441
+      "bytes": 64468
     },
     {
-      "route": "/sideshow-productions/pages/portfolio",
+      "route": "/sideshow-productions-v2/pages/portfolio",
       "file": "pages/portfolio/index.html",
-      "bytes": 35721
+      "bytes": 36881
     },
     {
-      "route": "/sideshow-productions/pages/services",
+      "route": "/sideshow-productions-v2/pages/services",
       "file": "pages/services/index.html",
-      "bytes": 33051
+      "bytes": 34207
     },
     {
-      "route": "/sideshow-productions/pages/shop",
+      "route": "/sideshow-productions-v2/pages/shop",
       "file": "pages/shop/index.html",
-      "bytes": 37843
+      "bytes": 41443
     }
   ],
   "aliases": {
@@ -74,13 +74,13 @@
   "assets": [
     {
       "file": "assets/sideshow-appearance.css",
-      "bytes": 5657,
-      "sha256": "25a5c8da97f86e2936bbbfaccc9e4f9e869260b2e9640968fa8fea67b76756c9"
+      "bytes": 5699,
+      "sha256": "e3810e5c33d74be4178fdc675a1496a6c76b52ef534eff73d16dd8fe5a5d48f0"
     },
     {
       "file": "assets/sideshow-appearance.js",
-      "bytes": 10436,
-      "sha256": "c8af74733154cf179fbb7f4ae3fae77342a939d7dda66571a665130e6ecb2b57"
+      "bytes": 10508,
+      "sha256": "17cb569ea30294839df0257db500026d32cf3e161bc6ea5722658f7bcef39a04"
     },
     {
       "file": "assets/sideshow-carousel.css",
@@ -99,28 +99,48 @@
     },
     {
       "file": "assets/sideshow-hero.css",
-      "bytes": 7291,
-      "sha256": "4b2d29e6d4b311f8d6c75d65355a0ce6d22c8736bac9a958a591664df6616540"
+      "bytes": 7463,
+      "sha256": "ecc3df99097caa5698133cf7030bae69f6ebbc1d85c5848e57dc2fe04a136b67"
     },
     {
       "file": "assets/sideshow-hero.js",
-      "bytes": 7159,
-      "sha256": "2dc76dcbcfc7e878ae87e9eac2a258c1841908103958b7360cc38f0808556052"
+      "bytes": 7338,
+      "sha256": "9b2479ccbf4ff5e3bf875b12f42293a31cf44d91fe2cf70d8ced1054b849d7da"
     },
     {
       "file": "assets/sideshow-marquee.css",
-      "bytes": 2694,
-      "sha256": "8f46ca60d7724671946105e8e1e623aae32983d2a10f3e66dde717ad1a0918d3"
+      "bytes": 2766,
+      "sha256": "9e3300cd4bd888683475762923006faff5d78a86593e772055523005e5e891f7"
     },
     {
       "file": "assets/sideshow-marquee.js",
-      "bytes": 2638,
-      "sha256": "295ed39f074b97e7f919ec9e441d27f4e9fe3fd64a219d0e7e9a6562853166c2"
+      "bytes": 2711,
+      "sha256": "391c8815bbaf35a4bd3d49af867c7105beb214b1272a5c83657124613c400d97"
     },
     {
       "file": "assets/sideshow-menu.css",
       "bytes": 8180,
       "sha256": "e8a06cfd532e1c099bb735f3df33f2ba607ab42839a96a7d1da6b70d36810903"
+    },
+    {
+      "file": "assets/sideshow-original-pages.css",
+      "bytes": 9491,
+      "sha256": "f5188255b0b305ad966032bac8385bb3d9db9ca8c64783489810bd75e2d9485e"
+    },
+    {
+      "file": "assets/sideshow-original-shop.css",
+      "bytes": 3278,
+      "sha256": "964a0526ace33b5e0fc69f33e8591bae166e7385fd9beaafdb9bfcd0941ccff4"
+    },
+    {
+      "file": "assets/sideshow-original.css",
+      "bytes": 10888,
+      "sha256": "a7e7db7deb95a267e54fbd69f935fedddc922ff33777ebac3d13ad37f0112c0c"
+    },
+    {
+      "file": "assets/sideshow-original.js",
+      "bytes": 16480,
+      "sha256": "ee40cd4d9af28f8bb792a0626433905462bcf5f68b0858a41932d3d92e6356bb"
     },
     {
       "file": "assets/sideshow-promo.css",
@@ -134,8 +154,8 @@
     },
     {
       "file": "assets/sideshow-studio.css",
-      "bytes": 53448,
-      "sha256": "13598a782d04fe0b1dcda1332b6f7777a7b72c4437deba03b08bad82620c5726"
+      "bytes": 54155,
+      "sha256": "74d4b012e761cae45f27f2c2b569d5e019af857c0b921c0f8beec0d063e6ccb3"
     },
     {
       "file": "assets/sideshow-studio.js",
@@ -154,8 +174,8 @@
     },
     {
       "file": "assets/sideshow-wheel.js",
-      "bytes": 4669,
-      "sha256": "847f85da8d93049e5a2464c1a8c72f0ff7d1e7a3ab549a79d1a2f399a4c13980"
+      "bytes": 4764,
+      "sha256": "a8173926a599049bdbe51d8b1792d99183f7eb51babf1d7cfe400680867160aa"
     },
     {
       "file": "assets/sp-body.woff2",
@@ -219,8 +239,58 @@
     },
     {
       "file": "assets/sp-lottie-svg.min.js",
-      "bytes": 143356,
-      "sha256": "b6d09da0c3245664a4a6b03f0e4d6b132db88ce994750d8324640403f93814d6"
+      "bytes": 143370,
+      "sha256": "97ff4143eb04843eb4ef32734a5dab35bfb3d02229d1aceaa1f08d28d7e8523c"
+    },
+    {
+      "file": "assets/sp-original-detail-flash-07.webp",
+      "bytes": 40704,
+      "sha256": "409d74317b34229eaee56e09a6ee3368744d8095c3f8937190c0c76ccb472b75"
+    },
+    {
+      "file": "assets/sp-original-detail-flash-08.webp",
+      "bytes": 43948,
+      "sha256": "72850df86473ef4df10029915996516016a8b3b341ae58d109040cfbad6340ce"
+    },
+    {
+      "file": "assets/sp-original-detail-flash-poster.webp",
+      "bytes": 43214,
+      "sha256": "4ec99173aae7cb3ba6456b9b6a181121d8a363a37a02511e9e3d19304d447ec8"
+    },
+    {
+      "file": "assets/sp-original-detail-flash.mp4",
+      "bytes": 3056103,
+      "sha256": "371a9d0c69f5ec9acc3120861bd747f2f95d295cdb1dc8447be24589dcc1b142"
+    },
+    {
+      "file": "assets/sp-original-detail-journey-community.webp",
+      "bytes": 16442,
+      "sha256": "8864a9312671e335ea97c897edd61833f9f4b00ef2c48c3d4afd99b1ec438ccc"
+    },
+    {
+      "file": "assets/sp-original-detail-journey-piercing.webp",
+      "bytes": 9886,
+      "sha256": "ca277315e0f5a785d51fdb2bc6157484d461f73a06bd6b357773cc186be35bd0"
+    },
+    {
+      "file": "assets/sp-original-detail-journey-storefront.webp",
+      "bytes": 211180,
+      "sha256": "5bf7f649559b85850efa2e514e851f1b478854e493c8fb151464732faf7d5bb5"
+    },
+    {
+      "file": "assets/sp-original-detail-journey-years.webp",
+      "bytes": 17376,
+      "sha256": "23517d4acee882dc709b98f62e459569375eb5bd1eff60b6601c407f492a391c"
+    },
+    {
+      "file": "assets/sp-original-detail-roulette-poster.webp",
+      "bytes": 35844,
+      "sha256": "bbf92357dc0fc0f2cd9018497007e6b5c6dc7f4cc36cf41a1b5612ee7f0440f3"
+    },
+    {
+      "file": "assets/sp-original-detail-roulette.mp4",
+      "bytes": 9280770,
+      "sha256": "96cc0a7438d950b545243e00f79d2312d839a4b79a6f0c6c234f0527b59139a6"
     },
     {
       "file": "assets/sp-original-jake-boot.webp",
@@ -268,9 +338,69 @@
       "sha256": "106a2b4c7f5c335ee2f2bec16fc206685899dfdf36ec7ae7a18e6d251e0dc1ce"
     },
     {
+      "file": "assets/sp-original-portrait-jake.webp",
+      "bytes": 28582,
+      "sha256": "b699984da731cdfd4d2d1e0042c30c88d1133cca7c2af6c08367fdd52bc1529c"
+    },
+    {
+      "file": "assets/sp-original-portrait-megan.webp",
+      "bytes": 23728,
+      "sha256": "3051987e9e89cb94d690768de7fbcdbd2d23ecc4e73d20e5146467262eed6915"
+    },
+    {
+      "file": "assets/sp-original-portrait-rigo.webp",
+      "bytes": 26448,
+      "sha256": "d708518f0a96694fcb824a8c4ace190dee22185211d3760cbf70361d2ab664a1"
+    },
+    {
+      "file": "assets/sp-original-portrait-sonny.webp",
+      "bytes": 28454,
+      "sha256": "58c4ad1a6d55f97134f9eafe9a452f13f510dee631a2695b0352ccc8080dffce"
+    },
+    {
       "file": "assets/sp-original-rigo-floral.webp",
       "bytes": 75912,
       "sha256": "1aed32ea29236348a5b2b0fbf706770ba0454c59566490f2edfc22efc1a051fb"
+    },
+    {
+      "file": "assets/sp-original-roulette-tour-poster.webp",
+      "bytes": 33572,
+      "sha256": "0f886eed40beb4c50afaf6cd5be5a6ecba1a4f9b1414009c7426539d4424ec82"
+    },
+    {
+      "file": "assets/sp-original-roulette-tour.mp4",
+      "bytes": 4719607,
+      "sha256": "4eda04ccb9db99139338a4d30311407625680af4bb23047c4eb1cc63fa7d20c0"
+    },
+    {
+      "file": "assets/sp-original-service-aftercare.webp",
+      "bytes": 10286,
+      "sha256": "7ccf6a78b4fe6533614765a4e57a3d084ade6028f7ec243ee5601a0274d52210"
+    },
+    {
+      "file": "assets/sp-original-service-microblading.webp",
+      "bytes": 35508,
+      "sha256": "b9cfc6ef4a67b8c03e87ba633d65514de9e5569f7f9ef83532fe36d23e1eb4c3"
+    },
+    {
+      "file": "assets/sp-original-service-piercings.webp",
+      "bytes": 22510,
+      "sha256": "a39efd9a65912e1baeb3302f230c45e8944ea431a012d790c719ff71ce6801c3"
+    },
+    {
+      "file": "assets/sp-original-service-tattoos.webp",
+      "bytes": 25276,
+      "sha256": "e5348155c84b144bdc85f9ec3b7160e3bf61c14c73263ffafe5db65115df67f0"
+    },
+    {
+      "file": "assets/sp-original-service-teeth-whitening.webp",
+      "bytes": 16754,
+      "sha256": "3cbccc5b4198eecbceaa0804f60754c2a93f14d77eb764d54d6043339495add0"
+    },
+    {
+      "file": "assets/sp-original-service-tooth-gems.webp",
+      "bytes": 21724,
+      "sha256": "4cec361adb4cc93735427d98909dcd66fbf99f89e664051225143bb3c12cb71b"
     },
     {
       "file": "assets/sp-original-sonny-ear.webp",
@@ -483,6 +613,11 @@
       "sha256": "aa31be89ee04881770983fb72bc6e6855a8c1a345f2c0a302676ac0e0462d8b8"
     },
     {
+      "file": "assets/sp-roulette-22.webp",
+      "bytes": 106840,
+      "sha256": "1dd80bddce03af5366d688ccd58fe98a1e30a8cd3bfbf26d201f929dbcf825cb"
+    },
+    {
       "file": "assets/sp-roulette-23.webp",
       "bytes": 55092,
       "sha256": "8f1f73b73683d893bba41aac90cecfcda745bcc815b3a035b11557608e206755"
@@ -491,6 +626,11 @@
       "file": "assets/sp-roulette-24.webp",
       "bytes": 85936,
       "sha256": "1a78a9fc869482c86b1008673cbf92f956a3768f09b03873635af5d6861c3e75"
+    },
+    {
+      "file": "assets/sp-roulette-25.webp",
+      "bytes": 58616,
+      "sha256": "77c0f2cbf14a855d487c9839562a589f9e1c4f75ebef710bb6aa359c33ac7192"
     },
     {
       "file": "assets/sp-roulette-26.webp",
@@ -511,11 +651,6 @@
       "file": "assets/sp-service-whitening.webp",
       "bytes": 106572,
       "sha256": "f8fa23181880bb3de90b4fe28c3857ff6ce26f2c94548d7ea67291e767c6521e"
-    },
-    {
-      "file": "assets/sp-source-flash-wall.webp",
-      "bytes": 502708,
-      "sha256": "2e26e6b43c2d6f26af2341c267ca971f15b8666a3d98753148e77261f4632eb2"
     },
     {
       "file": "assets/sp-source-storefront.webp",
@@ -566,7 +701,7 @@
     "assets/icons/favicon.ico",
     "assets/icons/site.webmanifest"
   ],
-  "bytes": 6757992,
+  "bytes": 24210219,
   "notes": [
     "Rendered from the current Shopify studio templates.",
     "Only used storefront assets are copied; source archives and working files are excluded.",

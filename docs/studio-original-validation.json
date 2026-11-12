@@ -1,0 +1,96 @@
+{
+  "variant": "Original-layout version",
+  "source_commit": "33f2763",
+  "validated_at": "2026-11-12",
+  "validator": {
+    "routes": 11,
+    "section_schemas": 31,
+    "liquid_files": 36,
+    "javascript_files": 10,
+    "errors": 0,
+    "warnings": 0
+  },
+  "home": {
+    "hero_settings_identical_to_v1": true,
+    "source_service_illustrations": 6,
+    "source_artist_portraits": 4,
+    "artist_autoplay": "Observed index 0 to 1",
+    "reviews_autoplay": "Observed index 0 to 1",
+    "source_video": "496x892; muted, playing, no controls",
+    "maps": "Visually confirmed address, map pin, controls and Google attribution at 1440px and 390px",
+    "horizontal_overflow": false,
+    "broken_images": 0,
+    "runtime_errors": 0
+  },
+  "supporting_pages": {
+    "shop_products": 21,
+    "shop_images": 19,
+    "shop_intentional_text_cards": 2,
+    "shop_columns": {
+      "desktop": 3,
+      "mobile": 2
+    },
+    "shop_about_browser_checks_passed": 42,
+    "original_reviews": {
+      "about": 2,
+      "flash": 3,
+      "roulette": 4
+    },
+    "flash_images": 8,
+    "roulette_selectable_designs": 25
+  },
+  "interaction": {
+    "mobile_menu": "Six primary links fit; scroll lock and Escape focus/scroll restoration verified",
+    "event_popup": "Automatic display after approximately 12.8 seconds; viewport fit, close, unlock and session dismissal verified",
+    "reduced_motion": "All reveal content visible; both carousels stopped",
+    "appearance": "Original loads motion and artwork; Clean and Reset restore clean defaults with fades",
+    "clone_links": "Visible artist clone accepts pointer activation and uses original destination; excluded from tab order"
+  },
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "preview_boundary": "No live appointment, payment, policy or form-submission connections enabled.",
+  "export": {
+    "routes": 11,
+    "aliases": 10,
+    "assets": 123,
+    "icon_files": 11,
+    "asset_bytes": 24210219,
+    "source_assets_verified": true,
+    "unmapped_asset_urls": 0,
+    "missing_asset_paths": 0
+  },
+  "public_verification": {
+    "checked_urls": 145,
+    "failed_urls": [],
+    "export_matches_live": true,
+    "v1_export_matches_live": true,
+    "map_visually_confirmed": true,
+    "desktop_horizontal_overflow": false,
+    "mobile_horizontal_overflow": false,
+    "runtime_errors": [],
+    "artist_autoplay": {
+      "before": "0",
+      "after": "1"
+    },
+    "reviews_autoplay": {
+      "before": "0",
+      "after": "1"
+    },
+    "source_video": {
+      "width": 496,
+      "height": 892,
+      "muted": true,
+      "controls": false,
+      "playing": true,
+      "source": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/sp-original-roulette-tour.mp4"
+    }
+  }
+}
