@@ -59,7 +59,7 @@ function metadata(html, route, suppliedTitle) {
   const title = suppliedTitle || titleFor(route);
   const canonical = route === '/' ? shareURL.href : hostname + prefix.replace(/\/$/, '') + route;
   const card = new URL('assets/icons/sharing-card.png', shareURL).href;
-  const iconBase = prefix + 'assets/icons/';
+  const iconBase = new URL('assets/icons/', shareURL).href;
   html = html.replace(/<title>[\s\S]*?<\/title>/i, '<title>' + escapeHTML(title) + '</title>');
   html = html.replace(/<meta\b[^>]*(?:property=['"]og:[^'"]+['"]|name=['"](?:twitter:[^'"]+|theme-color|description)['"])[^>]*>\s*/gi, '');
   html = html.replace(/<link\b[^>]*rel=['"](?:canonical|icon|shortcut icon|apple-touch-icon|manifest)['"][^>]*>\s*/gi, '');
