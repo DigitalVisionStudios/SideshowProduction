@@ -6,10 +6,12 @@
     </div>
   </div>
   <div class="sp-original-shell" data-reveal>
-    <div class="sp-original-carousel sp-original-artist-carousel" data-original-carousel data-interval="3000" aria-label="Meet the Sideshow artists" aria-roledescription="carousel">
-      <div class="sp-original-track" data-original-track>
+    <div class="sp-original-artist-carousel splide" data-artist-splide data-scroll-speed="22" role="group" aria-labelledby="sp-artists-heading-{{ section.id }}" tabindex="0">
+      <div class="splide__track">
+        <ul class="splide__list">
         {% for block in section.blocks %}
-          <article class="sp-original-artist" data-original-slide {{ block.shopify_attributes }}>
+          <li class="splide__slide sp-original-artist" data-artist="{{ block.settings.anchor | escape }}" {{ block.shopify_attributes }}>
+            <article class="sp-original-artist-card">
             <a class="sp-original-portrait" href="/pages/artists#{{ block.settings.anchor | escape }}" aria-label="Meet {{ block.settings.name | escape }}"><img src="{{ block.settings.asset | asset_url }}" alt="{{ block.settings.alt | escape }}" width="360" height="360" loading="lazy" decoding="async"></a>
             <h3><a href="/pages/artists#{{ block.settings.anchor | escape }}">{{ block.settings.name | escape }}</a></h3>
             <p class="sp-original-artist-role">{{ block.settings.role | escape }}</p>
@@ -18,8 +20,10 @@
               {% if block.settings.instagram != blank %}<a href="{{ block.settings.instagram }}" target="_blank" rel="noopener noreferrer" aria-label="{{ block.settings.name | escape }} on Instagram">{% render 'studio-icon', name: 'instagram' %}</a>{% endif %}
               <a href="/pages/artists#{{ block.settings.anchor | escape }}" aria-label="View {{ block.settings.name | escape }}'s work">{% render 'studio-icon', name: 'gallery' %}</a>
             </div>
-          </article>
+            </article>
+          </li>
         {% endfor %}
+        </ul>
       </div>
     </div>
   </div>

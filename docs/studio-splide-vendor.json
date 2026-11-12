@@ -1,0 +1,43 @@
+{
+  "documentation": [
+    "https://splidejs.com/guides/structure/",
+    "https://splidejs.com/extensions/auto-scroll/"
+  ],
+  "notes": [
+    "Version-pinned browser distributions, hosted locally.",
+    "The full MIT license is appended to every distributed asset.",
+    "No external CDN dependency at runtime."
+  ],
+  "assets": [
+    {
+      "package": "@splidejs/splide",
+      "version": "4.1.4",
+      "license": "MIT",
+      "file": "sp-splide-4.1.4.min.js",
+      "source": "https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js",
+      "source_sha256": "159b16ec7d95e57f531a29d28e3c18278d7d5e46b6ec8f173c3996af21a55adc",
+      "vendored_sha256": "933ebf1761c1b0bcbce8827e3dfac7c5273416806c42423f922d082efd0a41d4",
+      "bytes": 30872
+    },
+    {
+      "package": "@splidejs/splide",
+      "version": "4.1.4",
+      "license": "MIT",
+      "file": "sp-splide-core-4.1.4.min.css",
+      "source": "https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css",
+      "source_sha256": "6405c8982634e928d5b88ac97d65044e4c8272d5f968674bd40544057e42c590",
+      "vendored_sha256": "203b1091561e7cb720e87a87b72f6f2d54786c72e6c48b89ee5260174e3ebab2",
+      "bytes": 3073
+    },
+    {
+      "package": "@splidejs/splide-extension-auto-scroll",
+      "version": "0.5.3",
+      "license": "MIT",
+      "file": "sp-splide-auto-scroll-0.5.3.min.js",
+      "source": "https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js",
+      "source_sha256": "03eda8a72aa1bdb055f2d6ddf6620cf30f73bef3181ce6b0634dc1411b6aecac",
+      "vendored_sha256": "ea92031e151fe60010e9bceb619ffa3a5caba993277e93e5ea36303fcf04b3fe",
+      "bytes": 6695
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+/* Source portraits and brush lettering, with an even, continuous artist rail. */
+.sp-original-artists [data-artist-splide]{position:relative;min-width:0;overflow:visible;visibility:visible}
+.sp-original-artists [data-artist-splide] .splide__track{overflow-anchor:none;padding-block:12px 18px;mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 12px),transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 12px),transparent)}
+.sp-original-artists [data-artist-splide] .splide__list{align-items:stretch;gap:0;list-style:none}
+.sp-original-artists [data-artist-splide] .sp-original-artist{display:flex;flex:0 0 auto;min-width:0;height:auto;margin-block:0;padding:0;text-align:center}
+.sp-original-artist-card{display:flex;flex-direction:column;align-items:center;position:relative;width:100%;min-width:0;height:100%;padding:30px 28px 25px;border:1px solid rgba(155,88,108,.2);border-radius:8px;background:radial-gradient(ellipse at 50% 0,rgba(100,21,45,.12),transparent 62%),linear-gradient(160deg,rgba(25,17,23,.76),rgba(11,10,13,.7));transition:border-color .3s ease,background-color .3s ease}
+.sp-original-artist-card:hover{border-color:rgba(223,66,94,.4);background-color:rgba(56,13,28,.14)}
+.sp-original-artist-card:focus-within{border-color:#bc425d}
+.sp-original-artist-card .sp-original-portrait{flex:none;width:156px;height:156px;margin:0 0 23px;border:1px solid #68404b;box-shadow:0 0 0 5px rgba(92,29,49,.12),0 12px 30px rgba(0,0,0,.22)}
+.sp-original-artist-card .sp-original-portrait img{transition:transform .55s cubic-bezier(.2,.6,.2,1);-webkit-user-drag:none;user-select:none}
+.sp-original-artist-card .sp-original-portrait:hover img{transform:scale(1.045)}
+.sp-site .sp-original-artist-card h3{margin:0 0 7px;color:#f04459;font:400 32px/1.1 "SP Brush","SP Sans",sans-serif;letter-spacing:0}
+.sp-original-artist-card h3 a{color:inherit;text-decoration:none}
+.sp-original-artist-card h3 a:hover{color:#ff687b}
+.sp-original-artist-card .sp-original-artist-role{display:flex;align-items:flex-start;justify-content:center;width:100%;min-height:39px;max-width:260px;margin:0 0 16px!important;color:#e7dce1;font-size:13px!important;font-weight:400;line-height:1.45!important}
+.sp-original-artist-card .sp-original-artist-bio{flex:1;width:100%;max-width:30ch;margin:0 auto!important;color:#beb3ba;font-size:14px!important;line-height:1.65!important;text-wrap:pretty}
+.sp-original-artist-card .sp-original-socials{flex:none;justify-content:center;align-self:stretch;gap:10px;width:100%;margin:23px 0 0;padding-top:18px;border-top:1px solid rgba(178,119,139,.13)}
+.sp-original-artist-card .sp-original-socials a{width:36px;height:36px;border:1px solid rgba(165,83,107,.38);border-radius:50%;background:rgba(65,17,34,.32);color:#dfcbd3;transition:color .2s,border-color .2s,background .2s,transform .2s}
+.sp-original-artist-card .sp-original-socials a:hover{border-color:#d43a58;background:#8d122d;color:#fff;transform:translateY(-2px)}
+.sp-original-artist-card .sp-original-socials .sp-icon{width:17px;height:17px}
+.sp-original-artist-card a:focus-visible{outline:2px solid #ff7188;outline-offset:5px}
+.sp-original-artists [data-artist-splide].is-initialized .splide__track{cursor:grab;scroll-snap-type:none}
+.sp-original-artists [data-artist-splide].is-dragging .splide__track{cursor:grabbing}
+/* Readable native scrolling is retained until Splide successfully mounts. */
+.sp-original-artists [data-artist-splide]:not(.is-initialized) .splide__track{overflow-x:auto;scrollbar-width:none;overscroll-behavior-x:contain}
+.sp-original-artists [data-artist-splide]:not(.is-initialized) .splide__track::-webkit-scrollbar{display:none}
+.sp-original-artists [data-artist-splide]:not(.is-initialized) .splide__list{display:flex;gap:24px;padding:0;margin:0}
+.sp-original-artists [data-artist-splide]:not(.is-initialized) .sp-original-artist{flex:0 0 calc((100% - 48px)/3);width:calc((100% - 48px)/3);scroll-snap-align:start}
+@media(max-width:1100px){
+  .sp-original-artist-card{padding:28px 23px 24px}
+  .sp-original-artist-card .sp-original-portrait{width:148px;height:148px}
+}
+@media(max-width:1000px){
+  .sp-original-artists [data-artist-splide]:not(.is-initialized) .splide__list{gap:20px}
+  .sp-original-artists [data-artist-splide]:not(.is-initialized) .sp-original-artist{flex-basis:calc((100% - 20px)/2);width:calc((100% - 20px)/2)}
+}
+@media(max-width:600px){
+  .sp-original-artists [data-artist-splide] .splide__track{padding-block:8px 14px;mask-image:linear-gradient(90deg,transparent,#000 6px,#000 calc(100% - 22px),transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6px,#000 calc(100% - 22px),transparent)}
+  .sp-original-artist-card{padding:27px 21px 23px;border-radius:7px}
+  .sp-original-artist-card .sp-original-portrait{width:144px;height:144px;margin-bottom:21px}
+  .sp-site .sp-original-artist-card h3{font-size:31px}
+  .sp-original-artist-card .sp-original-artist-role{max-width:240px;min-height:38px;margin-bottom:13px!important;font-size:12px!important}
+  .sp-original-artist-card .sp-original-artist-bio{max-width:29ch;font-size:14px!important;line-height:1.6!important}
+  .sp-original-artist-card .sp-original-socials{margin-top:20px;padding-top:17px}
+  .sp-original-artists [data-artist-splide]:not(.is-initialized) .splide__list{gap:16px}
+  .sp-original-artists [data-artist-splide]:not(.is-initialized) .sp-original-artist{flex-basis:calc(100% - 38px);width:calc(100% - 38px)}
+}
+@media(max-width:360px){
+  .sp-original-artist-card{padding-inline:17px}
+  .sp-original-artist-card .sp-original-portrait{width:132px;height:132px}
+  .sp-original-artist-card .sp-original-artist-bio{font-size:13px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .sp-original-artist-card,.sp-original-artist-card .sp-original-portrait img,.sp-original-artist-card .sp-original-socials a{transition:none}
+  .sp-original-artist-card .sp-original-portrait:hover img,.sp-original-artist-card .sp-original-socials a:hover{transform:none}
+}

@@ -20,9 +20,11 @@
   {{ 'sideshow-welcome.css' | asset_url | stylesheet_tag }}
   {{ 'sideshow-marquee.css' | asset_url | stylesheet_tag }}
   {{ 'sideshow-appearance.css' | asset_url | stylesheet_tag }}
+  {{ 'sp-splide-core-4.1.4.min.css' | asset_url | stylesheet_tag }}
   {{ 'sideshow-original.css' | asset_url | stylesheet_tag }}
   {{ 'sideshow-original-pages.css' | asset_url | stylesheet_tag }}
   {{ 'sideshow-original-shop.css' | asset_url | stylesheet_tag }}
+  {{ 'sideshow-artists-splide.css' | asset_url | stylesheet_tag }}
   {{ content_for_header }}
   <script src="{{ 'sideshow-studio.js' | asset_url }}" defer></script>
   <script src="{{ 'sideshow-carousel.js' | asset_url }}" defer></script>
@@ -32,6 +34,9 @@
   <script src="{{ 'sideshow-marquee.js' | asset_url }}" defer></script>
   <script src="{{ 'sideshow-appearance.js' | asset_url }}" defer></script>
   <script src="{{ 'sideshow-original.js' | asset_url }}" defer></script>
+  <script src="{{ 'sp-splide-4.1.4.min.js' | asset_url }}" defer></script>
+  <script src="{{ 'sp-splide-auto-scroll-0.5.3.min.js' | asset_url }}" defer></script>
+  <script src="{{ 'sideshow-artists-splide.js' | asset_url }}" defer></script>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ shop.name | escape }}">
   <meta property="og:title" content="{{ page_title | default: shop.name | escape }}">
