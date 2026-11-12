@@ -4,12 +4,10 @@
     "section_1": {
       "type": "studio-hero",
       "settings": {
-        "prefix": "Your vision. Our artistry.",
-        "suffix": "that inspire.",
-        "description": "Our artists bring bold ideas to life, ensuring every detail is perfect.",
+        "eyebrow": "The Best Tattoo Shop Vibes Murray Utah",
         "primary_label": "Book Now",
         "primary_link": "/pages/book",
-        "secondary_label": "Our Artists",
+        "secondary_label": "Meet the Artists",
         "secondary_link": "/pages/artists",
         "autoplay": true,
         "interval": 5.5,
@@ -20,6 +18,8 @@
           "type": "scene",
           "settings": {
             "word": "artists",
+            "heading": "Meet the crew.",
+            "description": "Explore their work and find the right artist for your next piece.",
             "asset": "sp-source-storefront.webp",
             "width": 1354,
             "height": 759,
@@ -33,6 +33,8 @@
           "type": "scene",
           "settings": {
             "word": "piercings",
+            "heading": "Find your next look.",
+            "description": "Your first piercing or your next addition, let’s make it yours.",
             "asset": "sp-original-sonny-heart.webp",
             "width": 1440,
             "height": 1800,
@@ -46,6 +48,8 @@
           "type": "scene",
           "settings": {
             "word": "tattoos",
+            "heading": "Made for you.",
+            "description": "Bring an idea, choose some flash, or start with a conversation.",
             "asset": "sp-welcome-jake-session.webp",
             "width": 750,
             "height": 1000,

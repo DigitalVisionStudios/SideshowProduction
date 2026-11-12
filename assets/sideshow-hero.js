@@ -69,9 +69,11 @@
     state.frames.forEach(function (frame, index) {
       frame.classList.toggle("is-active", index === state.index);
     });
-    state.words.forEach(function (word, index) {
-      word.classList.toggle("is-active", index === state.index);
-      word.setAttribute("aria-hidden", String(index !== state.index));
+    state.copyGroups.forEach(function (group) {
+      group.forEach(function (part, index) {
+        part.classList.toggle("is-active", index === state.index);
+        part.setAttribute("aria-hidden", String(index !== state.index));
+      });
     });
     sync(state);
   }
@@ -87,12 +89,15 @@
       if (instances.has(element)) return;
       var frames = Array.from(element.querySelectorAll("[data-sp-hero-frame]"));
       var words = Array.from(element.querySelectorAll("[data-sp-hero-word]"));
-      if (!frames.length || frames.length !== words.length) return;
+      var lines = Array.from(element.querySelectorAll("[data-sp-hero-line]"));
+      var descriptions = Array.from(element.querySelectorAll("[data-sp-hero-description]"));
+      var copyGroups = [words, lines, descriptions];
+      if (!frames.length || copyGroups.some(function (group) { return group.length !== frames.length; })) return;
       var bounds = element.getBoundingClientRect();
       var state = {
         element: element,
         frames: frames,
-        words: words,
+        copyGroups: copyGroups,
         index: 0,
         interval: Math.max(4000, Number(element.dataset.heroInterval) || 5500),
         autoplay: element.dataset.heroAutoplay !== "false",
@@ -116,7 +121,7 @@
         });
         on(video, "error", function () { frame.classList.remove("is-video-ready"); });
       });
-      words.forEach(function (word) { word.hidden = false; });
+      copyGroups.forEach(function (group) { group.forEach(function (part) { part.hidden = false; }); });
       element.setAttribute("data-hero-ready", "");
       instances.set(element, state);
       select(state, 0);
@@ -137,10 +142,12 @@
         frame.hidden = index !== 0;
         frame.classList.toggle("is-active", index === 0);
       });
-      state.words.forEach(function (word, index) {
-        word.hidden = index !== 0;
-        word.classList.toggle("is-active", index === 0);
-        word.setAttribute("aria-hidden", String(index !== 0));
+      state.copyGroups.forEach(function (group) {
+        group.forEach(function (part, index) {
+          part.hidden = index !== 0;
+          part.classList.toggle("is-active", index === 0);
+          part.setAttribute("aria-hidden", String(index !== 0));
+        });
       });
       if (observer) observer.unobserve(element);
       element.removeAttribute("data-hero-ready");

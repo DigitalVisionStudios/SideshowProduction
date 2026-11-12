@@ -31,8 +31,8 @@
   <div class="sp-hero-deck__floor" aria-hidden="true"></div>
   <div class="sp-shell sp-hero-deck__content">
     <div class="sp-hero-deck__copy">
+      <p class="sp-hero-deck__eyebrow">{{ section.settings.eyebrow | default: 'The Best Tattoo Shop Vibes Murray Utah' | escape }}</p>
       <h1 id="sp-hero-heading-{{ section.id }}">
-        <span class="sp-hero-deck__prefix">{{ section.settings.prefix | default: 'Your vision. Our artistry.' | escape }}</span>
         <span class="sp-hero-deck__words">
           {% for block in section.blocks %}
             <span class="sp-hero-deck__word{% if forloop.first %} is-active{% endif %}" data-sp-hero-word {% unless forloop.first %}aria-hidden="true" hidden{% endunless %}>{{ block.settings.word | default: 'artists' | escape }}</span>
@@ -40,9 +40,21 @@
             <span class="sp-hero-deck__word is-active" data-sp-hero-word>artists</span>
           {% endfor %}
         </span>
-        <span class="sp-hero-deck__suffix">{{ section.settings.suffix | default: 'that inspire.' | escape }}</span>
+        <span class="sp-hero-deck__suffix">
+          {% for block in section.blocks %}
+            <span class="sp-hero-deck__line{% if forloop.first %} is-active{% endif %}" data-sp-hero-line {% unless forloop.first %}aria-hidden="true" hidden{% endunless %}>{{ block.settings.heading | default: 'Meet the crew.' | escape }}</span>
+          {% else %}
+            <span class="sp-hero-deck__line is-active" data-sp-hero-line>Meet the crew.</span>
+          {% endfor %}
+        </span>
       </h1>
-      <p class="sp-hero-deck__intro">{{ section.settings.description | escape }}</p>
+      <p class="sp-hero-deck__intro">
+        {% for block in section.blocks %}
+          <span class="sp-hero-deck__description{% if forloop.first %} is-active{% endif %}" data-sp-hero-description {% unless forloop.first %}aria-hidden="true" hidden{% endunless %}>{{ block.settings.description | default: 'Explore their work and find the right artist for your next piece.' | escape }}</span>
+        {% else %}
+          <span class="sp-hero-deck__description is-active" data-sp-hero-description>Explore their work and find the right artist for your next piece.</span>
+        {% endfor %}
+      </p>
       <div class="sp-actions sp-hero-deck__actions">
         <a class="sp-button sp-button--red" href="{{ section.settings.primary_link | default: '/pages/book' }}">{{ section.settings.primary_label | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
         <a class="sp-button sp-button--outline" href="{{ section.settings.secondary_link | default: '/pages/artists' }}">{{ section.settings.secondary_label | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>
@@ -55,12 +67,10 @@
   "name": "Studio hero",
   "max_blocks": 6,
   "settings": [
-    {"type":"text","id":"prefix","label":"Heading before rotating word","default":"Your vision. Our artistry."},
-    {"type":"text","id":"suffix","label":"Heading after rotating word","default":"that inspire."},
-    {"type":"textarea","id":"description","label":"Introduction","default":"Our artists bring bold ideas to life, ensuring every detail is perfect."},
+    {"type":"text","id":"eyebrow","label":"Studio tagline","default":"The Best Tattoo Shop Vibes Murray Utah"},
     {"type":"text","id":"primary_label","label":"Booking button","default":"Book Now"},
     {"type":"url","id":"primary_link","label":"Booking destination"},
-    {"type":"text","id":"secondary_label","label":"Artists button","default":"Our Artists"},
+    {"type":"text","id":"secondary_label","label":"Artists button","default":"Meet the Artists"},
     {"type":"url","id":"secondary_link","label":"Artists destination"},
     {"type":"checkbox","id":"autoplay","label":"Rotate scenes automatically","default":true},
     {"type":"range","id":"interval","label":"Seconds between scenes","min":4,"max":10,"step":0.5,"unit":"s","default":5.5},
@@ -72,6 +82,8 @@
       "name":"Hero scene",
       "settings":[
         {"type":"text","id":"word","label":"Rotating word","default":"artists"},
+        {"type":"text","id":"heading","label":"Scene headline","default":"Meet the crew."},
+        {"type":"textarea","id":"description","label":"Scene description","default":"Explore their work and find the right artist for your next piece."},
         {"type":"image_picker","id":"image","label":"Optional uploaded photograph"},
         {"type":"text","id":"asset","label":"Fallback photograph asset","default":"sp-source-storefront.webp"},
         {"type":"number","id":"width","label":"Fallback image width","default":1354},
@@ -87,9 +99,9 @@
     {
       "name":"Studio hero",
       "blocks":[
-        {"type":"scene","settings":{"word":"artists","asset":"sp-source-storefront.webp","width":1354,"height":759,"media_style":"cover","focus_x":50,"focus_y":50,"video_asset":"#"}},
-        {"type":"scene","settings":{"word":"piercings","asset":"sp-original-sonny-heart.webp","width":1440,"height":1800,"media_style":"right","focus_x":50,"focus_y":50,"video_asset":"#"}},
-        {"type":"scene","settings":{"word":"tattoos","asset":"sp-welcome-jake-session.webp","width":750,"height":1000,"media_style":"right","focus_x":50,"focus_y":55,"video_asset":"#"}}
+        {"type":"scene","settings":{"word":"artists","heading":"Meet the crew.","description":"Explore their work and find the right artist for your next piece.","asset":"sp-source-storefront.webp","width":1354,"height":759,"media_style":"cover","focus_x":50,"focus_y":50,"video_asset":"#"}},
+        {"type":"scene","settings":{"word":"piercings","heading":"Find your next look.","description":"Your first piercing or your next addition, let’s make it yours.","asset":"sp-original-sonny-heart.webp","width":1440,"height":1800,"media_style":"right","focus_x":50,"focus_y":50,"video_asset":"#"}},
+        {"type":"scene","settings":{"word":"tattoos","heading":"Made for you.","description":"Bring an idea, choose some flash, or start with a conversation.","asset":"sp-welcome-jake-session.webp","width":750,"height":1000,"media_style":"right","focus_x":50,"focus_y":55,"video_asset":"#"}}
       ]
     }
   ]
