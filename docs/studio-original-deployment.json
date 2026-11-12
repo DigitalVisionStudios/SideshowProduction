@@ -1,17 +1,17 @@
 {
   "site_id": "d89eb8b7-a74a-4269-8167-fbebfba7493a",
   "site_name": "dvs-html-previews-netlify6",
-  "deploy_id": "6af5580b03a0c5d82f9c11d7",
+  "deploy_id": "6af55b9b965ef1c89c8b7753",
   "mode": "production",
   "alias": null,
   "state": "ready",
   "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/",
   "v1_url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/",
-  "source_commit": "fa95c50afa03a68f933dac3c58270747f0311c02",
+  "source_commit": "01922da37458f8661ffa77d24c76e3d1b28038d6",
   "uploaded_with": "Scoped Netlify API snapshot upload via .ai-bridge/apply-scoped-netlify.mjs",
   "project": "sideshow-productions-v2",
   "public_verification": {
-    "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/?v=fa95c50",
+    "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/?v=01922da",
     "homepageStatus": 200,
     "homepageMatchesExport": true,
     "changedFilesVerified": 5,
@@ -20,11 +20,11 @@
   },
   "shopify_live_changes": false,
   "latest_changes": [
-    "Added the exact persistent tagline: The Best Tattoo Shop Vibes Murray Utah",
-    "Each hero scene now changes its photo, brush word, headline and description together",
-    "Artists: Meet the crew. / Piercings: Find your next look. / Tattoos: Made for you.",
-    "Changed the secondary hero button to Meet the Artists",
-    "Text transitions preserve the button position, and the main preview catalog thumbnail is refreshed"
+    "Matched the supplied reference with the original white SP Brush font on the tagline and full hero headline",
+    "Restored the flowing sentence: Unleashing your creativity starts with artists that inspire.",
+    "Only the inline artists, piercings or tattoos word is deep red, rotating with its matching photo and description",
+    "Reserved the tallest sentence wrapping height so descriptions and buttons remain steady",
+    "Refreshed the main preview catalog thumbnail"
   ],
   "visual_verification": {
     "component": "Artists section background",
@@ -43,12 +43,12 @@
     "runtime_errors": []
   },
   "changed_asset_verification": {
-    "version": "fa95c50",
+    "version": "01922da",
     "changed_files_verified": 5,
     "all_public_files_match_export": true,
     "font_weights_loaded": [
-      500,
-      600
+      400,
+      500
     ]
   },
   "preview_mode": "homepage-only",
@@ -67,10 +67,10 @@
     "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/"
   },
   "directory_url": "https://previews.digitalvisionstudios.net/",
-  "completed_at": "2026-11-12T06:09:24.949Z",
+  "completed_at": "2026-11-12T06:24:36.786Z",
   "production_snapshot": {
-    "previous_deploy": "6af5532d11c902435394bbc6",
-    "validated_draft": "6af557fdefdea5589d32a93a",
+    "previous_deploy": "6af5580b03a0c5d82f9c11d7",
+    "validated_draft": "6af55b8c7c9497b81247a082",
     "total_files": 25413,
     "existing_files_unchanged": 25408,
     "changed_files": 5,
@@ -93,7 +93,7 @@
     ],
     "icon_loaded": true,
     "existing_entries_preserved": true,
-    "thumbnail_sha256": "90bbec612d75c1be87d7c9fc94b331565849beab96b5ca9b722daac01609f916"
+    "thumbnail_sha256": "9750b6931fd4d3df502c6138a94ab587d69888847825764456437d183cec9c44"
   },
   "production_browser_verification": {
     "passed": true,
@@ -106,8 +106,8 @@
     "verified_source_commit": "ef867287158947d0c5d533b98ebb69a072889352"
   },
   "previous_production": {
-    "deploy_id": "6af5532d11c902435394bbc6",
-    "source_commit": "ef867287158947d0c5d533b98ebb69a072889352"
+    "deploy_id": "6af5580b03a0c5d82f9c11d7",
+    "source_commit": "fa95c50afa03a68f933dac3c58270747f0311c02"
   },
   "header_and_hero_verification": {
     "local_checks_passed": 20,
@@ -133,12 +133,14 @@
     "verified_source_commit": "ef867287158947d0c5d533b98ebb69a072889352"
   },
   "hero_copy_verification": {
-    "source_commit": "fa95c50afa03a68f933dac3c58270747f0311c02",
-    "local_checks_passed": 10,
-    "published_checks_passed": 6,
+    "source_commit": "01922da37458f8661ffa77d24c76e3d1b28038d6",
+    "reference": "User-supplied brush-lettering screenshot",
+    "local_checks_passed": 8,
+    "published_checks_passed": 8,
     "local_viewports": [
       320,
       390,
+      825,
       1440
     ],
     "published_viewports": [
@@ -152,7 +154,12 @@
       "artists"
     ],
     "exact_tagline": "The Best Tattoo Shop Vibes Murray Utah",
+    "first_headline": "Unleashing your creativity starts with artists that inspire.",
+    "headline_and_tagline_font": "SP Brush",
+    "headline_and_tagline_weight": 400,
+    "inline_word_color": "#d50917",
     "frame_and_copy_synchronized": true,
+    "one_accessible_active_text_group": true,
     "cta_position_change_px": 0,
     "slider_controls": false,
     "horizontal_overflow": false,
