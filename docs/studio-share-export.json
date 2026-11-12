@@ -1,12 +1,12 @@
 {
-  "source_commit": "c47ef73f1bc5c244771f83c40e5f90e2bd7c5820",
-  "generated_at": "2026-11-12T04:27:35.901Z",
+  "source_commit": "d690bb7ce5b04eb017abca281bf10c988a2eb249",
+  "generated_at": "2026-11-12T04:45:56.407Z",
   "share_url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
   "routes": [
     {
       "route": "/sideshow-productions-v2/",
       "file": "index.html",
-      "bytes": 61780
+      "bytes": 62050
     },
     {
       "route": "/sideshow-productions-v2/coming-soon/",
@@ -122,8 +122,8 @@
     },
     {
       "file": "assets/sideshow-original.css",
-      "bytes": 10934,
-      "sha256": "ef2c4a3ec82e5da8ad512ca324274c90c60437b7c738c96d7d3fccc12eb8f230"
+      "bytes": 11239,
+      "sha256": "734c916edd580b86c26465a4698cb7eb24c84ac6e1f2aadf5a6b07c15059b852"
     },
     {
       "file": "assets/sideshow-original.js",
@@ -309,7 +309,7 @@
     "assets/icons/favicon.ico",
     "assets/icons/site.webmanifest"
   ],
-  "bytes": 6652664,
+  "bytes": 6652969,
   "notes": [
     "Homepage-only preview rendered from the current Shopify studio templates.",
     "Only used storefront assets are copied; source archives and working files are excluded.",

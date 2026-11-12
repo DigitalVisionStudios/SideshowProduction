@@ -1,35 +1,31 @@
 {
   "site_id": "d89eb8b7-a74a-4269-8167-fbebfba7493a",
   "site_name": "dvs-html-previews-netlify6",
-  "deploy_id": "6af5407335fa2bb954cecbca",
+  "deploy_id": "6af544cd4347d83ab79d9ce3",
   "mode": "draft",
   "alias": "sideshow-original",
   "state": "ready",
   "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
   "v1_url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/",
-  "source_commit": "c47ef73",
+  "source_commit": "d690bb7",
   "uploaded_with": "C:/Users/jesus/Documents/Work/HTML Preview/deploy_to_netlify.ps1",
   "project": "sideshow-productions-v2",
   "public_verification": {
     "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
-    "checked": 62,
-    "failures": [],
     "homepageStatus": 200,
-    "exportMatchesLive": true,
-    "v1Status": 200,
-    "v1ExportMatchesLive": true,
-    "canonical": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
-    "sharing": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/icons/sharing-card.png",
-    "map": "https://maps.google.com/maps?q=4973%20S%20State%20St%2C%20Murray%2C%20UT%2084107&amp;t=m&amp;z=13&amp;output=embed&amp;iwloc=near"
+    "homepageMatchesExport": true,
+    "stylesAndScripts": 27,
+    "assetFailures": [],
+    "artistCSSMatchesExport": true,
+    "passed": true
   },
   "shopify_live_changes": false,
   "latest_changes": [
-    "Dedicated black-to-transparent transition section after the hero",
-    "Hero headline: Your vision. Our artistry.",
-    "All destination links lead to a branded Coming soon page",
-    "Existing supporting-page preview URLs redirect to Coming soon"
+    "Opaque black background behind the entire artist carousel, with transparent fades at the top and bottom",
+    "Versioned stylesheet and script URLs so mobile clients receive updated preview assets"
   ],
   "visual_verification": {
+    "component": "Artists section background",
     "viewports": [
       390,
       1440
@@ -38,33 +34,16 @@
       "Clean",
       "Studio"
     ],
-    "transition_height_mobile": 80,
-    "transition_height_desktop": 128,
-    "hero_white_weight": 500,
-    "hero_brush_weight": 400,
+    "opaque_background_covers_all_cards": true,
+    "top_and_bottom_fades": true,
+    "continuous_slider_active": true,
     "overflow": false,
     "runtime_errors": []
   },
   "changed_asset_verification": {
-    "redirectsChecked": 21,
-    "failed": [],
-    "changed": [
-      {
-        "file": "assets/sideshow-hero.css",
-        "status": 200,
-        "matchesExport": true
-      },
-      {
-        "file": "assets/sideshow-original.css",
-        "status": 200,
-        "matchesExport": true
-      },
-      {
-        "file": "coming-soon/index.html",
-        "status": 200,
-        "matchesExport": true
-      }
-    ]
+    "version": "d690bb7",
+    "styles_and_scripts_verified": 27,
+    "artist_css_matches_export": true
   },
   "preview_mode": "homepage-only",
   "homepage_navigation_verification": {
@@ -73,6 +52,7 @@
     "public_desktop_and_mobile_passed": true,
     "home_and_skip_links_preserved": true,
     "map_overlay_active": true,
-    "shopify_source_destinations_preserved": true
+    "shopify_source_destinations_preserved": true,
+    "verified_source_commit": "c47ef73"
   }
 }
