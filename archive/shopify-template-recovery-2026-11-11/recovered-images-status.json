@@ -1,0 +1,460 @@
+{
+  "requested": 41,
+  "verified": 41,
+  "source_bytes": 12520626,
+  "template_references_verified": 41,
+  "failures": [],
+  "images": [
+    {
+      "id": 6,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-01.jpg",
+      "status": "downloaded",
+      "bytes": 26594,
+      "sha256": "256226c0c9ee0cdbf090a7376fde847f4e63280fd441907eb58edbeb269f4cf9",
+      "dimensions": [
+        600,
+        600
+      ]
+    },
+    {
+      "id": 7,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/studio-body-jewelry-display.png",
+      "status": "downloaded",
+      "bytes": 3993993,
+      "sha256": "02ff593fed720549f39ae9bc75c3cd0b1b56417ca620222278c1a2ad20da92f7",
+      "dimensions": [
+        1736,
+        1282
+      ]
+    },
+    {
+      "id": 8,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/studio-physical-roulette-wheel.jpg",
+      "status": "downloaded",
+      "bytes": 117457,
+      "sha256": "459323dacad8cdb8f6548aa7e164e061521037ada1affe4a7231c81848f057ee",
+      "dimensions": [
+        1644,
+        2076
+      ]
+    },
+    {
+      "id": 14,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/studio-flash-wall.png",
+      "status": "downloaded",
+      "bytes": 3046023,
+      "sha256": "b5fcc8a16eae030e08c4ee163b70ef8b39d56bb137b96c2a5b8b238c910ffa9c",
+      "dimensions": [
+        1906,
+        1440
+      ]
+    },
+    {
+      "id": 24,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/megan-tooth-gems-multiple.jpg",
+      "status": "downloaded",
+      "bytes": 47073,
+      "sha256": "7f2f7a0037dc8ba51bbccaee34106881253c21644ca5d22419a8f1453e037320",
+      "dimensions": [
+        720,
+        457
+      ]
+    },
+    {
+      "id": 26,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-03.jpg",
+      "status": "downloaded",
+      "bytes": 43308,
+      "sha256": "3197134c7d020e0a0125b47d278bd751c3cbb1b94c2fcecf2500cba225ffe6fb",
+      "dimensions": [
+        960,
+        1159
+      ]
+    },
+    {
+      "id": 27,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-06.jpg",
+      "status": "downloaded",
+      "bytes": 99794,
+      "sha256": "3c5fa40df893be9acd51adaa5686828258e488e1de6608ff8a90948ac7f91941",
+      "dimensions": [
+        843,
+        1139
+      ]
+    },
+    {
+      "id": 28,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-additional-cartoons.jpg",
+      "status": "downloaded",
+      "bytes": 56851,
+      "sha256": "8250d440fe7adc16d287090dc6c5f70d2b570066c59c8a66ffd2b731e9f38e9c",
+      "dimensions": [
+        843,
+        1090
+      ]
+    },
+    {
+      "id": 29,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-05.jpg",
+      "status": "downloaded",
+      "bytes": 87285,
+      "sha256": "98a8a2bfcb626e255845ec07ca23ed9da910a97dbc324c5c4115d85f2bf5c517",
+      "dimensions": [
+        843,
+        1144
+      ]
+    },
+    {
+      "id": 30,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-additional-scifi.jpg",
+      "status": "downloaded",
+      "bytes": 63998,
+      "sha256": "8dccf55fad62d6129a0384e441c9f963576951b99521d3bf23bf2e5a6c38e3fd",
+      "dimensions": [
+        843,
+        1104
+      ]
+    },
+    {
+      "id": 44,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-04.jpg",
+      "status": "downloaded",
+      "bytes": 109566,
+      "sha256": "e6db6c2e956c30e3a031f34030f2184218ec672838dafdfbb062a343b112cf08",
+      "dimensions": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "id": 65,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-02.jpg",
+      "status": "downloaded",
+      "bytes": 28692,
+      "sha256": "08ce50ccfd0358be3b7b1ad36a73412d0f0ae4d9ae1008451807e7df591b884b",
+      "dimensions": [
+        639,
+        639
+      ]
+    },
+    {
+      "id": 69,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-tongue-piercing-pair.jpg",
+      "status": "downloaded",
+      "bytes": 165569,
+      "sha256": "0c5df1b6362447e13763f54a55f67b64a0247daf46238b196afeb98c5e6a5e38",
+      "dimensions": [
+        1440,
+        1799
+      ]
+    },
+    {
+      "id": 81,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/megan-tooth-gems-butterfly.png",
+      "status": "downloaded",
+      "bytes": 1992952,
+      "sha256": "ea37b9af20a1abb273ed5ada865c8f13a78162ffcc0f784e91e95d885f20c6be",
+      "dimensions": [
+        1626,
+        1080
+      ]
+    },
+    {
+      "id": 83,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/megan-tooth-gems-side.png",
+      "status": "downloaded",
+      "bytes": 1291011,
+      "sha256": "ce576eb4dceea40e724cf598aa8478de786a6397c816bca48fea38b1bfcdcebf",
+      "dimensions": [
+        1474,
+        956
+      ]
+    },
+    {
+      "id": 86,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-navel-piercing.jpg",
+      "status": "downloaded",
+      "bytes": 29133,
+      "sha256": "7a03d56a4f8aba5f68b66fdff05d8c702690276439f83b820f0b083f2f66c2e2",
+      "dimensions": [
+        480,
+        640
+      ]
+    },
+    {
+      "id": 89,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/jake-linework-portrait.jpg",
+      "status": "downloaded",
+      "bytes": 92573,
+      "sha256": "698bbe81086d2c3d3b7e8a37ba9fdc33ca996f21ec72fbfcb8bbcad1d3f77c4a",
+      "dimensions": [
+        750,
+        1000
+      ]
+    },
+    {
+      "id": 95,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/rigo-rosary.jpg",
+      "status": "downloaded",
+      "bytes": 48118,
+      "sha256": "742c870e1f1c2f4f0f40af6f496f54dbd60044da4bf493a84fa285a31f153f76",
+      "dimensions": [
+        531,
+        1209
+      ]
+    },
+    {
+      "id": 97,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/rigo-ace-spade.jpg",
+      "status": "downloaded",
+      "bytes": 56811,
+      "sha256": "7281aed70470bb85fd2a5904bdc61f904424dfe86738acc62f823a72695f1080",
+      "dimensions": [
+        576,
+        1024
+      ]
+    },
+    {
+      "id": 98,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/rigo-script-benjamin.webp",
+      "status": "downloaded",
+      "bytes": 85638,
+      "sha256": "7b849b45f1b85847da27c08995998dbe6e330961cfeab4684009da3760a7a4a3",
+      "dimensions": [
+        630,
+        1120
+      ]
+    },
+    {
+      "id": 99,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/jake-ocean-symbols.jpg",
+      "status": "downloaded",
+      "bytes": 70976,
+      "sha256": "e0845391467d3991d999496b084f0875c81cfa5140e03f56d08ba240efde557a",
+      "dimensions": [
+        750,
+        1000
+      ]
+    },
+    {
+      "id": 100,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/rigo-symbols-forearm.jpg",
+      "status": "downloaded",
+      "bytes": 86160,
+      "sha256": "4e3bd62b45287df666d1eb57d5d85336299914f3cc629b353ab7a82ee56fa5f0",
+      "dimensions": [
+        739,
+        560
+      ]
+    },
+    {
+      "id": 101,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/rigo-nape-linework.jpg",
+      "status": "downloaded",
+      "bytes": 73586,
+      "sha256": "da2f1d0ff0a7940dd1e77ef9d82eb9729bc4dbf630ea889dc77cb22cba1f919a",
+      "dimensions": [
+        480,
+        853
+      ]
+    },
+    {
+      "id": 103,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/jake-circular-pattern.jpg",
+      "status": "downloaded",
+      "bytes": 60182,
+      "sha256": "cf008485d3e2cf8eedb9dbcff7dd6df7b533ccb96cfdb7e46eb347495c526253",
+      "dimensions": [
+        750,
+        1000
+      ]
+    },
+    {
+      "id": 104,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/rigo-floral-shoulder-full.jpg",
+      "status": "downloaded",
+      "bytes": 43511,
+      "sha256": "80f647f176bd310bd99575793784cbfd95ce25d218fa64209e89ebb50838262a",
+      "dimensions": [
+        540,
+        1230
+      ]
+    },
+    {
+      "id": 107,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/rigo-amor-script.jpg",
+      "status": "downloaded",
+      "bytes": 30021,
+      "sha256": "348f0910456f9f67ed6d7d05c97b522a86913e26c4ddd999aa2f0665a6cdaab0",
+      "dimensions": [
+        386,
+        879
+      ]
+    },
+    {
+      "id": 114,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-facial-piercings.jpg",
+      "status": "downloaded",
+      "bytes": 24590,
+      "sha256": "691a543bb88aab6db2fe61f6c4bd88f9e5211513f66cd800de9a16356e22477c",
+      "dimensions": [
+        480,
+        639
+      ]
+    },
+    {
+      "id": 115,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-nostril-piercing.jpg",
+      "status": "downloaded",
+      "bytes": 19665,
+      "sha256": "522108d881b08fa6a6bf0b51b77339aee58eba3601b3a904c82306d51b6ca5b8",
+      "dimensions": [
+        480,
+        640
+      ]
+    },
+    {
+      "id": 119,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-ear-heart-jewelry.jpg",
+      "status": "downloaded",
+      "bytes": 25718,
+      "sha256": "4d33f1280382fef96a0889234f4d64118bb04a6163e92f1aaecf0fca091b0359",
+      "dimensions": [
+        480,
+        520
+      ]
+    },
+    {
+      "id": 123,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-cheek-dermals.jpg",
+      "status": "downloaded",
+      "bytes": 31153,
+      "sha256": "f0bc6dad76e3bfeba52daad70b951fcc998dc693c392c4dac0b5a50837544751",
+      "dimensions": [
+        480,
+        640
+      ]
+    },
+    {
+      "id": 124,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-tongue-piercing.jpg",
+      "status": "downloaded",
+      "bytes": 22673,
+      "sha256": "b0ec75dc747653c1d2ac8c64666abbec11305a34fa739ad8669771f811b080b8",
+      "dimensions": [
+        480,
+        640
+      ]
+    },
+    {
+      "id": 127,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-bridge-piercing.jpg",
+      "status": "downloaded",
+      "bytes": 33807,
+      "sha256": "d9151c80485fb448df84e726f7940d74ddaef4b85be7bbfafc20a8bbe86abbac",
+      "dimensions": [
+        480,
+        639
+      ]
+    },
+    {
+      "id": 128,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-navel-jewelry.jpg",
+      "status": "downloaded",
+      "bytes": 13594,
+      "sha256": "82f7cf8b3bd5175c0161c82e87856f49251b9955730e9cd83854979684e246df",
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "id": 129,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-eyebrow-piercing.jpg",
+      "status": "downloaded",
+      "bytes": 20233,
+      "sha256": "70806054e8873efbdd8acdc8048e7cfa4dc5db889fab4475dd13491816a00dbe",
+      "dimensions": [
+        480,
+        360
+      ]
+    },
+    {
+      "id": 131,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-ear-jewelry.jpg",
+      "status": "downloaded",
+      "bytes": 27815,
+      "sha256": "ad0e21dd766de549b289fc7026f5893b333306f8a77255160de43560eafcffff",
+      "dimensions": [
+        480,
+        640
+      ]
+    },
+    {
+      "id": 133,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-cheek-jewelry.jpg",
+      "status": "downloaded",
+      "bytes": 38935,
+      "sha256": "2e7291d95060f2eb2efbc2b2aa188ec6edf5cc5d29dfd426ff546a1c5577a55d",
+      "dimensions": [
+        480,
+        937
+      ]
+    },
+    {
+      "id": 135,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-navel-barbell.jpg",
+      "status": "downloaded",
+      "bytes": 19569,
+      "sha256": "aaaea70d0810439189e311c7d07fe4fc922709ea4969dd8ec74ee6b079cfbf15",
+      "dimensions": [
+        480,
+        640
+      ]
+    },
+    {
+      "id": 172,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-navel-gemmed.jpg",
+      "status": "downloaded",
+      "bytes": 178859,
+      "sha256": "aa8dd03d202e913d392135b34deeab8f14d6abe1fd95a258ae92b76ccb1b9410",
+      "dimensions": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "id": 175,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-lip-piercings.jpg",
+      "status": "downloaded",
+      "bytes": 58129,
+      "sha256": "a2f0b2fc109579c28c03cdeca26cbbc7c7aca32fbfff7261852827749a9062e9",
+      "dimensions": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "id": 176,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-upper-lip-piercing.jpg",
+      "status": "downloaded",
+      "bytes": 78904,
+      "sha256": "7842aba8a8964be8ae31d4c91103f1c1c7f57b3a39989bad135ce703b5ffdb0a",
+      "dimensions": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "id": 177,
+      "path": "archive/shopify-template-recovery-2026-11-11/assets/sonny-tongue-center.jpg",
+      "status": "downloaded",
+      "bytes": 80107,
+      "sha256": "b78ef32158d8ab27c45fc966aec5cad146705f3184913bb180497c8f53c1a79d",
+      "dimensions": [
+        1080,
+        1080
+      ]
+    }
+  ]
+}

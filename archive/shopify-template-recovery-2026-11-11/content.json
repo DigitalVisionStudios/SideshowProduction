@@ -1,0 +1,539 @@
+{
+  "review_date_utc": "2026-11-12",
+  "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+  "source_commit_date": "2026-03-25",
+  "baseline_current_commit": "6c5fad7",
+  "scope": "31 original JSON templates plus targeted original sections, config, booking scripts and full Git history; no production mutation.",
+  "findings": [
+    {
+      "id": "about-history",
+      "priority": "high",
+      "source_template": "templates/page.ab-us.json",
+      "source_key": "sections.768c1e62-8002-4176-89c6-e539137ed427.settings.text",
+      "what": "Founding-year statement, community organization names, fuller studio story",
+      "gap": "Current about page omits founding in 2020 and Brighton Recovery / Fit To Recover by name.",
+      "recommendation": "Use a short studio-history paragraph and complete historical community-support names.",
+      "flags": [
+        "Old 213-review, 4.6-star claim is stale.",
+        "Private sessions, training, health/safety and material quality claims need operational confirmation before reuse."
+      ],
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f"
+    },
+    {
+      "id": "reviews",
+      "priority": "high",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks",
+      "what": "19 named testimonials; 18 authors absent from the current six-review slider",
+      "gap": "Current six reviews do not include the old whitening, Sonny, and flash-specific testimonials.",
+      "recommendation": "Select three or four relevant testimonials for service/artist pages, preserve attribution and full reviewed wording.",
+      "flags": [
+        "Old export contains no individual Google URLs, ratings or most dates.",
+        "One author overlaps, Ashleigh Jensen; deduplicate.",
+        "Some testimonials name former artists or historical prices."
+      ],
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f"
+    },
+    {
+      "id": "artist-instagram-bios",
+      "priority": "high",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_key": "sections.portfolio_yFkdkL / portfolio_8VdjfF / portfolio_NhdxPw / portfolio_XgQG6y",
+      "what": "Fuller descriptions and direct Instagram links for Jake, Rigo, Megan, Sonny",
+      "gap": "Current artist cards contain short bios and a booking link, no individual Instagram CTA.",
+      "recommendation": "Add per-artist Instagram links and carefully reuse fuller stylistic descriptions on detail pages.",
+      "flags": [
+        "Do not treat rates, hours, deposits or jewelry guarantees as freshly verified merely because old template includes them."
+      ],
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f"
+    },
+    {
+      "id": "jewelry",
+      "priority": "medium",
+      "source_template": "templates/index.json",
+      "source_key": "sections.featured_content_WH9wwF.settings + sections.quotes_mjHWfn",
+      "what": "Dedicated visit-the-studio jewelry section with Get Directions CTA",
+      "gap": "Current site mentions jewelry within piercings but has no dedicated jewelry showcase.",
+      "recommendation": "Use authentic display photography as a compact jewelry visit block. Confirm current in-store availability.",
+      "flags": [
+        "Does not prove Shopify jewelry inventory exists."
+      ],
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f"
+    },
+    {
+      "id": "aftercare-entry-points",
+      "priority": "medium",
+      "source_template": "templates/index.json",
+      "source_key": "sections.ca6f690d-6509-4290-bf0b-32c142ac0b4c.blocks",
+      "what": "Tattoo aftercare, piercing aftercare, and studio-policy entry cards with original Shopify page handles",
+      "gap": "Current homepage omits this useful three-card entry strip; current aftercare page is a contact-guidance placeholder.",
+      "recommendation": "Restore compact navigation to approved aftercare/policy content once page bodies are recovered.",
+      "flags": [
+        "Theme contains links and teasers, not actual Shopify page bodies.",
+        "The original labels include generic healing claims; use accurate neutral navigation labels."
+      ],
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f"
+    },
+    {
+      "id": "calendar",
+      "priority": "medium",
+      "source_template": "sections/popup.liquid + config/settings_data.json",
+      "source_key": "downloadICS/makeICS/openGoogleCal; current.sections.footer.blocks.html_cRPdw8 and html_kgtTPx.settings.html_area",
+      "what": "Google Calendar and downloadable ICS feature used by original event popups",
+      "gap": "Current studio-event dialog has booking/event links but no Add to Calendar action.",
+      "recommendation": "Reuse calendar functionality with configured current event dates, location and America/Denver time zone.",
+      "flags": [
+        "Original February/March/April campaigns are expired.",
+        "Legacy code rolls event dates into future years automatically; do not copy that behavior."
+      ],
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f"
+    },
+    {
+      "id": "photo-marquee-pattern",
+      "priority": "medium",
+      "source_template": "templates/index.json",
+      "source_key": "sections.custom_html_g8TAL4.blocks.html_hdmBLm.settings.code",
+      "what": "Three alternating photographic marquee rows plus appointment CTA",
+      "gap": "Current work slider and service-text marquee do not include this original photo-wall composition.",
+      "recommendation": "Use its image collection and visual idea in the current lightweight motion system if another gallery is needed.",
+      "flags": [
+        "Legacy raw HTML duplicates imagery and depends on Webflow classes; do not inject wholesale.",
+        "Keep current autoplay/no-controls preference and reduced-motion support."
+      ],
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f"
+    },
+    {
+      "id": "merch",
+      "priority": "later-store-check",
+      "source_template": "templates/index.json",
+      "source_key": "sections.featured_products_6wyheH.settings.home_featured_products",
+      "what": "Original merch collection handle merch",
+      "gap": "Current shop displays aftercare cards despite a merchandise-and-aftercare heading.",
+      "recommendation": "Recover actual merchandise catalog from verified Shopify store and connect collection when available.",
+      "flags": [
+        "Collection handle alone does not provide current products, prices, stock or sizes."
+      ],
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f"
+    },
+    {
+      "id": "booking-flow",
+      "priority": "later-store-check",
+      "source_template": "templates/page.artist-portfolio.json + templates/product.promotions-new.json",
+      "source_key": "sections.meety_button_K4NdNP; sections.meety_overide_Vh3n4L.settings / blocks.button_VxDVPE",
+      "what": "Per-artist calendars, service chooser, piercing categories, group attendee counts and quantity per person",
+      "gap": "Current studio booking is intentionally disconnected and contact-based.",
+      "recommendation": "Recover these exact customer-facing steps when rebuilding the live Meety connection; use existing migration audit for known ID/label problems.",
+      "flags": [
+        "Do not re-enable old promotion-specific mappings as current offers.",
+        "App notification recipient settings and prior appointment data are not stored in theme."
+      ],
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f"
+    },
+    {
+      "id": "outside-hours",
+      "priority": "later-client-check",
+      "source_template": "templates/product.json",
+      "source_key": "sections.34ed0e66-84a3-4ba9-9bec-cc9af5bfc192.blocks.html_TNpYTL.settings.code",
+      "what": "Ask about appointments outside posted hours via studio Instagram",
+      "gap": "Current booking/contact text does not include this exact flexibility note.",
+      "recommendation": "If still offered, add a simple ask-about-other-times link near availability.",
+      "flags": [
+        "Old code promises scheduling outside hours; confirm current policy and avoid guaranteeing availability."
+      ],
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f"
+    }
+  ],
+  "reviews": [
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_TxK3WP.settings",
+      "author": "Derick Chargoy",
+      "quote_html": "<p>\"Got a compass tattoo on my neck Jan 2024. My artist, Jake, did an amazing job, not only with the quality of my tattoo but he also ensured proper hygiene. Even with the location of my tattoo, I fell asleep on the table. The shop is clean and welcoming. Definitely recommend and will be going back!!\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": [
+        "Explicit January 2024 experience."
+      ]
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_pkDnmK.settings",
+      "author": "Tog Games",
+      "quote_html": "<p>\"Got a Helix piercings and nipple piercings done. Shop was clean and everything was in sterile packaging. The owner did both my piercings and he didn't make it awkward or anything was super helpful—gave me a lollipop during the first piercings and let me take one for the road. Pricing was reasonable! About 50 bucks per piercing roughly—this shop is cash only though but they have an ATM next door if you forget cash. Was able to sketch up a tattoo idea I've had for years and given an estimate on the spot—will 100% be back.\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": [
+        "Historical cash-only and price statements; do not select for current sales copy."
+      ]
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_rHHTLM.settings",
+      "author": "Kyler McKay",
+      "quote_html": "<p>\"Jake is the all time best—he cares so much about your well being while getting the tattoo and also is an amazing artist. Highly recommend—definitely coming back for more!\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": []
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_LTeWzU.settings",
+      "author": "Janeil Leitch",
+      "quote_html": "<p>\"Love Sideshow Productions—it's like a home away from home and everyone is so friendly and helpful. Would recommend this place to any and everybody!!\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": []
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_6K7jFT.settings",
+      "author": "Leisl Fuentes",
+      "quote_html": "<p>\"Came for an event today for a great cause and got my teeth whitened and a lovely heart tattoo! The whole staff was so kind and welcoming! Please consider them for all your piercing, teeth whitening, teeth gem and tattoo needs ❤️\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": []
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_jMarxR.settings",
+      "author": "Jennifer Sanchez",
+      "quote_html": "<p>\"I love Sideshow Productions! They have the best flash events and great custom work. They're super friendly and the environment is very comfortable. I love that they have snacks and drinks for sale (it's never good to get tattooed on an empty tummy).\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": []
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_z4enb7.settings",
+      "author": "Drista Ricord",
+      "quote_html": "<p>\"Coming in, it was very welcoming. I’ve gotten a couple tattoos here before and I love this place. My artist was Jake and he had amazing lines. The tattoo looked exactly like the handwriting I wanted it in.\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": []
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_TMrFyT.settings",
+      "author": "Brittni Bidwell",
+      "quote_html": "<p>\"I love this tattoo shop and the people here. I’ve gotten so many great tattoos and I can’t wait to get more. Jake is so amazing and so patient—I love how he takes his time with my tattoos; they always come out so amazing and looking so beautiful. Thank you for the great experience. I can’t wait for more of your art.\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": []
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_Dg6jXX.settings",
+      "author": "Hayley Ainsworth",
+      "quote_html": "<p>\"Had a tattoo with Jake and it was the BEST tattoo experience I have ever had. Most painless tattoo EVER. I almost fell asleep (in a good way lol). They're healing super well. Was given a second piece of second skin to apply later if it peeled and was wrapped up super well before leaving. Clean shop. Felt comfortable from the start of my appointment.\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": [
+        "Describes pain and care outcomes as this customer’s experience; do not convert to a business guarantee."
+      ]
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_pWJGwA.settings",
+      "author": "Mikka Jacobson",
+      "quote_html": "<p>\"Super welcoming group of artists! I had tiny finger tattoos done and they gave me all the information I needed to prepare myself for finger/hand tattoos. Katie did an amazing job with my simple little tats! Can’t wait to get my next tats here!\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": [
+        "Names Katie, outside currently verified four-person roster."
+      ]
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_Vx3wi3.settings",
+      "author": "Ashleigh Jensen",
+      "quote_html": "<p>\"I absolutely loveeeeee this tattoo shop!! I have gotten my last 3 tattoos from them and my dad has gotten one as well. Everyone has been super nice and the environment is very welcoming! Every artist there does amazing work and they are very accommodating. Highly recommend this shop for your next tattoo!\"</p>",
+      "author_already_in_current_slider": true,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": []
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_Lm6dkc.settings",
+      "author": "Jae Ahlstrom",
+      "quote_html": "<p>\"He pierced my nose for me! Was super nice and professional! I absolutely love Sideshow! They are nice every time I've come in!\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": []
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_f3eCwR.settings",
+      "author": "grey",
+      "quote_html": "<p>\"I went and got a few piercings from Sonny for some promotion. All the employees were really nice and supportive, and I ended up having a conversation with several of them. I plan on coming back again.\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": []
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_W4nmAB.settings",
+      "author": "Megan Yama",
+      "quote_html": "<p>\"AMAZING people! So far the best experience I’ve had since I’ve been in Utah. I like the energy and people.\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": []
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_MzwBC3.settings",
+      "author": "Leah Lee",
+      "quote_html": "<p>\"I LOVE THIS PLACE!! Katie is such an amazing artist and everyone here is so nice and very welcoming. I’ve gotten two tattoos from Katie and they have come out stunning. I would highly recommend her or any of the artists here for any tattoo you might want. They have fair prices too!!\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": [
+        "Names Katie, outside currently verified four-person roster."
+      ]
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_b4UxCN.settings",
+      "author": "Helen Barbosa",
+      "quote_html": "<p>\"Love this place. My daughter and I have gotten a few flash tattoos and have never been disappointed.\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": []
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_gKheNA.settings",
+      "author": "Ken Crick",
+      "quote_html": "<p>\"Great location and crew. Katie did a design my daughter drew and I am going back for more.\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": [
+        "Names Katie, outside currently verified four-person roster."
+      ]
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_B4FhKy.settings",
+      "author": "Sandy Howard",
+      "quote_html": "<p>\"Staff is fantastic, great quality of work and fast. I have gotten tattoos from two different artists here and they were both excellent. Schedule is a little tight, so plan ahead—but I love this place and will continue to recommend it to others.\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": []
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "sections.quotes_m69Pwq.blocks.quote_pqWmM4.settings",
+      "author": "Alexia Henrie",
+      "quote_html": "<p>\"I absolutely adore this tattoo shop! It's clean and friendly. Everyone is super kind and amazing, but super special shout out to Maddie! She is the artist who did this lovely piece! Super great experience!\"</p>",
+      "author_already_in_current_slider": false,
+      "source_label": "Prior Shopify homepage testimonial",
+      "individual_review_url": null,
+      "rating": null,
+      "flags": [
+        "Names Maddie, outside currently verified four-person roster."
+      ]
+    }
+  ],
+  "artists": [
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_key": "sections.portfolio_yFkdkL.blocks.author_nDfefr.settings",
+      "name": "Jake",
+      "biography_html": "<p>Jake blends graphic elements with black-and-grey shading for clear, readable designs. Comfortable with lettering and illustrative customs, he keeps the process straightforward from sketch to finish.</p>",
+      "instagram_url": "https://www.instagram.com/jakenotlopez",
+      "historical_booking_details_html": "<p><strong>Rates & Booking Rate:</strong> Starts at $100/hr</p><p><strong>Deposit:</strong> $50 (credited toward your total)</p><p><strong>Hours:</strong><br/><strong>Tuesday:</strong> 4PM – 10PM<br/><strong>Wednesday:</strong> 3:30PM – 10PM<br/><strong>Thursday:</strong> 3:30PM – 10PM<br/><strong>Friday:</strong> 4PM – 10PM<br/><strong>Saturday:</strong> 3:30PM – 10PM</p><p><strong>Notes:</strong></p><ul><li>No appointments Sunday or Monday</li><li>48-hour notice required</li></ul>",
+      "current_roster_match": true
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_key": "sections.portfolio_NhdxPw.blocks.author_mLcbKx.settings",
+      "name": "Megan",
+      "biography_html": "<p>Megan specializes in cosmetic tooth gems and teeth whitening, providing safe application with quality materials. Every gem is placed with precision for comfort, sparkle, and long-lasting wear.</p>",
+      "instagram_url": "https://www.instagram.com/meganwell14",
+      "historical_booking_details_html": "<p><strong>Rates & Pricing:</strong><br/><br/>Tooth gems — First <strong>$60</strong> • Additional <strong>+$20 each</strong> <br/>Heart/Star <strong>$65</strong>  <br/>Fang <strong>$100</strong><br/><br/>Teeth whitening — Single <strong>$89</strong> • Double <strong>$120</strong> • Triple <strong>$200</strong></p><p><strong>Deposit (credited toward total):</strong> <br/>20% of your selection — First $60 <strong>($12)</strong> <br/>Additional $20 <strong>(= $4 each)</strong><br/>Heart/Star $65 <strong>(= $13)</strong> <br/>Fang $100 <strong>(= $20)</strong> <br/>Whitening Single $89 <strong>(= $18)</strong> <br/>Double $120 <strong>(= $24)</strong> <br/>Triple $200 <strong>(= $40)</strong></p><p><strong>Hours:</strong><br/><strong>Tuesday:</strong> 7PM – 8:30PM<br/><strong>Wednesday:</strong> 7PM – 8:30PM<br/><strong>Thursday:</strong> 7PM – 8:30PM<br/><strong>Friday:</strong> 7PM – 8:30PM<br/><strong>Saturday:</strong> 7PM – 8:30PM</p><p><strong>Notes:</strong></p><ul><li>48-hour notice required for changes or cancellations</li></ul>",
+      "current_roster_match": true
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_key": "sections.portfolio_XgQG6y.blocks.author_pUxpLa.settings",
+      "name": "Sonny",
+      "biography_html": "<p>Sonny provides precise, professional piercings using sterile technique and implant-grade jewelry. Expect anatomy-based placement, clean symmetry, and step-by-step aftercare for comfortable healing.</p><h3></h3>",
+      "instagram_url": "https://www.instagram.com/sonny.27_",
+      "historical_booking_details_html": "<p><strong>Rates & Booking Rate:</strong> Varies by piercing service<br/><br/><strong>Deposit:</strong> 20% of your selection (credited toward your total, card fees included)<br/><br/></p><p><strong>Hours:</strong><br/><strong>Tuesday:</strong> 2PM – 8PM<br/><strong>Wednesday:</strong> 2PM – 8PM<br/><strong>Thursday:</strong>2PM – 8PM<br/><strong>Friday:</strong> 2PM – 8PM<br/><strong>Saturday:</strong> 12PM – 8PM</p><p><strong>Notes:</strong></p><ul><li>No appointments Sunday or Monday<br/>Jewelry Included with all new piercings</li><li>Sterile, single-use setup & implant-grade jewelry</li><li>48-hour notice required</li><li>Preferred booking through website</li></ul>",
+      "current_roster_match": true
+    },
+    {
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/page.artist-portfolio.json",
+      "source_key": "sections.portfolio_8VdjfF.blocks.author_y8MKRD.settings",
+      "name": "Rigo",
+      "biography_html": "<p>Rigo works in black-and-grey and illustrative styles with clean lines and smooth blends. He explains designs and aftercare clearly in <strong>English or Spanish</strong> for a comfortable, straightforward session.</p>",
+      "instagram_url": "https://www.instagram.com/Solo_inkslinger",
+      "historical_booking_details_html": "<p><strong>Rates & Booking Rate:</strong> Starts at $100/hr</p><p><strong>Deposit:</strong> $50 (credited toward your total)</p><p><strong>Hours:</strong><br/><strong>Tuesday:</strong> 3PM – 8PM<br/><strong>Wednesday:</strong> 3PM – 8PM<br/><strong>Thursday:</strong> 3PM – 8PM<br/><strong>Friday:</strong> 3PM – 8PM<br/><strong>Saturday:</strong> 3PM – 8PM</p><p><strong>Notes:</strong></p><ul><li>No appointments Sunday or Monday</li><li>48-hour notice required</li><li>Español disponible</li></ul>",
+      "current_roster_match": true
+    }
+  ],
+  "about_html": "<h3><strong> </strong>‎ ‎ </h3><p>‎ </p><h3><strong>Sideshow Productions: Your trusted tattoo shop founded in 2020</strong></h3><p>Tattoo shop located in Murray, Utah offering tattoos, piercings, teeth whitening, tooth gems and other services. <br/> <br/>We have given to numerous nonprofit organizations, including:<br/>Breast Cancer Research Foundation, Brighton Recovery, <br/>Fit To Recover, Humane Society of Utah, and Toys for Tots.  <br/><br/>We offer a clean, sterile, friendly environment for our clients and artists.  <br/><br/>Great vibes.  Come check us out! </p><p>‎ </p><h2><strong>Our Journey:</strong></h2><p></p><ul><li><strong>Customer Trust:</strong> Our commitment to honesty and quality service has earned us a spot in everyone's hearts (and skin lol)</li><li><strong>High Ratings:</strong> With over 213 reviews and an impressive 4.6 star average rating, our reputation speaks for itself.</li><li><strong>Community Engagement:</strong> Our active participation and donations to various nonprofit organizations reflect our dedication to the community's well-being and our belief in giving back.</li></ul><p>‎ ‎ </p><h3><strong>Our Promises:</strong></h3><ul><li><strong>Expertise and Quality:</strong> Every artist at Sideshow Productions is selected for their exceptional skill and dedication to craft, using only the highest quality materials to ensure your art is not just safe but lasts a lifetime. </li><li><strong>Privacy and Confidentiality:</strong> We guarantee the utmost discretion with your designs and personal information, offering secure data handling and the option for private sessions to meet your comfort level. </li><li><strong>Healthy and Safe Environment:</strong> Our commitment to your well-being is reflected in our rigorous sterilization protocols, continuous staff training on health and safety, and a client-first approach that ensures a clean, welcoming space for all.</li></ul><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>",
+  "aftercare_navigation": {
+    "type": "featured-columns",
+    "blocks": {
+      "template--15692395741321__ca6f690d-6509-4290-bf0b-32c142ac0b4c-text_block-1": {
+        "type": "text_block",
+        "settings": {
+          "title": "",
+          "image_link": "",
+          "icon": "info",
+          "heading_text": "Essential Tattoo Aftercare",
+          "text": "<p>Keep your new tattoo vibrant and healthy! Follow our step-by-step guide for the best healing results</p>",
+          "button_style": "btn--primary",
+          "button_label": "Learn More",
+          "button_link": "shopify://pages/copy-of-operations-policy"
+        }
+      },
+      "template--15692395741321__ca6f690d-6509-4290-bf0b-32c142ac0b4c-text_block-2": {
+        "type": "text_block",
+        "settings": {
+          "title": "",
+          "image_link": "",
+          "icon": "view_list",
+          "heading_text": "Piercing Aftercare Instructions",
+          "text": "<p>Discover how to care for your new piercing with our expert advice. Ensure quick healing and avoid complications.</p>",
+          "button_style": "btn--primary",
+          "button_label": "Learn More",
+          "button_link": "shopify://pages/after-care-piercing"
+        }
+      },
+      "text_block_kyXfYr": {
+        "type": "text_block",
+        "settings": {
+          "title": "",
+          "image_link": "",
+          "icon": "fact_check",
+          "heading_text": "Our Studio Policies",
+          "text": "<p>Know what to expect at Sideshow Productions. Familiarize yourself with our studio policies for a smooth experience</p>",
+          "button_style": "btn--primary",
+          "button_label": "Learn More",
+          "button_link": "shopify://pages/policy"
+        }
+      }
+    },
+    "block_order": [
+      "template--15692395741321__ca6f690d-6509-4290-bf0b-32c142ac0b4c-text_block-1",
+      "template--15692395741321__ca6f690d-6509-4290-bf0b-32c142ac0b4c-text_block-2",
+      "text_block_kyXfYr"
+    ],
+    "settings": {
+      "show_on_desktop": true,
+      "show_on_mobile": true,
+      "title": "Aftercare Guides and Important information",
+      "subtitle": "((scroll=4))",
+      "section_style": "section-border",
+      "text_align": "text-center"
+    }
+  },
+  "jewelry_section": {
+    "type": "featured-content",
+    "custom_css": [
+      ".box {margin-top: -10%; background-image: linear-gradient( to bottom, transparent, black 0%, black 80%, transparent );}",
+      ".box {background-image: linear-gradient( to bottom, transparent, black 10%, black 80%, transparent );}"
+    ],
+    "settings": {
+      "show_on_desktop": true,
+      "show_on_mobile": true,
+      "title": "Need To Shine Bright?",
+      "text": "<p>Check out all of our amazing Jewerly Right down at the shop to get a better Look!</p>",
+      "section_style": "section-blank",
+      "text_size": "large",
+      "text_alignment": "text-center",
+      "button_style": "btn--primary",
+      "button_label": "Get Directions",
+      "button_link": "https://www.google.com/maps/place/4973+S+State+St,+Murray,+UT+84107/@40.6636333,-111.8904687,17z/data=!3m1!4b1!4m5!3m4!1s0x87528a24427031e7:0x747bdf2cc6c7386d!8m2!3d40.6636293!4d-111.8878938?entry=ttu"
+    }
+  },
+  "merch_section": {
+    "type": "featured-products",
+    "custom_css": [
+      ".text-ellipsis {white-space: pre-wrap; overflow-wrap: break-word;}",
+      ".text-center {text-align: center !important; font-weight: 500;}",
+      "a {color: #white; text-decoration: none;}",
+      "p.grid-product__title.h6 {color: white;}",
+      ".card {background-color: black; background-image: aliceblue; border: 2px solid white; box-shadow: rgb(0 0 0 / 0%) 4px 4px 0px -2px, rgb(124, 0, 12) 12px 0px 6px -7px;}"
+    ],
+    "settings": {
+      "show_on_desktop": true,
+      "show_on_mobile": true,
+      "title": "View our Merch",
+      "subtitle": "Rock Your New Tatto With Style! ((scroll=2))",
+      "section_style": "section-border",
+      "home_featured_products": "merch",
+      "rows": "5",
+      "desktop_grid": "4",
+      "mobile_grid": "2",
+      "show_view_all": false,
+      "button_label": "View all",
+      "button_link": "",
+      "button_style": "btn-outline-primary",
+      "slider_related_products": true,
+      "arrows": true,
+      "dots": true,
+      "autoplay": false,
+      "autoplayspeed": 5
+    }
+  }
+}

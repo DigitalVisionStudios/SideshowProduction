@@ -14,6 +14,7 @@ import hashlib
 import json
 
 from PIL import Image, ImageDraw, ImageOps
+from studio_recovered_media import prepare_override
 
 ROOT = Path(__file__).resolve().parent.parent
 ARCHIVE = ROOT / "archive/current-site-2026-11-10"
@@ -65,6 +66,10 @@ def main():
     }
     records = []
     for selected in REUSE:
+        recovered = prepare_override(selected["asset"])
+        if recovered:
+            records.append({**selected, **recovered, "new_asset": False})
+            continue
         path = ROOT / selected["asset"]
         if digest(path) != selected["sha256"]:
             raise RuntimeError("Tracked asset differs from its recorded source: " + str(path))

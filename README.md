@@ -148,3 +148,16 @@ No live theme, domain, app settings, billing, appointments, notifications, produ
 ## Homepage restoration sources
 
 The November 11 homepage pass is grounded in the archived `home.html`, `home.txt`, `about.txt`, and Ink Roulette page. `docs/studio-hero-media-sources.json` records the original storefront hero, rotating headline, additional scene photographs, and recovered event poster. The review section retains the original names, wording, and source labels. Instagram tiles link to verified profile URLs preserved in the archive, since individual post URLs were not available. The event uses the original November 2026 dates and explicit Utah time offsets; expired older promotions were not reintroduced.
+
+## Additional Shopify template recovery
+
+The November 11 recovery found 41 selected original still images, eight authentic tattoo/studio videos, 19 original homepage testimonials, four artists' fuller descriptions and Instagram links, and additional studio/community content. Six flash sheets and the Welcome flash wall now use their larger matching originals. The original homepage's whitening comparison was also restored in the preceding fix.
+
+See [the recovery overview](docs/studio-template-recovery.md) for findings, exact source inventories, and the most useful next additions. Original media, contact sheets, and a complete original-theme ZIP are saved under `archive/shopify-template-recovery-2026-11-11/` on this PC. The original files are excluded from Git and Shopify uploads; the recovery manifests, helpers, source records, and optimized storefront images are versioned.
+
+```console
+python scripts/recover-shopify-template-images.py --manifest docs/shopify-template-recovery-media.json
+python scripts/studio_recovered_media.py
+```
+
+The first command recovers or verifies the 41 selected still originals against their pinned template references and hashes. The second prepares the seven reviewed image upgrades. Existing media preparation scripts also honor those replacements, so regenerating the preview retains the better sources. The final revision passed the studio validator with zero errors or warnings, plus focused mobile/desktop image and lightbox checks through Tailscale.

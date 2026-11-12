@@ -153,51 +153,189 @@
   },
   {
     "file": "sp-flash-01.webp",
-    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-164310.png",
-    "bytes": 16896,
-    "width": 536,
-    "height": 532,
-    "sha256": "cfa9e14e9cf4791ac257a68704ffa171367919370e7fa1d3f35577dc097161f1"
+    "source": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/418793310_367104982738303_6581037872443949585_n_9e4ce352-f8bc-43e9-9253-79b36493514f.jpg",
+    "bytes": 23134,
+    "width": 600,
+    "height": 600,
+    "sha256": "7f798dfdc34885e53c461feed35b5d09b1e6df4e3cf262b98775b6da87964f29",
+    "asset": "assets/sp-flash-01.webp",
+    "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/418793310_367104982738303_6581037872443949585_n_9e4ce352-f8bc-43e9-9253-79b36493514f.jpg",
+    "source_filename": "418793310_367104982738303_6581037872443949585_n_9e4ce352-f8bc-43e9-9253-79b36493514f.jpg",
+    "source_reference": "shopify://shop_images/418793310_367104982738303_6581037872443949585_n_9e4ce352-f8bc-43e9-9253-79b36493514f.jpg",
+    "source_template": "templates/index.json",
+    "source_archive_template": "archive/shopify-template-recovery-2026-11-11/templates/index.json",
+    "source_key": "/sections/quotes_Dga9XW/blocks/quote_JVYUzN/settings/quote_image",
+    "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+    "source_sha256": "256226c0c9ee0cdbf090a7376fde847f4e63280fd441907eb58edbeb269f4cf9",
+    "source_bytes": 26594,
+    "source_dimensions": [
+      600,
+      600
+    ],
+    "original_source_sha256": "256226c0c9ee0cdbf090a7376fde847f4e63280fd441907eb58edbeb269f4cf9",
+    "original_source_bytes": 26594,
+    "original_source_dimensions": [
+      600,
+      600
+    ],
+    "source_provenance": "docs/studio-template-upgrade-results.json",
+    "processing": "WebP quality90, method6, full original frame and native dimensions. Source color profile preserved when present. No enlargement, cropping, color correction, sharpening, retouching or generated imagery.",
+    "archive_source": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-01.jpg"
   },
   {
     "file": "sp-flash-02.webp",
-    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-164328.png",
-    "bytes": 19974,
-    "width": 571,
-    "height": 571,
-    "sha256": "d0e81048ddbc25b57f98f1d6245672a26467ab2d4b844c531c8e660d47f2bb1b"
+    "source": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/sideshowproductionstattoo_418387188_1080059223144367_3615741089448672415_n_2be1a02d-8918-4d73-98e0-b172febf42f7.jpg",
+    "bytes": 26318,
+    "width": 639,
+    "height": 639,
+    "sha256": "be40ee8ee13f4a9ec789fc2cf31be8783835c538ab8bffe111fcfcb9eec7a3c5",
+    "asset": "assets/sp-flash-02.webp",
+    "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/sideshowproductionstattoo_418387188_1080059223144367_3615741089448672415_n_2be1a02d-8918-4d73-98e0-b172febf42f7.jpg",
+    "source_filename": "sideshowproductionstattoo_418387188_1080059223144367_3615741089448672415_n_2be1a02d-8918-4d73-98e0-b172febf42f7.jpg",
+    "source_reference": "shopify://shop_images/sideshowproductionstattoo_418387188_1080059223144367_3615741089448672415_n_2be1a02d-8918-4d73-98e0-b172febf42f7.jpg",
+    "source_template": "templates/index.json",
+    "source_archive_template": "archive/shopify-template-recovery-2026-11-11/templates/index.json",
+    "source_key": "/sections/quotes_Dga9XW/blocks/quote_Ji3tmA/settings/quote_image",
+    "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+    "source_sha256": "08ce50ccfd0358be3b7b1ad36a73412d0f0ae4d9ae1008451807e7df591b884b",
+    "source_bytes": 28692,
+    "source_dimensions": [
+      639,
+      639
+    ],
+    "original_source_sha256": "08ce50ccfd0358be3b7b1ad36a73412d0f0ae4d9ae1008451807e7df591b884b",
+    "original_source_bytes": 28692,
+    "original_source_dimensions": [
+      639,
+      639
+    ],
+    "source_provenance": "docs/studio-template-upgrade-results.json",
+    "processing": "WebP quality90, method6, full original frame and native dimensions. Source color profile preserved when present. No enlargement, cropping, color correction, sharpening, retouching or generated imagery.",
+    "archive_source": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-02.jpg"
   },
   {
     "file": "sp-flash-03.webp",
-    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-164340.png",
-    "bytes": 21280,
-    "width": 699,
-    "height": 848,
-    "sha256": "ed6ff5b75bbf0b06a6a5c7920fe042f05446240b5c9652872edc12048e54bb89"
+    "source": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/IMG_20240216_172220_342.jpg",
+    "bytes": 32388,
+    "width": 960,
+    "height": 1159,
+    "sha256": "257ecf829819527fbe449bd15e70b94c3a717b1828164ae92e5e2918aa91ad66",
+    "asset": "assets/sp-flash-03.webp",
+    "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/IMG_20240216_172220_342.jpg",
+    "source_filename": "IMG_20240216_172220_342.jpg",
+    "source_reference": "shopify://shop_images/IMG_20240216_172220_342.jpg",
+    "source_template": "templates/index.json",
+    "source_archive_template": "archive/shopify-template-recovery-2026-11-11/templates/index.json",
+    "source_key": "/sections/quotes_Dga9XW/blocks/quote_QRBzDa/settings/quote_image",
+    "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+    "source_sha256": "3197134c7d020e0a0125b47d278bd751c3cbb1b94c2fcecf2500cba225ffe6fb",
+    "source_bytes": 43308,
+    "source_dimensions": [
+      960,
+      1159
+    ],
+    "original_source_sha256": "3197134c7d020e0a0125b47d278bd751c3cbb1b94c2fcecf2500cba225ffe6fb",
+    "original_source_bytes": 43308,
+    "original_source_dimensions": [
+      960,
+      1159
+    ],
+    "source_provenance": "docs/studio-template-upgrade-results.json",
+    "processing": "WebP quality90, method6, full original frame and native dimensions. Source color profile preserved when present. No enlargement, cropping, color correction, sharpening, retouching or generated imagery.",
+    "archive_source": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-03.jpg"
   },
   {
     "file": "sp-flash-04.webp",
-    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-164317.png",
-    "bytes": 60728,
-    "width": 827,
-    "height": 828,
-    "sha256": "4273169a34f9cfc6d890686ac83536c4cbcd553150a2a0935e123980a8433260"
+    "source": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/sideshowproductionstattoo_277702453_496814488787821_2186458405426088210_n.jpg",
+    "bytes": 83844,
+    "width": 1080,
+    "height": 1080,
+    "sha256": "4b572ae107a7c6e0668a14fca9de80a10d219e838e551cc82a4c7a22e5979b0f",
+    "asset": "assets/sp-flash-04.webp",
+    "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/sideshowproductionstattoo_277702453_496814488787821_2186458405426088210_n.jpg",
+    "source_filename": "sideshowproductionstattoo_277702453_496814488787821_2186458405426088210_n.jpg",
+    "source_reference": "shopify://shop_images/sideshowproductionstattoo_277702453_496814488787821_2186458405426088210_n.jpg",
+    "source_template": "templates/index.json",
+    "source_archive_template": "archive/shopify-template-recovery-2026-11-11/templates/index.json",
+    "source_key": "/sections/quotes_Dga9XW/blocks/quote_ViQPKx/settings/quote_image",
+    "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+    "source_sha256": "e6db6c2e956c30e3a031f34030f2184218ec672838dafdfbb062a343b112cf08",
+    "source_bytes": 109566,
+    "source_dimensions": [
+      1080,
+      1080
+    ],
+    "original_source_sha256": "e6db6c2e956c30e3a031f34030f2184218ec672838dafdfbb062a343b112cf08",
+    "original_source_bytes": 109566,
+    "original_source_dimensions": [
+      1080,
+      1080
+    ],
+    "source_provenance": "docs/studio-template-upgrade-results.json",
+    "processing": "WebP quality90, method6, full original frame and native dimensions. Source color profile preserved when present. No enlargement, cropping, color correction, sharpening, retouching or generated imagery.",
+    "archive_source": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-04.jpg"
   },
   {
     "file": "sp-flash-05.webp",
-    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-164255.png",
-    "bytes": 53576,
-    "width": 623,
-    "height": 845,
-    "sha256": "785a4205882d575859a7f549d43b37d5a6930c09f146ca226a78bd9aa9aea615"
+    "source": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/IMG_20240216_172258_570.jpg",
+    "bytes": 90458,
+    "width": 843,
+    "height": 1144,
+    "sha256": "46b8c418e023b16e0d7827d508b6bcfe94c0387b8e9bfbead43d7a3e61565e1f",
+    "asset": "assets/sp-flash-05.webp",
+    "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/IMG_20240216_172258_570.jpg",
+    "source_filename": "IMG_20240216_172258_570.jpg",
+    "source_reference": "shopify://shop_images/IMG_20240216_172258_570.jpg",
+    "source_template": "templates/index.json",
+    "source_archive_template": "archive/shopify-template-recovery-2026-11-11/templates/index.json",
+    "source_key": "/sections/quotes_Dga9XW/blocks/quote_WkX8Fg/settings/quote_image",
+    "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+    "source_sha256": "98a8a2bfcb626e255845ec07ca23ed9da910a97dbc324c5c4115d85f2bf5c517",
+    "source_bytes": 87285,
+    "source_dimensions": [
+      843,
+      1144
+    ],
+    "original_source_sha256": "98a8a2bfcb626e255845ec07ca23ed9da910a97dbc324c5c4115d85f2bf5c517",
+    "original_source_bytes": 87285,
+    "original_source_dimensions": [
+      843,
+      1144
+    ],
+    "source_provenance": "docs/studio-template-upgrade-results.json",
+    "processing": "WebP quality90, method6, full original frame and native dimensions. Source color profile preserved when present. No enlargement, cropping, color correction, sharpening, retouching or generated imagery.",
+    "archive_source": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-05.jpg"
   },
   {
     "file": "sp-flash-06.webp",
-    "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-164249.png",
-    "bytes": 65276,
-    "width": 626,
-    "height": 846,
-    "sha256": "786876e28a284f89f23c791282c66e2e200a4482c4593fa55aec00f388c296df"
+    "source": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/IMG_20240216_172233_318.jpg",
+    "bytes": 105904,
+    "width": 843,
+    "height": 1139,
+    "sha256": "e34d53daaf814166f9d6a20c180d26058e2b13d533b64a63d438f4e271167bd1",
+    "asset": "assets/sp-flash-06.webp",
+    "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/IMG_20240216_172233_318.jpg",
+    "source_filename": "IMG_20240216_172233_318.jpg",
+    "source_reference": "shopify://shop_images/IMG_20240216_172233_318.jpg",
+    "source_template": "templates/index.json",
+    "source_archive_template": "archive/shopify-template-recovery-2026-11-11/templates/index.json",
+    "source_key": "/sections/quotes_Dga9XW/blocks/quote_bygb6G/settings/quote_image",
+    "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+    "source_sha256": "3c5fa40df893be9acd51adaa5686828258e488e1de6608ff8a90948ac7f91941",
+    "source_bytes": 99794,
+    "source_dimensions": [
+      843,
+      1139
+    ],
+    "original_source_sha256": "3c5fa40df893be9acd51adaa5686828258e488e1de6608ff8a90948ac7f91941",
+    "original_source_bytes": 99794,
+    "original_source_dimensions": [
+      843,
+      1139
+    ],
+    "source_provenance": "docs/studio-template-upgrade-results.json",
+    "processing": "WebP quality90, method6, full original frame and native dimensions. Source color profile preserved when present. No enlargement, cropping, color correction, sharpening, retouching or generated imagery.",
+    "archive_source": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-06.jpg"
   },
   {
     "file": "sp-display.woff2",

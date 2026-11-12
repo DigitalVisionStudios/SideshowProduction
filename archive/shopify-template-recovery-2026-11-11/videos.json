@@ -1,0 +1,300 @@
+{
+  "review_date": "2026-11-11",
+  "scope": "All unique configured Shopify MP4 links in 356 distinct legacy template/config/section/snippet blobs across full retained git history. Excludes generic empty YouTube/Vimeo theme placeholders.",
+  "summary": {
+    "distinct_mp4_sources": 10,
+    "http_200": 10,
+    "studio_or_tattoo_sources": 8,
+    "unrelated_automotive_sources": 2
+  },
+  "visual_review": "Three sampled frames per clip were visually inspected. Subjects were matched to the original template contexts. Specific artist identities and spoken testimonial contents have not been independently established.",
+  "notes": [
+    "The three quotes_vid video blocks have placeholder quotes and Author's name, so they are studio/roulette footage, not verified client reviews.",
+    "No generated footage, production theme edits, or autoplay activation were performed.",
+    "Current sp-authentic-hero.mp4 is a different 498x246 WordPress-derived tattooing excerpt; recovered 720p finished-work videos are sharper useful alternatives for a portrait gallery, while the storefront still is sharper for a full desktop hero.",
+    "Historical studio/roulette clips show shop signage. Review visible price signs and listen to audio before presenting them as current promotional claims."
+  ],
+  "videos": [
+    {
+      "url": "https://cdn.shopify.com/videos/c/o/v/8159b85c14674d9c9ee582472a688dc6.mp4",
+      "sources": [
+        {
+          "commit": "6c5fad7627b466bab7e17f2c31c205bd0b09d78d",
+          "path": "templates/page.artist-portfolio.json",
+          "key": ".sections.hero_947MMj.blocks.slide_AyxC3f.settings.video"
+        },
+        {
+          "commit": "6c5fad7627b466bab7e17f2c31c205bd0b09d78d",
+          "path": "templates/page.fit-to-recover.json",
+          "key": ".sections.hero_947MMj.blocks.slide_AyxC3f.settings.video"
+        },
+        {
+          "commit": "6c5fad7627b466bab7e17f2c31c205bd0b09d78d",
+          "path": "templates/page.fit-to-recover.json",
+          "key": ".sections.hero_TBpwTi.blocks.slide_6VYfWn.settings.video"
+        },
+        {
+          "commit": "15cd68121a1a85e7d632523521d5c7752611e807",
+          "path": "templates/index.json",
+          "key": ".sections.4901c436-2095-471b-b933-2361de3f1a7c.blocks.slide_UU4QxY.settings.video"
+        }
+      ],
+      "sha256": "60d82cdd7ed05d7f8490b7bc378c0c976426a3a4009b2afd2de39f7175c90b10",
+      "id": "8159b85c14674d9c9ee582472a688dc6",
+      "bytes": 1492822,
+      "width": 432,
+      "height": 768,
+      "duration": 7.940998,
+      "video_codec": "h264",
+      "audio": true,
+      "subject": "Tattoo artist wearing blue gloves working on a colored arm tattoo",
+      "category": "tattooing",
+      "suitability": "Short vertical ambient clip or artist detail. Portrait432x768 source is suitable at compact sizes; retain full-frame view rather than stretching across a desktop hero.",
+      "priority": "useful",
+      "dedupe_note": "Same tattooing scene also appears in the long About clip; distinct from current 498x246 WordPress-derived sp-authentic-hero.mp4.",
+      "http_status": 200,
+      "audio_reviewed": false,
+      "original_path": "archive/shopify-template-recovery-2026-11-11/assets/videos/8159b85c14674d9c9ee582472a688dc6.mp4"
+    },
+    {
+      "url": "https://cdn.shopify.com/videos/c/o/v/13eb2c96bfa04c51a298f299092200d8.mp4",
+      "sources": [
+        {
+          "commit": "6c5fad7627b466bab7e17f2c31c205bd0b09d78d",
+          "path": "templates/page.contact.json",
+          "key": ".sections.986128de-a595-4025-926d-87c2e42a8998.blocks.20d00174-2703-472a-bed1-827fc1a36980.settings.video"
+        }
+      ],
+      "sha256": "892cd3c9181353a66db6369267232486178e9bc5f1c88247b618739166ca8fa0",
+      "id": "13eb2c96bfa04c51a298f299092200d8",
+      "bytes": 2378406,
+      "width": 480,
+      "height": 854,
+      "duration": 11.096281,
+      "video_codec": "h264",
+      "audio": true,
+      "subject": "Automotive alloy wheel and tire close-up",
+      "category": "unrelated_automotive",
+      "suitability": "Exclude from Sideshow. It is leftover automotive content in the legacy Contact template.",
+      "priority": "exclude",
+      "http_status": 200,
+      "audio_reviewed": false,
+      "original_path": null
+    },
+    {
+      "url": "https://cdn.shopify.com/videos/c/o/v/980fa0e4ccfc43d2bad454b10a3251de.mp4",
+      "sources": [
+        {
+          "commit": "15cd68121a1a85e7d632523521d5c7752611e807",
+          "path": "templates/index.json",
+          "key": ".sections.4901c436-2095-471b-b933-2361de3f1a7c.blocks.slide_GGUpfn.settings.video"
+        }
+      ],
+      "sha256": "21fda4829385a1cdf34be1e35fe1e49ab4f7ed7d66d3195c51532c675ab37276",
+      "id": "980fa0e4ccfc43d2bad454b10a3251de",
+      "bytes": 2729239,
+      "width": 720,
+      "height": 1280,
+      "duration": 15,
+      "video_codec": "h264",
+      "audio": true,
+      "subject": "Moving close-up of a finished red and black skull arm tattoo",
+      "category": "finished_work",
+      "suitability": "Strong portfolio video candidate;720x1280 vertical and 15seconds. Original hero slide. Artist identity is not named.",
+      "priority": "best",
+      "http_status": 200,
+      "audio_reviewed": false,
+      "original_path": "archive/shopify-template-recovery-2026-11-11/assets/videos/980fa0e4ccfc43d2bad454b10a3251de.mp4"
+    },
+    {
+      "url": "https://cdn.shopify.com/videos/c/o/v/ee27202d7bf14da79c3402bb004296b1.mp4",
+      "sources": [
+        {
+          "commit": "15cd68121a1a85e7d632523521d5c7752611e807",
+          "path": "templates/index.json",
+          "key": ".sections.4901c436-2095-471b-b933-2361de3f1a7c.blocks.5277f0e5-b494-4525-9215-bf10676b2d0d.settings.video"
+        },
+        {
+          "commit": "15cd68121a1a85e7d632523521d5c7752611e807",
+          "path": "templates/index.json",
+          "key": ".sections.3cef8760-d091-46ee-a739-453a190ec140.settings.video_url"
+        }
+      ],
+      "sha256": "bd2e87fb1e23c918f321ae428a3d42ec68a9936bf41cfdb090de3531270a0251",
+      "id": "ee27202d7bf14da79c3402bb004296b1",
+      "bytes": 4119984,
+      "width": 720,
+      "height": 1280,
+      "duration": 18.829977,
+      "video_codec": "h264",
+      "audio": true,
+      "subject": "Moving close-up of a finished black geometric arm tattoo",
+      "category": "finished_work",
+      "suitability": "Strong portfolio or artist-work video candidate;720x1280 vertical and 18.83seconds. Original homepage titled it Featured Tattoo. Artist identity is not named.",
+      "priority": "best",
+      "http_status": 200,
+      "audio_reviewed": false,
+      "original_path": "archive/shopify-template-recovery-2026-11-11/assets/videos/ee27202d7bf14da79c3402bb004296b1.mp4"
+    },
+    {
+      "url": "https://cdn.shopify.com/videos/c/o/v/8efdf842fd004a5e92e14b18e27368f5.mp4",
+      "sources": [
+        {
+          "commit": "15cd68121a1a85e7d632523521d5c7752611e807",
+          "path": "templates/index.json",
+          "key": ".sections.quotes_vid_tpL7JY.blocks.quote_hWqrBi.settings.video_url"
+        }
+      ],
+      "sha256": "321568b5db3b3a35889e21f94a254bed8a7f09e9d1d01e2dfe9a8c287f0e8e3e",
+      "id": "8efdf842fd004a5e92e14b18e27368f5",
+      "bytes": 10863721,
+      "width": 432,
+      "height": 768,
+      "duration": 101.532358,
+      "video_codec": "h264",
+      "audio": true,
+      "subject": "Person at the Ink Roulette wheel in the red studio",
+      "category": "studio_roulette",
+      "suitability": "Ink Roulette/source footage. 101.53seconds at432x768. Template quotation/author fields were placeholders, not verified customer-review evidence.",
+      "priority": "useful",
+      "http_status": 200,
+      "audio_reviewed": false,
+      "original_path": "archive/shopify-template-recovery-2026-11-11/assets/videos/8efdf842fd004a5e92e14b18e27368f5.mp4"
+    },
+    {
+      "url": "https://cdn.shopify.com/videos/c/o/v/8af4c2bc36f542e8bc8c8739cbe48942.mp4",
+      "sources": [
+        {
+          "commit": "15cd68121a1a85e7d632523521d5c7752611e807",
+          "path": "templates/index.json",
+          "key": ".sections.quotes_vid_tpL7JY.blocks.quote_TkfrcW.settings.video_url"
+        }
+      ],
+      "sha256": "bb79b392f94077e750799180e8cb5875cf3c779c79d98c2a81eb4964ff5dd7c2",
+      "id": "8af4c2bc36f542e8bc8c8739cbe48942",
+      "bytes": 9823021,
+      "width": 432,
+      "height": 768,
+      "duration": 91.547,
+      "video_codec": "h264",
+      "audio": true,
+      "subject": "Person in the red studio showing the Ink Roulette wheel and board of designs",
+      "category": "studio_roulette",
+      "suitability": "Ink Roulette explainer/source footage. 91.55seconds at432x768. Keep as original studio footage; template quotation/author fields were placeholder copy, so it is not a verified testimonial.",
+      "priority": "useful",
+      "http_status": 200,
+      "audio_reviewed": false,
+      "original_path": "archive/shopify-template-recovery-2026-11-11/assets/videos/8af4c2bc36f542e8bc8c8739cbe48942.mp4"
+    },
+    {
+      "url": "https://cdn.shopify.com/videos/c/o/v/5dc4014a28b44da5aef6c769afcb746a.mp4",
+      "sources": [
+        {
+          "commit": "6c5fad7627b466bab7e17f2c31c205bd0b09d78d",
+          "path": "templates/page.ab-us.json",
+          "key": ".sections.d8d5dd2c-e475-49d2-9474-d1b2d81c6a3d.blocks.d9f6d0d0-f209-4a94-89c5-17a2fc43fdb3.settings.video"
+        }
+      ],
+      "id": "5dc4014a28b44da5aef6c769afcb746a",
+      "bytes": 49460497,
+      "width": 432,
+      "height": 768,
+      "duration": 490.417,
+      "video_codec": "h264",
+      "audio": true,
+      "subject": "Extended continuous tattooing session, blue gloves and colored arm tattoo",
+      "category": "tattooing",
+      "suitability": "Source archive for selecting a future short real-work excerpt. Not a ready-to-load page backdrop at 490seconds/49MB.",
+      "priority": "source_archive",
+      "dedupe_note": "Longer source scene related to 8159b85c14674d9c9ee582472a688dc6.",
+      "http_status": 200,
+      "audio_reviewed": false,
+      "original_path": "archive/shopify-template-recovery-2026-11-11/assets/videos/5dc4014a28b44da5aef6c769afcb746a.mp4",
+      "sha256": "c30336ee5610c064dcd6cbfde9a373dc7b9b312e1be5fd3bbed739531079d7c9"
+    },
+    {
+      "url": "https://cdn.shopify.com/videos/c/o/v/01a2c3ca25654c0aafe016bf148620a5.mp4",
+      "sources": [
+        {
+          "commit": "6c5fad7627b466bab7e17f2c31c205bd0b09d78d",
+          "path": "templates/page.lease-to-own.json",
+          "key": ".sections.d8d5dd2c-e475-49d2-9474-d1b2d81c6a3d.blocks.d9f6d0d0-f209-4a94-89c5-17a2fc43fdb3.settings.video"
+        }
+      ],
+      "id": "01a2c3ca25654c0aafe016bf148620a5",
+      "bytes": 22064833,
+      "width": 1920,
+      "height": 1080,
+      "duration": 36.500998,
+      "video_codec": "h264",
+      "audio": true,
+      "subject": "Automotive wheel-store interior and racks of alloy wheels",
+      "category": "unrelated_automotive",
+      "suitability": "Exclude from Sideshow. Leftover automotive content in the legacy Lease-to-own template.",
+      "priority": "exclude",
+      "http_status": 200,
+      "audio_reviewed": false,
+      "original_path": null
+    },
+    {
+      "url": "https://cdn.shopify.com/videos/c/o/v/ab5bad2e8e6c4079929d6fa9eaba5cc6.mp4",
+      "sources": [
+        {
+          "commit": "15cd68121a1a85e7d632523521d5c7752611e807",
+          "path": "templates/index.json",
+          "key": ".sections.quotes_vid_tpL7JY.blocks.quote_txhYm6.settings.video_url"
+        }
+      ],
+      "sha256": "8d61207297aa736ea5c349a6406effc12e9ec16be371b038e3f64ddd5563f20e",
+      "id": "ab5bad2e8e6c4079929d6fa9eaba5cc6",
+      "bytes": 6534249,
+      "width": 432,
+      "height": 768,
+      "duration": 60.769,
+      "video_codec": "h264",
+      "audio": true,
+      "subject": "Person near the Ink Roulette wheel, flash board and red studio walls",
+      "category": "studio_roulette",
+      "suitability": "Ink Roulette/source footage. 60.77seconds at432x768. Template quotation/author fields were placeholders, not verified customer-review evidence.",
+      "priority": "useful",
+      "http_status": 200,
+      "audio_reviewed": false,
+      "original_path": "archive/shopify-template-recovery-2026-11-11/assets/videos/ab5bad2e8e6c4079929d6fa9eaba5cc6.mp4"
+    },
+    {
+      "url": "https://cdn.shopify.com/videos/c/o/v/ca9fd7c79f334c27af0266a8f1800fe9.mp4",
+      "sources": [
+        {
+          "commit": "15cd68121a1a85e7d632523521d5c7752611e807",
+          "path": "templates/index.json",
+          "key": ".sections.8c433572-1980-4444-9c13-5293b9b8dc7e.settings.video_url"
+        }
+      ],
+      "sha256": "c94730f6b9544fcde36176a5104179f1139430339726ce198ebcb8c44eb6e384",
+      "id": "ca9fd7c79f334c27af0266a8f1800fe9",
+      "bytes": 2010526,
+      "width": 720,
+      "height": 900,
+      "duration": 18,
+      "video_codec": "h264",
+      "audio": false,
+      "subject": "Moving close-up of blackwork snake and ornamental floral arm tattoo",
+      "category": "finished_work",
+      "suitability": "Strong portfolio video candidate;720x900 and 18 seconds. Original homepage titled it Featured Tattoo. Artist identity is not named.",
+      "priority": "best",
+      "http_status": 200,
+      "audio_reviewed": false,
+      "original_path": "archive/shopify-template-recovery-2026-11-11/assets/videos/ca9fd7c79f334c27af0266a8f1800fe9.mp4"
+    }
+  ],
+  "contact_sheets": [
+    "archive/shopify-template-recovery-2026-11-11/contact-sheets/video-contact-1.jpg",
+    "archive/shopify-template-recovery-2026-11-11/contact-sheets/video-contact-2.jpg"
+  ],
+  "download_summary": {
+    "originals_saved_on_windows": 8,
+    "total_bytes": 87034059,
+    "folder": "archive/shopify-template-recovery-2026-11-11/assets/videos",
+    "download_manifest": "archive/shopify-template-recovery-2026-11-11/recovered-videos-status.json"
+  }
+}

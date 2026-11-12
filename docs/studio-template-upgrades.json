@@ -1,0 +1,182 @@
+{
+  "source_review": "archive/shopify-template-recovery-2026-11-11/contact-sheets/selected-homepage-1.jpg",
+  "assets": [
+    {
+      "id": 6,
+      "category": "direct_existing_photo_upgrade",
+      "archive_relative_path": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-01.jpg",
+      "source_filename": "418793310_367104982738303_6581037872443949585_n_9e4ce352-f8bc-43e9-9253-79b36493514f.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/418793310_367104982738303_6581037872443949585_n_9e4ce352-f8bc-43e9-9253-79b36493514f.jpg",
+      "source_reference": "shopify://shop_images/418793310_367104982738303_6581037872443949585_n_9e4ce352-f8bc-43e9-9253-79b36493514f.jpg",
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "/sections/quotes_Dga9XW/blocks/quote_JVYUzN/settings/quote_image",
+      "source_bytes": 26594,
+      "source_sha256": "256226c0c9ee0cdbf090a7376fde847f4e63280fd441907eb58edbeb269f4cf9",
+      "source_dimensions": [
+        600,
+        600
+      ],
+      "suggested_theme_asset": "assets/sp-flash-01.webp",
+      "current_dimensions": [
+        536,
+        532
+      ],
+      "pixel_count_ratio": 1.26,
+      "review": "Visually verified same complete subject/layout as current image, using larger original Shopify source. Preserve full frame and source color.",
+      "source_archive_template": "archive/shopify-template-recovery-2026-11-11/templates/index.json"
+    },
+    {
+      "id": 65,
+      "category": "direct_existing_photo_upgrade",
+      "archive_relative_path": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-02.jpg",
+      "source_filename": "sideshowproductionstattoo_418387188_1080059223144367_3615741089448672415_n_2be1a02d-8918-4d73-98e0-b172febf42f7.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/sideshowproductionstattoo_418387188_1080059223144367_3615741089448672415_n_2be1a02d-8918-4d73-98e0-b172febf42f7.jpg",
+      "source_reference": "shopify://shop_images/sideshowproductionstattoo_418387188_1080059223144367_3615741089448672415_n_2be1a02d-8918-4d73-98e0-b172febf42f7.jpg",
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "/sections/quotes_Dga9XW/blocks/quote_Ji3tmA/settings/quote_image",
+      "source_bytes": 28692,
+      "source_sha256": "08ce50ccfd0358be3b7b1ad36a73412d0f0ae4d9ae1008451807e7df591b884b",
+      "source_dimensions": [
+        639,
+        639
+      ],
+      "suggested_theme_asset": "assets/sp-flash-02.webp",
+      "current_dimensions": [
+        571,
+        571
+      ],
+      "pixel_count_ratio": 1.25,
+      "review": "Visually verified same complete subject/layout as current image, using larger original Shopify source. Preserve full frame and source color.",
+      "source_archive_template": "archive/shopify-template-recovery-2026-11-11/templates/index.json"
+    },
+    {
+      "id": 26,
+      "category": "direct_existing_photo_upgrade",
+      "archive_relative_path": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-03.jpg",
+      "source_filename": "IMG_20240216_172220_342.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/IMG_20240216_172220_342.jpg",
+      "source_reference": "shopify://shop_images/IMG_20240216_172220_342.jpg",
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "/sections/quotes_Dga9XW/blocks/quote_QRBzDa/settings/quote_image",
+      "source_bytes": 43308,
+      "source_sha256": "3197134c7d020e0a0125b47d278bd751c3cbb1b94c2fcecf2500cba225ffe6fb",
+      "source_dimensions": [
+        960,
+        1159
+      ],
+      "suggested_theme_asset": "assets/sp-flash-03.webp",
+      "current_dimensions": [
+        699,
+        848
+      ],
+      "pixel_count_ratio": 1.88,
+      "review": "Visually verified same complete subject/layout as current image, using larger original Shopify source. Preserve full frame and source color.",
+      "source_archive_template": "archive/shopify-template-recovery-2026-11-11/templates/index.json"
+    },
+    {
+      "id": 44,
+      "category": "direct_existing_photo_upgrade",
+      "archive_relative_path": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-04.jpg",
+      "source_filename": "sideshowproductionstattoo_277702453_496814488787821_2186458405426088210_n.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/sideshowproductionstattoo_277702453_496814488787821_2186458405426088210_n.jpg",
+      "source_reference": "shopify://shop_images/sideshowproductionstattoo_277702453_496814488787821_2186458405426088210_n.jpg",
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "/sections/quotes_Dga9XW/blocks/quote_ViQPKx/settings/quote_image",
+      "source_bytes": 109566,
+      "source_sha256": "e6db6c2e956c30e3a031f34030f2184218ec672838dafdfbb062a343b112cf08",
+      "source_dimensions": [
+        1080,
+        1080
+      ],
+      "suggested_theme_asset": "assets/sp-flash-04.webp",
+      "current_dimensions": [
+        827,
+        828
+      ],
+      "pixel_count_ratio": 1.7,
+      "review": "Visually verified same complete subject/layout as current image, using larger original Shopify source. Preserve full frame and source color.",
+      "source_archive_template": "archive/shopify-template-recovery-2026-11-11/templates/index.json"
+    },
+    {
+      "id": 29,
+      "category": "direct_existing_photo_upgrade",
+      "archive_relative_path": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-05.jpg",
+      "source_filename": "IMG_20240216_172258_570.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/IMG_20240216_172258_570.jpg",
+      "source_reference": "shopify://shop_images/IMG_20240216_172258_570.jpg",
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "/sections/quotes_Dga9XW/blocks/quote_WkX8Fg/settings/quote_image",
+      "source_bytes": 87285,
+      "source_sha256": "98a8a2bfcb626e255845ec07ca23ed9da910a97dbc324c5c4115d85f2bf5c517",
+      "source_dimensions": [
+        843,
+        1144
+      ],
+      "suggested_theme_asset": "assets/sp-flash-05.webp",
+      "current_dimensions": [
+        623,
+        845
+      ],
+      "pixel_count_ratio": 1.83,
+      "review": "Visually verified same complete subject/layout as current image, using larger original Shopify source. Preserve full frame and source color.",
+      "source_archive_template": "archive/shopify-template-recovery-2026-11-11/templates/index.json"
+    },
+    {
+      "id": 27,
+      "category": "direct_existing_photo_upgrade",
+      "archive_relative_path": "archive/shopify-template-recovery-2026-11-11/assets/flash-sheet-06.jpg",
+      "source_filename": "IMG_20240216_172233_318.jpg",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/IMG_20240216_172233_318.jpg",
+      "source_reference": "shopify://shop_images/IMG_20240216_172233_318.jpg",
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "/sections/quotes_Dga9XW/blocks/quote_bygb6G/settings/quote_image",
+      "source_bytes": 99794,
+      "source_sha256": "3c5fa40df893be9acd51adaa5686828258e488e1de6608ff8a90948ac7f91941",
+      "source_dimensions": [
+        843,
+        1139
+      ],
+      "suggested_theme_asset": "assets/sp-flash-06.webp",
+      "current_dimensions": [
+        626,
+        846
+      ],
+      "pixel_count_ratio": 1.81,
+      "review": "Visually verified same complete subject/layout as current image, using larger original Shopify source. Preserve full frame and source color.",
+      "source_archive_template": "archive/shopify-template-recovery-2026-11-11/templates/index.json"
+    },
+    {
+      "id": 14,
+      "category": "direct_existing_photo_upgrade",
+      "archive_relative_path": "archive/shopify-template-recovery-2026-11-11/assets/studio-flash-wall.png",
+      "source_filename": "522130610_72896906cv6420601_2836253316634858983_n.png",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/522130610_72896906cv6420601_2836253316634858983_n.png",
+      "source_reference": "shopify://shop_images/522130610_72896906cv6420601_2836253316634858983_n.png",
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_template": "templates/index.json",
+      "source_key": "/sections/quotes_vid_tpL7JY/blocks/quote_fbwFQ7/settings/quote_image",
+      "source_bytes": 3046023,
+      "source_sha256": "b5fcc8a16eae030e08c4ee163b70ef8b39d56bb137b96c2a5b8b238c910ffa9c",
+      "source_dimensions": [
+        1906,
+        1440
+      ],
+      "suggested_theme_asset": "assets/sp-source-flash-wall.webp",
+      "current_dimensions": [
+        1588,
+        1200
+      ],
+      "pixel_count_ratio": 1.44,
+      "review": "Visually verified same complete subject/layout as current image, using larger original Shopify source. Preserve full frame and source color.",
+      "source_archive_template": "archive/shopify-template-recovery-2026-11-11/templates/index.json"
+    }
+  ],
+  "review_date": "2026-11-11",
+  "reproduction_helper": "scripts/studio_recovered_media.py"
+}

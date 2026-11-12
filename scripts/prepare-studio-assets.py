@@ -6,6 +6,7 @@ from pathlib import Path
 from io import BytesIO
 import concurrent.futures, hashlib, json, re, requests
 from PIL import Image, ImageOps
+from studio_recovered_media import prepare_override
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
@@ -42,6 +43,9 @@ ASSETS.mkdir(exist_ok=True)
 
 def prepare(item):
     name, original = item
+    recovered = prepare_override("assets/" + name)
+    if recovered:
+        return {**recovered, "source": recovered["source_url"], "archive_source": recovered["source"]}
     url = BASE + original
     source_path = ROOT / "archive" / "current-site-2026-11-10" / "assets" / "sideshowproductionstattoo.com" / "wp-content" / "uploads" / "2026" / "01" / original
     if not source_path.exists():

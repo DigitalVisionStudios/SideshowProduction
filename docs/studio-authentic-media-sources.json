@@ -76,15 +76,34 @@
     },
     {
       "asset": "assets/sp-source-flash-wall.webp",
-      "source": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/522130610_72896906cv6420601_2836253316634858983_n.webp",
-      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/522130610_72896906cv6420601_2836253316634858983_n.webp",
-      "source_sha256": "c9dca50ff4562b29fce092bba5598c14145671fedc770670214d0ab8e33e9e41",
+      "source": "archive/shopify-template-recovery-2026-11-11/assets/studio-flash-wall.png",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/522130610_72896906cv6420601_2836253316634858983_n.png",
+      "source_sha256": "b5fcc8a16eae030e08c4ee163b70ef8b39d56bb137b96c2a5b8b238c910ffa9c",
       "description": "Actual Ink Roulette flash board mounted on the studio red wall",
-      "width": 1588,
-      "height": 1200,
-      "bytes": 317742,
-      "sha256": "93465512824e10df6a55976e74128728b60e4719403a0a55ca3855aafc78c09e",
-      "processing": "Proportional downsize if needed and WebP encoding. No crop or upscale."
+      "width": 1906,
+      "height": 1440,
+      "bytes": 502708,
+      "sha256": "2e26e6b43c2d6f26af2341c267ca971f15b8666a3d98753148e77261f4632eb2",
+      "processing": "WebP quality90, method6, full original frame and native dimensions. Source color profile preserved when present. No enlargement, cropping, color correction, sharpening, retouching or generated imagery.",
+      "file": "sp-source-flash-wall.webp",
+      "source_filename": "522130610_72896906cv6420601_2836253316634858983_n.png",
+      "source_reference": "shopify://shop_images/522130610_72896906cv6420601_2836253316634858983_n.png",
+      "source_template": "templates/index.json",
+      "source_archive_template": "archive/shopify-template-recovery-2026-11-11/templates/index.json",
+      "source_key": "/sections/quotes_vid_tpL7JY/blocks/quote_fbwFQ7/settings/quote_image",
+      "source_commit": "e9b908d33dad1d4030ff980d7ebbfaf6ca759b3f",
+      "source_bytes": 3046023,
+      "source_dimensions": [
+        1906,
+        1440
+      ],
+      "original_source_sha256": "b5fcc8a16eae030e08c4ee163b70ef8b39d56bb137b96c2a5b8b238c910ffa9c",
+      "original_source_bytes": 3046023,
+      "original_source_dimensions": [
+        1906,
+        1440
+      ],
+      "source_provenance": "docs/studio-template-upgrade-results.json"
     }
   ],
   "original_homepage_video_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/6-Instagram-Google-Chrome-9-January-2026-1.mp4",

@@ -8,6 +8,7 @@ import json
 import shutil
 import subprocess
 from PIL import Image, ImageDraw, ImageFont
+from studio_recovered_media import prepare_override
 
 ROOT = Path(__file__).resolve().parents[1]
 ARCHIVE = ROOT / "archive" / "current-site-2026-11-10"
@@ -117,6 +118,10 @@ def prepare_media():
         ("Screenshot-2026-01-09-101734.png","sp-source-storefront.webp","Actual Sideshow Productions sign and entrance at 4973 S State Street"),
         ("522130610_72896906cv6420601_2836253316634858983_n.webp","sp-source-flash-wall.webp","Actual Ink Roulette flash board mounted on the studio red wall"),
     ]:
+        recovered = prepare_override("assets/" + filename)
+        if recovered:
+            records.append({**recovered, "description": description})
+            continue
         path=ARCHIVE/"assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01"/src
         with Image.open(path) as im:
             image=im.convert("RGB")
