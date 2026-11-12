@@ -1,13 +1,13 @@
 {
   "site_id": "d89eb8b7-a74a-4269-8167-fbebfba7493a",
   "site_name": "dvs-html-previews-netlify6",
-  "deploy_id": "6af52e9e154ac43c7c159300",
+  "deploy_id": "6af53b73adce6aca8b476d4d",
   "mode": "draft",
   "alias": "sideshow-original",
   "state": "ready",
   "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
   "v1_url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/",
-  "source_commit": "7c1eeae",
+  "source_commit": "7b2066f",
   "uploaded_with": "C:/Users/jesus/Documents/Work/HTML Preview/deploy_to_netlify.ps1",
   "project": "sideshow-productions-v2",
   "public_verification": {
@@ -22,5 +22,40 @@
     "sharing": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/icons/sharing-card.png",
     "map": "https://maps.google.com/maps?q=4973%20S%20State%20St%2C%20Murray%2C%20UT%2084107&amp;t=m&amp;z=13&amp;output=embed&amp;iwloc=near"
   },
-  "shopify_live_changes": false
+  "shopify_live_changes": false,
+  "latest_changes": [
+    "Logo-only footer branding with accessible home link",
+    "Black-to-transparent background at the top of the services section",
+    "Medium-weight white hero headline"
+  ],
+  "visual_verification": {
+    "viewports": [
+      390,
+      1440
+    ],
+    "presets": [
+      "Clean",
+      "Studio"
+    ],
+    "hero_white_weight": 500,
+    "hero_brush_weight": 400,
+    "overflow": false,
+    "runtime_errors": []
+  },
+  "changed_asset_verification": {
+    "checks": [
+      {
+        "file": "assets/sideshow-hero.css",
+        "status": 200,
+        "matchesExport": true
+      },
+      {
+        "file": "assets/sideshow-original.css",
+        "status": 200,
+        "matchesExport": true
+      }
+    ],
+    "logoOnly": true,
+    "accessibleLogo": true
+  }
 }

@@ -1,62 +1,62 @@
 {
-  "source_commit": "7c1eeaea3a66fd39217bc0cabbe49ead933aca1d",
-  "generated_at": "2026-11-12T03:11:38.365Z",
+  "source_commit": "7b2066fdeb0a67ffcf919ceecc1d72c7a5d09387",
+  "generated_at": "2026-11-12T04:06:30.242Z",
   "share_url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
   "routes": [
     {
       "route": "/sideshow-productions-v2/",
       "file": "index.html",
-      "bytes": 54336
+      "bytes": 54289
     },
     {
       "route": "/sideshow-productions-v2/pages/about",
       "file": "pages/about/index.html",
-      "bytes": 44315
+      "bytes": 44268
     },
     {
       "route": "/sideshow-productions-v2/pages/aftercare",
       "file": "pages/aftercare/index.html",
-      "bytes": 25772
+      "bytes": 25725
     },
     {
       "route": "/sideshow-productions-v2/pages/artists",
       "file": "pages/artists/index.html",
-      "bytes": 40505
+      "bytes": 40458
     },
     {
       "route": "/sideshow-productions-v2/pages/book",
       "file": "pages/book/index.html",
-      "bytes": 27643
+      "bytes": 27596
     },
     {
       "route": "/sideshow-productions-v2/pages/contact",
       "file": "pages/contact/index.html",
-      "bytes": 24366
+      "bytes": 24319
     },
     {
       "route": "/sideshow-productions-v2/pages/flash",
       "file": "pages/flash/index.html",
-      "bytes": 43272
+      "bytes": 43225
     },
     {
       "route": "/sideshow-productions-v2/pages/ink-roulette",
       "file": "pages/ink-roulette/index.html",
-      "bytes": 64932
+      "bytes": 64885
     },
     {
       "route": "/sideshow-productions-v2/pages/portfolio",
       "file": "pages/portfolio/index.html",
-      "bytes": 37345
+      "bytes": 37298
     },
     {
       "route": "/sideshow-productions-v2/pages/services",
       "file": "pages/services/index.html",
-      "bytes": 34671
+      "bytes": 34624
     },
     {
       "route": "/sideshow-productions-v2/pages/shop",
       "file": "pages/shop/index.html",
-      "bytes": 41907
+      "bytes": 41860
     }
   ],
   "aliases": {
@@ -110,7 +110,7 @@
     {
       "file": "assets/sideshow-hero.css",
       "bytes": 7463,
-      "sha256": "ecc3df99097caa5698133cf7030bae69f6ebbc1d85c5848e57dc2fe04a136b67"
+      "sha256": "3da960c22e8cb33d27f74540c70379e8fff21c62156a11147182233e2e0b7726"
     },
     {
       "file": "assets/sideshow-hero.js",
@@ -144,8 +144,8 @@
     },
     {
       "file": "assets/sideshow-original.css",
-      "bytes": 10934,
-      "sha256": "ef2c4a3ec82e5da8ad512ca324274c90c60437b7c738c96d7d3fccc12eb8f230"
+      "bytes": 11188,
+      "sha256": "49615af272f1be48cdef3c20855215e636459474f59ae54b5513a75276d6fb09"
     },
     {
       "file": "assets/sideshow-original.js",
@@ -726,7 +726,7 @@
     "assets/icons/favicon.ico",
     "assets/icons/site.webmanifest"
   ],
-  "bytes": 24269760,
+  "bytes": 24270014,
   "notes": [
     "Rendered from the current Shopify studio templates.",
     "Only used storefront assets are copied; source archives and working files are excluded.",
