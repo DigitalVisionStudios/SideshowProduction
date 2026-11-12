@@ -8,15 +8,11 @@
 {% endcapture %}
 <section class="sp-marquee" data-sp-marquee aria-label="Studio services" style="--sp-marquee-duration: {{ section.settings.duration | default: 40 }}s;">
   <div class="sp-marquee__window">
-    <div class="sp-marquee__track" id="StudioMarqueeTrack-{{ section.id }}">
+    <div class="sp-marquee__track">
       <div class="sp-marquee__group">{{ marquee_terms }}</div>
       <div class="sp-marquee__group" data-marquee-copy aria-hidden="true" hidden>{{ marquee_terms }}</div>
     </div>
   </div>
-  <button class="sp-marquee__toggle" type="button" data-marquee-toggle aria-label="Pause moving text" aria-controls="StudioMarqueeTrack-{{ section.id }}" title="Pause moving text" hidden>
-    <svg data-marquee-pause viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M7 5h3v14H7zm7 0h3v14h-3z" fill="currentColor"/></svg>
-    <svg data-marquee-play viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" hidden><path d="m8 5 11 7-11 7Z" fill="currentColor"/></svg>
-  </button>
 </section>
 {% schema %}
 {

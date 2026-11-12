@@ -2,6 +2,17 @@
   "audit_date": "2026-11-11",
   "snapshot_commit": "d05093f",
   "scope": "Read-only visual and provenance audit of the configured studio templates and static/default studio section image references, before remediation. No live Shopify media settings were queried.",
+  "whitening_color_follow_up": {
+    "review_date": "2026-11-11",
+    "status": "awaiting_corrected_shopify_file",
+    "request": "Use the color-corrected whitening image the owner recalls from Shopify.",
+    "finding": "The current WebP faithfully retains the tint of the original 1270x1081 Shopify PNG. No separate corrected version was found among the eight unique retained Megan portfolio images, legacy template/config references, original portfolio CSS, or archived WordPress comparison. No additional correction has been applied.",
+    "access": "Main Work Chrome is signed in to Shopify, but Sideshow is absent from the available stores list, so newer Shopify Files could not be inspected.",
+    "next_required_input": "The exact corrected image or Shopify Files URL, or access to the correct Sideshow Shopify store.",
+    "current_asset": "assets/sp-service-whitening.webp",
+    "current_source": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/427641519_413653254444875czxczcs_3625183506czxcz029295051_n.png",
+    "candidate_review": ".ai-bridge/whitening-color-source/candidates.jpg"
+  },
   "coverage": {
     "template_files": 11,
     "template_image_usages": 170,
