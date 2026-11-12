@@ -1,30 +1,26 @@
 {
   "site_id": "d89eb8b7-a74a-4269-8167-fbebfba7493a",
   "site_name": "dvs-html-previews-netlify6",
-  "deploy_id": "6af55b9b965ef1c89c8b7753",
+  "deploy_id": "6af55e25221d81e07fa01ef4",
   "mode": "production",
   "alias": null,
   "state": "ready",
   "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/",
   "v1_url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/",
-  "source_commit": "01922da37458f8661ffa77d24c76e3d1b28038d6",
+  "source_commit": "89f819309f070dc353425cfa2a96a4650e0e5f41",
   "uploaded_with": "Scoped Netlify API snapshot upload via .ai-bridge/apply-scoped-netlify.mjs",
   "project": "sideshow-productions-v2",
   "public_verification": {
-    "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/?v=01922da",
+    "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/?v=89f8193",
     "homepageStatus": 200,
     "homepageMatchesExport": true,
-    "changedFilesVerified": 5,
+    "changedFilesVerified": 3,
     "assetFailures": [],
     "passed": true
   },
   "shopify_live_changes": false,
   "latest_changes": [
-    "Matched the supplied reference with the original white SP Brush font on the tagline and full hero headline",
-    "Restored the flowing sentence: Unleashing your creativity starts with artists that inspire.",
-    "Only the inline artists, piercings or tattoos word is deep red, rotating with its matching photo and description",
-    "Reserved the tallest sentence wrapping height so descriptions and buttons remain steady",
-    "Refreshed the main preview catalog thumbnail"
+    "Tightened the hero headline line-height from 1.28 to 1.18 on desktop and from 1.30 to 1.20 on mobile"
   ],
   "visual_verification": {
     "component": "Artists section background",
@@ -43,8 +39,8 @@
     "runtime_errors": []
   },
   "changed_asset_verification": {
-    "version": "01922da",
-    "changed_files_verified": 5,
+    "version": "89f8193",
+    "changed_files_verified": 3,
     "all_public_files_match_export": true,
     "font_weights_loaded": [
       400,
@@ -67,13 +63,13 @@
     "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/"
   },
   "directory_url": "https://previews.digitalvisionstudios.net/",
-  "completed_at": "2026-11-12T06:24:36.786Z",
+  "completed_at": "2026-11-12T06:35:26.925Z",
   "production_snapshot": {
-    "previous_deploy": "6af5580b03a0c5d82f9c11d7",
-    "validated_draft": "6af55b8c7c9497b81247a082",
+    "previous_deploy": "6af55b9b965ef1c89c8b7753",
+    "validated_draft": "6af55e17eea20efda8795990",
     "total_files": 25413,
-    "existing_files_unchanged": 25408,
-    "changed_files": 5,
+    "existing_files_unchanged": 25410,
+    "changed_files": 3,
     "removed_paths": [],
     "functions_preserved": [
       "mpa-api",
@@ -106,8 +102,8 @@
     "verified_source_commit": "ef867287158947d0c5d533b98ebb69a072889352"
   },
   "previous_production": {
-    "deploy_id": "6af5580b03a0c5d82f9c11d7",
-    "source_commit": "fa95c50afa03a68f933dac3c58270747f0311c02"
+    "deploy_id": "6af55b9b965ef1c89c8b7753",
+    "source_commit": "01922da37458f8661ffa77d24c76e3d1b28038d6"
   },
   "header_and_hero_verification": {
     "local_checks_passed": 20,
@@ -164,5 +160,21 @@
     "slider_controls": false,
     "horizontal_overflow": false,
     "runtime_errors": []
+  },
+  "hero_spacing_verification": {
+    "source_commit": "89f819309f070dc353425cfa2a96a4650e0e5f41",
+    "desktop_line_height": 1.18,
+    "mobile_line_height": 1.2,
+    "viewports": [
+      320,
+      390,
+      825,
+      1440
+    ],
+    "lowercase_piercings_visually_checked": true,
+    "clipping": false,
+    "descender_collisions": false,
+    "horizontal_overflow": false,
+    "public_assets_match": true
   }
 }

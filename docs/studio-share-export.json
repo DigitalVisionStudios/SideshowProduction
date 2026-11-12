@@ -1,6 +1,6 @@
 {
-  "source_commit": "01922da37458f8661ffa77d24c76e3d1b28038d6",
-  "generated_at": "2026-11-12T06:22:13.437Z",
+  "source_commit": "89f819309f070dc353425cfa2a96a4650e0e5f41",
+  "generated_at": "2026-11-12T06:32:23.807Z",
   "share_url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/",
   "routes": [
     {
@@ -88,7 +88,7 @@
     {
       "file": "assets/sideshow-hero.css",
       "bytes": 13260,
-      "sha256": "86b917bc5febdb164e0326d74969484189f9e3a3514a80a32dcad7088f983c51"
+      "sha256": "908f4d48543aa894553d76095c2a8854402d998f7b3630ef9a66cfcce71da48b"
     },
     {
       "file": "assets/sideshow-hero.js",
