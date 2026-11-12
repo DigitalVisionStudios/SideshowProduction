@@ -32,7 +32,7 @@
   <div class="sp-shell sp-hero-deck__content">
     <div class="sp-hero-deck__copy">
       <h1 id="sp-hero-heading-{{ section.id }}">
-        <span class="sp-hero-deck__prefix">{{ section.settings.prefix | default: 'Unleashing your creativity starts with' | escape }}</span>
+        <span class="sp-hero-deck__prefix">{{ section.settings.prefix | default: 'Your vision. Our artistry.' | escape }}</span>
         <span class="sp-hero-deck__words">
           {% for block in section.blocks %}
             <span class="sp-hero-deck__word{% if forloop.first %} is-active{% endif %}" data-sp-hero-word {% unless forloop.first %}aria-hidden="true" hidden{% endunless %}>{{ block.settings.word | default: 'artists' | escape }}</span>
@@ -55,7 +55,7 @@
   "name": "Studio hero",
   "max_blocks": 6,
   "settings": [
-    {"type":"text","id":"prefix","label":"Heading before rotating word","default":"Unleashing your creativity starts with"},
+    {"type":"text","id":"prefix","label":"Heading before rotating word","default":"Your vision. Our artistry."},
     {"type":"text","id":"suffix","label":"Heading after rotating word","default":"that inspire."},
     {"type":"textarea","id":"description","label":"Introduction","default":"Our artists bring bold ideas to life, ensuring every detail is perfect."},
     {"type":"text","id":"primary_label","label":"Booking button","default":"Book Now"},

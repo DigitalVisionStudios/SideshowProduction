@@ -267,16 +267,104 @@ export async function templateForRoute(pathname) {
   return names.includes(aliased) ? aliased : null;
 }
 
+export const COMING_SOON_ROUTE = '/coming-soon/';
+
+// This runs only inside rendered previews. Shopify section destinations stay intact.
+function previewNavigationGuard() {
+  var script = document.currentScript;
+  var home = new URL(script.dataset.previewHome, location.href);
+  var coming = new URL(script.dataset.previewComingSoon, location.href);
+  var comingPath = coming.pathname + coming.search + coming.hash;
+
+  function isHomeOrSkip(link) {
+    var raw = link.getAttribute('href');
+    if (raw === '#main-content') return true;
+    try {
+      var url = new URL(raw, location.href);
+      return url.origin === home.origin && url.pathname === home.pathname && !url.search && !url.hash;
+    } catch (error) { return false; }
+  }
+
+  function sanitizeLink(link) {
+    if (!link || !link.matches || !link.matches('a[href]')) return;
+    link.removeAttribute('target');
+    link.removeAttribute('download');
+    if (isHomeOrSkip(link)) return;
+    if (link.hasAttribute('data-promo-open')) {
+      link.removeAttribute('data-promo-open');
+      link.setAttribute('data-preview-action-removed', '');
+    }
+    var original = link.getAttribute('href');
+    if (!link.hasAttribute('data-preview-original-href') && original !== comingPath) {
+      link.setAttribute('data-preview-original-href', original);
+    }
+    if (original !== comingPath) link.setAttribute('href', comingPath);
+    if (!link.hasAttribute('data-preview-link')) link.setAttribute('data-preview-link', '');
+  }
+
+  function sanitizeTree(root) {
+    if (root.nodeType === 1 && root.matches('a[href]')) sanitizeLink(root);
+    if (root.querySelectorAll) root.querySelectorAll('a[href]').forEach(sanitizeLink);
+  }
+
+  function captureLink(event) {
+    if (!(event.target instanceof Element)) return;
+    var link = event.target.closest('a[href]');
+    sanitizeLink(link);
+    if (link && link.hasAttribute('data-preview-action-removed')) event.stopImmediatePropagation();
+    // Keep native click cancellation intact for carousel drag gestures.
+  }
+
+  sanitizeTree(document);
+  ['click', 'auxclick', 'contextmenu'].forEach(function (type) {
+    document.addEventListener(type, captureLink, true);
+  });
+  document.addEventListener('submit', function (event) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    location.assign(comingPath);
+  }, true);
+  new MutationObserver(function (records) {
+    records.forEach(function (record) {
+      if (record.type === 'attributes') sanitizeLink(record.target);
+      else record.addedNodes.forEach(sanitizeTree);
+    });
+  }).observe(document.documentElement, {
+    subtree: true, childList: true, attributes: true, attributeFilter: ['href', 'target', 'download']
+  });
+  window.addEventListener('pageshow', function () { sanitizeTree(document); });
+}
+
 function previewChrome(html) {
-  const styles = '<style>.preview-form-status{padding:14px;background:#1b1717;color:#ddd;border:1px solid #473333;font:14px/1.5 system-ui,sans-serif}</style>';
-  const guard = '<script>document.addEventListener("submit",function(event){event.preventDefault();var status=event.target.querySelector(".preview-form-status");if(!status){status=document.createElement("p");status.className="preview-form-status";status.setAttribute("role","status");event.target.appendChild(status);}status.textContent="Design preview only. Nothing was submitted. The form will connect through Shopify before launch.";});document.addEventListener("click",function(event){var a=event.target.closest("a[href]");if(!a)return;try{var u=new URL(a.href,location.href);if(u.origin!==location.origin&&(/api\\.apexmediasol\\.com|leadconnectorhq\\.com|\\.myshopify\\.com$/.test(u.hostname)||/\\/widget\\/booking\\//.test(u.pathname))){event.preventDefault();location.href="/__preview/boundary?target="+encodeURIComponent(u.href);}}catch(error){}});</script>';
+  const styles = '<style>.sp-preview-map{position:relative}.sp-preview-map iframe{pointer-events:none!important}.sp-preview-map-link{position:absolute;inset:0;display:block;color:inherit;text-decoration:none}.sp-preview-map-link:focus-visible{outline:3px solid #fff;outline-offset:-7px;border-radius:3px}</style>';
+  html = html.replace(/<iframe\b[^>]*>[\s\S]*?<\/iframe>/gi, function (frame) {
+    if (!/\bsrc=(['"])https:\/\/(?:maps\.google\.com|www\.google\.com)\//i.test(frame)) return frame;
+    const inertFrame = frame.replace(/<iframe\b([^>]*)>/i, function (_tag, attributes) {
+      return '<iframe' + attributes.replace(/\s(?:tabindex|aria-hidden|inert)(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+))?/gi, '') + ' tabindex="-1" aria-hidden="true" inert>';
+    });
+    return '<div class="sp-preview-map" data-preview-map>' + inertFrame + '<a class="sp-preview-map-link" data-preview-map-link href="' + COMING_SOON_ROUTE + '" aria-label="Maps and directions coming soon"></a></div>';
+  });
+  html = html.replace(/<a\b[^>]*>/gi, function (tag) {
+    const match = tag.match(/\bhref\s*=\s*(['"])([\s\S]*?)\1/i);
+    if (!match) return tag;
+    const clean = tag.replace(/\s(?:target|download)(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+))?/gi, '');
+    const original = match[2].replaceAll('&amp;', '&');
+    if (original === '/' || original === '#main-content') return clean;
+    const rewritten = clean.replace(/\sdata-promo-open(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+))?/gi, '').replace(/\bhref\s*=\s*(['"])[\s\S]*?\1/i, 'href="' + COMING_SOON_ROUTE + '"');
+    return rewritten.replace(/>$/, ' data-preview-link data-preview-original-href="' + escapeHTML(original) + '">');
+  });
+  const guard = '<script data-preview-navigation data-preview-home="/" data-preview-coming-soon="' + COMING_SOON_ROUTE + '">(' + previewNavigationGuard.toString() + ')();</script>';
   html = html.replace(/<head([^>]*)>/i, '<head$1><meta name="robots" content="noindex,nofollow,noarchive">' + styles);
   return html.replace(/<\/body>/i, guard + '</body>');
 }
 
-export function boundaryPage(target, status = 200) {
-  const title = status === 404 ? 'This page is outside the design preview' : 'Shopify connection required';
-  return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>' + title + '</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#171813;color:#f2ede3;font:16px/1.6 system-ui,sans-serif}main{max-width:620px;padding:48px 24px}p{color:#c8c8bb}h1{font-size:clamp(32px,7vw,52px);line-height:1.1}code{display:block;overflow-wrap:anywhere;background:#25271f;padding:16px;border-radius:6px}a{display:inline-block;margin-top:24px;color:#e0ddbb}small{letter-spacing:.12em;text-transform:uppercase}</style></head><body><main><small>Design preview</small><h1>' + title + '</h1><p>This destination is planned for the restored Shopify store. Appointments, purchases, account actions and form submissions are unavailable in this local preview.</p><p>Planned destination:</p><code>' + escapeHTML(target) + '</code><p>Nothing has been booked, purchased or submitted.</p><a href="/">Return to the design</a></main></body></html>';
+export function boundaryPage(_target, _status = 200, options = {}) {
+  const home = escapeHTML(options.homeURL || '/');
+  const assets = escapeHTML(options.assetBase || '/assets/');
+  return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Coming soon | Sideshow Productions</title><style>' +
+    '@font-face{font-family:"SP Sans";src:url("' + assets + 'sp-body.woff2") format("woff2");font-weight:100 900;font-display:swap}@font-face{font-family:"SP Brush";src:url("' + assets + 'sp-brush.woff2") format("woff2");font-weight:400;font-display:swap}' +
+    '*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;background:radial-gradient(ellipse at 18% 16%,rgba(125,4,25,.32),transparent 62%),#080809;color:#f5f0ee;font:400 17px/1.65 "SP Sans",Arial,sans-serif}main{width:min(600px,calc(100% - 48px));padding:64px 0;text-align:center}.sp-coming-logo{display:block;width:96px;height:96px;object-fit:contain;margin:0 auto 36px}h1{margin:0 0 24px;color:#f0394a;font:400 clamp(56px,10vw,90px)/1.12 "SP Brush","SP Sans",sans-serif}p{max-width:43ch;margin:0 auto;color:#c7bec2;text-wrap:pretty}.sp-coming-back{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;margin-top:34px;padding:14px 24px;border:1px solid #d00b25;background:#c90020;color:#fff;text-decoration:none;font-size:15px;font-weight:500;transition:background .2s}.sp-coming-back:hover{background:#e40c2b}.sp-coming-back:focus-visible{outline:3px solid #fff;outline-offset:5px}@media(max-width:480px){main{width:calc(100% - 40px);padding:48px 0}.sp-coming-logo{width:84px;height:84px;margin-bottom:30px}p{font-size:16px}}@media(prefers-reduced-motion:reduce){.sp-coming-back{transition:none}}' +
+    '</style></head><body><main><img class="sp-coming-logo" src="' + assets + 'sp-logo.webp" alt="Sideshow Productions" width="96" height="96"><h1>Coming soon</h1><p>You’re exploring the new Sideshow homepage. The rest of the website is on its way.</p><a class="sp-coming-back" href="' + home + '"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m14 5-7 7 7 7M7 12h14"/></svg>Back to homepage</a></main></body></html>';
 }
 
 export async function renderTemplate(templateName, pathname = '/', options = {}) {
@@ -335,14 +423,14 @@ export async function handleRequest(request, response) {
     } else if (pathname === '/robots.txt') {
       body = 'User-agent: *\nDisallow: /\n';
       type = 'text/plain; charset=utf-8';
-    } else if (pathname === '/__preview/boundary') {
-      body = boundaryPage(url.searchParams.get('target') || '/');
-    } else if (/^\/(products|cart|checkout|account|collections|search)(\/|$)/.test(pathname)) {
-      body = boundaryPage(pathname + url.search);
+    } else if (pathname === COMING_SOON_ROUTE) {
+      body = boundaryPage(pathname);
+    } else if (pathname === '/') {
+      body = await renderTemplate('index.json', pathname);
     } else {
-      const template = await templateForRoute(pathname);
-      if (template) body = await renderTemplate(template, pathname);
-      else { statusCode = 404; body = boundaryPage(pathname, 404); }
+      response.writeHead(302, { Location: COMING_SOON_ROUTE, 'Content-Type': type });
+      response.end();
+      return;
     }
     response.writeHead(statusCode, { 'Content-Type': type });
     response.end(request.method === 'HEAD' ? undefined : body);

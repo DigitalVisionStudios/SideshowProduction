@@ -1,0 +1,11 @@
+<div class="sp-hero-transition" aria-hidden="true" style="--sp-transition-height:{{ section.settings.desktop_height | default: 128 }}px;--sp-transition-height-mobile:{{ section.settings.mobile_height | default: 80 }}px;"></div>
+{% schema %}
+{
+  "name": "Hero transition",
+  "settings": [
+    {"type":"range","id":"desktop_height","label":"Desktop transition height","min":64,"max":256,"step":8,"unit":"px","default":128},
+    {"type":"range","id":"mobile_height","label":"Mobile transition height","min":48,"max":200,"step":8,"unit":"px","default":80}
+  ],
+  "presets": [{"name":"Hero transition"}]
+}
+{% endschema %}

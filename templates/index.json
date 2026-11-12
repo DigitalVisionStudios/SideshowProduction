@@ -4,7 +4,7 @@
     "section_1": {
       "type": "studio-hero",
       "settings": {
-        "prefix": "Unleashing your creativity starts with",
+        "prefix": "Your vision. Our artistry.",
         "suffix": "that inspire.",
         "description": "Our artists bring bold ideas to life, ensuring every detail is perfect.",
         "primary_label": "Book Now",
@@ -61,6 +61,13 @@
         "piercings",
         "tattoos"
       ]
+    },
+    "hero_transition": {
+      "type": "studio-hero-transition",
+      "settings": {
+        "desktop_height": 128,
+        "mobile_height": 80
+      }
     },
     "original_services": {
       "type": "studio-original-services",
@@ -260,6 +267,7 @@
   },
   "order": [
     "section_1",
+    "hero_transition",
     "original_services",
     "original_artists",
     "original_roulette",
