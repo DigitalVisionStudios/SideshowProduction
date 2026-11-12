@@ -1,12 +1,12 @@
 {
-  "source_commit": "ef867287158947d0c5d533b98ebb69a072889352",
-  "generated_at": "2026-11-12T05:47:45.035Z",
+  "source_commit": "fa95c50afa03a68f933dac3c58270747f0311c02",
+  "generated_at": "2026-11-12T06:07:35.146Z",
   "share_url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/",
   "routes": [
     {
       "route": "/sideshow-productions-v2/",
       "file": "index.html",
-      "bytes": 61712
+      "bytes": 62578
     },
     {
       "route": "/sideshow-productions-v2/coming-soon/",
@@ -87,13 +87,13 @@
     },
     {
       "file": "assets/sideshow-hero.css",
-      "bytes": 13059,
-      "sha256": "9db1a5e22a123e93b28b4a520cd2e50c7d1b1aca85bdd1ee5db86a4d0647092f"
+      "bytes": 13911,
+      "sha256": "c0f56762f2724387878355d1b87fc765de85808e762dd139e5a05fa3d903dc6a"
     },
     {
       "file": "assets/sideshow-hero.js",
-      "bytes": 7338,
-      "sha256": "9b2479ccbf4ff5e3bf875b12f42293a31cf44d91fe2cf70d8ced1054b849d7da"
+      "bytes": 7790,
+      "sha256": "b2c7c000391aa46a4c1e9d1b6baaaea0df92f44d6749a89648726722c0a3402e"
     },
     {
       "file": "assets/sideshow-marquee.css",
@@ -319,7 +319,7 @@
     "assets/icons/favicon.ico",
     "assets/icons/site.webmanifest"
   ],
-  "bytes": 6704570,
+  "bytes": 6705874,
   "notes": [
     "Homepage-only preview rendered from the current Shopify studio templates.",
     "Only used storefront assets are copied; source archives and working files are excluded.",

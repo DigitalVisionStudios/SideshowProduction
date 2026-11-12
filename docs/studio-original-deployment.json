@@ -1,29 +1,30 @@
 {
   "site_id": "d89eb8b7-a74a-4269-8167-fbebfba7493a",
   "site_name": "dvs-html-previews-netlify6",
-  "deploy_id": "6af5532d11c902435394bbc6",
+  "deploy_id": "6af5580b03a0c5d82f9c11d7",
   "mode": "production",
   "alias": null,
   "state": "ready",
   "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/",
   "v1_url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/",
-  "source_commit": "ef867287158947d0c5d533b98ebb69a072889352",
+  "source_commit": "fa95c50afa03a68f933dac3c58270747f0311c02",
   "uploaded_with": "Scoped Netlify API snapshot upload via .ai-bridge/apply-scoped-netlify.mjs",
   "project": "sideshow-productions-v2",
   "public_verification": {
-    "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/?v=ef86728",
+    "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/?v=fa95c50",
     "homepageStatus": 200,
     "homepageMatchesExport": true,
-    "changedFilesVerified": 9,
+    "changedFilesVerified": 5,
     "assetFailures": [],
     "passed": true
   },
   "shopify_live_changes": false,
   "latest_changes": [
-    "Centered logo with animated menu on the left and Shopify cart on the right at all screen widths",
-    "Desktop and phone menu share entrance, exit, focus and scroll restoration behavior",
-    "White hero text uses locally hosted Barlow Semi Condensed at weights600and500; original brush words retained",
-    "Updated the main previews directory thumbnail"
+    "Added the exact persistent tagline: The Best Tattoo Shop Vibes Murray Utah",
+    "Each hero scene now changes its photo, brush word, headline and description together",
+    "Artists: Meet the crew. / Piercings: Find your next look. / Tattoos: Made for you.",
+    "Changed the secondary hero button to Meet the Artists",
+    "Text transitions preserve the button position, and the main preview catalog thumbnail is refreshed"
   ],
   "visual_verification": {
     "component": "Artists section background",
@@ -42,8 +43,8 @@
     "runtime_errors": []
   },
   "changed_asset_verification": {
-    "version": "ef86728",
-    "changed_files_verified": 9,
+    "version": "fa95c50",
+    "changed_files_verified": 5,
     "all_public_files_match_export": true,
     "font_weights_loaded": [
       500,
@@ -66,13 +67,13 @@
     "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/"
   },
   "directory_url": "https://previews.digitalvisionstudios.net/",
-  "completed_at": "2026-11-12T05:48:39.471Z",
+  "completed_at": "2026-11-12T06:09:24.949Z",
   "production_snapshot": {
-    "previous_deploy": "6af54fccf2febd0ede62e683",
-    "validated_draft": "6af5531fead876b7b880eff9",
+    "previous_deploy": "6af5532d11c902435394bbc6",
+    "validated_draft": "6af557fdefdea5589d32a93a",
     "total_files": 25413,
-    "existing_files_unchanged": 25404,
-    "changed_files": 9,
+    "existing_files_unchanged": 25408,
+    "changed_files": 5,
     "removed_paths": [],
     "functions_preserved": [
       "mpa-api",
@@ -92,7 +93,7 @@
     ],
     "icon_loaded": true,
     "existing_entries_preserved": true,
-    "thumbnail_sha256": "a5bf394e9be7b8e16bbe61ec2a528ffb16ee84e3a371de738921a022f7c63676"
+    "thumbnail_sha256": "90bbec612d75c1be87d7c9fc94b331565849beab96b5ca9b722daac01609f916"
   },
   "production_browser_verification": {
     "passed": true,
@@ -101,11 +102,12 @@
     "desktop_menu_focus_restored": true,
     "cart_to_coming_soon_and_back": true,
     "phone_overflow": false,
-    "runtime_errors": []
+    "runtime_errors": [],
+    "verified_source_commit": "ef867287158947d0c5d533b98ebb69a072889352"
   },
   "previous_production": {
-    "deploy_id": "6af54fccf2febd0ede62e683",
-    "source_commit": "230275d35b41b47d68ae3c4038127c36c6dc7a7e"
+    "deploy_id": "6af5532d11c902435394bbc6",
+    "source_commit": "ef867287158947d0c5d533b98ebb69a072889352"
   },
   "header_and_hero_verification": {
     "local_checks_passed": 20,
@@ -127,6 +129,33 @@
     "copy_weight": 500,
     "brush_font": "SP Brush",
     "desktop_and_phone_menu_animated": true,
-    "cart_uses_coming_soon_in_preview": true
+    "cart_uses_coming_soon_in_preview": true,
+    "verified_source_commit": "ef867287158947d0c5d533b98ebb69a072889352"
+  },
+  "hero_copy_verification": {
+    "source_commit": "fa95c50afa03a68f933dac3c58270747f0311c02",
+    "local_checks_passed": 10,
+    "published_checks_passed": 6,
+    "local_viewports": [
+      320,
+      390,
+      1440
+    ],
+    "published_viewports": [
+      390,
+      1440
+    ],
+    "automatic_cycle": [
+      "artists",
+      "piercings",
+      "tattoos",
+      "artists"
+    ],
+    "exact_tagline": "The Best Tattoo Shop Vibes Murray Utah",
+    "frame_and_copy_synchronized": true,
+    "cta_position_change_px": 0,
+    "slider_controls": false,
+    "horizontal_overflow": false,
+    "runtime_errors": []
   }
 }
