@@ -1,26 +1,28 @@
 {
   "site_id": "d89eb8b7-a74a-4269-8167-fbebfba7493a",
   "site_name": "dvs-html-previews-netlify6",
-  "deploy_id": "6af55e25221d81e07fa01ef4",
+  "deploy_id": "6af56558b478fc52d89aadc1",
   "mode": "production",
   "alias": null,
   "state": "ready",
   "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/",
   "v1_url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/",
-  "source_commit": "89f819309f070dc353425cfa2a96a4650e0e5f41",
+  "source_commit": "79c4d4be1dcdc57d2cae97cc7409803967ed1238",
   "uploaded_with": "Scoped Netlify API snapshot upload via .ai-bridge/apply-scoped-netlify.mjs",
   "project": "sideshow-productions-v2",
   "public_verification": {
-    "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/?v=89f8193",
+    "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/?v=79c4d4b",
     "homepageStatus": 200,
     "homepageMatchesExport": true,
-    "changedFilesVerified": 3,
+    "changedFilesVerified": 4,
     "assetFailures": [],
     "passed": true
   },
   "shopify_live_changes": false,
   "latest_changes": [
-    "Tightened the hero headline line-height from 1.28 to 1.18 on desktop and from 1.30 to 1.20 on mobile"
+    "Added an Exaggerated animations switch to Appearance, off by default",
+    "Recovered the original site’s large hero slides, zooms, bouncing service icons, review entrances and map slide as an optional motion style",
+    "Saved the preference independently of background presets; Reset appearance restores off and reduced-motion preferences suppress stronger effects"
   ],
   "visual_verification": {
     "component": "Artists section background",
@@ -39,13 +41,14 @@
     "runtime_errors": []
   },
   "changed_asset_verification": {
-    "version": "89f8193",
-    "changed_files_verified": 3,
+    "version": "79c4d4b",
+    "changed_files_verified": 4,
     "all_public_files_match_export": true,
     "font_weights_loaded": [
       400,
       500
-    ]
+    ],
+    "font_assets_unchanged": true
   },
   "preview_mode": "homepage-only",
   "homepage_navigation_verification": {
@@ -63,13 +66,13 @@
     "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/"
   },
   "directory_url": "https://previews.digitalvisionstudios.net/",
-  "completed_at": "2026-11-12T06:35:26.925Z",
+  "completed_at": "2026-11-12T07:06:10.111Z",
   "production_snapshot": {
-    "previous_deploy": "6af55b9b965ef1c89c8b7753",
-    "validated_draft": "6af55e17eea20efda8795990",
-    "total_files": 25413,
+    "previous_deploy": "6af55e25221d81e07fa01ef4",
+    "validated_draft": "6af5654783718b630d8b72c8",
+    "total_files": 25414,
     "existing_files_unchanged": 25410,
-    "changed_files": 3,
+    "changed_files": 4,
     "removed_paths": [],
     "functions_preserved": [
       "mpa-api",
@@ -102,8 +105,8 @@
     "verified_source_commit": "ef867287158947d0c5d533b98ebb69a072889352"
   },
   "previous_production": {
-    "deploy_id": "6af55b9b965ef1c89c8b7753",
-    "source_commit": "01922da37458f8661ffa77d24c76e3d1b28038d6"
+    "deploy_id": "6af55e25221d81e07fa01ef4",
+    "source_commit": "89f819309f070dc353425cfa2a96a4650e0e5f41"
   },
   "header_and_hero_verification": {
     "local_checks_passed": 20,
@@ -176,5 +179,27 @@
     "descender_collisions": false,
     "horizontal_overflow": false,
     "public_assets_match": true
+  },
+  "exaggerated_motion_verification": {
+    "source_commit": "79c4d4be1dcdc57d2cae97cc7409803967ed1238",
+    "default_enabled": false,
+    "local_checks_passed": 19,
+    "published_checks_passed": 6,
+    "visual_viewports": [
+      390,
+      1440
+    ],
+    "published_viewport": 390,
+    "preference_persists": true,
+    "old_preferences_remain_off": true,
+    "background_presets_preserve_selection": true,
+    "reset_restores_off": true,
+    "respects_reduced_motion": true,
+    "artist_track_remains_continuous": true,
+    "additional_slider_controls": false,
+    "hero_geometry_unchanged": true,
+    "brush_descenders_visually_checked": true,
+    "horizontal_overflow": false,
+    "runtime_errors": []
   }
 }
