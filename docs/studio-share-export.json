@@ -1,17 +1,17 @@
 {
-  "source_commit": "d690bb7ce5b04eb017abca281bf10c988a2eb249",
-  "generated_at": "2026-11-12T04:45:56.407Z",
-  "share_url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
+  "source_commit": "230275d35b41b47d68ae3c4038127c36c6dc7a7e",
+  "generated_at": "2026-11-12T05:26:30.515Z",
+  "share_url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/",
   "routes": [
     {
       "route": "/sideshow-productions-v2/",
       "file": "index.html",
-      "bytes": 62050
+      "bytes": 62094
     },
     {
       "route": "/sideshow-productions-v2/coming-soon/",
       "file": "coming-soon/index.html",
-      "bytes": 4650
+      "bytes": 4694
     }
   ],
   "aliases": {

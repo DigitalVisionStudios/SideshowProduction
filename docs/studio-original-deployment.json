@@ -1,28 +1,34 @@
 {
   "site_id": "d89eb8b7-a74a-4269-8167-fbebfba7493a",
   "site_name": "dvs-html-previews-netlify6",
-  "deploy_id": "6af544cd4347d83ab79d9ce3",
-  "mode": "draft",
-  "alias": "sideshow-original",
+  "deploy_id": "6af54fccf2febd0ede62e683",
+  "mode": "production",
+  "alias": null,
   "state": "ready",
-  "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
+  "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/",
   "v1_url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/",
-  "source_commit": "d690bb7",
-  "uploaded_with": "C:/Users/jesus/Documents/Work/HTML Preview/deploy_to_netlify.ps1",
+  "source_commit": "230275d35b41b47d68ae3c4038127c36c6dc7a7e",
+  "uploaded_with": "Scoped Netlify API snapshot upload via .ai-bridge/apply-scoped-netlify.mjs",
   "project": "sideshow-productions-v2",
   "public_verification": {
-    "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
+    "url": "https://previews.digitalvisionstudios.net/sideshow-productions-v2/",
     "homepageStatus": 200,
     "homepageMatchesExport": true,
-    "stylesAndScripts": 27,
+    "stylesAndScripts": 26,
     "assetFailures": [],
     "artistCSSMatchesExport": true,
-    "passed": true
+    "catalogCount": 109,
+    "sideshowListed": true,
+    "existingEntriesPreserved": true,
+    "passed": true,
+    "expectedStylesAndScripts": 26
   },
   "shopify_live_changes": false,
   "latest_changes": [
     "Opaque black background behind the entire artist carousel, with transparent fades at the top and bottom",
-    "Versioned stylesheet and script URLs so mobile clients receive updated preview assets"
+    "Versioned stylesheet and script URLs so mobile clients receive updated preview assets",
+    "Listed Sideshow Productions in the main previews directory with its current hero thumbnail and logo icon",
+    "Published the homepage-only preview under previews.digitalvisionstudios.net with matching sharing metadata"
   ],
   "visual_verification": {
     "component": "Artists section background",
@@ -41,8 +47,8 @@
     "runtime_errors": []
   },
   "changed_asset_verification": {
-    "version": "d690bb7",
-    "styles_and_scripts_verified": 27,
+    "version": "230275d",
+    "styles_and_scripts_verified": 26,
     "artist_css_matches_export": true
   },
   "preview_mode": "homepage-only",
@@ -54,5 +60,45 @@
     "map_overlay_active": true,
     "shopify_source_destinations_preserved": true,
     "verified_source_commit": "c47ef73"
+  },
+  "previous_draft": {
+    "deploy_id": "6af544cd4347d83ab79d9ce3",
+    "alias": "sideshow-original",
+    "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/"
+  },
+  "directory_url": "https://previews.digitalvisionstudios.net/",
+  "completed_at": "2026-11-12T05:34:12.810Z",
+  "production_snapshot": {
+    "previous_deploy": "6ae8cd731ab0a173061a2bd3",
+    "validated_draft": "6af54f659a505b703547664a",
+    "total_files": 25411,
+    "existing_files_unchanged": 25324,
+    "changed_files": 87,
+    "removed_paths": [],
+    "functions_preserved": [
+      "mpa-api",
+      "spotify-search",
+      "track",
+      "visits"
+    ],
+    "configuration_preserved": true
+  },
+  "catalog_verification": {
+    "entries": 109,
+    "sideshow_listed": true,
+    "thumbnail": "https://previews.digitalvisionstudios.net/screenshots/sideshow_productions_v2.png",
+    "thumbnail_dimensions": [
+      1280,
+      800
+    ],
+    "icon_loaded": true,
+    "existing_entries_preserved": true
+  },
+  "production_browser_verification": {
+    "passed": true,
+    "homepage_destination_correct": true,
+    "book_now_to_coming_soon_and_back": true,
+    "phone_overflow": false,
+    "runtime_errors": []
   }
 }

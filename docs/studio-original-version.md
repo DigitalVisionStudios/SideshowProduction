@@ -25,7 +25,9 @@ The shared review is a homepage-only preview. Destination links, including navig
 - Local source: `C:\Users\jesus\Documents\Work\Shopify Stores\SideshowProduction-v2`
 - Local preview: `http://127.0.0.1:8797/`
 - Static export: `C:\Users\jesus\Documents\Work\HTML Preview\sideshow-productions-v2`
-- Share URL: `https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/`
+- Main previews directory: `https://previews.digitalvisionstudios.net/`
+- Share URL: `https://previews.digitalvisionstudios.net/sideshow-productions-v2/`
+- Earlier draft alias: `https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/`
 
 ## Validation
 
