@@ -1,0 +1,201 @@
+/*
+ * Optional original-site motion, enabled only by the appearance palette.
+ * Source cues: Elementor zoomIn, bounceInDown, slideInDown/Right,
+ * zoomInDown/Right, and fadeInDown/Right. Standard entrances: 1.25s;
+ * the hero action group keeps the original slower 2s treatment.
+ * Off mode and reduced motion inherit the existing component styles.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  body[data-sp-exaggerated="on"] #main-content {
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  /* Keep observation geometry in its normal position until the entrance starts. */
+  body[data-sp-exaggerated="on"] .sp-reveal-ready:not(.is-visible) {
+    opacity: 0;
+    transform: none;
+    transition: none;
+  }
+  body[data-sp-exaggerated="on"] [data-reveal].is-visible {
+    animation: sp-exaggerated-pop 1.25s both;
+    animation-delay: var(--sp-reveal-delay, 0ms);
+    transform-origin: center 65%;
+    transition: none;
+  }
+
+  /* The six original service cards zoom while their icons bounce separately. */
+  body[data-sp-exaggerated="on"] .sp-original-service[data-reveal].is-visible {
+    animation-name: sp-exaggerated-zoom;
+    transform-origin: center;
+  }
+  body[data-sp-exaggerated="on"] .sp-original-service.is-visible .sp-original-service-icon {
+    animation: sp-exaggerated-bounce-down 1.25s both;
+    animation-delay: calc(var(--sp-reveal-delay, 0ms) + 110ms);
+    transform-origin: center;
+  }
+
+  /* Opposing entrances give the original split sections their large movement. */
+  body[data-sp-exaggerated="on"] .sp-original-feature-copy[data-reveal].is-visible,
+  body[data-sp-exaggerated="on"] .sp-original-contact-copy[data-reveal].is-visible,
+  body[data-sp-exaggerated="on"] .sp-statement-copy[data-reveal].is-visible {
+    animation-name: sp-exaggerated-slide-left;
+  }
+  body[data-sp-exaggerated="on"] .sp-original-video-wrap[data-reveal].is-visible,
+  body[data-sp-exaggerated="on"] .sp-original-feature-media[data-reveal].is-visible {
+    animation-name: sp-exaggerated-zoom-right;
+    transform-origin: right center;
+  }
+  body[data-sp-exaggerated="on"] .sp-original-map[data-reveal].is-visible {
+    animation-name: sp-exaggerated-slide-right;
+  }
+  body[data-sp-exaggerated="on"] .sp-original-review-intro[data-reveal].is-visible {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  body[data-sp-exaggerated="on"] .sp-original-review-intro.is-visible .sp-original-title {
+    animation: sp-exaggerated-zoom-down 1.25s both;
+    transform-origin: center top;
+  }
+  body[data-sp-exaggerated="on"] .sp-original-review-intro.is-visible .sp-original-kicker {
+    animation: sp-exaggerated-slide-down 1.25s both;
+  }
+
+  /*
+   * Animate card interiors, never Splide's list, slide widths, or track.
+   * Entering and shown share one animation declaration, so the existing
+   * 850ms settle timer does not restart it. Enabling the setting on a
+   * previously shown rail still gives immediate visual feedback.
+   */
+  body[data-sp-exaggerated="on"] [data-artist-reveal="pending"] .sp-original-artist-card {
+    opacity: 0;
+    transform: none;
+  }
+  body[data-sp-exaggerated="on"] [data-artist-reveal="entering"] .sp-original-artist-card,
+  body[data-sp-exaggerated="on"] [data-artist-reveal="shown"] .sp-original-artist-card {
+    animation: sp-exaggerated-artist-pop .8s cubic-bezier(.16, 1, .3, 1) both;
+    animation-delay: var(--artist-enter-delay, 0ms);
+    transform-origin: center bottom;
+  }
+
+  /* Keep the artwork rails moving at their existing cadence. */
+  body[data-sp-exaggerated="on"] .sp-carousel-reveal-ready:not(.sp-carousel-has-entered) .sp-carousel-slide > * {
+    opacity: 0;
+    transform: none;
+    transition: none;
+  }
+  body[data-sp-exaggerated="on"] .sp-carousel-reveal-ready.sp-carousel-has-entered .sp-carousel-slide > * {
+    animation: sp-exaggerated-gallery-pop 1.25s both;
+    animation-delay: var(--sp-slide-delay, 0ms);
+    transform-origin: center bottom;
+    transition: none;
+  }
+
+  /*
+   * Whole sentence panels retain their shared grid cell, fixed wording,
+   * inline red words, and natural wraps. Only their painted position moves.
+   */
+  body[data-sp-exaggerated="on"] .sp-hero-deck[data-hero-ready] .sp-hero-deck__headlines,
+  body[data-sp-exaggerated="on"] .sp-hero-deck[data-hero-ready] .sp-hero-deck__intro {
+    animation: none;
+  }
+  /* Reveal inside the headline area instead of crossing the small tagline. */
+  body[data-sp-exaggerated="on"] .sp-hero-deck__headlines {
+    clip-path: inset(-.18em -15% -.65em -15%);
+  }
+  body[data-sp-exaggerated="on"] .sp-hero-deck[data-hero-ready] .sp-hero-deck__eyebrow {
+    animation: sp-exaggerated-slide-down 1.25s both;
+  }
+  body[data-sp-exaggerated="on"] .sp-hero-deck__headline,
+  body[data-sp-exaggerated="on"] .sp-hero-deck__description {
+    transition: none;
+  }
+  body[data-sp-exaggerated="on"] .sp-hero-deck__headline.is-active {
+    animation: sp-exaggerated-slide-down 1.25s both;
+  }
+  body[data-sp-exaggerated="on"] .sp-hero-deck__description.is-active {
+    animation: sp-exaggerated-slide-right 1.25s .14s both;
+  }
+  body[data-sp-exaggerated="on"] .sp-hero-deck__word {
+    display: inline-block;
+    vertical-align: baseline;
+    transform-origin: center 70%;
+  }
+  body[data-sp-exaggerated="on"] .sp-hero-deck__word.is-active {
+    animation: sp-exaggerated-word-wave .6s cubic-bezier(.2, .75, .3, 1) .2s both;
+  }
+  body[data-sp-exaggerated="on"] .sp-hero-deck[data-hero-ready] .sp-hero-deck__actions {
+    animation: sp-exaggerated-zoom-down 2s .18s both;
+    transform-origin: center top;
+  }
+
+  /* Focused controls settle immediately instead of moving under a keyboard user. */
+  body[data-sp-exaggerated="on"] [data-reveal].is-visible:focus-within,
+  body[data-sp-exaggerated="on"] [data-artist-reveal] .sp-original-artist-card:focus-within,
+  body[data-sp-exaggerated="on"] .sp-carousel-has-entered .sp-carousel-slide > :focus-within,
+  body[data-sp-exaggerated="on"] .sp-hero-deck[data-hero-ready] .sp-hero-deck__actions:focus-within {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  @keyframes sp-exaggerated-zoom {
+    0% { opacity: 0; transform: scale3d(.3, .3, 1); }
+    50% { opacity: 1; }
+    100% { opacity: 1; transform: scale3d(1, 1, 1); }
+  }
+  @keyframes sp-exaggerated-pop {
+    0% { opacity: 0; transform: translate3d(0, 120px, 0) scale3d(.3, .3, 1); }
+    58% { opacity: 1; transform: translate3d(0, -18px, 0) scale3d(1.055, 1.055, 1); }
+    76% { transform: translate3d(0, 8px, 0) scale3d(.98, .98, 1); }
+    90% { transform: translate3d(0, -3px, 0) scale3d(1.008, 1.008, 1); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0) scale3d(1, 1, 1); }
+  }
+  @keyframes sp-exaggerated-bounce-down {
+    0% { opacity: 0; transform: translate3d(0, -1000px, 0); animation-timing-function: cubic-bezier(.6, .04, .98, .335); }
+    60% { opacity: 1; transform: translate3d(0, 25px, 0); }
+    75% { transform: translate3d(0, -10px, 0); }
+    90% { transform: translate3d(0, 5px, 0); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+  @keyframes sp-exaggerated-slide-down {
+    0% { opacity: 0; transform: translate3d(0, -100%, 0); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+  @keyframes sp-exaggerated-slide-left {
+    0% { opacity: 0; transform: translate3d(-100%, 0, 0); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+  @keyframes sp-exaggerated-slide-right {
+    0% { opacity: 0; transform: translate3d(100%, 0, 0); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+  @keyframes sp-exaggerated-zoom-down {
+    0% { opacity: 0; transform: scale3d(.1, .1, 1) translate3d(0, -1000px, 0); animation-timing-function: cubic-bezier(.55, .055, .675, .19); }
+    60% { opacity: 1; transform: scale3d(.475, .475, 1) translate3d(0, 60px, 0); animation-timing-function: cubic-bezier(.175, .885, .32, 1); }
+    100% { opacity: 1; transform: scale3d(1, 1, 1) translate3d(0, 0, 0); }
+  }
+  @keyframes sp-exaggerated-zoom-right {
+    0% { opacity: 0; transform: scale3d(.1, .1, 1) translate3d(1000px, 0, 0); animation-timing-function: cubic-bezier(.55, .055, .675, .19); }
+    60% { opacity: 1; transform: scale3d(.475, .475, 1) translate3d(-10px, 0, 0); animation-timing-function: cubic-bezier(.175, .885, .32, 1); }
+    100% { opacity: 1; transform: scale3d(1, 1, 1) translate3d(0, 0, 0); }
+  }
+  @keyframes sp-exaggerated-artist-pop {
+    0% { opacity: 0; transform: translate3d(0, 140px, 0) scale3d(.3, .3, 1); }
+    54% { opacity: 1; transform: translate3d(0, 0, 0) scale3d(1.015, 1.015, 1); }
+    76% { transform: translate3d(0, 10px, 0) scale3d(.97, .97, 1); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0) scale3d(1, 1, 1); }
+  }
+  @keyframes sp-exaggerated-gallery-pop {
+    0% { opacity: 0; transform: translate3d(100px, 100px, 0) scale3d(.3, .3, 1); }
+    60% { opacity: 1; transform: translate3d(0, 0, 0) scale3d(1, 1, 1); }
+    78% { transform: translate3d(0, 12px, 0) scale3d(.97, .97, 1); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0) scale3d(1, 1, 1); }
+  }
+  @keyframes sp-exaggerated-word-wave {
+    0% { opacity: 0; transform: scale3d(.05, .05, 1); }
+    60% { opacity: 1; transform: scale3d(1.2, 1.2, 1); }
+    100% { opacity: 1; transform: scale3d(1, 1, 1); }
+  }
+}

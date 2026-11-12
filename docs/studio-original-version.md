@@ -10,6 +10,8 @@ Original service illustrations and actual artist portraits are recovered from ha
 
 Red gradients fade across sections. Optional legacy Shopify motion and artwork remain available in the palette, with both off by default for this original-layout version.
 
+The palette also offers an independent “Exaggerated animations” switch, off by default. It follows the captured site's large hero slides, slow button zoom, service-card zooms with bouncing icons, Roulette video entrance, review entrances and map slide. The selection is saved on the visitor's device; changing the Clean/Original background preset preserves it, while Reset appearance restores the default off state. The stronger effects respect reduced-motion preferences and leave the continuous carousel tracks unchanged.
+
 ## Supporting pages saved for later
 
 About restores the four original Journey images and stories, original crew order, values, two reviews, and a newsletter form. Flash restores all eight gallery entries, benefits, original video, three reviews, and FAQ topics. Ink Roulette preserves the curated 25 selectable designs and restores explanatory content, four reviews, source footage, and informational board/rules images. The shop retains the existing 21 products and corrected images while restoring their original mixed order and compact grid.

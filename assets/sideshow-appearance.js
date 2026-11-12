@@ -6,7 +6,8 @@
   var playerPromise = null;
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
   var storageKey = "sideshow:appearance:v1";
-  var keys = ["motion", "artwork", "fades"];
+  var backgroundKeys = ["motion", "artwork", "fades"];
+  var keys = backgroundKeys.concat(["exaggerated"]);
   var presets = {clean:{motion:false,artwork:false,fades:true},studio:{motion:true,artwork:true,fades:true}};
 
   function loadPlayer(url) {
@@ -95,7 +96,7 @@
     state.root.querySelectorAll("[data-appearance-option]").forEach(function (input) { input.checked = preferences[input.dataset.appearanceOption]; });
     state.root.querySelectorAll("[data-appearance-preset]").forEach(function (button) {
       var preset = presets[button.dataset.appearancePreset];
-      var selected = Boolean(preset) && keys.every(function (key) { return preferences[key] === preset[key]; });
+      var selected = Boolean(preset) && backgroundKeys.every(function (key) { return preferences[key] === preset[key]; });
       button.setAttribute("aria-pressed", String(selected));
     });
     if (save) persist(state);
@@ -120,7 +121,7 @@
   function setup(root) {
     if (instance && instance.root === root) return;
     if (instance) destroy(instance);
-    var defaults = {motion:root.dataset.defaultMotion === "true",artwork:root.dataset.defaultArtwork === "true",fades:root.dataset.defaultFades === "true"};
+    var defaults = {motion:root.dataset.defaultMotion === "true",artwork:root.dataset.defaultArtwork === "true",fades:root.dataset.defaultFades === "true",exaggerated:root.dataset.defaultExaggerated === "true"};
     var preferences = Object.assign({}, defaults);
     if (root.dataset.showControl === "true" && !(window.Shopify && window.Shopify.designMode)) {
       try {
@@ -142,7 +143,7 @@
       button.addEventListener("click", function () {
         var preset = presets[button.dataset.appearancePreset];
         if (!preset) return;
-        state.preferences = Object.assign({},preset);
+        state.preferences = Object.assign({},state.preferences,preset);
         render(state,true);
         var status = root.querySelector("[data-appearance-status]");
         if (status) status.textContent = button.dataset.appearancePreset === "clean" ? "Clean background selected." : "Original studio background selected.";
@@ -164,7 +165,7 @@
     state.controller.abort();
     if (state.frame) cancelAnimationFrame(state.frame);
     if (state.animation) state.animation.destroy();
-    ["spMotion","spArtwork","spFades","spBackground"].forEach(function(key){delete document.body.dataset[key];});
+    ["spMotion","spArtwork","spFades","spBackground","spExaggerated"].forEach(function(key){delete document.body.dataset[key];});
     if (instance===state) instance=null;
   }
   function init(scope) {
