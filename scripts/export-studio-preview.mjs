@@ -21,6 +21,7 @@ if (shareURL.protocol !== 'https:' || shareURL.search || shareURL.hash || !share
 if (output === ROOT || output === path.dirname(ROOT)) throw new Error('Choose a dedicated export folder');
 const prefix = shareURL.pathname;
 const hostname = shareURL.origin;
+const assetVersion = execFileSync('git', ['rev-parse', '--short', 'HEAD'], { cwd: ROOT, encoding: 'utf8' }).trim();
 const boundaryURL = prefix + COMING_SOON_ROUTE.slice(1);
 const description = 'A refreshed Sideshow Productions website based on the original studio layout. Tattoos, piercings, tooth gems and teeth whitening in Murray, Utah.';
 const titleFor = route => route === '/' ? 'Sideshow Productions | Original Layout Preview' : route.split('/').pop().split('-').map(word => word[0].toUpperCase() + word.slice(1)).join(' ') + ' | Sideshow Productions';
@@ -38,7 +39,12 @@ function mapRootURL(raw) {
   const parsed = new URL(raw.replaceAll('&amp;', '&'), 'https://preview.invalid');
   const route = parsed.pathname.replace(/\/$/, '') || '/';
   if (route === '/') return prefix + parsed.search + parsed.hash;
-  if (route.startsWith('/assets/')) return prefix.replace(/\/$/, '') + raw;
+  if (route.startsWith('/assets/')) {
+    const asset = new URL(prefix.replace(/\/$/, '') + raw, shareURL);
+    // Preview assets are cached by the host; use a fresh URL for each code revision.
+    if (/\.(?:css|js)$/i.test(parsed.pathname)) asset.searchParams.set('v', assetVersion);
+    return asset.pathname + asset.search + asset.hash;
+  }
   return boundaryURL;
 }
 
