@@ -170,7 +170,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
   font-family: "SP Brush", "SP Sans", Arial, sans-serif;
   font-size: clamp(48px, 7.5vw, 66px);
   font-weight: 400;
-  line-height: 1.28;
+  line-height: 1.18;
   letter-spacing: 0;
   text-wrap: wrap;
   text-shadow: 0 4px 24px rgba(0, 0, 0, .2);
@@ -269,7 +269,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
   .sp-hero-deck { min-height: calc(100svh - var(--sp-preview-offset, 0px)); }
   .sp-hero-deck__content { padding-block: 126px 80px; }
   .sp-hero-deck__copy { max-width: none; }
-  .sp-hero-deck h1 { font-size: clamp(31px, 9.6vw, 46px); line-height: 1.3; }
+  .sp-hero-deck h1 { font-size: clamp(31px, 9.6vw, 46px); line-height: 1.2; }
   .sp-hero-deck .sp-hero-deck__eyebrow { margin-bottom: 22px; font-size: clamp(18px, 5.3vw, 22px); }
   .sp-hero-deck .sp-hero-deck__intro { margin-top: 20px; font-size: 18px; line-height: 1.5; max-width: 34ch; }
   .sp-hero-deck .sp-hero-deck__actions { margin-top: 24px; gap: 11px; }
