@@ -161,3 +161,7 @@ python scripts/studio_recovered_media.py
 ```
 
 The first command recovers or verifies the 41 selected still originals against their pinned template references and hashes. The second prepares the seven reviewed image upgrades. Existing media preparation scripts also honor those replacements, so regenerating the preview retains the better sources. The final revision passed the studio validator with zero errors or warnings, plus focused mobile/desktop image and lightbox checks through Tailscale.
+
+## Client sharing preview
+
+The static client preview is saved in the HTML Preview folder as sideshow-productions and uploaded with the existing Netlify script. [Open the Sideshow preview](https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/). It includes all 11 studio pages, the original-logo sharing card and icon set, the corrected service images, and the current motion and galleries. See [sharing and update instructions](docs/studio-share-preview.md) for the export command and public verification record.

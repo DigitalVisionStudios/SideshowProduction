@@ -1,0 +1,920 @@
+{
+  "verified_at": "2026-11-12T01:04:47.524Z",
+  "deploy_id": "6af50ffad8d8339349c24f02",
+  "deploy_state": "ready",
+  "share_url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/",
+  "pages": 11,
+  "assets": 96,
+  "icons": 11,
+  "failures": [],
+  "checks": [
+    {
+      "kind": "page",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/",
+      "status": 200,
+      "type": "text/html; charset=UTF-8",
+      "brand": true,
+      "card": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/sharing-card.png",
+      "valid": true
+    },
+    {
+      "kind": "page",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/pages/aftercare",
+      "status": 200,
+      "type": "text/html; charset=UTF-8",
+      "brand": true,
+      "card": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/sharing-card.png",
+      "valid": true
+    },
+    {
+      "kind": "page",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/pages/contact",
+      "status": 200,
+      "type": "text/html; charset=UTF-8",
+      "brand": true,
+      "card": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/sharing-card.png",
+      "valid": true
+    },
+    {
+      "kind": "page",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/pages/book",
+      "status": 200,
+      "type": "text/html; charset=UTF-8",
+      "brand": true,
+      "card": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/sharing-card.png",
+      "valid": true
+    },
+    {
+      "kind": "page",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/pages/flash",
+      "status": 200,
+      "type": "text/html; charset=UTF-8",
+      "brand": true,
+      "card": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/sharing-card.png",
+      "valid": true
+    },
+    {
+      "kind": "page",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/pages/about",
+      "status": 200,
+      "type": "text/html; charset=UTF-8",
+      "brand": true,
+      "card": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/sharing-card.png",
+      "valid": true
+    },
+    {
+      "kind": "page",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/pages/artists",
+      "status": 200,
+      "type": "text/html; charset=UTF-8",
+      "brand": true,
+      "card": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/sharing-card.png",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-appearance.css",
+      "status": 200,
+      "type": "text/css; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "page",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/pages/ink-roulette",
+      "status": 200,
+      "type": "text/html; charset=UTF-8",
+      "brand": true,
+      "card": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/sharing-card.png",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-appearance.js",
+      "status": 200,
+      "type": "application/javascript; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "page",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/pages/portfolio",
+      "status": 200,
+      "type": "text/html; charset=UTF-8",
+      "brand": true,
+      "card": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/sharing-card.png",
+      "valid": true
+    },
+    {
+      "kind": "page",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/pages/services",
+      "status": 200,
+      "type": "text/html; charset=UTF-8",
+      "brand": true,
+      "card": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/sharing-card.png",
+      "valid": true
+    },
+    {
+      "kind": "page",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/pages/shop",
+      "status": 200,
+      "type": "text/html; charset=UTF-8",
+      "brand": true,
+      "card": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/sharing-card.png",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-carousel.css",
+      "status": 200,
+      "type": "text/css; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-hero.css",
+      "status": 200,
+      "type": "text/css; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-community.css",
+      "status": 200,
+      "type": "text/css; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-hero.js",
+      "status": 200,
+      "type": "application/javascript; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-carousel.js",
+      "status": 200,
+      "type": "application/javascript; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-marquee.js",
+      "status": 200,
+      "type": "application/javascript; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-marquee.css",
+      "status": 200,
+      "type": "text/css; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-menu.css",
+      "status": 200,
+      "type": "text/css; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-promo.js",
+      "status": 200,
+      "type": "application/javascript; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-promo.css",
+      "status": 200,
+      "type": "text/css; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-studio.css",
+      "status": 200,
+      "type": "text/css; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-studio.js",
+      "status": 200,
+      "type": "application/javascript; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-welcome.css",
+      "status": 200,
+      "type": "text/css; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-body.woff2",
+      "status": 200,
+      "type": "font/woff2",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-brush.woff2",
+      "status": 200,
+      "type": "font/woff2",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-wheel.css",
+      "status": 200,
+      "type": "text/css; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sideshow-wheel.js",
+      "status": 200,
+      "type": "application/javascript; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-event-nov13.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-flash-01.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-flash-03.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-flash-02.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-flash-04.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-flash-05.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-flash-06.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-legacy-background.json",
+      "status": 200,
+      "type": "application/json",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-logo.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-original-jake-boot.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-legacy-sign.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-original-jake-dragon.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-lottie-svg.min.js",
+      "status": 200,
+      "type": "application/javascript; charset=UTF-8",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-original-jake-figure.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-original-jake-spiders.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-original-jake-sunflower.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-original-jake-reaper.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-original-jake-swallow.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-original-megan-gem.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-original-megan.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-original-rigo-floral.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-original-sonny-heart.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-01.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-original-sonny-ear.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-02.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-03.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-04.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-05.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-06.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-08.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-07.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-09.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-10.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-11.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-12.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-14.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-13.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-15.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-16.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-base-spray.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-defend.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-01.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-product-steri-wash.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-02.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-03.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-04.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-05.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-07.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-06.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-08.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-09.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-11.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-10.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-12.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-13.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-14.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-15.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-16.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-17.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-18.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-19.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-20.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-21.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-23.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-24.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-26.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-service-tooth-gems.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-27.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-source-storefront.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-service-whitening.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-storefront.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-welcome-jake-session.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-source-flash-wall.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-work-07.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "icon",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/favicon-32.png",
+      "status": 200,
+      "type": "image/png",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-work-10.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-work-12.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "icon",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/favicon-16.png",
+      "status": 200,
+      "type": "image/png",
+      "valid": true
+    },
+    {
+      "kind": "icon",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/favicon.png",
+      "status": 200,
+      "type": "image/png",
+      "valid": true
+    },
+    {
+      "kind": "asset",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-work-11.webp",
+      "status": 200,
+      "type": "image/webp",
+      "valid": true
+    },
+    {
+      "kind": "icon",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/favicon-192.png",
+      "status": 200,
+      "type": "image/png",
+      "valid": true
+    },
+    {
+      "kind": "icon",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/apple-touch-icon.png",
+      "status": 200,
+      "type": "image/png",
+      "valid": true
+    },
+    {
+      "kind": "icon",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/favicon-180.png",
+      "status": 200,
+      "type": "image/png",
+      "valid": true
+    },
+    {
+      "kind": "icon",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/home-page-card.png",
+      "status": 200,
+      "type": "image/png",
+      "valid": true
+    },
+    {
+      "kind": "icon",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/site.webmanifest",
+      "status": 200,
+      "type": "application/octet-stream",
+      "valid": true
+    },
+    {
+      "kind": "icon",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/favicon-512.png",
+      "status": 200,
+      "type": "image/png",
+      "valid": true
+    },
+    {
+      "kind": "icon",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/sharing-card.png",
+      "status": 200,
+      "type": "image/png",
+      "valid": true
+    },
+    {
+      "kind": "icon",
+      "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/favicon.ico",
+      "status": 200,
+      "type": "image/vnd.microsoft.icon",
+      "valid": true
+    }
+  ],
+  "browser_checks": [
+    {
+      "name": "Sharing card uses the public URL and phone width is clean",
+      "passed": true,
+      "evidence": {
+        "og": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/icons/sharing-card.png",
+        "url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/",
+        "icons": 2,
+        "overflow": 0
+      }
+    },
+    {
+      "name": "Mobile menu opens and closes",
+      "passed": true
+    },
+    {
+      "name": "Original red Lottie and artwork load from the package",
+      "passed": true
+    },
+    {
+      "name": "Enlarged gallery image loads",
+      "passed": true
+    },
+    {
+      "name": "Wheel result uses a working packaged image",
+      "passed": true,
+      "evidence": {
+        "src": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/assets/sp-roulette-08.webp",
+        "width": 599
+      }
+    },
+    {
+      "name": "Artist booking context stays inside the shared site",
+      "passed": true,
+      "evidence": {
+        "path": "/sideshow-productions/pages/contact/",
+        "query": "?artist=Jake&event=friday-13-november-2026",
+        "select": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "Preview form remains disconnected",
+      "passed": true,
+      "evidence": {
+        "blocked": true,
+        "status": "Design preview only. Nothing was submitted. The form will connect through Shopify before launch."
+      }
+    },
+    {
+      "name": "No runtime errors",
+      "passed": true,
+      "evidence": []
+    }
+  ],
+  "browser_screenshots": [
+    "C:\\Users\\jesus\\Documents\\Work\\Shopify Stores\\SideshowProduction\\.ai-bridge\\screenshots\\share-live-home-390.png",
+    "C:\\Users\\jesus\\Documents\\Work\\Shopify Stores\\SideshowProduction\\.ai-bridge\\screenshots\\share-live-home-1440.png"
+  ]
+}
