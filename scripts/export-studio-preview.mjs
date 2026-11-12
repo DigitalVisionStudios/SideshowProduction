@@ -22,8 +22,8 @@ if (output === ROOT || output === path.dirname(ROOT)) throw new Error('Choose a 
 const prefix = shareURL.pathname;
 const hostname = shareURL.origin;
 const boundaryURL = prefix + 'connection/';
-const description = 'Custom tattoos, piercings, tooth gems and teeth whitening. Explore the new Sideshow Productions website design.';
-const titleFor = route => route === '/' ? 'Sideshow Productions | Website Preview' : route.split('/').pop().split('-').map(word => word[0].toUpperCase() + word.slice(1)).join(' ') + ' | Sideshow Productions';
+const description = 'A refreshed Sideshow Productions website based on the original studio layout. Tattoos, piercings, tooth gems and teeth whitening in Murray, Utah.';
+const titleFor = route => route === '/' ? 'Sideshow Productions | Original Layout Preview' : route.split('/').pop().split('-').map(word => word[0].toUpperCase() + word.slice(1)).join(' ') + ' | Sideshow Productions';
 const routes = new Map((await availableTemplates()).map(file => [file === 'index.json' ? '/' : '/pages/' + file.replace(/^page\.studio-/, '').replace(/\.json$/, ''), file]));
 const aliasRoutes = new Map();
 for (const handle of Object.keys(PAGE_ALIASES)) {

@@ -1,0 +1,229 @@
+{
+  "source_archive": "archive/current-site-2026-11-10",
+  "source_type": "Downloaded WordPress/Elementor live site; not the older Shopify homepage.",
+  "pages": {
+    "about": {
+      "source": "pages/about.html",
+      "restored": [
+        "Original introduction and CTAs",
+        "Our Journey four-image/story composition",
+        "Current four-person crew with original About bios/order",
+        "Our Core Values",
+        "Both original About testimonials",
+        "Stay Connected newsletter connected to Shopify customer form and protected by preview submission guard"
+      ],
+      "source_elementor_ids": [
+        "67f920d",
+        "84934be",
+        "dabb2fd",
+        "b15c10c",
+        "28e4968",
+        "b34a773"
+      ]
+    },
+    "flash": {
+      "source": "pages/flash-tattoos.html",
+      "restored": [
+        "Original introduction",
+        "Eight original gallery entries in source order",
+        "Four Why Choose Flash benefits",
+        "Original split video pitch",
+        "Three source testimonials",
+        "Six FAQ topics"
+      ],
+      "preserved": [
+        "Six previously reviewed higher-quality matching flash assets",
+        "Current dated event handling and preview booking boundaries"
+      ],
+      "copy_cleanups": [
+        "Simplified the unclear Lasting Memories sentence and pitch heading.",
+        "Did not import medication-stopping advice.",
+        "Replaced stale staging URLs with current internal routes."
+      ]
+    },
+    "ink_roulette": {
+      "source": "pages/ink-roulette.html",
+      "restored": [
+        "Introductory explanation cards",
+        "Four source testimonials",
+        "Original portrait experience video",
+        "Physical-board and rules photographs as informational images",
+        "Five FAQ topics"
+      ],
+      "preserved": [
+        "Curated 25-design wheel and gallery",
+        "Source $150/two-spin and $20 alternate-number pricing",
+        "Physical board number verification boundaries"
+      ],
+      "copy_cleanups": [
+        "Consolidated repetitive original pricing/CTA blocks.",
+        "Kept medical aftercare instructions routed to the existing safer care/contact page.",
+        "Board/sign photographs remain outside selectable outcomes."
+      ]
+    }
+  },
+  "interaction": [
+    "Common original carousel contract; autoplay, no visible controls or pause UI.",
+    "Videos are original archived footage, autoplay silent, with lazy source attributes.",
+    "Shopify customer form uses existing preview form guard.",
+    "Story/FAQ content uses scroll reveal and reduced-motion behavior."
+  ],
+  "media": [
+    {
+      "asset": "assets/sp-original-detail-journey-storefront.webp",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-14-154136.png",
+      "source_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-14-154136.png",
+      "source_sha256": "7e867ef9f962e4f476f8741ad3cb5c588d00186a3d54b632a8ef7c9ea2117671",
+      "source_bytes": 1609640,
+      "bytes": 211180,
+      "sha256": "5bf7f649559b85850efa2e514e851f1b478854e493c8fb151464732faf7d5bb5",
+      "width": 1089,
+      "height": 869,
+      "alt": "Sideshow Productions storefront on State Street",
+      "processing": "Original source converted to WebP without cropping, upscaling, or color adjustments."
+    },
+    {
+      "asset": "assets/sp-original-detail-journey-piercing.webp",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-14-161319.png",
+      "source_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-14-161319.png",
+      "source_sha256": "34c3b191c6e88fda9fb82109fd3ea11d829086bc03c5a232260e4b29db79fb76",
+      "source_bytes": 89557,
+      "bytes": 9886,
+      "sha256": "ca277315e0f5a785d51fdb2bc6157484d461f73a06bd6b357773cc186be35bd0",
+      "width": 266,
+      "height": 214,
+      "alt": "Ear piercings and jewelry from the original studio story",
+      "processing": "Original source converted to WebP without cropping, upscaling, or color adjustments."
+    },
+    {
+      "asset": "assets/sp-original-detail-journey-community.webp",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-14-161433.png",
+      "source_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-14-161433.png",
+      "source_sha256": "641d4ccdce46ede11ef695e2c33709bdc059305e28732c48ee2d1b8ed4797cc9",
+      "source_bytes": 111265,
+      "bytes": 16442,
+      "sha256": "8864a9312671e335ea97c897edd61833f9f4b00ef2c48c3d4afd99b1ec438ccc",
+      "width": 268,
+      "height": 211,
+      "alt": "A donation collection box at Sideshow Productions",
+      "processing": "Original source converted to WebP without cropping, upscaling, or color adjustments."
+    },
+    {
+      "asset": "assets/sp-original-detail-journey-years.webp",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-14-161515.png",
+      "source_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-14-161515.png",
+      "source_sha256": "7e6c2f198b9175b5001b913448e0d5055ef5319523493bc88add9f6e37df64ab",
+      "source_bytes": 109381,
+      "bytes": 17376,
+      "sha256": "23517d4acee882dc709b98f62e459569375eb5bd1eff60b6601c407f492a391c",
+      "width": 268,
+      "height": 211,
+      "alt": "A studio story image shared on the original About page",
+      "processing": "Original source converted to WebP without cropping, upscaling, or color adjustments."
+    },
+    {
+      "asset": "assets/sp-original-detail-flash-07.webp",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-164300.png",
+      "source_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-164300.png",
+      "source_sha256": "f6c1bb33b154ffc2cca6e9d63d724543c666f6620cf13b564e96068d1fc2ea8a",
+      "source_bytes": 286923,
+      "bytes": 40704,
+      "sha256": "409d74317b34229eaee56e09a6ee3368744d8095c3f8937190c0c76ccb472b75",
+      "width": 653,
+      "height": 847,
+      "alt": "Character-inspired designs from the original flash collection",
+      "processing": "Original source converted to WebP without cropping, upscaling, or color adjustments."
+    },
+    {
+      "asset": "assets/sp-original-detail-flash-08.webp",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-164242.png",
+      "source_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-13-164242.png",
+      "source_sha256": "de5c2008b213ddbdfefb602e03e4b0b5580c5095df07b736a3cd272a8c279f93",
+      "source_bytes": 303743,
+      "bytes": 43948,
+      "sha256": "72850df86473ef4df10029915996516016a8b3b341ae58d109040cfbad6340ce",
+      "width": 641,
+      "height": 844,
+      "alt": "Symbols and small icons from the original flash collection",
+      "processing": "Original source converted to WebP without cropping, upscaling, or color adjustments."
+    },
+    {
+      "asset": "assets/sp-original-detail-flash.mp4",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/ink-roulette.mp4",
+      "source_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/ink-roulette.mp4",
+      "source_sha256": "b9442e29b36435a444fd09e11e7b97968044820d49e4e4b93e6cc754eef78ed7",
+      "source_bytes": 21397812,
+      "bytes": 3056103,
+      "sha256": "371a9d0c69f5ec9acc3120861bd747f2f95d295cdb1dc8447be24589dcc1b142",
+      "source_video": {
+        "width": 1418,
+        "height": 958,
+        "duration": 29.098646,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "has_audio": true
+      },
+      "output_video": {
+        "width": 1200,
+        "height": 810,
+        "duration": 29.0,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "has_audio": false
+      },
+      "processing": "Full original video, muted H.264 delivery encode, 24fps, no artificial content or upscale."
+    },
+    {
+      "asset": "assets/sp-original-detail-flash-poster.webp",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/ink-roulette.mp4",
+      "source_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/ink-roulette.mp4",
+      "source_sha256": "b9442e29b36435a444fd09e11e7b97968044820d49e4e4b93e6cc754eef78ed7",
+      "source_bytes": 21397812,
+      "bytes": 43214,
+      "sha256": "4ec99173aae7cb3ba6456b9b6a181121d8a363a37a02511e9e3d19304d447ec8",
+      "width": 1200,
+      "height": 810,
+      "frame_seconds": 1.5,
+      "processing": "Single unaltered frame from the corresponding original video."
+    },
+    {
+      "asset": "assets/sp-original-detail-roulette.mp4",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/ir1.mp4",
+      "source_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/ir1.mp4",
+      "source_sha256": "bb79b392f94077e750799180e8cb5875cf3c779c79d98c2a81eb4964ff5dd7c2",
+      "source_bytes": 9823021,
+      "bytes": 9280770,
+      "sha256": "96cc0a7438d950b545243e00f79d2312d839a4b79a6f0c6c234f0527b59139a6",
+      "source_video": {
+        "width": 432,
+        "height": 768,
+        "duration": 91.547,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "has_audio": true
+      },
+      "output_video": {
+        "width": 432,
+        "height": 768,
+        "duration": 91.547,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "has_audio": false
+      },
+      "processing": "Full original H.264 video stream preserved without recompression; audio removed and faststart enabled."
+    },
+    {
+      "asset": "assets/sp-original-detail-roulette-poster.webp",
+      "source_url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/ir1.mp4",
+      "source_path": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/ir1.mp4",
+      "source_sha256": "bb79b392f94077e750799180e8cb5875cf3c779c79d98c2a81eb4964ff5dd7c2",
+      "source_bytes": 9823021,
+      "bytes": 35844,
+      "sha256": "bbf92357dc0fc0f2cd9018497007e6b5c6dc7f4cc36cf41a1b5612ee7f0440f3",
+      "width": 432,
+      "height": 768,
+      "frame_seconds": 1.5,
+      "processing": "Single unaltered frame from the corresponding original video."
+    }
+  ]
+}

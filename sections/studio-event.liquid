@@ -6,10 +6,10 @@
 {% assign booking_date_valid = false %}
 {% if booking_date.size == 10 and normalized_booking_date == booking_date and booking_date_seconds >= 946684800 %}{% assign booking_date_valid = true %}{% endif %}
 {% if section.settings.enabled and expires_seconds > now_seconds %}
-<section class="sp-event" data-expires="{{ section.settings.expires_at | escape }}"{% if section.settings.show_popup %} data-sp-promo data-campaign="{{ section.settings.campaign | escape }}" data-auto-popup="{{ section.settings.auto_popup }}" data-popup-delay="{{ section.settings.popup_delay | times: 1000 }}" data-booking-closes="{{ section.settings.booking_closes | escape }}"{% endif %}>
-  <div class="sp-shell"><span class="sp-tag">{{ section.settings.label | escape }}</span><div><strong>{{ section.settings.title | escape }}</strong><p>{{ section.settings.copy | escape }}</p></div>
+<section class="sp-event{% if section.settings.popup_only %} sp-event--popup-only{% endif %}" data-expires="{{ section.settings.expires_at | escape }}"{% if section.settings.show_popup %} data-sp-promo data-campaign="{{ section.settings.campaign | escape }}" data-auto-popup="{{ section.settings.auto_popup }}" data-popup-delay="{{ section.settings.popup_delay | times: 1000 }}" data-booking-closes="{{ section.settings.booking_closes | escape }}"{% endif %}>
+  {% unless section.settings.popup_only %}<div class="sp-shell"><span class="sp-tag">{{ section.settings.label | escape }}</span><div><strong>{{ section.settings.title | escape }}</strong><p>{{ section.settings.copy | escape }}</p></div>
     {% if section.settings.show_popup %}<a class="sp-link sp-event-trigger" href="{{ section.settings.link | default: '/pages/flash' }}" data-promo-open aria-haspopup="dialog" aria-controls="sp-event-dialog-{{ section.id }}">{{ section.settings.link_label | escape }} {% render 'studio-icon', name: 'arrow-up-right' %}</a>{% else %}<a class="sp-link" href="{{ section.settings.link | default: '/pages/flash' }}">{{ section.settings.link_label | escape }} {% render 'studio-icon', name: 'arrow-up-right' %}</a>{% endif %}
-  </div>
+  </div>{% endunless %}
   {% if section.settings.show_popup %}
     <dialog class="sp-promo" id="sp-event-dialog-{{ section.id }}" data-promo-dialog aria-labelledby="sp-promo-title-{{ section.id }}">
       <div class="sp-promo-top"><span>{{ section.settings.label | escape }}</span><button class="sp-promo-close" type="button" data-promo-close aria-label="Close event popup"><span>Close</span><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></button></div>
@@ -40,6 +40,7 @@
 {
   "name": "Studio timed event",
   "settings": [
+    {"type":"checkbox","id":"popup_only","label":"Show popup without an event strip","default":false},
     {
       "type": "checkbox",
       "id": "enabled",

@@ -1,0 +1,86 @@
+<section class="sp-original-section sp-original-pages sp-original-feature sp-original-feature--{{ section.settings.kind }}{% if section.settings.page_heading %} sp-original-feature--page{% endif %}{% if section.settings.tone == 'red' %} sp-original-pages--red{% endif %}" aria-labelledby="OriginalFeature-{{ section.id }}">
+  <div class="sp-original-shell sp-original-feature-layout">
+    <div class="sp-original-feature-copy" data-reveal>
+      {% if section.settings.kicker != blank and section.settings.kicker != '#' %}<p class="sp-original-kicker">{{ section.settings.kicker | escape }}</p>{% endif %}
+      {% assign feature_heading_tag = 'h2' %}{% if section.settings.page_heading %}{% assign feature_heading_tag = 'h1' %}{% endif %}
+      <{{ feature_heading_tag }} class="sp-original-title" id="OriginalFeature-{{ section.id }}">{{ section.settings.heading | escape }}</{{ feature_heading_tag }}>
+      {% if section.settings.copy != blank and section.settings.copy != '#' %}<p class="sp-original-feature-intro">{{ section.settings.copy | escape }}</p>{% endif %}
+      {% if section.settings.kind == 'media' or section.settings.kind == 'statement' %}
+        {% for block in section.blocks %}{% if block.type == 'point' %}<p class="sp-original-feature-point" {{ block.shopify_attributes }}><span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span>{{ block.settings.text | escape }}</p>{% endif %}{% endfor %}
+      {% endif %}
+      {% if section.settings.button_label != blank and section.settings.button_label != '#' %}
+        <div class="sp-original-feature-actions"><a class="sp-original-button" href="{{ section.settings.button_link }}">{{ section.settings.button_label | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>{% if section.settings.second_label != blank and section.settings.second_label != '#' %}<a class="sp-original-text-link" href="{{ section.settings.second_link }}">{{ section.settings.second_label | escape }} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></a>{% endif %}</div>
+      {% endif %}
+    </div>
+    {% case section.settings.kind %}
+      {% when 'media' %}
+        <div class="sp-original-feature-media{% if section.settings.portrait %} sp-original-feature-media--portrait{% endif %}" data-reveal>
+          {% if section.settings.video_asset != blank and section.settings.video_asset != '#' %}<video data-original-video autoplay muted loop playsinline preload="none" {% if section.settings.poster != blank and section.settings.poster != '#' %}poster="{{ section.settings.poster | asset_url }}"{% endif %} aria-label="{{ section.settings.media_alt | escape }}"><source data-src="{{ section.settings.video_asset | asset_url }}" type="video/mp4"></video>{% endif %}
+          {% if section.settings.poster != blank and section.settings.poster != '#' %}<img class="sp-original-feature-poster{% if section.settings.video_asset != blank and section.settings.video_asset != '#' %} sp-original-feature-poster--fallback{% endif %}" src="{{ section.settings.poster | asset_url }}" alt="{{ section.settings.media_alt | escape }}" width="{{ section.settings.media_width }}" height="{{ section.settings.media_height }}" loading="lazy" decoding="async">{% endif %}
+        </div>
+      {% when 'reviews' %}
+        <div class="sp-original-detail-carousel" data-original-carousel data-interval="6500" aria-label="Client reviews" aria-roledescription="carousel" data-reveal>
+          <div class="sp-original-detail-track" data-original-track tabindex="0" aria-label="Client reviews. Swipe to read more.">
+            {% for block in section.blocks %}{% if block.type == 'review' %}<figure class="sp-original-detail-review" data-original-slide {{ block.shopify_attributes }}>
+              <span class="sp-original-detail-quote" aria-hidden="true">“</span>
+              <blockquote {% if block.settings.source_url != blank %}cite="{{ block.settings.source_url }}"{% endif %}><p>{{ block.settings.quote | escape }}</p></blockquote>
+              <figcaption><strong>{{ block.settings.author | escape }}</strong><span>{{ block.settings.source_label | escape }}</span></figcaption>
+            </figure>{% endif %}{% endfor %}
+          </div>
+        </div>
+      {% when 'faq' %}
+        <div class="sp-original-detail-faq" data-reveal>
+          {% for block in section.blocks %}{% if block.type == 'question' %}<details {{ block.shopify_attributes }}><summary>{{ block.settings.question | escape }}<span aria-hidden="true">{% render 'studio-icon', name: 'chevron' %}</span></summary><div class="sp-original-detail-answer">{{ block.settings.answer }}</div></details>{% endif %}{% endfor %}
+        </div>
+      {% when 'newsletter' %}
+        <div class="sp-original-newsletter" data-reveal>
+          {% form 'customer', id: 'StudioOriginalNewsletter' %}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            {% if form.posted_successfully? %}<p class="sp-notice" role="status">Thanks for joining the Sideshow community.</p>{% endif %}
+            {% if form.errors %}<div class="sp-notice" role="alert">{{ form.errors | default_errors }}</div>{% endif %}
+            <label for="OriginalNewsletterEmail-{{ section.id }}">Email address</label>
+            <div class="sp-original-newsletter-row"><input id="OriginalNewsletterEmail-{{ section.id }}" type="email" name="contact[email]" autocomplete="email" placeholder="Your email address" required><button class="sp-original-button" type="submit">Join Us <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></button></div>
+            <p class="sp-original-newsletter-note">By subscribing, you agree to receive studio news and offers. Read our <a href="/policies/privacy-policy">privacy policy</a>. You can unsubscribe at any time.</p>
+          {% endform %}
+          <a class="sp-original-text-link" href="https://www.instagram.com/sideshowproductionstattoo/" target="_blank" rel="noopener noreferrer">{% render 'studio-icon', name: 'instagram' %} Follow Sideshow</a>
+        </div>
+    {% endcase %}
+  </div>
+</section>
+{% schema %}
+{
+  "name":"Original studio feature",
+  "settings":[
+    {"type":"checkbox","id":"page_heading","label":"Use as page introduction","default":false},
+    {"type":"select","id":"kind","label":"Content","options":[{"value":"media","label":"Split text and media"},{"value":"statement","label":"Statement"},{"value":"reviews","label":"Autoplay reviews"},{"value":"faq","label":"Questions"},{"value":"newsletter","label":"Newsletter"}],"default":"media"},
+    {"type":"text","id":"kicker","label":"Eyebrow","default":"Discover Your Style"},
+    {"type":"text","id":"heading","label":"Heading","default":"Make Your Mark"},
+    {"type":"textarea","id":"copy","label":"Copy","default":"Explore the work and find your next piece at Sideshow Productions."},
+    {"type":"text","id":"button_label","label":"Primary label, # hides","default":"#"},
+    {"type":"url","id":"button_link","label":"Primary link","default":"/pages/book"},
+    {"type":"text","id":"second_label","label":"Secondary label, # hides","default":"#"},
+    {"type":"url","id":"second_link","label":"Secondary link","default":"/pages/artists"},
+    {"type":"text","id":"video_asset","label":"MP4 asset filename","default":"#"},
+    {"type":"text","id":"poster","label":"Image asset filename","default":"#"},
+    {"type":"text","id":"media_alt","label":"Media description","default":"Inside the Sideshow Productions studio"},
+    {"type":"number","id":"media_width","label":"Image width","default":1200},
+    {"type":"number","id":"media_height","label":"Image height","default":800},
+    {"type":"checkbox","id":"portrait","label":"Portrait media","default":false},
+    {"type":"select","id":"tone","label":"Background","options":[{"value":"dark","label":"Dark"},{"value":"red","label":"Soft red gradient"}],"default":"dark"}
+  ],
+  "blocks":[
+    {"type":"point","name":"Feature point","settings":[{"type":"text","id":"text","label":"Text","default":"Skilled artists ready to bring your vision to life"}]},
+    {"type":"review","name":"Source review","settings":[
+      {"type":"textarea","id":"quote","label":"Original review","default":"I got my first professional tattoo here and it looks amazing! Definitely coming back for my next one"},
+      {"type":"text","id":"author","label":"Author","default":"Lindsay Palmatier"},
+      {"type":"text","id":"source_label","label":"Review label","default":"Google review"},
+      {"type":"url","id":"source_url","label":"Source page","default":"https://sideshowproductionstattoo.com/about/"}
+    ]},
+    {"type":"question","name":"Question","settings":[
+      {"type":"text","id":"question","label":"Question","default":"How do I book?"},
+      {"type":"richtext","id":"answer","label":"Answer","default":"<p>Contact the studio to find the right artist and session for you.</p>"}
+    ]}
+  ],
+  "presets":[{"name":"Original studio feature"}]
+}
+{% endschema %}

@@ -1,0 +1,220 @@
+{
+  "review_date": "2026-11-12",
+  "purpose": "V2 shop layout and original catalog order. No new products or media were recovered in this change.",
+  "source_pages": [
+    "archive/current-site-2026-11-10/pages/merch-shop.html",
+    "archive/current-site-2026-11-10/pages/merch-shop__page__2.html"
+  ],
+  "source_catalog": "archive/current-site-2026-11-10/catalog.json",
+  "product_count": 21,
+  "merchandise_count": 16,
+  "aftercare_count": 5,
+  "previous_product_mapping": "docs/studio-catalog-mapping.json",
+  "aftercare_image_decisions": "docs/studio-aftercare-media-sources.json",
+  "layout": {
+    "heading": "Merch Shop",
+    "subheading": "Shop Our Collection",
+    "desktop_columns": 3,
+    "phone_columns": 2,
+    "order": "Original mixed product ordering from the two captured shop pages, shown together in one grid."
+  },
+  "notes": [
+    "V1 already contained all 21 products. This pass changes the heading, order and presentation only.",
+    "All 21 existing product settings, prices, stock declarations, connected-product selectors and image decisions are preserved.",
+    "Sixteen existing merchandise photographs and three corrected aftercare photographs are reused without recompression or retouching.",
+    "The two unresolved aftercare package photos remain intentional text cards; the staged source photographs were not restored.",
+    "Fallback product actions retain the existing contact inquiry routes. No Shopify product handle, inventory count, variant or checkout behavior was invented.",
+    "Published prices and stock declarations are retained from the November 10 public-site capture, not a new live Shopify inventory verification."
+  ],
+  "products": [
+    {
+      "original_position": 1,
+      "block_id": "product_17",
+      "title": "Aftercare Soothing Gel for Tattoos | Mad Rabbit",
+      "source_url": "https://sideshowproductionstattoo.com/product/aftercare-soothing-gel-for-tattoos-mad-rabbit/",
+      "source_price": "$21.00",
+      "asset": "#",
+      "show_image": false
+    },
+    {
+      "original_position": 2,
+      "block_id": "product_18",
+      "title": "Base Laboratories | Piercing Aftercare Spray",
+      "source_url": "https://sideshowproductionstattoo.com/product/base-laboratories-aftercare-spray/",
+      "source_price": "$22.00",
+      "asset": "sp-product-base-spray.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 3,
+      "block_id": "product_19",
+      "title": "Enhance Balm for Tattoo Aftercare | Mad Rabbit",
+      "source_url": "https://sideshowproductionstattoo.com/product/ehance-balm-mad-rabbit/",
+      "source_price": "$18.00",
+      "asset": "#",
+      "show_image": false
+    },
+    {
+      "original_position": 4,
+      "block_id": "product_01",
+      "title": "Sideshow Productions 3 Eyed Lady Long Sleeve",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-3-eyed-lady-long-sleeve/",
+      "source_price": "$25.00",
+      "asset": "sp-product-01.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 5,
+      "block_id": "product_02",
+      "title": "Sideshow Productions Circus Lady Long Sleeve",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-circus-lady-long-sleeve/",
+      "source_price": "$25.00",
+      "asset": "sp-product-02.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 6,
+      "block_id": "product_03",
+      "title": "Sideshow Productions Colorful Octopus Tee",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-colorful-octopus-tee/",
+      "source_price": "$20.00",
+      "asset": "sp-product-03.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 7,
+      "block_id": "product_04",
+      "title": "Sideshow Productions Conjoined Skeletons Long Sleeve",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-conjoined-skeletons-long-sleeve/",
+      "source_price": "$25.00",
+      "asset": "sp-product-04.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 8,
+      "block_id": "product_05",
+      "title": "Sideshow Productions Freex Beanie",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-freex-beanie/",
+      "source_price": "$10.00",
+      "asset": "sp-product-05.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 9,
+      "block_id": "product_06",
+      "title": "Sideshow Productions Gray Hat",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-gray-hat/",
+      "source_price": "$15.00",
+      "asset": "sp-product-06.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 10,
+      "block_id": "product_07",
+      "title": "Sideshow Productions Hard Skull Short Sleeve",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-hard-skull-short-sleeve/",
+      "source_price": "$28.00",
+      "asset": "sp-product-07.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 11,
+      "block_id": "product_08",
+      "title": "Sideshow Productions Ink Therapy Tee",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-ink-therapy-tee/",
+      "source_price": "$20.00",
+      "asset": "sp-product-08.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 12,
+      "block_id": "product_09",
+      "title": "Sideshow Productions Inked Octopus Tee",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-inked-octopus-tee/",
+      "source_price": "$20.00",
+      "asset": "sp-product-09.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 13,
+      "block_id": "product_10",
+      "title": "Sideshow Productions Monster Tattoo Long Sleeve",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-monster-tattoo-long-sleeve/",
+      "source_price": "$25.00",
+      "asset": "sp-product-10.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 14,
+      "block_id": "product_11",
+      "title": "Sideshow Productions Scientist Ladies Hoodie",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-scientist-ladies-hoodie/",
+      "source_price": "$40.00",
+      "asset": "sp-product-11.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 15,
+      "block_id": "product_12",
+      "title": "Sideshow Productions Tattoo Dracula Pullover",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-tattoo-dracula-pullover/",
+      "source_price": "$40.00",
+      "asset": "sp-product-12.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 16,
+      "block_id": "product_13",
+      "title": "Sideshow Productions Tie Dye Skull Short Sleeve",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-tie-dye-skull-short-sleeve/",
+      "source_price": "$28.00",
+      "asset": "sp-product-13.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 17,
+      "block_id": "product_14",
+      "title": "Sideshow Productions Werewolf Tattoo Tee",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-ware-wolf-tattoo-tee/",
+      "source_price": "$20.00",
+      "asset": "sp-product-14.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 18,
+      "block_id": "product_15",
+      "title": "Sideshow Productions White Tote Bag",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-white-tote-bag/",
+      "source_price": "$15.00",
+      "asset": "sp-product-15.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 19,
+      "block_id": "product_16",
+      "title": "Sideshow Productions Woman Skull Short Sleeve",
+      "source_url": "https://sideshowproductionstattoo.com/product/sideshow-productions-wman-skull-short-sleeve/",
+      "source_price": "$20.00",
+      "asset": "sp-product-16.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 20,
+      "block_id": "product_20",
+      "title": "Steri-Wash | Sterile Saline Piercing Wash",
+      "source_url": "https://sideshowproductionstattoo.com/product/steri-wash-piercing-wash/",
+      "source_price": "$16.00",
+      "asset": "sp-product-steri-wash.webp",
+      "show_image": true
+    },
+    {
+      "original_position": 21,
+      "block_id": "product_21",
+      "title": "Tattoo Sunscreen - Defend | Mad Rabbit",
+      "source_url": "https://sideshowproductionstattoo.com/product/tattoo-sunscreen-defend-mad-rabbit/",
+      "source_price": "$21.00",
+      "asset": "sp-product-defend.webp",
+      "show_image": true
+    }
+  ]
+}

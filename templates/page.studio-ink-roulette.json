@@ -1,14 +1,61 @@
 {
   "layout": "studio",
   "sections": {
-    "section_1": {
-      "type": "studio-page",
+    "intro": {
+      "type": "studio-original-feature",
       "settings": {
-        "title": "INK ROULETTE.",
-        "copy": "Two spins. Choose your number. Find your next tattoo."
+        "kind": "statement",
+        "heading": "Ink Roulette: Take a Chance",
+        "kicker": "Unleash Your Unique Style",
+        "copy": "Experience the thrill of our Ink Roulette to discover exciting new tattoo designs.",
+        "page_heading": true,
+        "button_label": "Book Your Spot",
+        "button_link": "/pages/book",
+        "second_label": "See Our Artists",
+        "second_link": "/pages/artists"
       }
     },
-    "section_2": {
+    "how_it_works": {
+      "type": "studio-original-story",
+      "settings": {
+        "heading": "Your Journey Begins Here",
+        "kicker": "#",
+        "copy": "Let our talented artists bring your vision to life with stunning designs and expert techniques.",
+        "columns": "3",
+        "compact": true
+      },
+      "blocks": {
+        "block_1": {
+          "type": "story",
+          "settings": {
+            "heading": "Spin to Win!",
+            "copy": "Experience the thrill of our Ink Roulette! Spin the wheel and discover what design awaits you. It’s an exciting way to find your next tattoo, making your choice easy and fun."
+          }
+        },
+        "block_2": {
+          "type": "story",
+          "settings": {
+            "heading": "Join the Fun!",
+            "copy": "Everyone gets a chance to explore their creativity with our unique Ink Roulette. Each spin brings a surprise, leading you to a new and unexpected tattoo."
+          }
+        },
+        "block_3": {
+          "type": "story",
+          "settings": {
+            "heading": "Ready to Spin?",
+            "copy": "Come by, give the wheel a spin, and let the adventure of body art unfold just for you.",
+            "link_label": "Talk to the studio",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3"
+      ]
+    },
+    "wheel": {
       "type": "studio-roulette",
       "settings": {},
       "blocks": {
@@ -216,11 +263,11 @@
         "design_27"
       ]
     },
-    "section_3": {
+    "gallery": {
       "type": "studio-flash-gallery",
       "settings": {
-        "heading": "THE INK ROULETTE COLLECTION.",
-        "kicker": "LEAVE A LITTLE ROOM FOR SURPRISE"
+        "heading": "Ink Roulette Showcase",
+        "kicker": "Explore the studio’s Ink Roulette designs"
       },
       "blocks": {
         "design_01": {
@@ -427,15 +474,182 @@
         "design_27"
       ]
     },
-    "section_4": {
-      "type": "studio-visit",
-      "settings": {}
+    "reviews": {
+      "type": "studio-original-feature",
+      "settings": {
+        "kind": "reviews",
+        "heading": "What Our Clients Are Saying",
+        "kicker": "#",
+        "copy": "#",
+        "tone": "red"
+      },
+      "blocks": {
+        "block_1": {
+          "type": "review",
+          "settings": {
+            "quote": "Just got my lobes pierced! They’re the 3rd ones on both sides, the process was quick and painless and the guys there were super friendly! Loved the experience!",
+            "author": "Faith Deaton",
+            "source_label": "Ear Piercing",
+            "source_url": "https://sideshowproductionstattoo.com/ink-roulette/"
+          }
+        },
+        "block_2": {
+          "type": "review",
+          "settings": {
+            "quote": "Jake is awesome! Me and my cousin got matching tattoos and he did exactly what we wanted. They came out so great. Professional, clean and quick to respond. Will be coming back for my next tattoo!",
+            "author": "Ranithri Slayton",
+            "source_label": "Tattoo Design",
+            "source_url": "https://sideshowproductionstattoo.com/ink-roulette/"
+          }
+        },
+        "block_3": {
+          "type": "review",
+          "settings": {
+            "quote": "Solid prices great work Jake makes sure your really comfortable highly recommend",
+            "author": "Carlos Tarazon",
+            "source_label": "Tattoo Design | Memorial Tattoo",
+            "source_url": "https://sideshowproductionstattoo.com/ink-roulette/"
+          }
+        },
+        "block_4": {
+          "type": "review",
+          "settings": {
+            "quote": "Had a tattoo with Jake and it was the BEST tattoo experience I have ever had. Most painless tattoo EVER. Like literally almost fell asleep (in a good way lol). They're healing super well. Was given a second piece of second skin to apply later if it pealed and was wrapped up super well before leaving. Clean shop. And felt comfortable from the start of my appt.",
+            "author": "Hayley Ainsworth",
+            "source_label": "Flash Tattoo",
+            "source_url": "https://sideshowproductionstattoo.com/ink-roulette/"
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4"
+      ]
+    },
+    "experience": {
+      "type": "studio-original-feature",
+      "settings": {
+        "kind": "media",
+        "heading": "Discover Our Ink Roulette Experience",
+        "kicker": "#",
+        "copy": "Spin the wheel for $150 and get two chances. Choose your favorite number from the spins, pick a design from the board, and customize it with color or shading. Prefer a different number? Choosing another number is an additional $20.",
+        "video_asset": "sp-original-detail-roulette.mp4",
+        "poster": "sp-original-detail-roulette-poster.webp",
+        "portrait": true,
+        "media_alt": "Original portrait footage of the Sideshow Ink Roulette experience",
+        "media_width": 432,
+        "media_height": 768,
+        "button_label": "Book Now",
+        "button_link": "/pages/book",
+        "second_label": "Our Artists",
+        "second_link": "/pages/artists"
+      }
+    },
+    "board": {
+      "type": "studio-original-story",
+      "settings": {
+        "heading": "A Look at the Studio Board",
+        "kicker": "Make Your Mark",
+        "copy": "The physical board and studio rules are part of the in-person experience. Your artist confirms your design, size, placement, and final details.",
+        "columns": "2"
+      },
+      "blocks": {
+        "block_1": {
+          "type": "story",
+          "settings": {
+            "heading": "The Design Board",
+            "copy": "Browse the numbered board with your artist after your spins.",
+            "asset": "sp-roulette-22.webp",
+            "alt": "Photograph of the numbered Ink Roulette board in the studio",
+            "width": 799,
+            "height": 599,
+            "lightbox": true
+          }
+        },
+        "block_2": {
+          "type": "story",
+          "settings": {
+            "heading": "The Studio Rules",
+            "copy": "Two spins for $150. Choosing another number is an additional $20.",
+            "asset": "sp-roulette-25.webp",
+            "alt": "Original Ink Roulette rules sign from Sideshow Productions",
+            "width": 599,
+            "height": 799,
+            "lightbox": true
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2"
+      ]
+    },
+    "faq": {
+      "type": "studio-original-feature",
+      "settings": {
+        "kind": "faq",
+        "heading": "Common Questions",
+        "kicker": "#",
+        "copy": "Got questions? We have answers to help you feel more at ease.",
+        "button_label": "Ask the Studio",
+        "button_link": "/pages/contact"
+      },
+      "blocks": {
+        "block_1": {
+          "type": "question",
+          "settings": {
+            "question": "How do I book an appointment?",
+            "answer": "<p>Choose your service and contact the studio to confirm your artist, appointment time, and booking details. <a href=\"/pages/book\">Explore booking options.</a></p>"
+          }
+        },
+        "block_2": {
+          "type": "question",
+          "settings": {
+            "question": "What aftercare should I follow for my tattoo?",
+            "answer": "<p>Follow the written instructions your artist gives you for your tattoo and dressing. Contact the studio if you need those instructions again. <a href=\"/pages/aftercare\">Find aftercare contacts.</a></p>"
+          }
+        },
+        "block_3": {
+          "type": "question",
+          "settings": {
+            "question": "Can I customize my tattoo design?",
+            "answer": "<p>Bring your ideas, sketches, or inspiration. Your artist will explain the color, shading, and design options that fit your selected piece.</p>"
+          }
+        },
+        "block_4": {
+          "type": "question",
+          "settings": {
+            "question": "What should I expect during my session?",
+            "answer": "<p>Your session begins with a consultation about the design and your preferences. Your artist will explain the process and help you feel comfortable before starting.</p>"
+          }
+        },
+        "block_5": {
+          "type": "question",
+          "settings": {
+            "question": "Can I get a piercing during my visit?",
+            "answer": "<p>Let the studio know when you book if you’re interested in a piercing too. The team can check availability for both services.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4",
+        "block_5"
+      ]
     }
   },
   "order": [
-    "section_1",
-    "section_2",
-    "section_3",
-    "section_4"
+    "intro",
+    "how_it_works",
+    "wheel",
+    "gallery",
+    "reviews",
+    "experience",
+    "board",
+    "faq"
   ]
 }

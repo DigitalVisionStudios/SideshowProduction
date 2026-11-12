@@ -62,651 +62,209 @@
         "tattoos"
       ]
     },
+    "original_services": {
+      "type": "studio-original-services",
+      "settings": {},
+      "blocks": {
+        "service_1": {
+          "type": "service",
+          "settings": {
+            "heading": "Tattoos",
+            "copy": "Explore our unique tattoo designs crafted by talented artists. Each ink stroke tells a story. Your story. Let us help you express yourself.",
+            "asset": "sp-original-service-tattoos.webp",
+            "label": "Learn More",
+            "link": "/pages/about"
+          }
+        },
+        "service_2": {
+          "type": "service",
+          "settings": {
+            "heading": "Piercings",
+            "copy": "Add a little sparkle to your look with our professional piercing services. From ears to noses, we ensure a safe and stylish experience.",
+            "asset": "sp-original-service-piercings.webp",
+            "label": "Get Pierced",
+            "link": "/pages/book#sonny"
+          }
+        },
+        "service_3": {
+          "type": "service",
+          "settings": {
+            "heading": "Tooth Gems",
+            "copy": "Brighten your smile with our stylish tooth gems! Shine in every conversation with a touch of bling that’s truly you.",
+            "asset": "sp-original-service-tooth-gems.webp",
+            "label": "Sparkle Up",
+            "link": "/pages/book#megan"
+          }
+        },
+        "service_4": {
+          "type": "service",
+          "settings": {
+            "heading": "Microblading",
+            "copy": "Wake up with perfect brows! Our microblading services create natural-looking, fuller eyebrows, tailored just for you.",
+            "asset": "sp-original-service-microblading.webp",
+            "label": "Book Now",
+            "link": "/pages/contact?service=microblading"
+          }
+        },
+        "service_5": {
+          "type": "service",
+          "settings": {
+            "heading": "Teeth Whitening",
+            "copy": "Achieve a radiant smile with our professional teeth whitening treatments. Smile brighter and boost your confidence instantly.",
+            "asset": "sp-original-service-teeth-whitening.webp",
+            "label": "Shine Bright",
+            "link": "/pages/book#megan"
+          }
+        },
+        "service_6": {
+          "type": "service",
+          "settings": {
+            "heading": "Aftercare Tips",
+            "copy": "Take good care of your new ink, piercing, or gems! Our aftercare tips will guide you to ensure your body art stays fresh and vibrant.",
+            "asset": "sp-original-service-aftercare.webp",
+            "label": "Read More",
+            "link": "/pages/aftercare"
+          }
+        }
+      },
+      "block_order": [
+        "service_1",
+        "service_2",
+        "service_3",
+        "service_4",
+        "service_5",
+        "service_6"
+      ]
+    },
+    "original_artists": {
+      "type": "studio-original-artists",
+      "settings": {},
+      "blocks": {
+        "artist_1": {
+          "type": "artist",
+          "settings": {
+            "anchor": "rigo",
+            "name": "Rigo",
+            "role": "Tattoo Artist",
+            "asset": "sp-original-portrait-rigo.webp",
+            "alt": "Rigo at Sideshow Productions",
+            "bio": "Works in black-and-grey and illustrative styles with clean lines and smooth blends.",
+            "instagram": "https://www.instagram.com/Solo_inkslinger"
+          }
+        },
+        "artist_2": {
+          "type": "artist",
+          "settings": {
+            "anchor": "jake",
+            "name": "Jake",
+            "role": "Tattoo Artist",
+            "asset": "sp-original-portrait-jake.webp",
+            "alt": "Jake at Sideshow Productions",
+            "bio": "Blends graphic elements with black-and-grey shading for clear, readable designs.",
+            "instagram": "https://www.instagram.com/jakenotlopez"
+          }
+        },
+        "artist_3": {
+          "type": "artist",
+          "settings": {
+            "anchor": "megan",
+            "name": "Megan",
+            "role": "Tooth Gem & Teeth Whitening",
+            "asset": "sp-original-portrait-megan.webp",
+            "alt": "Megan at Sideshow Productions",
+            "bio": "Specializes in cosmetic tooth gems and teeth whitening, providing safe application with quality materials.",
+            "instagram": "https://www.instagram.com/meganwell14"
+          }
+        },
+        "artist_4": {
+          "type": "artist",
+          "settings": {
+            "anchor": "sonny",
+            "name": "Sonny",
+            "role": "Piercing Artist",
+            "asset": "sp-original-portrait-sonny.webp",
+            "alt": "Sonny at Sideshow Productions",
+            "bio": "Provides precise, professional piercings using sterile technique and implant-grade jewelry.",
+            "instagram": "https://www.instagram.com/sonny.27_"
+          }
+        }
+      },
+      "block_order": [
+        "artist_1",
+        "artist_2",
+        "artist_3",
+        "artist_4"
+      ]
+    },
+    "original_roulette": {
+      "type": "studio-original-roulette",
+      "settings": {}
+    },
+    "original_reviews": {
+      "type": "studio-original-reviews",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "quote": "I love this shop! I've had both tattoos and piercings done here, and they always turn out amazing They have a clean, friendly, and welcoming atmosphere. The staff are all very knowledgeable, professional, and kind. They are also very affordable! Jake and James are my favorite, but I'd recommend any of the artists/piercers there! 100/10!! I know I'll definitely be a long returning client of theirs",
+            "name": "Dakota Fuller",
+            "source": "A Local Guide | Google Review"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "quote": "I absolutely loveeeeee this tattoo shop!! I have gotten my last 3 tattoos from them and my dad has gotten one as well and all the time I have been everyone has been super nice and the environment is very welcoming! Every artist there does amazing work and they are very accommodating. Highly recommend this shop for your next tattoo!",
+            "name": "Ashleigh Jensen",
+            "source": "A Local Guide | Google Review"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "quote": "I know the owner and he’s super dope. He gave me an awesome tattoo and I love it. He’s got a light touch and checked to make sure I was okay throughout the tattoo. He answered all my questions and concerns and I couldn’t be happier with the result of my tat!",
+            "name": "Kayla Burnett",
+            "source": "Google Review"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "quote": "This shop is so clean! Jake was light handed and hit the fine lines of my tattoo are exceptional. A fun warm welcome and very comfortable seating. I'll be back for more ink in the future.",
+            "name": "Jessica Repman",
+            "source": "Google Review"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4"
+      ]
+    },
+    "original_connect": {
+      "type": "studio-original-connect",
+      "settings": {}
+    },
     "section_2": {
       "type": "studio-event",
       "settings": {
         "show_popup": true,
         "auto_popup": true,
-        "popup_delay": 12
+        "popup_delay": 12,
+        "popup_only": true
       }
-    },
-    "section_3": {
-      "type": "studio-services",
-      "settings": {},
-      "blocks": {
-        "block_1": {
-          "type": "service",
-          "settings": {
-            "title": "Custom tattoos",
-            "asset": "sp-original-jake-swallow.webp",
-            "alt": "Black swallow, sun, and wave tattoo by Jake",
-            "fit": "cover",
-            "price": "From $100 / hour",
-            "price_detail": "$50 deposit, credited toward your total.",
-            "description": "Custom designs, black and grey, color, and lettering.",
-            "note": "Jake & Rigo",
-            "artist_link": "/pages/artists",
-            "link_label": "Book tattoos",
-            "link": "/pages/book"
-          }
-        },
-        "block_2": {
-          "type": "service",
-          "settings": {
-            "title": "Piercings",
-            "asset": "sp-original-sonny-heart.webp",
-            "alt": "Gold heart-shaped ear jewelry in a piercing by Sonny",
-            "fit": "cover",
-            "price": "Pricing by placement",
-            "price_detail": "20% deposit. Jewelry included with new piercings.",
-            "description": "Explore placements and jewelry with Sonny.",
-            "note": "Sonny",
-            "artist_link": "/pages/artists#sonny",
-            "link_label": "Book piercings",
-            "link": "/pages/book"
-          }
-        },
-        "block_3": {
-          "type": "service",
-          "settings": {
-            "title": "Tooth gems",
-            "asset": "sp-service-tooth-gems.webp",
-            "alt": "Clear tooth gems and gold accents on a smile shown in Megan's portfolio",
-            "fit": "contain",
-            "price": "From $60",
-            "price_detail": "Additional gems $20 each. Heart/star $65. Fang $100. 20% deposit.",
-            "description": "Crystals, shapes, and individual gem placements.",
-            "note": "Megan",
-            "artist_link": "/pages/artists#megan",
-            "link_label": "Book tooth gems",
-            "link": "/pages/book"
-          }
-        },
-        "block_4": {
-          "type": "service",
-          "settings": {
-            "title": "Teeth whitening",
-            "asset": "sp-service-whitening.webp",
-            "alt": "Teeth-whitening comparison from the original Shopify homepage: after on the left, before on the right",
-            "fit": "contain",
-            "price": "From $89",
-            "price_detail": "Single $89. Double $120. Triple $200. 20% deposit.",
-            "description": "Single, double, and triple whitening sessions with Megan.",
-            "note": "Megan",
-            "artist_link": "/pages/artists#megan",
-            "link_label": "Book whitening",
-            "link": "/pages/book"
-          }
-        }
-      },
-      "block_order": [
-        "block_1",
-        "block_2",
-        "block_3",
-        "block_4"
-      ]
-    },
-    "section_4": {
-      "type": "studio-work",
-      "settings": {},
-      "blocks": {
-        "block_1": {
-          "type": "work",
-          "settings": {
-            "asset": "sp-original-jake-reaper.webp",
-            "alt": "Black grim reaper tattoo holding a scythe by Jake",
-            "title": "Grim reaper",
-            "artist": "JAKE",
-            "category": "tattoo"
-          }
-        },
-        "block_2": {
-          "type": "work",
-          "settings": {
-            "asset": "sp-original-rigo-floral.webp",
-            "alt": "Blue and purple floral tattoo by Rigo",
-            "title": "Color florals",
-            "artist": "RIGO",
-            "category": "tattoo"
-          }
-        },
-        "block_3": {
-          "type": "work",
-          "settings": {
-            "asset": "sp-original-jake-spiders.webp",
-            "alt": "Two black spider tattoos forming a heart shape by Jake",
-            "title": "Spider heart",
-            "artist": "JAKE",
-            "category": "tattoo",
-            "fit": "contain"
-          }
-        },
-        "block_4": {
-          "type": "work",
-          "settings": {
-            "asset": "sp-original-jake-figure.webp",
-            "alt": "Illustrative black tattoo of a seated figure beneath a crescent moon by Jake",
-            "title": "Illustrative blackwork",
-            "artist": "JAKE",
-            "category": "tattoo"
-          }
-        },
-        "block_5": {
-          "type": "work",
-          "settings": {
-            "asset": "sp-original-sonny-heart.webp",
-            "alt": "Gold heart-shaped ear jewelry in a piercing by Sonny",
-            "title": "Heart jewelry",
-            "artist": "SONNY",
-            "category": "piercing"
-          }
-        },
-        "block_6": {
-          "type": "work",
-          "settings": {
-            "asset": "sp-work-12.webp",
-            "alt": "Tooth gems shown in Megan’s portfolio",
-            "title": "Tooth gems",
-            "artist": "MEGAN",
-            "category": "gems"
-          }
-        }
-      },
-      "block_order": [
-        "block_1",
-        "block_2",
-        "block_3",
-        "block_4",
-        "block_5",
-        "block_6"
-      ]
-    },
-    "section_5": {
-      "type": "studio-artists",
-      "settings": {},
-      "blocks": {
-        "block_1": {
-          "type": "artist",
-          "settings": {
-            "anchor": "jake",
-            "name": "Jake",
-            "role": "TATTOO ARTIST",
-            "asset": "sp-welcome-jake-session.webp",
-            "alt": "Jake wearing blue gloves while tattooing a client's arm at Sideshow",
-            "bio": "Custom tattoo work, black and grey, lettering, and fine-line designs.",
-            "meta": "CUSTOM TATTOOS · LETTERING",
-            "rate": "From $100 / hour",
-            "deposit": "$50 deposit, credited toward your total.",
-            "hours": "Tuesday & Friday: 4–10 pm. Wednesday, Thursday & Saturday: 3:30–10 pm. No Sunday or Monday appointments.",
-            "fit": "contain"
-          }
-        },
-        "block_2": {
-          "type": "artist",
-          "settings": {
-            "anchor": "rigo",
-            "name": "Rigo",
-            "role": "TATTOO ARTIST",
-            "asset": "sp-original-rigo-floral.webp",
-            "alt": "Blue and purple floral tattoo by Rigo",
-            "bio": "Custom tattoos and color work. Consultations in English or Spanish.",
-            "meta": "ILLUSTRATIVE · ENGLISH / ESPAÑOL",
-            "rate": "From $100 / hour",
-            "deposit": "$50 deposit, credited toward your total.",
-            "hours": "Tuesday–Saturday: 3–8 pm. No Sunday or Monday appointments.",
-            "fit": "contain"
-          }
-        },
-        "block_3": {
-          "type": "artist",
-          "settings": {
-            "anchor": "sonny",
-            "name": "Sonny",
-            "role": "PIERCING ARTIST",
-            "asset": "sp-original-sonny-ear.webp",
-            "alt": "Gold ear jewelry in piercing work by Sonny",
-            "bio": "Body piercings and jewelry. Contact Sonny about your placement and availability.",
-            "meta": "PIERCINGS · JEWELRY",
-            "rate": "Pricing varies by piercing",
-            "deposit": "20% deposit. Jewelry included with new piercings.",
-            "hours": "Tuesday–Friday: 2–8 pm. Saturday: noon–8 pm. No Sunday or Monday appointments.",
-            "fit": "contain"
-          }
-        },
-        "block_4": {
-          "type": "artist",
-          "settings": {
-            "anchor": "megan",
-            "name": "Megan",
-            "role": "TOOTH GEMS & WHITENING",
-            "asset": "sp-original-megan.webp",
-            "alt": "Megan, Sideshow Productions tooth-gem and whitening artist",
-            "bio": "Tooth gems and teeth whitening. Explore gem options and whitening sessions.",
-            "meta": "TOOTH GEMS · TEETH WHITENING",
-            "rate": "Tooth gems from $60",
-            "deposit": "Additional gems $20 each. Heart/star $65. Fang $100. Whitening: single $89, double $120, triple $200. 20% deposit.",
-            "hours": "Tuesday–Saturday: 7–8:30 pm."
-          }
-        }
-      },
-      "block_order": [
-        "block_1",
-        "block_2",
-        "block_3",
-        "block_4"
-      ]
-    },
-    "section_6": {
-      "type": "studio-statement",
-      "settings": {},
-      "blocks": {
-        "studio_photo_1": {
-          "type": "photo",
-          "settings": {
-            "asset": "sp-source-storefront.webp",
-            "alt": "Sideshow Productions sign above the studio entrance in Murray",
-            "caption": "The studio",
-            "fit": "contain"
-          }
-        },
-        "studio_photo_2": {
-          "type": "photo",
-          "settings": {
-            "asset": "sp-welcome-jake-session.webp",
-            "alt": "Jake working on a client's tattoo at Sideshow Productions, wearing blue gloves",
-            "caption": "At work with Jake",
-            "fit": "contain"
-          }
-        },
-        "studio_photo_3": {
-          "type": "photo",
-          "settings": {
-            "asset": "sp-source-flash-wall.webp",
-            "alt": "Hand-drawn Ink Roulette designs pinned to the studio's physical flash board",
-            "caption": "On the flash wall",
-            "fit": "contain"
-          }
-        }
-      },
-      "block_order": [
-        "studio_photo_1",
-        "studio_photo_2",
-        "studio_photo_3"
-      ]
-    },
-    "section_7": {
-      "type": "studio-roulette",
-      "settings": {},
-      "blocks": {
-        "design_01": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-01.webp",
-            "title": "Cartoon dog with its tongue out"
-          }
-        },
-        "design_02": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-02.webp",
-            "title": "Black-haired portrait beside a colorful snake"
-          }
-        },
-        "design_03": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-03.webp",
-            "title": "Jack-o-lantern with flowers"
-          }
-        },
-        "design_04": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-04.webp",
-            "title": "Skeletal hand making a horns gesture"
-          }
-        },
-        "design_05": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-05.webp",
-            "title": "Two dark flowers with a tape motif"
-          }
-        },
-        "design_06": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-06.webp",
-            "title": "Black spider with red detailing"
-          }
-        },
-        "design_07": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-07.webp",
-            "title": "Green character with flowers"
-          }
-        },
-        "design_08": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-08.webp",
-            "title": "Black snake with pink flowers"
-          }
-        },
-        "design_09": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-09.webp",
-            "title": "Fairy with purple wings"
-          }
-        },
-        "design_10": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-10.webp",
-            "title": "Ornate dagger"
-          }
-        },
-        "design_11": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-11.webp",
-            "title": "Floral snake design marked 15"
-          }
-        },
-        "design_12": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-12.webp",
-            "title": "Skeletal hand holding a red rose"
-          }
-        },
-        "design_13": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-13.webp",
-            "title": "Red rose with stars"
-          }
-        },
-        "design_14": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-14.webp",
-            "title": "Black fish"
-          }
-        },
-        "design_15": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-15.webp",
-            "title": "Skull pierced by a dagger"
-          }
-        },
-        "design_16": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-16.webp",
-            "title": "Heart with a MOM banner"
-          }
-        },
-        "design_17": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-17.webp",
-            "title": "Skeletal hand holding a rose"
-          }
-        },
-        "design_18": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-18.webp",
-            "title": "Bat with spread wings"
-          }
-        },
-        "design_19": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-19.webp",
-            "title": "Half skull with roses and flame shapes"
-          }
-        },
-        "design_20": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-20.webp",
-            "title": "Skeleton character holding a small figure"
-          }
-        },
-        "design_21": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-21.webp",
-            "title": "Lips holding a rolled banknote"
-          }
-        },
-        "design_23": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-23.webp",
-            "title": "Pink and blue butterfly"
-          }
-        },
-        "design_24": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-24.webp",
-            "title": "Roaring cat head"
-          }
-        },
-        "design_26": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-26.webp",
-            "title": "Red rose with an outlined motif"
-          }
-        },
-        "design_27": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-roulette-27.webp",
-            "title": "Anatomical heart with flowers"
-          }
-        }
-      },
-      "block_order": [
-        "design_01",
-        "design_02",
-        "design_03",
-        "design_04",
-        "design_05",
-        "design_06",
-        "design_07",
-        "design_08",
-        "design_09",
-        "design_10",
-        "design_11",
-        "design_12",
-        "design_13",
-        "design_14",
-        "design_15",
-        "design_16",
-        "design_17",
-        "design_18",
-        "design_19",
-        "design_20",
-        "design_21",
-        "design_23",
-        "design_24",
-        "design_26",
-        "design_27"
-      ]
-    },
-    "section_8": {
-      "type": "studio-visit",
-      "settings": {}
-    },
-    "section_marquee": {
-      "type": "studio-marquee",
-      "settings": {}
-    },
-    "section_reviews": {
-      "type": "studio-reviews",
-      "settings": {},
-      "blocks": {
-        "block_1": {
-          "type": "review",
-          "settings": {
-            "quote": "I love this shop! I've had both tattoos and piercings done here, and they always turn out amazing  They have a clean, friendly, and welcoming atmosphere. The staff are all very knowledgeable, professional, and kind. They are also very affordable! Jake and James are my favorite, but I'd recommend any of the artists/piercers there! 100/10!! I know I'll definitely be a long returning client of theirs",
-            "author": "Dakota Fuller",
-            "source_label": "A Local Guide | Google Review",
-            "source_url": "https://sideshowproductionstattoo.com/"
-          }
-        },
-        "block_2": {
-          "type": "review",
-          "settings": {
-            "quote": "I absolutely loveeeeee this tattoo shop!! I have gotten my last 3 tattoos from them and my dad has gotten one as well and all the time I have been everyone has been super nice and the environment is very welcoming! Every artist there does amazing work and they are very accommodating. Highly recommend this shop for your next tattoo!",
-            "author": "Ashleigh Jensen",
-            "source_label": "A Local Guide | Google Review",
-            "source_url": "https://sideshowproductionstattoo.com/"
-          }
-        },
-        "block_3": {
-          "type": "review",
-          "settings": {
-            "quote": "I know the owner and he’s super dope. He gave me an awesome tattoo and I love it. He’s got a light touch and checked to make sure I was okay throughout the tattoo. He answered all my questions and concerns and I couldn’t be happier with the result of my tat!",
-            "author": "Kayla Burnett",
-            "source_label": "Google Review",
-            "source_url": "https://sideshowproductionstattoo.com/"
-          }
-        },
-        "block_4": {
-          "type": "review",
-          "settings": {
-            "quote": "This shop is so clean! Jake was light handed and hit the fine lines of my tattoo are exceptional. A fun warm welcome and very comfortable seating. I'll be back for more ink in the future.",
-            "author": "Jessica Repman",
-            "source_label": "Google Review",
-            "source_url": "https://sideshowproductionstattoo.com/"
-          }
-        },
-        "block_5": {
-          "type": "review",
-          "settings": {
-            "quote": "We happen to see that they were doing a fundraiser for the Trevor Project when we drove by. We went in to say Thank You for supporting something that is important to us. Then we ended up getting impromptu tattoos. They are amazing",
-            "author": "Teinamarrie Scuderi",
-            "source_label": "Google Review",
-            "source_url": "https://sideshowproductionstattoo.com/about/"
-          }
-        },
-        "block_6": {
-          "type": "review",
-          "settings": {
-            "quote": "I got my first professional tattoo here and it looks amazing! Definitely coming back for my next one",
-            "author": "Lindsay Palmatier",
-            "source_label": "Google Review",
-            "source_url": "https://sideshowproductionstattoo.com/about/"
-          }
-        }
-      },
-      "block_order": [
-        "block_1",
-        "block_2",
-        "block_3",
-        "block_4",
-        "block_5",
-        "block_6"
-      ]
-    },
-    "section_social": {
-      "type": "studio-social",
-      "settings": {
-        "instagram_url": "https://www.instagram.com/sideshowproductionstattoo/",
-        "tiktok_url": "https://www.tiktok.com/@sshowproductionstattoo"
-      },
-      "blocks": {
-        "block_1": {
-          "type": "photo",
-          "settings": {
-            "asset": "sp-original-jake-boot.webp",
-            "alt": "Fine-line cowboy boot filled with flowers by Jake",
-            "caption": "Work by Jake",
-            "link_url": "https://www.instagram.com/jakenotlopez",
-            "link_label": "See Jake's work on Instagram"
-          }
-        },
-        "block_2": {
-          "type": "photo",
-          "settings": {
-            "asset": "sp-work-07.webp",
-            "alt": "Script lettering tattoo by Rigo",
-            "caption": "Work by Rigo",
-            "link_url": "https://www.instagram.com/Solo_inkslinger",
-            "link_label": "See Rigo's work on Instagram"
-          }
-        },
-        "block_3": {
-          "type": "photo",
-          "settings": {
-            "asset": "sp-work-11.webp",
-            "alt": "Ear jewelry and piercings shown in Sonny's portfolio",
-            "caption": "Piercings by Sonny",
-            "link_url": "https://www.instagram.com/sonny.27_",
-            "link_label": "See Sonny's work on Instagram"
-          }
-        },
-        "block_4": {
-          "type": "photo",
-          "settings": {
-            "asset": "sp-original-jake-swallow.webp",
-            "alt": "Black swallow, sun, and wave tattoo by Jake",
-            "caption": "Work by Jake",
-            "link_url": "https://www.instagram.com/jakenotlopez",
-            "link_label": "See Jake's work on Instagram"
-          }
-        },
-        "block_5": {
-          "type": "photo",
-          "settings": {
-            "asset": "sp-original-megan-gem.webp",
-            "alt": "Small tooth gem shown in Megan's portfolio",
-            "caption": "Tooth gems by Megan",
-            "link_url": "https://www.instagram.com/meganwell14",
-            "link_label": "See Megan's work on Instagram"
-          }
-        },
-        "block_6": {
-          "type": "photo",
-          "settings": {
-            "asset": "sp-work-10.webp",
-            "alt": "Floral vine linework tattoo by Rigo",
-            "caption": "Work by Rigo",
-            "link_url": "https://www.instagram.com/Solo_inkslinger",
-            "link_label": "See Rigo's work on Instagram"
-          }
-        }
-      },
-      "block_order": [
-        "block_1",
-        "block_2",
-        "block_3",
-        "block_4",
-        "block_5",
-        "block_6"
-      ]
     }
   },
   "order": [
     "section_1",
-    "section_2",
-    "section_4",
-    "section_3",
-    "section_marquee",
-    "section_5",
-    "section_6",
-    "section_7",
-    "section_reviews",
-    "section_social",
-    "section_8"
+    "original_services",
+    "original_artists",
+    "original_roulette",
+    "original_reviews",
+    "original_connect",
+    "section_2"
   ]
 }

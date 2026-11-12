@@ -1,0 +1,674 @@
+{
+  "source": {
+    "site": "https://sideshowproductionstattoo.com/",
+    "archived_at": "2026-11-10T23:05:58.134550+00:00",
+    "home_html": "archive/current-site-2026-11-10/pages/home.html",
+    "home_html_sha256": "c89469100c1b0adc63e0ba3417a3034b3df604afb206c128ab6185ee4fd022ac",
+    "home_text": "archive/current-site-2026-11-10/pages/home.txt",
+    "styles": "archive/current-site-2026-11-10/assets/sideshowproductionstattoo.com/wp-content/uploads/elementor/css/post-20-3894d4c2.css",
+    "note": "This is the downloaded WordPress/Elementor live-site source, not the older Shopify homepage."
+  },
+  "homepage_order": [
+    {
+      "id": "20dfcbf",
+      "headings": [
+        "The Best Tattoo Shop Vibes Murray Utah",
+        "Unleashing your creativity starts with artists piercings tattoos that inspire.",
+        "Ready to express yourself in vibrant ink?"
+      ]
+    },
+    {
+      "id": "6fc13b1",
+      "headings": [
+        "Tattoos",
+        "Piercings",
+        "Tooth Gems",
+        "Microblading",
+        "Teeth Whitening",
+        "Aftercare Tips"
+      ]
+    },
+    {
+      "id": "1a84f19",
+      "headings": [
+        "Meet Our Artists",
+        "Discover the talented artists who bring your ideas to life."
+      ]
+    },
+    {
+      "id": "782f5db",
+      "headings": [
+        "Rigo",
+        "Jake",
+        "Megan",
+        "Sonny"
+      ]
+    },
+    {
+      "id": "c473315",
+      "headings": []
+    },
+    {
+      "id": "b20cafe",
+      "headings": [
+        "Discover Your Style",
+        "Spin the Wheel of Ink and Uncover Your Next Tattoo!"
+      ]
+    },
+    {
+      "id": "537858b",
+      "headings": [
+        "What Our Clients Say",
+        "Hear it straight from our awesome clients"
+      ]
+    },
+    {
+      "id": "056aad4",
+      "headings": [
+        "Get Inked!",
+        "Let’s Connect!"
+      ]
+    }
+  ],
+  "hero": {
+    "retain_current_redesign": true,
+    "original_headings": [
+      "The Best Tattoo Shop Vibes Murray Utah",
+      "Unleashing your creativity starts with artists piercings tattoos that inspire.",
+      "Ready to express yourself in vibrant ink?"
+    ],
+    "original_links": [
+      {
+        "label": "Our Artists",
+        "href": "/about#artists"
+      },
+      {
+        "label": "Book Now",
+        "href": "/booking/"
+      }
+    ]
+  },
+  "services": [
+    {
+      "elementor_id": "07672bd",
+      "heading": "Tattoos",
+      "copy": "Explore our unique tattoo designs crafted by talented artists. Each ink stroke tells a story—your story. Let us help you express yourself.",
+      "cta": {
+        "label": "Learn More",
+        "href": "/about"
+      },
+      "displayed_thumbnail": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-22-150x150.png",
+      "original_image": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-22.png",
+      "original_dimensions": [
+        1563,
+        1563
+      ],
+      "archive": {
+        "url": "http://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-22.png",
+        "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-22.png",
+        "bytes": 111352,
+        "sha256": "2f1203c53cc7564c867f63da0177963520788ac3ae482a88fd1c7ed9944b1a26"
+      }
+    },
+    {
+      "elementor_id": "aa6a0ca",
+      "heading": "Piercings",
+      "copy": "Add a little sparkle to your look with our professional piercing services. From ears to noses, we ensure a safe and stylish experience.",
+      "cta": {
+        "label": "Get Pierced",
+        "href": "/booking/"
+      },
+      "displayed_thumbnail": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-11-150x150.png",
+      "original_image": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-11.png",
+      "original_dimensions": [
+        1563,
+        1563
+      ],
+      "archive": {
+        "url": "http://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-11.png",
+        "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-11.png",
+        "bytes": 158842,
+        "sha256": "2019d5d28da15cd5b21fe67e3b078e2a7dcbda467fbf5fb5da22080a55075359"
+      }
+    },
+    {
+      "elementor_id": "e9b38e3",
+      "heading": "Tooth Gems",
+      "copy": "Brighten your smile with our stylish tooth gems! Shine in every conversation with a touch of bling that’s truly you.",
+      "cta": {
+        "label": "Sparkle Up",
+        "href": "/booking/"
+      },
+      "displayed_thumbnail": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-13-150x150.png",
+      "original_image": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-13.png",
+      "original_dimensions": [
+        1563,
+        1563
+      ],
+      "archive": {
+        "url": "http://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-13.png",
+        "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-13.png",
+        "bytes": 119662,
+        "sha256": "98e5e684798019d349dff2be4363d3c06422dd4b2b0f5c42713f3b31fcbff1a5"
+      }
+    },
+    {
+      "elementor_id": "a07e415",
+      "heading": "Microblading",
+      "copy": "Wake up with perfect brows! Our microblading services create natural-looking, fuller eyebrows, tailored just for you.",
+      "cta": {
+        "label": "Book Now",
+        "href": "/booking/"
+      },
+      "displayed_thumbnail": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-14-150x150.png",
+      "original_image": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-14.png",
+      "original_dimensions": [
+        1563,
+        1563
+      ],
+      "archive": {
+        "url": "http://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-14.png",
+        "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-14.png",
+        "bytes": 237615,
+        "sha256": "39de474f25100bfb1c8ded0fc5e21a5409ba35b422765649753ad7f403a3cbb9"
+      }
+    },
+    {
+      "elementor_id": "024c247",
+      "heading": "Teeth Whitening",
+      "copy": "Achieve a radiant smile with our professional teeth whitening treatments. Smile brighter and boost your confidence instantly.",
+      "cta": {
+        "label": "Shine Bright",
+        "href": "/booking/"
+      },
+      "displayed_thumbnail": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-15-150x150.png",
+      "original_image": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-15.png",
+      "original_dimensions": [
+        1563,
+        1563
+      ],
+      "archive": {
+        "url": "http://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-15.png",
+        "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-15.png",
+        "bytes": 123370,
+        "sha256": "45ad3faf186161792971d19f85569215958fc67e0406ffa16f8cec4f71dbca8e"
+      }
+    },
+    {
+      "elementor_id": "7f3c457",
+      "heading": "Aftercare Tips",
+      "copy": "Take good care of your new ink, piercing, or gems! Our aftercare tips will guide you to ensure your body art stays fresh and vibrant.",
+      "cta": {
+        "label": "Read More",
+        "href": "/after-care/"
+      },
+      "displayed_thumbnail": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-16-150x150.png",
+      "original_image": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-16.png",
+      "original_dimensions": [
+        1563,
+        1563
+      ],
+      "archive": {
+        "url": "http://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-16.png",
+        "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-16.png",
+        "bytes": 89532,
+        "sha256": "a53bf4af1e19584c1ca502cdcb0e5be7fb9cc3b5e39609675546f011b5b8a753"
+      }
+    }
+  ],
+  "artists": [
+    {
+      "name": "Rigo",
+      "role": "Tattoo Artist",
+      "copy": "Works in black-and-grey and illustrative styles with clean lines and smooth blends.",
+      "portrait": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-165356-e1774365245548.png",
+      "portrait_dimensions": [
+        363,
+        364
+      ],
+      "links": [
+        {
+          "label": "Instagram",
+          "href": "https://www.instagram.com/Solo_inkslinger"
+        },
+        {
+          "label": "Photo-video",
+          "href": "/portfolios#Rigo"
+        }
+      ],
+      "archive": {
+        "url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-165356-e1774365245548.png",
+        "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-165356-e1774365245548.png",
+        "bytes": 183878,
+        "sha256": "dc64a488e30302e31e7315fc20540977bf46d722e8d025fac7139aeb487c48fb"
+      }
+    },
+    {
+      "name": "Jake",
+      "role": "Tattoo Artist",
+      "copy": "Blends graphic elements with black-and-grey shading for clear, readable designs.",
+      "portrait": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-162353-e1774365148720.png",
+      "portrait_dimensions": [
+        364,
+        364
+      ],
+      "links": [
+        {
+          "label": "Instagram",
+          "href": "https://www.instagram.com/jakenotlopez"
+        },
+        {
+          "label": "Photo-video",
+          "href": "/portfolios#Jake"
+        }
+      ],
+      "archive": {
+        "url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-162353-e1774365148720.png",
+        "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-162353-e1774365148720.png",
+        "bytes": 176640,
+        "sha256": "948e7b27dacd2b4b8a333d9ec54ec9dae5f2d7d17029c00e5d37cd1b5688e25f"
+      }
+    },
+    {
+      "name": "Megan",
+      "role": "Tooth Gem & Teeth Whitening",
+      "copy": "Specializes in cosmetic tooth gems and teeth whitening, providing safe application with quality materials.",
+      "portrait": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-163956-e1774365113946.png",
+      "portrait_dimensions": [
+        364,
+        364
+      ],
+      "links": [
+        {
+          "label": "Instagram",
+          "href": "https://www.instagram.com/meganwell14"
+        },
+        {
+          "label": "Photo-video",
+          "href": "/portfolios#Megan"
+        }
+      ],
+      "archive": {
+        "url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-163956-e1774365113946.png",
+        "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-163956-e1774365113946.png",
+        "bytes": 161237,
+        "sha256": "fdee256955277bbcb83f8871c95d179546fce5f893a51d253979c684f95865be"
+      }
+    },
+    {
+      "name": "Sonny",
+      "role": "Piercing Artist",
+      "copy": "Provides precise, professional piercings using sterile technique and implant-grade jewelry.",
+      "portrait": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-163923-e1774365062847.png",
+      "portrait_dimensions": [
+        365,
+        362
+      ],
+      "links": [
+        {
+          "label": "Instagram",
+          "href": "https://www.instagram.com/sonny.27_"
+        },
+        {
+          "label": "Photo-video",
+          "href": "/portfolios#Sonny"
+        }
+      ],
+      "archive": {
+        "url": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-163923-e1774365062847.png",
+        "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-163923-e1774365062847.png",
+        "bytes": 194736,
+        "sha256": "efd011816ec7f5b99ffba55a281667329c72f95c3d2890c5e0af1cf4855dc628"
+      }
+    }
+  ],
+  "artist_carousel_settings": {
+    "carousel_items": [
+      {
+        "slide_title": "Rigo",
+        "_id": "09d1f9c"
+      },
+      {
+        "slide_title": "Ashley",
+        "_id": "ab10836"
+      },
+      {
+        "slide_title": "Jake",
+        "_id": "b903403"
+      },
+      {
+        "slide_title": "Megan",
+        "_id": "ab384f1"
+      }
+    ],
+    "slides_to_show": "3",
+    "image_spacing_custom": {
+      "unit": "px",
+      "size": 32,
+      "sizes": []
+    },
+    "autoplay_speed": 3000,
+    "slides_to_show_tablet": "2",
+    "slides_to_show_mobile": "1",
+    "autoplay": "yes",
+    "pause_on_interaction": "yes",
+    "infinite": "yes",
+    "speed": 500,
+    "offset_sides": "none",
+    "arrows": "yes",
+    "pagination": "bullets",
+    "image_spacing_custom_tablet": {
+      "unit": "px",
+      "size": "",
+      "sizes": []
+    },
+    "image_spacing_custom_mobile": {
+      "unit": "px",
+      "size": "",
+      "sizes": []
+    }
+  },
+  "artist_settings_warning": "The internal slide labels contain stale Ashley/Jake/Megan labels. Rendered visible names/roles are Rigo, Jake, Megan, Sonny and are authoritative for this audit.",
+  "empty_spacer": {
+    "elementor_id": "c473315",
+    "note": "No image, video, copy, or functionality is present. Do not invent a new section for it."
+  },
+  "roulette": {
+    "eyebrow": "Discover Your Style",
+    "heading": "Spin the Wheel of Ink and Uncover Your Next Tattoo!",
+    "copy": "Ready for something unique? Our Ink Roulette is designed for thrill-seekers! Spin the wheel, and let fate guide you to an exciting tattoo design. It’s not just about the ink; it’s about embracing adventure and expressing your individuality. Whether you’re a tattoo newbie or a seasoned collector, there’s something waiting just for you!",
+    "cta": {
+      "label": "Try It Now!",
+      "href": "/ink-roulette/"
+    },
+    "video": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/6-Instagram-Google-Chrome-9-January-2026-1.mp4",
+    "video_archive": {
+      "url": "http://sideshowproductionstattoo.com/wp-content/uploads/2026/01/6-Instagram-Google-Chrome-9-January-2026-1.mp4",
+      "local_path": "assets/sideshowproductionstattoo.com/wp-content/uploads/2026/01/6-Instagram-Google-Chrome-9-January-2026-1.mp4",
+      "bytes": 4738933,
+      "sha256": "45143c91b3e5cedd8ec101f3d00b43bc223cf5940d1df2be09e03c90f9b3be4b"
+    },
+    "source_video_settings": {
+      "autoplay": true,
+      "loop": true,
+      "muted": true,
+      "controls": true
+    },
+    "cleanup": "Retain current interactive wheel on the Ink Roulette page. The original homepage promoted it with text and video, rather than showing an interactive wheel.",
+    "video_dimensions": {
+      "width": 496,
+      "height": 892,
+      "verification": "Read tkhd video track dimensions from archived MP4 on the Windows workspace."
+    }
+  },
+  "reviews": {
+    "eyebrow": "What Our Clients Say",
+    "heading": "Hear it straight from our awesome clients",
+    "items": [
+      {
+        "quote": "\"I love this shop! I've had both tattoos and piercings done here, and they always turn out amazing They have a clean, friendly, and welcoming atmosphere. The staff are all very knowledgeable, professional, and kind. They are also very affordable! Jake and James are my favorite, but I'd recommend any of the artists/piercers there! 100/10!! I know I'll definitely be a long returning client of theirs \"",
+        "name": "Dakota Fuller",
+        "source_label": "A Local Guide | Google Review"
+      },
+      {
+        "quote": "\"I absolutely loveeeeee this tattoo shop!! I have gotten my last 3 tattoos from them and my dad has gotten one as well and all the time I have been everyone has been super nice and the environment is very welcoming! Every artist there does amazing work and they are very accommodating. Highly recommend this shop for your next tattoo!\"",
+        "name": "Ashleigh Jensen",
+        "source_label": "A Local Guide | Google Review"
+      },
+      {
+        "quote": "\"I know the owner and he’s super dope. He gave me an awesome tattoo and I love it. He’s got a light touch and checked to make sure I was okay throughout the tattoo. He answered all my questions and concerns and I couldn’t be happier with the result of my tat!\"",
+        "name": "Kayla Burnett",
+        "source_label": "Google Review"
+      },
+      {
+        "quote": "\"This shop is so clean! Jake was light handed and hit the fine lines of my tattoo are exceptional. A fun warm welcome and very comfortable seating. I'll be back for more ink in the future.\"",
+        "name": "Jessica Repman",
+        "source_label": "Google Review"
+      }
+    ],
+    "source_settings": {
+      "slides_per_view": "1",
+      "slides_to_scroll": "1",
+      "space_between": {
+        "unit": "px",
+        "size": "",
+        "sizes": []
+      },
+      "autoplay_speed": 4000,
+      "speed": 500,
+      "autoplay": "yes",
+      "loop": "yes",
+      "pause_on_hover": "yes",
+      "pause_on_interaction": "yes",
+      "space_between_tablet": {
+        "unit": "px",
+        "size": 10,
+        "sizes": []
+      },
+      "space_between_mobile": {
+        "unit": "px",
+        "size": 10,
+        "sizes": []
+      }
+    }
+  },
+  "contact": {
+    "eyebrow": "Get Inked!",
+    "heading": "Let’s Connect!",
+    "copy": "We’re here to answer any questions you may have. Feel free to reach out to us for bookings or inquiries!",
+    "links": [
+      {
+        "label": "Tiktok",
+        "href": "https://www.tiktok.com/@sshowproductionstattoo"
+      },
+      {
+        "label": "Instagram",
+        "href": "https://www.instagram.com/sideshowproductionstattoo/"
+      },
+      {
+        "label": "(385) 547-9547",
+        "href": "tel:%203855479547"
+      },
+      {
+        "label": "club@sideshowproductionstattoo.com",
+        "href": "mailto:club@sideshowproductionstattoo.com"
+      },
+      {
+        "label": "4973 S State ST, Murray, Utah, 84107",
+        "href": "https://share.google/isyJ5lAU4RTm3RVS1"
+      }
+    ],
+    "map": {
+      "loading": "lazy",
+      "src": "https://maps.google.com/maps?q=4973%20S%20State%20St%2C%20Murray%2C%20UT%2084107&t=m&z=13&output=embed&iwloc=near",
+      "title": "4973 S State St, Murray, UT 84107",
+      "aria-label": "4973 S State St, Murray, UT 84107"
+    },
+    "hours": "No hours are displayed in the original homepage contact section or footer."
+  },
+  "footer": {
+    "text": "Home About After Care Flash Tattoos Ink Roulette Merch Shop Home About After Care Flash Tattoos Ink Roulette Merch Shop Instagram © 2026 Sideshow Productions LLC. All rights reserved. (385) 547 - 9547 club@sideshowproductionstattoo.com Contact Us Operations Policy Refund Policy Privacy Policy Terms of Service",
+    "links": [
+      {
+        "label": "",
+        "href": "https://sideshowproductionstattoo.com"
+      },
+      {
+        "label": "Home",
+        "href": "https://sideshowproductionstattoo.com/"
+      },
+      {
+        "label": "About",
+        "href": "https://sideshowproductionstattoo.com/about/"
+      },
+      {
+        "label": "After Care",
+        "href": "https://sideshowproductionstattoo.com/after-care/"
+      },
+      {
+        "label": "Flash Tattoos",
+        "href": "https://sideshowproductionstattoo.com/flash-tattoos/"
+      },
+      {
+        "label": "Ink Roulette",
+        "href": "https://sideshowproductionstattoo.com/ink-roulette/"
+      },
+      {
+        "label": "Merch Shop",
+        "href": "https://sideshowproductionstattoo.com/merch-shop/"
+      },
+      {
+        "label": "Instagram",
+        "href": "https://www.instagram.com/sideshowproductionstattoo/"
+      },
+      {
+        "label": "(385) 547 - 9547",
+        "href": "tel:3855479547"
+      },
+      {
+        "label": "club@sideshowproductionstattoo.com",
+        "href": "mailto:club@sideshowproductionstattoo.com"
+      },
+      {
+        "label": "Contact Us",
+        "href": "/contact-us/"
+      },
+      {
+        "label": "Operations Policy",
+        "href": "/operations-policy/"
+      },
+      {
+        "label": "Refund Policy",
+        "href": "/refund-policy/"
+      },
+      {
+        "label": "Privacy Policy",
+        "href": "/privacy-policy-2/"
+      },
+      {
+        "label": "Terms of Service",
+        "href": "/terms-of-service/"
+      }
+    ]
+  },
+  "popups": [
+    {
+      "id": "1899",
+      "description": "Image-based rotating Halloween / Friday-the-13th event popup. Switches to November event after October 26 and hides after November 15, 2026 UTC. Preserve current redesign’s already-reviewed November event handling.",
+      "images": [
+        "https://sideshowproductionstattoo.com/wp-content/uploads/2026/10/halloween-spooktacular-2026.png",
+        "https://sideshowproductionstattoo.com/wp-content/uploads/2026/10/image.png"
+      ]
+    },
+    {
+      "id": "1810",
+      "description": "Expired August 2 National Tattoo Day popup. Do not reactivate.",
+      "text": "Limited Time — Ends August 2nd Flash Tattoos From $40 + Piercing & Teeth Gem Specials Celebrate National Tattoo Day with us! Flash tattoos starting at $40, 2 piercings for $60, and 2 teeth whitening or tooth gems for $60. Walk-ins welcome."
+    }
+  ],
+  "styles": {
+    "container_max_width": 1250,
+    "background": "#000000",
+    "primary_text": "#FFFFFF",
+    "secondary_color": "#FF0000",
+    "accent_color": "#CC0815",
+    "original_fonts": {
+      "primary": "Sedgwick Ave Display",
+      "secondary": "Sedgwick Ave",
+      "body": "RocknRoll One"
+    },
+    "service_grid": {
+      "desktop_columns": 3,
+      "desktop_rows": 2,
+      "phone_columns": 1,
+      "desktop_section_padding": "100px 24px",
+      "phone_section_padding": "48px 16px",
+      "card_padding": "23px",
+      "card_gap": "24px",
+      "prices_in_homepage_cards": false
+    },
+    "artist_heading": {
+      "desktop_section_padding": "112px 24px",
+      "phone_section_padding": "64px 16px",
+      "overlay": "linear-gradient(88deg, red 10%, black 67%) at 0.5 opacity"
+    },
+    "artist_carousel": {
+      "desktop_slides": 3,
+      "tablet_slides": 2,
+      "phone_slides": 1,
+      "gap": 32,
+      "autoplay_ms": 3000,
+      "transition_ms": 500,
+      "portrait_shape": "circular",
+      "portrait_width": "33% of image-box",
+      "portrait_position": "left of name/role",
+      "source_had_controls": true,
+      "cleanup": "Keep autoplay but omit visible arrows/pagination/pause controls per user preference."
+    },
+    "roulette": {
+      "layout": "left text, right autoplay muted looping source video",
+      "desktop_section_padding": "100px 24px",
+      "inner_padding": 48,
+      "inner_gap": 48,
+      "phone_inner_padding": 16
+    },
+    "reviews": {
+      "layout": "left heading, right one-review-at-a-time slider",
+      "desktop_gap": 80,
+      "autoplay_ms": 4000,
+      "transition_ms": 500,
+      "background": "linear-gradient(158deg, black 32%, red 99%)",
+      "source_shapes": [
+        "top opacity-fan",
+        "bottom opacity-tilt"
+      ],
+      "cleanup": "Keep broad red-to-black gradient; soften edges instead of restoring clipped hard decorative shapes."
+    },
+    "contact": {
+      "layout": "left contact/social details, right embedded Google Map",
+      "desktop_gap": 80,
+      "desktop_section_padding": "100px 24px",
+      "phone_section_padding": "48px 16px",
+      "map_height_mobile": 300
+    }
+  },
+  "v1_deviations": [
+    "The original service section uses six illustrated icons and short descriptions, with no prices. V1 substitutes photo-and-price cards.",
+    "The original artists section is an autoplay carousel with circular portrait/name-role image boxes, text and Instagram/portfolio icons. V1 uses a static portrait grid.",
+    "The original roulette section is a split text/video promotion. V1 places the interactive wheel directly on the homepage.",
+    "The original review area is split heading/quote over a red gradient. V1 changes its layout and adds two reviews beyond the four visible on the source homepage.",
+    "The original contact area includes an embedded Google Map. V1 has directions links but no iframe.",
+    "The separate artwork showcase, service marquee, Welcome gallery, and Instagram photo tiles in V1 are added homepage sections absent from this original homepage."
+  ],
+  "recommended_v2_sequence": [
+    "Current redesign hero",
+    "Six original service illustration cards",
+    "Original Meet Our Artists heading and autoplay artist carousel",
+    "Original split Ink Roulette copy/video",
+    "Original four-review carousel with red gradient",
+    "Original Let’s Connect contact/social block plus Google Map",
+    "Footer and already-reviewed November promotion popup"
+  ],
+  "keep_current_cleanups": [
+    "Transparent-to-dark compact logo-only header",
+    "Current hero layout/media/rotating word animation",
+    "Current lighter readable body typography",
+    "Autoplay and no visible slider/pause controls",
+    "SVG arrow/social glyphs instead of emoji arrows",
+    "Higher-quality correct image sources where subjects match",
+    "Corrected whitening result photo on the services page",
+    "Current internal preview routes and disconnected booking/checkout guards",
+    "Existing motion reduction and keyboard support",
+    "No preview top banner or sticky bottom bar"
+  ],
+  "v2_changes": {
+    "retained_hero": "Original section_1 preserved exactly from V1 commit 5a3557a",
+    "service_layout": "Original six illustrations, same copy and CTA labels; no homepage pricing",
+    "artist_portraits": "Correct original WordPress portraits displayed at 150px; no unrelated artwork in face slots",
+    "carousel_controls": "Omitted by user request; original autoplay timing retained",
+    "map": "Original Google Maps embed restored, plus directions link",
+    "event": "Current event popup retained without homepage strip; expired campaign excluded",
+    "supporting_pages": "Source stories, flash imagery, Roulette content and shop sequence restored separately",
+    "not_a_live_store": "Bookings, checkout, policies and submissions remain preview-only"
+  }
+}

@@ -1,62 +1,86 @@
 {
   "layout": "studio",
   "sections": {
-    "section_1": {
-      "type": "studio-page",
+    "intro": {
+      "type": "studio-original-feature",
       "settings": {
-        "title": "FLASH TATTOOS.",
-        "copy": "Browse the studio\u2019s designs and upcoming flash events."
+        "kind": "statement",
+        "heading": "Express Yourself Boldly",
+        "kicker": "Art in a Flash",
+        "copy": "Discover the world of flash tattoos, an exciting way to wear art on your skin. Our unique designs offer a spontaneous blend of creativity and style, perfect for anyone wanting to make a bold statement. Dive into our collection and let your body reflect your individuality.",
+        "page_heading": true,
+        "button_label": "View Artists",
+        "button_link": "/pages/artists",
+        "second_label": "Book Now",
+        "second_link": "/pages/book"
       }
     },
-    "section_2": {
+    "event": {
       "type": "studio-event",
       "settings": {
-        "copy": "Flash tattoos, tooth gems and ear-lobe piercings from $13 plus $7 gratuity. Friday Nov 13: 10 am\u20138 pm, walk-ins. Saturday Nov 14: noon\u20138 pm, appointment only. Contact the studio for availability.",
+        "copy": "Flash tattoos, tooth gems and ear-lobe piercings from $13 plus $7 gratuity. Friday Nov 13: 10 am–8 pm, walk-ins. Saturday Nov 14: noon–8 pm, appointment only. Contact the studio for availability.",
         "link": "/pages/contact",
         "link_label": "Ask about the event",
         "show_popup": false
       }
     },
-    "section_3": {
+    "gallery": {
       "type": "studio-flash-gallery",
-      "settings": {},
+      "settings": {
+        "heading": "Tattoo Design Showcase",
+        "kicker": "Explore our collection of flash tattoos"
+      },
       "blocks": {
         "block_1": {
-          "type": "sheet",
-          "settings": {
-            "asset": "sp-flash-01.webp",
-            "title": "Symbols, botanical details & linework"
-          }
-        },
-        "block_2": {
           "type": "sheet",
           "settings": {
             "asset": "sp-flash-02.webp",
             "title": "Small designs with personality"
           }
         },
-        "block_3": {
+        "block_2": {
           "type": "sheet",
           "settings": {
             "asset": "sp-flash-03.webp",
             "title": "Everyday objects & tiny favorites"
           }
         },
+        "block_3": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-flash-01.webp",
+            "title": "Symbols, botanical details & linework"
+          }
+        },
         "block_4": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-original-detail-flash-07.webp",
+            "title": "Character-inspired flash designs"
+          }
+        },
+        "block_5": {
           "type": "sheet",
           "settings": {
             "asset": "sp-flash-04.webp",
             "title": "Animal-inspired flash designs"
           }
         },
-        "block_5": {
+        "block_6": {
           "type": "sheet",
           "settings": {
             "asset": "sp-flash-05.webp",
             "title": "Dark details & lucky numbers"
           }
         },
-        "block_6": {
+        "block_7": {
+          "type": "sheet",
+          "settings": {
+            "asset": "sp-original-detail-flash-08.webp",
+            "title": "Symbols, small icons & linework"
+          }
+        },
+        "block_8": {
           "type": "sheet",
           "settings": {
             "asset": "sp-flash-06.webp",
@@ -70,39 +94,47 @@
         "block_3",
         "block_4",
         "block_5",
-        "block_6"
+        "block_6",
+        "block_7",
+        "block_8"
       ]
     },
-    "section_4": {
-      "type": "studio-faq",
-      "settings": {},
+    "benefits": {
+      "type": "studio-original-story",
+      "settings": {
+        "heading": "Why Choose Flash Tattoos?",
+        "kicker": "Express Yourself",
+        "copy": "#",
+        "columns": "4",
+        "compact": true
+      },
       "blocks": {
         "block_1": {
-          "type": "question",
+          "type": "story",
           "settings": {
-            "question": "What is a flash tattoo?",
-            "answer": "<p>Flash is a pre-designed tattoo from an artist's collection. Choose a piece you like, then confirm the size, placement, and final price with your artist.</p>"
+            "heading": "Quick & Easy",
+            "copy": "Flash tattoos are designed for swift application, letting you enjoy your new look without the wait."
           }
         },
         "block_2": {
-          "type": "question",
+          "type": "story",
           "settings": {
-            "question": "Can I change a design?",
-            "answer": "<p>Minor changes may be possible. Larger changes can be better suited to a custom session. Talk it through with your artist.</p>"
+            "heading": "Unique Styles",
+            "copy": "With countless designs to choose from, stand out with art that’s truly your own."
           }
         },
         "block_3": {
-          "type": "question",
+          "type": "story",
           "settings": {
-            "question": "How much does flash cost?",
-            "answer": "<p>Prices vary with the design, size, placement, artist, and event. The studio will confirm the final cost before the session.</p>"
+            "heading": "Spontaneous Fun",
+            "copy": "Flash tattoos sprinkle some extra fun on your body art journey!"
           }
         },
         "block_4": {
-          "type": "question",
+          "type": "story",
           "settings": {
-            "question": "Where do I find new events?",
-            "answer": "<p>Follow the studio on Instagram or contact the team for upcoming flash days and special events.</p>"
+            "heading": "Lasting Memories",
+            "copy": "Make a memory with friends and choose a piece you’ll carry with you."
           }
         }
       },
@@ -113,16 +145,164 @@
         "block_4"
       ]
     },
-    "section_5": {
-      "type": "studio-visit",
-      "settings": {}
+    "feature": {
+      "type": "studio-original-feature",
+      "settings": {
+        "kind": "media",
+        "heading": "Secure Your Next Tattoo",
+        "kicker": "Ink Your Story",
+        "copy": "#",
+        "video_asset": "sp-original-detail-flash.mp4",
+        "poster": "sp-original-detail-flash-poster.webp",
+        "media_alt": "Original Ink Roulette footage from the Sideshow studio",
+        "media_width": 1200,
+        "media_height": 810,
+        "button_label": "Book Now",
+        "button_link": "/pages/book",
+        "second_label": "Ink Roulette",
+        "second_link": "/pages/ink-roulette",
+        "tone": "red"
+      },
+      "blocks": {
+        "block_1": {
+          "type": "point",
+          "settings": {
+            "text": "Unique designs just for you"
+          }
+        },
+        "block_2": {
+          "type": "point",
+          "settings": {
+            "text": "Skilled artists ready to bring your vision to life"
+          }
+        },
+        "block_3": {
+          "type": "point",
+          "settings": {
+            "text": "Experience the thrill of our Ink Roulette"
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3"
+      ]
+    },
+    "reviews": {
+      "type": "studio-original-feature",
+      "settings": {
+        "kind": "reviews",
+        "heading": "What Our Clients Are Saying",
+        "kicker": "#",
+        "copy": "#"
+      },
+      "blocks": {
+        "block_1": {
+          "type": "review",
+          "settings": {
+            "quote": "Went here on a whim with some friends for some flash tattoos & had the best time! Jake was my artist & he was very friendly, kind & made sure I knew what he was doing before he did anything+ his line work is fantastic even with the small flash tattoos. Definitely will be coming back, great people & a great atmosphere!",
+            "author": "Autumn Gardner",
+            "source_label": "Flash Tattoos",
+            "source_url": "https://sideshowproductionstattoo.com/flash-tattoos/"
+          }
+        },
+        "block_2": {
+          "type": "review",
+          "settings": {
+            "quote": "My experience here so far has been amazing! The staff are very welcoming and caring. I first went on friday the 13th for their $20 flash tattoos (I’d show but they’re still healing), and now just went to get my nose pierced. Their prices are very reasonable and their work is excellent. Thanks Jake for doing my nose! Definitely coming back to get more tats!",
+            "author": "Hailey Nielsen",
+            "source_label": "Flash tattoos",
+            "source_url": "https://sideshowproductionstattoo.com/flash-tattoos/"
+          }
+        },
+        "block_3": {
+          "type": "review",
+          "settings": {
+            "quote": "This place did an excellent job on an individual tattoo for me and matching tattoos for myself and my wife. This was all a part of a flash tattoo sale and it was well worth it! My wife also was able to get her septum pierced in the same visit without waiting.",
+            "author": "Zeke Alexander",
+            "source_label": "Flash tattoos & Piercing",
+            "source_url": "https://sideshowproductionstattoo.com/flash-tattoos/"
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3"
+      ]
+    },
+    "faq": {
+      "type": "studio-original-feature",
+      "settings": {
+        "kind": "faq",
+        "heading": "Your Questions, Answered",
+        "kicker": "#",
+        "copy": "Explore our frequently asked questions to learn about flash tattoos.",
+        "button_label": "Reach Out",
+        "button_link": "/pages/contact"
+      },
+      "blocks": {
+        "block_1": {
+          "type": "question",
+          "settings": {
+            "question": "What is a flash tattoo?",
+            "answer": "<p>A flash tattoo is a pre-designed tattoo, usually part of a curated sheet of designs. Choose from the collection instead of creating a custom piece from scratch.</p>"
+          }
+        },
+        "block_2": {
+          "type": "question",
+          "settings": {
+            "question": "Do I need an appointment for a flash tattoo?",
+            "answer": "<p>Walk-ins may be available, but booking ahead is the best way to confirm your design choice and preferred time. Contact the studio about the next available session.</p>"
+          }
+        },
+        "block_3": {
+          "type": "question",
+          "settings": {
+            "question": "Can I modify a flash design?",
+            "answer": "<p>Minor adjustments like size or small placement changes may be possible. Larger changes can be better suited to a custom tattoo booking. Talk it through with your artist.</p>"
+          }
+        },
+        "block_4": {
+          "type": "question",
+          "settings": {
+            "question": "How much do flash tattoos cost?",
+            "answer": "<p>Prices vary by size, placement, artist, and event. Your artist will confirm the final cost before starting.</p>"
+          }
+        },
+        "block_5": {
+          "type": "question",
+          "settings": {
+            "question": "Do you offer flash events or special flash sheets?",
+            "answer": "<p>Yes! The studio hosts themed flash days and artist-curated flash sheets. Follow Sideshow on social media for upcoming events.</p>"
+          }
+        },
+        "block_6": {
+          "type": "question",
+          "settings": {
+            "question": "What should I do to prepare for my flash tattoo?",
+            "answer": "<p>Get a good night’s sleep, eat before your appointment, and stay hydrated. Ask your artist for the preparation instructions that fit your session.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4",
+        "block_5",
+        "block_6"
+      ]
     }
   },
   "order": [
-    "section_1",
-    "section_2",
-    "section_3",
-    "section_4",
-    "section_5"
+    "intro",
+    "event",
+    "gallery",
+    "benefits",
+    "feature",
+    "reviews",
+    "faq"
   ]
 }

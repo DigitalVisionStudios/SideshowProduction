@@ -311,7 +311,7 @@ export async function handleRequest(request, response) {
   response.setHeader('Cache-Control', 'no-store');
   response.setHeader('X-Robots-Tag', 'noindex, nofollow, noarchive');
   response.setHeader('X-Content-Type-Options', 'nosniff');
-  response.setHeader('Content-Security-Policy', "default-src 'self'; img-src 'self' https: data:; media-src 'self' https:; font-src 'self' https: data:; style-src 'self' 'unsafe-inline' https:; script-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'");
+  response.setHeader('Content-Security-Policy', "default-src 'self'; img-src 'self' https: data:; media-src 'self' https:; font-src 'self' https: data:; style-src 'self' 'unsafe-inline' https:; script-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'none'; frame-src https://maps.google.com https://www.google.com; object-src 'none'; base-uri 'self'");
   if (request.method !== 'GET' && request.method !== 'HEAD') {
     response.writeHead(405, { 'Content-Type': 'text/html; charset=utf-8', Allow: 'GET, HEAD' });
     response.end(boundaryPage('Form submission is disabled in the design preview.', 405));

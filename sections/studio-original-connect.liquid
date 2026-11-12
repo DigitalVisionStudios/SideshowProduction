@@ -1,0 +1,49 @@
+<section class="sp-original-section sp-original-connect" id="visit-{{ section.id }}" aria-labelledby="sp-connect-heading-{{ section.id }}">
+  <div class="sp-original-shell sp-original-split">
+    <div class="sp-original-contact-copy" data-reveal>
+      <p class="sp-original-kicker">Get Inked!</p><h2 class="sp-original-title" id="sp-connect-heading-{{ section.id }}">Let’s Connect!</h2>
+      <p>We’re here to answer any questions you may have. Feel free to reach out to us for bookings or inquiries!</p>
+      <div class="sp-original-socials"><a href="https://www.tiktok.com/@sshowproductionstattoo" target="_blank" rel="noopener noreferrer" aria-label="Sideshow on TikTok">{% render 'studio-icon', name: 'tiktok' %}</a><a href="https://www.instagram.com/sideshowproductionstattoo/" target="_blank" rel="noopener noreferrer" aria-label="Sideshow on Instagram">{% render 'studio-icon', name: 'instagram' %}</a></div>
+      <address class="sp-original-contact-details">
+        <a href="tel:+13855479547">{% render 'studio-icon', name: 'phone' %}<span>{{ section.settings.phone | escape }}</span></a>
+        <a href="mailto:{{ section.settings.email | escape }}">{% render 'studio-icon', name: 'mail' %}<span>{{ section.settings.email | escape }}</span></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=4973+S+State+St+Murray+UT+84107" target="_blank" rel="noopener noreferrer">{% render 'studio-icon', name: 'pin' %}<span>{{ section.settings.address | escape }}</span></a>
+      </address>
+      <a class="sp-original-button sp-original-button--red" href="/pages/book">Ready to Book? {% render 'studio-icon', name: 'arrow-up-right' %}</a>
+    </div>
+    <div class="sp-original-map" data-reveal>
+      <iframe title="Google Maps: Sideshow Productions in Murray, Utah" src="https://maps.google.com/maps?q=4973%20S%20State%20St%2C%20Murray%2C%20UT%2084107&amp;t=m&amp;z=13&amp;output=embed&amp;iwloc=near" width="640" height="440" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=4973+S+State+St+Murray+UT+84107" target="_blank" rel="noopener noreferrer">Get directions {% render 'studio-icon', name: 'arrow-up-right' %}</a>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Original contact and map",
+  "settings": [
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone",
+      "default": "(385) 547-9547"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "club@sideshowproductionstattoo.com"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Street address",
+      "default": "4973 S State St, Murray, UT 84107"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Original contact and map"
+    }
+  ]
+}
+{% endschema %}

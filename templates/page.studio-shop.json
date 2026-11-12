@@ -1,16 +1,12 @@
 {
   "layout": "studio",
   "sections": {
-    "section_1": {
-      "type": "studio-page",
+    "shop": {
+      "type": "studio-original-shop",
       "settings": {
-        "title": "SIDESHOW SHOP.",
-        "copy": "Studio merchandise and aftercare essentials."
-      }
-    },
-    "section_2": {
-      "type": "studio-shop",
-      "settings": {},
+        "subheading": "Shop Our Collection",
+        "heading": "Merch Shop"
+      },
       "blocks": {
         "product_01": {
           "type": "item",
@@ -215,6 +211,9 @@
         }
       },
       "block_order": [
+        "product_17",
+        "product_18",
+        "product_19",
         "product_01",
         "product_02",
         "product_03",
@@ -231,16 +230,12 @@
         "product_14",
         "product_15",
         "product_16",
-        "product_17",
-        "product_18",
-        "product_19",
         "product_20",
         "product_21"
       ]
     }
   },
   "order": [
-    "section_1",
-    "section_2"
+    "shop"
   ]
 }

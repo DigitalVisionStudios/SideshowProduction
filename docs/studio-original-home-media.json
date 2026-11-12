@@ -1,0 +1,82 @@
+{
+  "assets": [
+    {
+      "file": "sp-original-service-tattoos.webp",
+      "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-22.png",
+      "source_sha256": "2f1203c53cc7564c867f63da0177963520788ac3ae482a88fd1c7ed9944b1a26",
+      "bytes": 25276,
+      "transform": "Full transparent original, proportionally resized; no crop or recolor"
+    },
+    {
+      "file": "sp-original-service-piercings.webp",
+      "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-11.png",
+      "source_sha256": "2019d5d28da15cd5b21fe67e3b078e2a7dcbda467fbf5fb5da22080a55075359",
+      "bytes": 22510,
+      "transform": "Full transparent original, proportionally resized; no crop or recolor"
+    },
+    {
+      "file": "sp-original-service-tooth-gems.webp",
+      "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-13.png",
+      "source_sha256": "98e5e684798019d349dff2be4363d3c06422dd4b2b0f5c42713f3b31fcbff1a5",
+      "bytes": 21724,
+      "transform": "Full transparent original, proportionally resized; no crop or recolor"
+    },
+    {
+      "file": "sp-original-service-microblading.webp",
+      "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-14.png",
+      "source_sha256": "39de474f25100bfb1c8ded0fc5e21a5409ba35b422765649753ad7f403a3cbb9",
+      "bytes": 35508,
+      "transform": "Full transparent original, proportionally resized; no crop or recolor"
+    },
+    {
+      "file": "sp-original-service-teeth-whitening.webp",
+      "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-15.png",
+      "source_sha256": "45ad3faf186161792971d19f85569215958fc67e0406ffa16f8cec4f71dbca8e",
+      "bytes": 16754,
+      "transform": "Full transparent original, proportionally resized; no crop or recolor"
+    },
+    {
+      "file": "sp-original-service-aftercare.webp",
+      "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Untitled-design-16.png",
+      "source_sha256": "a53bf4af1e19584c1ca502cdcb0e5be7fb9cc3b5e39609675546f011b5b8a753",
+      "bytes": 10286,
+      "transform": "Full transparent original, proportionally resized; no crop or recolor"
+    },
+    {
+      "file": "sp-original-portrait-rigo.webp",
+      "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-165356-e1774365245548.png",
+      "source_sha256": "dc64a488e30302e31e7315fc20540977bf46d722e8d025fac7139aeb487c48fb",
+      "bytes": 26448,
+      "transform": "Correct source portrait; minimal square crop for circular presentation"
+    },
+    {
+      "file": "sp-original-portrait-jake.webp",
+      "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-162353-e1774365148720.png",
+      "source_sha256": "948e7b27dacd2b4b8a333d9ec54ec9dae5f2d7d17029c00e5d37cd1b5688e25f",
+      "bytes": 28582,
+      "transform": "Correct source portrait; minimal square crop for circular presentation"
+    },
+    {
+      "file": "sp-original-portrait-megan.webp",
+      "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-163956-e1774365113946.png",
+      "source_sha256": "fdee256955277bbcb83f8871c95d179546fce5f893a51d253979c684f95865be",
+      "bytes": 23728,
+      "transform": "Correct source portrait; minimal square crop for circular presentation"
+    },
+    {
+      "file": "sp-original-portrait-sonny.webp",
+      "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/Screenshot-2026-01-08-163923-e1774365062847.png",
+      "source_sha256": "efd011816ec7f5b99ffba55a281667329c72f95c3d2890c5e0af1cf4855dc628",
+      "bytes": 28454,
+      "transform": "Correct source portrait; minimal square crop for circular presentation"
+    },
+    {
+      "file": "sp-original-roulette-tour.mp4",
+      "poster": "sp-original-roulette-tour-poster.webp",
+      "source": "https://sideshowproductionstattoo.com/wp-content/uploads/2026/01/6-Instagram-Google-Chrome-9-January-2026-1.mp4",
+      "source_sha256": "45143c91b3e5cedd8ec101f3d00b43bc223cf5940d1df2be09e03c90f9b3be4b",
+      "bytes": 4719607,
+      "transform": "Original video copied without re-encoding; audio removed for silent autoplay"
+    }
+  ]
+}

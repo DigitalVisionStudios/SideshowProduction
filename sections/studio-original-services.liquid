@@ -1,0 +1,122 @@
+<section class="sp-original-section sp-original-services" aria-label="Our services">
+  <div class="sp-original-shell sp-original-service-grid">
+    {% for block in section.blocks %}
+      <article class="sp-original-service" data-reveal {{ block.shopify_attributes }}>
+        <img class="sp-original-service-icon" src="{{ block.settings.asset | asset_url }}" alt="" width="512" height="512" loading="lazy" decoding="async">
+        <h2>{{ block.settings.heading | escape }}</h2>
+        <p>{{ block.settings.copy | escape }}</p>
+        <a class="sp-original-button" href="{{ block.settings.link | default: '/pages/contact' }}">{{ block.settings.label | escape }} {% render 'studio-icon', name: 'arrow-up-right' %}</a>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Original service grid",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Tattoos"
+        },
+        {
+          "type": "textarea",
+          "id": "copy",
+          "label": "Description",
+          "default": "Explore work by our talented artists."
+        },
+        {
+          "type": "text",
+          "id": "asset",
+          "label": "Illustration asset",
+          "default": "sp-original-service-tattoos.webp"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Button text",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button destination"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Original service grid",
+      "blocks": [
+        {
+          "type": "service",
+          "settings": {
+            "heading": "Tattoos",
+            "copy": "Explore our unique tattoo designs crafted by talented artists. Each ink stroke tells a story. Your story. Let us help you express yourself.",
+            "asset": "sp-original-service-tattoos.webp",
+            "label": "Learn More",
+            "link": "/pages/about"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "heading": "Piercings",
+            "copy": "Add a little sparkle to your look with our professional piercing services. From ears to noses, we ensure a safe and stylish experience.",
+            "asset": "sp-original-service-piercings.webp",
+            "label": "Get Pierced",
+            "link": "/pages/book#sonny"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "heading": "Tooth Gems",
+            "copy": "Brighten your smile with our stylish tooth gems! Shine in every conversation with a touch of bling that’s truly you.",
+            "asset": "sp-original-service-tooth-gems.webp",
+            "label": "Sparkle Up",
+            "link": "/pages/book#megan"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "heading": "Microblading",
+            "copy": "Wake up with perfect brows! Our microblading services create natural-looking, fuller eyebrows, tailored just for you.",
+            "asset": "sp-original-service-microblading.webp",
+            "label": "Book Now",
+            "link": "/pages/contact?service=microblading"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "heading": "Teeth Whitening",
+            "copy": "Achieve a radiant smile with our professional teeth whitening treatments. Smile brighter and boost your confidence instantly.",
+            "asset": "sp-original-service-teeth-whitening.webp",
+            "label": "Shine Bright",
+            "link": "/pages/book#megan"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "heading": "Aftercare Tips",
+            "copy": "Take good care of your new ink, piercing, or gems! Our aftercare tips will guide you to ensure your body art stays fresh and vibrant.",
+            "asset": "sp-original-service-aftercare.webp",
+            "label": "Read More",
+            "link": "/pages/aftercare"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

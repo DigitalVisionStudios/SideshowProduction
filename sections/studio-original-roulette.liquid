@@ -1,0 +1,45 @@
+<section class="sp-original-section sp-original-roulette" aria-labelledby="sp-roulette-heading-{{ section.id }}">
+  <div class="sp-original-shell sp-original-split">
+    <div class="sp-original-feature-copy" data-reveal>
+      <p class="sp-original-kicker">{{ section.settings.eyebrow | escape }}</p>
+      <h2 class="sp-original-title" id="sp-roulette-heading-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
+      <p>{{ section.settings.copy | escape }}</p>
+      <a class="sp-original-button sp-original-button--red" href="/pages/ink-roulette">Try It Now! {% render 'studio-icon', name: 'arrow-up-right' %}</a>
+    </div>
+    <div class="sp-original-video-wrap" data-reveal>
+      <video class="sp-original-tour-video" data-original-video muted autoplay loop playsinline preload="none" poster="{{ 'sp-original-roulette-tour-poster.webp' | asset_url }}" width="496" height="892" aria-label="Inside Sideshow Productions, original studio video">
+        <source data-src="{{ 'sp-original-roulette-tour.mp4' | asset_url }}" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Original Roulette feature",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Small heading",
+      "default": "Discover Your Style"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Spin the Wheel of Ink and Uncover Your Next Tattoo!"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Description",
+      "default": "Ready for something unique? Our Ink Roulette is designed for thrill-seekers! Spin the wheel, and let fate guide you to an exciting tattoo design. It’s not just about the ink; it’s about embracing adventure and expressing your individuality. Whether you’re a tattoo newbie or a seasoned collector, there’s something waiting just for you!"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Original Roulette feature"
+    }
+  ]
+}
+{% endschema %}

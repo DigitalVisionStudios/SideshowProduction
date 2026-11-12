@@ -1,0 +1,120 @@
+<section class="sp-original-shop" id="shop" aria-labelledby="sp-original-shop-title-{{ section.id }}">
+  <div class="sp-shell sp-original-shop-shell">
+    <header class="sp-original-shop-heading" data-reveal>
+      <p>{{ section.settings.subheading | escape }}</p>
+      <h1 id="sp-original-shop-title-{{ section.id }}">{{ section.settings.heading | escape }}</h1>
+    </header>
+    <div class="sp-original-shop-grid">
+      {% for block in section.blocks %}
+        {% assign item = block.settings.product %}
+        {% if item != blank %}
+          <a class="sp-original-shop-card" href="{{ item.url }}" data-reveal {{ block.shopify_attributes }}>
+            <div class="sp-original-shop-media">{% render 'studio-product-media', image: item.featured_image, asset_name: block.settings.asset, alt: item.title, show_image: block.settings.show_image, background: block.settings.image_background, brand: block.settings.brand, label: block.settings.media_label %}</div>
+            <div class="sp-original-shop-copy"><h2>{{ item.title | escape }}</h2><p class="sp-original-shop-price">{{ item.price | money }}{% unless item.available %}<span class="sp-original-shop-stock">Sold out</span>{% endunless %}</p><span class="sp-original-shop-cta">View item <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></span></div>
+          </a>
+        {% else %}
+          <a class="sp-original-shop-card" href="/pages/contact?item={{ block.settings.title | url_encode }}" data-reveal {{ block.shopify_attributes }}>
+            <div class="sp-original-shop-media">{% render 'studio-product-media', asset_name: block.settings.asset, alt: block.settings.title, show_image: block.settings.show_image, background: block.settings.image_background, brand: block.settings.brand, label: block.settings.media_label %}</div>
+            <div class="sp-original-shop-copy"><h2>{{ block.settings.title | escape }}</h2><p class="sp-original-shop-price">{{ block.settings.price | escape }}{% if block.settings.sold_out %}<span class="sp-original-shop-stock">Sold out</span>{% endif %}</p><span class="sp-original-shop-cta">{% if block.settings.sold_out %}Ask about restock{% else %}Ask about this item{% endif %} <span aria-hidden="true">{% render 'studio-icon', name: 'arrow-up-right' %}</span></span></div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Original merch shop",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Shop Our Collection"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Merch Shop"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Shop item",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Shopify product"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Fallback product name",
+          "default": "Studio merchandise"
+        },
+        {
+          "type": "text",
+          "id": "asset",
+          "label": "Fallback image asset",
+          "default": "sp-logo.webp"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_image",
+          "label": "Show fallback product photograph",
+          "default": true,
+          "info": "Turn off when the exact product photo is unconfirmed. A connected Shopify product's own photograph takes priority."
+        },
+        {
+          "type": "select",
+          "id": "image_background",
+          "label": "Photograph background",
+          "default": "dark",
+          "options": [
+            {
+              "value": "dark",
+              "label": "Dark"
+            },
+            {
+              "value": "light",
+              "label": "Light"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "brand",
+          "label": "Text card brand",
+          "default": "Sideshow"
+        },
+        {
+          "type": "text",
+          "id": "media_label",
+          "label": "Text card category",
+          "default": "Studio shop"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Fallback price display",
+          "default": "Ask the studio for pricing"
+        },
+        {
+          "type": "checkbox",
+          "id": "sold_out",
+          "label": "Source item was sold out",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Original merch shop"
+    }
+  ]
+}
+{% endschema %}
