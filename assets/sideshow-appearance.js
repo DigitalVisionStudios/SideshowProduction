@@ -7,6 +7,7 @@
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
   var storageKey = "sideshow:appearance:v1";
   var keys = ["motion", "artwork", "fades"];
+  var presets = {clean:{motion:false,artwork:false,fades:true},studio:{motion:true,artwork:true,fades:true}};
 
   function loadPlayer(url) {
     if (window.lottie) return Promise.resolve(window.lottie);
@@ -93,7 +94,8 @@
     }
     state.root.querySelectorAll("[data-appearance-option]").forEach(function (input) { input.checked = preferences[input.dataset.appearanceOption]; });
     state.root.querySelectorAll("[data-appearance-preset]").forEach(function (button) {
-      var selected = button.dataset.appearancePreset === "clean" ? keys.every(function (key) { return !preferences[key]; }) : keys.every(function (key) { return preferences[key] === state.defaults[key]; });
+      var preset = presets[button.dataset.appearancePreset];
+      var selected = Boolean(preset) && keys.every(function (key) { return preferences[key] === preset[key]; });
       button.setAttribute("aria-pressed", String(selected));
     });
     if (save) persist(state);
@@ -138,7 +140,9 @@
     });
     root.querySelectorAll("[data-appearance-preset]").forEach(function (button) {
       button.addEventListener("click", function () {
-        state.preferences = button.dataset.appearancePreset === "clean" ? {motion:false,artwork:false,fades:false} : Object.assign({},state.defaults);
+        var preset = presets[button.dataset.appearancePreset];
+        if (!preset) return;
+        state.preferences = Object.assign({},preset);
         render(state,true);
         var status = root.querySelector("[data-appearance-status]");
         if (status) status.textContent = button.dataset.appearancePreset === "clean" ? "Clean background selected." : "Original studio background selected.";

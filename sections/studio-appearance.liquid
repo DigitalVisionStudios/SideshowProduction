@@ -10,7 +10,7 @@
     <div class="sp-appearance-panel" id="sp-appearance-panel-{{ section.id }}" data-appearance-panel role="dialog" aria-modal="false" aria-labelledby="sp-appearance-title-{{ section.id }}" hidden>
       <div class="sp-appearance-heading"><h2 id="sp-appearance-title-{{ section.id }}">Appearance</h2><button type="button" class="sp-appearance-close" data-appearance-close aria-label="Close appearance settings">{% render 'studio-icon', name: 'close' %}</button></div>
       <p class="sp-appearance-intro">Find your Sideshow.</p>
-      <div class="sp-appearance-presets" role="group" aria-label="Background style"><button type="button" data-appearance-preset="clean" aria-pressed="false">Clean</button><button type="button" data-appearance-preset="studio" aria-pressed="true">Original</button></div>
+      <div class="sp-appearance-presets" role="group" aria-label="Background style"><button type="button" data-appearance-preset="clean" aria-pressed="true">Clean</button><button type="button" data-appearance-preset="studio" aria-pressed="false">Original</button></div>
       <fieldset class="sp-appearance-options"><legend class="sp-sr-only">Background layers</legend>
         <label><span><strong>Red motion</strong><small>The original animated background</small></span><input type="checkbox" role="switch" data-appearance-option="motion"{% if section.settings.motion_enabled %} checked{% endif %}></label>
         <label><span><strong>Studio artwork</strong><small>The shop's original poster pattern</small></span><input type="checkbox" role="switch" data-appearance-option="artwork"{% if section.settings.artwork_enabled %} checked{% endif %}></label>
