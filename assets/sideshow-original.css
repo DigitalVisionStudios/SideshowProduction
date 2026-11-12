@@ -10,7 +10,8 @@
 .sp-original-button:hover{background:#b40821;border-color:#e72a40;transform:translateY(-2px)}
 .sp-original-button:hover .sp-icon{transform:translate(2px,-2px)}
 .sp-original-button--red{background:#c90020;border-color:#c90020}
-.sp-original-services{padding:88px 0 108px}
+/* Continue the hero's black floor into the optional artwork without a hard seam. */
+.sp-original-services{padding:88px 0 108px;background:linear-gradient(180deg,#080809 0%,rgba(8,8,9,.94) 18%,rgba(8,8,9,.64) 45%,rgba(8,8,9,.24) 73%,rgba(8,8,9,0) 100%) top/100% clamp(240px,32svh,380px) no-repeat}
 .sp-original-service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:66px 74px}
 .sp-original-service{min-width:0;display:flex;align-items:flex-start;flex-direction:column}
 .sp-original-service-icon{display:block;width:142px;height:142px;object-fit:contain;margin:0 auto 18px}
