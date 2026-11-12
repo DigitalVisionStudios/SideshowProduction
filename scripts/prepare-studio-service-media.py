@@ -1,11 +1,11 @@
-"""Prepare genuine Megan service images recovered from the original Shopify theme.
+"""Prepare genuine smile-service images recovered from the original Shopify theme.
 
 Windows or macOS/Linux:
     python scripts/prepare-studio-service-media.py
 
 Requires Pillow, already used by the project's other media helpers.
 Downloads only the two pinned public Shopify originals if absent from the cache.
-Verifies source hashes and retained author/field references before producing WebP
+Verifies source hashes and retained service/author references before producing WebP
 assets and the provenance report. Does not change templates or Shopify data.
 """
 from concurrent.futures import ThreadPoolExecutor
@@ -22,19 +22,22 @@ CACHE = ROOT / ".ai-bridge/service-photo-sources"
 CDN_PREFIX = "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/"
 MAX_SOURCE_BYTES = 5_000_000
 SELECTIONS = [{'asset': 'sp-service-whitening.webp',
-  'alt': "Before-and-after teeth-whitening comparison shown in Megan's portfolio",
+  'alt': 'Teeth-whitening comparison from the original Shopify homepage: after on the left, before on the right',
   'suggested_fit': 'contain',
-  'subject': 'Labeled before-and-after teeth-whitening photo comparison',
+  'subject': 'Original homepage whitening comparison labeled After on the left and Before on the right',
   'artist': 'Megan',
-  'source_template': 'templates/page.artist-portfolio.json',
-  'source_section': 'portfolio_NhdxPw',
-  'source_block': 'author_mLcbKx',
-  'source_field': 'portfolio_image_3',
-  'source_reference': 'shopify://shop_images/427641519_413653254444875czxczcs_3625183506czxcz029295051_n.png',
-  'source_url': 'https://cdn.shopify.com/s/files/1/0684/2997/1713/files/427641519_413653254444875czxczcs_3625183506czxcz029295051_n.png',
-  'source_sha256': 'd7ea68dbc424cdf5a7d4b41d88553da4070aa4bb709631702c723d387520f489',
-  'source_bytes': 1551265,
-  'source_dimensions': [1270, 1081]},
+  'source_template': 'archive/shopify-theme-before-redesign/whitening-homepage-section.json',
+  'source_original_template': 'templates/index.json',
+  'source_commit': '15cd68121a1a85e7d632523521d5c7752611e807',
+  'source_section': 'featured_row_3pJW78',
+  'source_title': 'Teeth Whitening',
+  'source_artist_link': '/pages/artist-page#Megan',
+  'source_field': 'image',
+  'source_reference': 'shopify://shop_images/beforeandafter.png',
+  'source_url': 'https://cdn.shopify.com/s/files/1/0684/2997/1713/files/beforeandafter.png',
+  'source_sha256': '1f3e197721af9f5d2b9ad173cde88e26261ee4f6ca98b26c40f4d71d370c9136',
+  'source_bytes': 1846914,
+  'source_dimensions': [1713, 994]},
  {'asset': 'sp-service-tooth-gems.webp',
   'alt': "Clear tooth gems and gold accents on a smile shown in Megan's portfolio",
   'suggested_fit': 'contain',
@@ -67,9 +70,18 @@ def verify_references():
     for record in SELECTIONS:
         template = json.loads((ROOT / record["source_template"]).read_text(encoding="utf-8"))
         section = template["sections"][record["source_section"]]
-        settings = section["blocks"][record["source_block"]]["settings"]
-        if section.get("disabled") or settings.get("author_name") != record["artist"]:
-            raise RuntimeError("The retained source no longer confirms Megan's attribution")
+        if section.get("disabled"):
+            raise RuntimeError("The retained source section is disabled")
+        if record.get("source_block"):
+            settings = section["blocks"][record["source_block"]]["settings"]
+            if settings.get("author_name") != record["artist"]:
+                raise RuntimeError("The retained source no longer confirms the artist")
+        else:
+            settings = section["settings"]
+            if (settings.get("title") != record["source_title"] or
+                    settings.get("button_link") != record["source_artist_link"] or
+                    template.get("source_commit") != record["source_commit"]):
+                raise RuntimeError("The archived homepage no longer confirms the service and artist link")
         if settings.get(record["source_field"]) != record["source_reference"]:
             raise RuntimeError("The retained source image reference changed")
         if record["source_url"] != CDN_PREFIX + record["source_reference"].removeprefix("shopify://shop_images/"):
@@ -109,8 +121,11 @@ def prepare(record, data):
             raise RuntimeError("Unexpected source orientation; review before encoding")
         image = image.convert("RGBA" if "A" in image.getbands() else "RGB")
         encoded = BytesIO()
-        # Preserve the complete original photograph and its native dimensions.
-        image.save(encoded, "WEBP", quality=88, method=6)
+        # Preserve the complete original photograph, native dimensions and color profile.
+        save_options = {"quality": 88, "method": 6}
+        if opened.info.get("icc_profile"):
+            save_options["icc_profile"] = opened.info["icc_profile"]
+        image.save(encoded, "WEBP", **save_options)
     output = encoded.getvalue()
     dimensions, image_format = inspect_image(output)
     if image_format != "WEBP" or list(dimensions) != record["source_dimensions"]:
@@ -140,24 +155,24 @@ def main():
     }
     report = {
         "review_date": "2026-11-11",
-        "purpose": "Match each smile service card to its actual service using Megan's retained original portfolio images.",
+        "purpose": "Restore the whitening comparison linked by the original Shopify homepage and retain Megan's tooth-gem portfolio photograph.",
         "reproduction_helper": "scripts/prepare-studio-service-media.py",
         "recommended_service_settings": settings,
         "assets": assets,
         "attribution_evidence": [
-            "Both references are fields in templates/page.artist-portfolio.json > sections.portfolio_NhdxPw > blocks.author_mLcbKx.settings, where author_name is Megan and author_price identifies Tooth Gems and Whitening.",
-            "The same Megan images and service context are retained in templates/page.fit-to-recover.json.",
-            "The current-site archive also contains the same whitening comparison as media 277, Screenshot-2026-01-13-152928.png, at 730x720; the selected Shopify original is 1270x1081.",
+            "The original templates/index.json at commit 15cd68121a1a85e7d632523521d5c7752611e807 > sections.featured_row_3pJW78.settings pairs beforeandafter.png with title Teeth Whitening and booking link /pages/artist-page#Megan. The exact section is retained in archive/shopify-theme-before-redesign/whitening-homepage-section.json.",
+            "The same whitening homepage image reference was also verified in original revisions e9b908d, 851f138 and 1783016. It was missed when the earlier search used a shallow clone without the original homepage history.",
+            "The tooth-gem reference remains templates/page.artist-portfolio.json > sections.portfolio_NhdxPw > blocks.author_mLcbKx.settings.portfolio_image_7, where author_name is Megan and author_price identifies Tooth Gems and Whitening.",
         ],
         "usage_notes": [
             "Use the whitening image only for whitening service/result contexts. Keep Megan's portrait on her artist profile; do not globally replace all references to her portrait.",
-            "The whitening source is a comparison visibly labeled Before and After, not a photograph of a treatment in progress. Both labels and both sides should stay visible. Contain fit is recommended.",
-            "The whitening source is soft and tinted despite its larger native pixel dimensions. It is an authentic retained portfolio image; no new outcome or effectiveness claim is added.",
+            "The whitening source is the owner's original homepage comparison, visibly labeled After on the left and Before on the right. Keep both labels and sides visible with contain fit; do not flip, crop, relabel or independently recolor either side.",
+            "The full 1713x994 homepage original replaces the previously selected tinted 1270x1081 portfolio comparison. No new outcome or effectiveness claim is added.",
             "The tooth-gem photo shows multiple clear gems and gold tooth accents. It represents tooth gems, not whitening. Retain the visible gem placements at both sides of the smile.",
             "The WordPress teeth-whitening service graphic Untitled-design-15.png is a tooth icon, not a treatment photograph. The old Shopify combined smile-service landscape image shows tooth gems and does not establish whitening results.",
             "Source hashes are pinned. WebP bytes may vary with Pillow/libwebp versions; decoded native dimensions and processing rules remain fixed.",
         ],
-        "review_sheet": ".ai-bridge/megan-service-review/megan-service-candidates.jpg",
+        "reviewed_whitening_source": ".ai-bridge/whitening-color-source/beforeandafter.png",
     }
     destination = ROOT / "docs/studio-service-media-sources.json"
     destination.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

@@ -1,0 +1,26 @@
+{
+  "source_commit": "15cd68121a1a85e7d632523521d5c7752611e807",
+  "source_template": "templates/index.json",
+  "source_template_sha256": "b6b38d99a0af74a7fda8004f751af136c54212c6555418f9a851fd988079c7ad",
+  "note": "Exact retained section from the original Shopify homepage before the studio redesign.",
+  "sections": {
+    "featured_row_3pJW78": {
+      "type": "featured-row",
+      "settings": {
+        "show_on_desktop": true,
+        "show_on_mobile": true,
+        "image": "shopify://shop_images/beforeandafter.png",
+        "image_link": "",
+        "section_style": "section-blank",
+        "text_size": "large",
+        "image_alignement": "left",
+        "text_alignment": "text-center",
+        "title": "Teeth Whitening",
+        "text": "<p>Brighten your smile with our effective teeth whitening services, ensuring a radiant look.</p>",
+        "button_style": "btn--primary",
+        "button_label": "Set Your Appointment",
+        "button_link": "/pages/artist-page#Megan"
+      }
+    }
+  }
+}

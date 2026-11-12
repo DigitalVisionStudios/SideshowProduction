@@ -4,14 +4,15 @@
   "scope": "Read-only visual and provenance audit of the configured studio templates and static/default studio section image references, before remediation. No live Shopify media settings were queried.",
   "whitening_color_follow_up": {
     "review_date": "2026-11-11",
-    "status": "awaiting_corrected_shopify_file",
-    "request": "Use the color-corrected whitening image the owner recalls from Shopify.",
-    "finding": "The current WebP faithfully retains the tint of the original 1270x1081 Shopify PNG. No separate corrected version was found among the eight unique retained Megan portfolio images, legacy template/config references, original portfolio CSS, or archived WordPress comparison. No additional correction has been applied.",
-    "access": "Main Work Chrome is signed in to Shopify, but Sideshow is absent from the available stores list, so newer Shopify Files could not be inspected.",
-    "next_required_input": "The exact corrected image or Shopify Files URL, or access to the correct Sideshow Shopify store.",
+    "status": "resolved",
+    "request": "Restore the whitening image linked in the original Shopify files.",
+    "finding": "The original Shopify homepage links shopify://shop_images/beforeandafter.png in featured_row_3pJW78, titled Teeth Whitening, with a booking link to Megan. This older homepage reference was absent from the initial shallow-history search.",
+    "action_taken": "Replaced the tinted portfolio photo on homepage and services cards with the full 1713x994 original homepage comparison. After is on the left, Before on the right; both labels and the full frame are preserved.",
     "current_asset": "assets/sp-service-whitening.webp",
-    "current_source": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/427641519_413653254444875czxczcs_3625183506czxcz029295051_n.png",
-    "candidate_review": ".ai-bridge/whitening-color-source/candidates.jpg"
+    "current_source": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/beforeandafter.png",
+    "source_commit": "15cd68121a1a85e7d632523521d5c7752611e807",
+    "archived_reference": "archive/shopify-theme-before-redesign/whitening-homepage-section.json",
+    "reviewed_source": ".ai-bridge/whitening-color-source/beforeandafter.png"
   },
   "coverage": {
     "template_files": 11,
@@ -60,7 +61,7 @@
       "detail": "The photograph is Megan seated indoors, not teeth whitening or a whitening treatment. It remains valid for her artist and booking profile.",
       "recommendation": "Replace only the whitening service image with an authentic whitening image; preserve Megan's profile uses.",
       "resolution_status": "resolved",
-      "action_taken": "Homepage, services page, and preset now use the native1270x1081 whitening comparison from Megan; her portrait remains on artist/booking profiles."
+      "action_taken": "Homepage, services page, and preset now use the original Shopify homepage 1713x994 comparison, beforeandafter.png, linked by the Teeth Whitening section to Megan; her portrait remains on artist and booking profiles."
     },
     {
       "id": "MEDIA-02",

@@ -1,11 +1,11 @@
 {
   "review_date": "2026-11-11",
-  "purpose": "Match each smile service card to its actual service using Megan's retained original portfolio images.",
+  "purpose": "Restore the whitening comparison linked by the original Shopify homepage and retain Megan's tooth-gem portfolio photograph.",
   "reproduction_helper": "scripts/prepare-studio-service-media.py",
   "recommended_service_settings": {
     "whitening": {
       "asset": "sp-service-whitening.webp",
-      "alt": "Before-and-after teeth-whitening comparison shown in Megan's portfolio",
+      "alt": "Teeth-whitening comparison from the original Shopify homepage: after on the left, before on the right",
       "fit": "contain"
     },
     "tooth_gems": {
@@ -17,27 +17,30 @@
   "assets": [
     {
       "asset": "sp-service-whitening.webp",
-      "alt": "Before-and-after teeth-whitening comparison shown in Megan's portfolio",
+      "alt": "Teeth-whitening comparison from the original Shopify homepage: after on the left, before on the right",
       "suggested_fit": "contain",
-      "subject": "Labeled before-and-after teeth-whitening photo comparison",
+      "subject": "Original homepage whitening comparison labeled After on the left and Before on the right",
       "artist": "Megan",
-      "source_template": "templates/page.artist-portfolio.json",
-      "source_section": "portfolio_NhdxPw",
-      "source_block": "author_mLcbKx",
-      "source_field": "portfolio_image_3",
-      "source_reference": "shopify://shop_images/427641519_413653254444875czxczcs_3625183506czxcz029295051_n.png",
-      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/427641519_413653254444875czxczcs_3625183506czxcz029295051_n.png",
-      "source_sha256": "d7ea68dbc424cdf5a7d4b41d88553da4070aa4bb709631702c723d387520f489",
-      "source_bytes": 1551265,
+      "source_template": "archive/shopify-theme-before-redesign/whitening-homepage-section.json",
+      "source_original_template": "templates/index.json",
+      "source_commit": "15cd68121a1a85e7d632523521d5c7752611e807",
+      "source_section": "featured_row_3pJW78",
+      "source_title": "Teeth Whitening",
+      "source_artist_link": "/pages/artist-page#Megan",
+      "source_field": "image",
+      "source_reference": "shopify://shop_images/beforeandafter.png",
+      "source_url": "https://cdn.shopify.com/s/files/1/0684/2997/1713/files/beforeandafter.png",
+      "source_sha256": "1f3e197721af9f5d2b9ad173cde88e26261ee4f6ca98b26c40f4d71d370c9136",
+      "source_bytes": 1846914,
       "source_dimensions": [
-        1270,
-        1081
+        1713,
+        994
       ],
       "asset_path": "assets/sp-service-whitening.webp",
-      "width": 1270,
-      "height": 1081,
-      "bytes": 65496,
-      "sha256": "e284192c9931100592ea6785d00edbdfd11375240e7a1fc57664274542ec7df9",
+      "width": 1713,
+      "height": 994,
+      "bytes": 106572,
+      "sha256": "f8fa23181880bb3de90b4fe28c3857ff6ce26f2c94548d7ea67291e767c6521e",
       "processing": "WebP quality 88, method 6. Full native resolution and full frame retained. No crop, enlargement, sharpening, color correction, retouching, or generated imagery."
     },
     {
@@ -67,17 +70,17 @@
     }
   ],
   "attribution_evidence": [
-    "Both references are fields in templates/page.artist-portfolio.json > sections.portfolio_NhdxPw > blocks.author_mLcbKx.settings, where author_name is Megan and author_price identifies Tooth Gems and Whitening.",
-    "The same Megan images and service context are retained in templates/page.fit-to-recover.json.",
-    "The current-site archive also contains the same whitening comparison as media 277, Screenshot-2026-01-13-152928.png, at 730x720; the selected Shopify original is 1270x1081."
+    "The original templates/index.json at commit 15cd68121a1a85e7d632523521d5c7752611e807 > sections.featured_row_3pJW78.settings pairs beforeandafter.png with title Teeth Whitening and booking link /pages/artist-page#Megan. The exact section is retained in archive/shopify-theme-before-redesign/whitening-homepage-section.json.",
+    "The same whitening homepage image reference was also verified in original revisions e9b908d, 851f138 and 1783016. It was missed when the earlier search used a shallow clone without the original homepage history.",
+    "The tooth-gem reference remains templates/page.artist-portfolio.json > sections.portfolio_NhdxPw > blocks.author_mLcbKx.settings.portfolio_image_7, where author_name is Megan and author_price identifies Tooth Gems and Whitening."
   ],
   "usage_notes": [
     "Use the whitening image only for whitening service/result contexts. Keep Megan's portrait on her artist profile; do not globally replace all references to her portrait.",
-    "The whitening source is a comparison visibly labeled Before and After, not a photograph of a treatment in progress. Both labels and both sides should stay visible. Contain fit is recommended.",
-    "The whitening source is soft and tinted despite its larger native pixel dimensions. It is an authentic retained portfolio image; no new outcome or effectiveness claim is added.",
+    "The whitening source is the owner's original homepage comparison, visibly labeled After on the left and Before on the right. Keep both labels and sides visible with contain fit; do not flip, crop, relabel or independently recolor either side.",
+    "The full 1713x994 homepage original replaces the previously selected tinted 1270x1081 portfolio comparison. No new outcome or effectiveness claim is added.",
     "The tooth-gem photo shows multiple clear gems and gold tooth accents. It represents tooth gems, not whitening. Retain the visible gem placements at both sides of the smile.",
     "The WordPress teeth-whitening service graphic Untitled-design-15.png is a tooth icon, not a treatment photograph. The old Shopify combined smile-service landscape image shows tooth gems and does not establish whitening results.",
     "Source hashes are pinned. WebP bytes may vary with Pillow/libwebp versions; decoded native dimensions and processing rules remain fixed."
   ],
-  "review_sheet": ".ai-bridge/megan-service-review/megan-service-candidates.jpg"
+  "reviewed_whitening_source": ".ai-bridge/whitening-color-source/beforeandafter.png"
 }
