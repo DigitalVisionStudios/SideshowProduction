@@ -163,53 +163,55 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
   background: linear-gradient(180deg, transparent 52%, rgba(8, 8, 9, .26) 76%, #080809 100%);
 }
 .sp-hero-deck__content { position: relative; z-index: 4; padding-block: 148px 88px; }
-.sp-hero-deck__copy { max-width: 740px; }
+.sp-hero-deck__copy { max-width: 780px; }
 .sp-hero-deck h1 {
   margin: 0;
   color: #fff8f5;
-  font-family: "SP Hero Sans", "SP Sans", Arial, sans-serif;
-  font-weight: 600;
-  line-height: 1.12;
-  letter-spacing: .005em;
-  text-wrap: normal;
+  font-family: "SP Brush", "SP Sans", Arial, sans-serif;
+  font-size: clamp(48px, 7.5vw, 66px);
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: 0;
+  text-wrap: wrap;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, .2);
 }
 .sp-hero-deck .sp-hero-deck__eyebrow {
-  max-width: 42ch;
-  margin: 0 0 16px;
-  color: #ddd2d5;
-  font-family: "SP Hero Sans", "SP Sans", Arial, sans-serif;
-  font-size: clamp(12px, 1.1vw, 14px);
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: .065em;
-  text-wrap: balance;
-}
-.sp-hero-deck__words {
-  display: grid;
-  margin-block: 8px 10px;
+  max-width: 100%;
+  margin: 0 0 28px;
+  color: #fff8f5;
   font-family: "SP Brush", "SP Sans", Arial, sans-serif;
-  font-size: clamp(88px, 9.2vw, 140px);
+  font-size: clamp(21px, 3.9vw, 32px);
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.3;
   letter-spacing: 0;
-  color: #f0394a;
-  text-shadow: 0 5px 28px rgba(0, 0, 0, .28);
+  text-wrap: wrap;
+}
+.sp-hero-deck__headlines { display: grid; min-width: 0; }
+/* Whole sentences share one cell so inline words wrap naturally without shifting the copy below. */
+.sp-hero-deck__headline {
+  grid-area: 1 / 1;
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  padding-bottom: .12em;
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  pointer-events: none;
+  transition: opacity .5s ease, transform .7s cubic-bezier(.16, 1, .3, 1);
+}
+.sp-hero-deck__headline.is-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  pointer-events: auto;
 }
 .sp-hero-deck__word {
-  grid-area: 1 / 1;
-  width: max-content;
-  max-width: 100%;
-  /* The capital P avoids this brush font's deep lowercase-p descender. */
-  text-transform: capitalize;
-  opacity: 0;
-  transform: translate3d(0, 18px, 0);
-  transition: opacity .5s ease, transform .7s cubic-bezier(.16, 1, .3, 1);
+  display: inline;
+  color: #d50917;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: none;
   white-space: nowrap;
 }
-.sp-hero-deck__word.is-active { opacity: 1; transform: translate3d(0, 0, 0); }
-.sp-hero-deck__suffix { display: grid; min-width: 0; font-size: clamp(28px, 3vw, 40px); }
-/* All scenes share a grid cell, reserving the tallest copy without shifting buttons. */
-.sp-hero-deck__line,
 .sp-hero-deck__description {
   grid-area: 1 / 1;
   min-width: 0;
@@ -217,18 +219,15 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
   opacity: 0;
   transform: translate3d(0, 12px, 0);
   pointer-events: none;
+  text-wrap: pretty;
   transition: opacity .45s ease, transform .65s cubic-bezier(.16, 1, .3, 1);
 }
-.sp-hero-deck__line { text-wrap: balance; }
-.sp-hero-deck__description { text-wrap: pretty; }
-.sp-hero-deck__line.is-active,
 .sp-hero-deck__description.is-active {
   opacity: 1;
   transform: translate3d(0, 0, 0);
   pointer-events: auto;
-  transition-delay: .06s;
+  transition-delay: .12s;
 }
-.sp-hero-deck__description.is-active { transition-delay: .12s; }
 .sp-hero-deck .sp-hero-deck__intro {
   display: grid;
   min-width: 0;
@@ -243,15 +242,12 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 }
 .sp-hero-deck .sp-hero-deck__actions { margin-top: 26px; }
 .sp-hero-deck[data-hero-ready] .sp-hero-deck__eyebrow,
-.sp-hero-deck[data-hero-ready] .sp-hero-deck__words,
-.sp-hero-deck[data-hero-ready] .sp-hero-deck__suffix,
+.sp-hero-deck[data-hero-ready] .sp-hero-deck__headlines,
 .sp-hero-deck[data-hero-ready] .sp-hero-deck__intro,
 .sp-hero-deck[data-hero-ready] .sp-hero-deck__actions { animation: sp-hero-deck-enter .9s cubic-bezier(.16, 1, .3, 1) both; }
-/* Animate the word container once so the initially active scene enters too. */
-.sp-hero-deck[data-hero-ready] .sp-hero-deck__words { animation-delay: .08s; }
-.sp-hero-deck[data-hero-ready] .sp-hero-deck__suffix { animation-delay: .16s; }
-.sp-hero-deck[data-hero-ready] .sp-hero-deck__intro { animation-delay: .24s; }
-.sp-hero-deck[data-hero-ready] .sp-hero-deck__actions { animation-delay: .32s; }
+.sp-hero-deck[data-hero-ready] .sp-hero-deck__headlines { animation-delay: .08s; }
+.sp-hero-deck[data-hero-ready] .sp-hero-deck__intro { animation-delay: .18s; }
+.sp-hero-deck[data-hero-ready] .sp-hero-deck__actions { animation-delay: .28s; }
 @keyframes sp-hero-deck-enter {
   from { opacity: 0; transform: translate3d(0, 20px, 0); }
   to { opacity: 1; transform: translate3d(0, 0, 0); }
@@ -265,8 +261,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 }
 @media (max-width: 1024px) {
   .sp-hero-deck__content { padding-block: 142px 80px; }
-  .sp-hero-deck__copy { max-width: 650px; }
-  .sp-hero-deck__words { font-size: clamp(85px, 12vw, 124px); }
+  .sp-hero-deck__copy { max-width: 780px; }
   .sp-hero-deck__frame--right { inset-inline-start: 22%; }
 }
 @media (max-width: 640px) {
@@ -274,8 +269,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
   .sp-hero-deck { min-height: calc(100svh - var(--sp-preview-offset, 0px)); }
   .sp-hero-deck__content { padding-block: 126px 80px; }
   .sp-hero-deck__copy { max-width: none; }
-  .sp-hero-deck__words { margin-block: 8px 10px; font-size: clamp(66px, 20vw, 112px); }
-  .sp-hero-deck__suffix { font-size: clamp(26px, 7vw, 34px); }
+  .sp-hero-deck h1 { font-size: clamp(31px, 9.6vw, 46px); line-height: 1.3; }
+  .sp-hero-deck .sp-hero-deck__eyebrow { margin-bottom: 22px; font-size: clamp(18px, 5.3vw, 22px); }
   .sp-hero-deck .sp-hero-deck__intro { margin-top: 20px; font-size: 18px; line-height: 1.5; max-width: 34ch; }
   .sp-hero-deck .sp-hero-deck__actions { margin-top: 24px; gap: 11px; }
   .sp-hero-deck__frame--right { inset-inline-start: 0; }
@@ -287,13 +282,11 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 @media (prefers-reduced-motion: reduce) {
   .sp-hero-deck[data-hero-ready] .sp-hero-deck__frame--cover:not(.is-video-ready) > img { animation: none; transform: none; }
   .sp-hero-deck__frame,
-  .sp-hero-deck__word,
-  .sp-hero-deck .sp-hero-deck__line,
+  .sp-hero-deck__headline,
   .sp-hero-deck .sp-hero-deck__description,
   .sp-hero-deck__frame video { transition: none; }
   .sp-hero-deck[data-hero-ready] .sp-hero-deck__eyebrow,
-  .sp-hero-deck[data-hero-ready] .sp-hero-deck__words,
-  .sp-hero-deck[data-hero-ready] .sp-hero-deck__suffix,
+  .sp-hero-deck[data-hero-ready] .sp-hero-deck__headlines,
   .sp-hero-deck[data-hero-ready] .sp-hero-deck__intro,
   .sp-hero-deck[data-hero-ready] .sp-hero-deck__actions { animation: none; }
   .sp-hero-deck__frame video { display: none !important; }
@@ -306,7 +299,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
   .sp-hero-deck__shade,
   .sp-hero-deck__floor { display: none !important; }
   .sp-hero-deck h1,
-  .sp-hero-deck__words,
+  .sp-hero-deck__word,
   .sp-hero-deck .sp-hero-deck__eyebrow,
   .sp-hero-deck .sp-hero-deck__intro { color: black; text-shadow: none; }
 }

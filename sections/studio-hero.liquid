@@ -32,21 +32,12 @@
   <div class="sp-shell sp-hero-deck__content">
     <div class="sp-hero-deck__copy">
       <p class="sp-hero-deck__eyebrow">{{ section.settings.eyebrow | default: 'The Best Tattoo Shop Vibes Murray Utah' | escape }}</p>
-      <h1 id="sp-hero-heading-{{ section.id }}">
-        <span class="sp-hero-deck__words">
-          {% for block in section.blocks %}
-            <span class="sp-hero-deck__word{% if forloop.first %} is-active{% endif %}" data-sp-hero-word {% unless forloop.first %}aria-hidden="true" hidden{% endunless %}>{{ block.settings.word | default: 'artists' | escape }}</span>
-          {% else %}
-            <span class="sp-hero-deck__word is-active" data-sp-hero-word>artists</span>
-          {% endfor %}
-        </span>
-        <span class="sp-hero-deck__suffix">
-          {% for block in section.blocks %}
-            <span class="sp-hero-deck__line{% if forloop.first %} is-active{% endif %}" data-sp-hero-line {% unless forloop.first %}aria-hidden="true" hidden{% endunless %}>{{ block.settings.heading | default: 'Meet the crew.' | escape }}</span>
-          {% else %}
-            <span class="sp-hero-deck__line is-active" data-sp-hero-line>Meet the crew.</span>
-          {% endfor %}
-        </span>
+      <h1 class="sp-hero-deck__headlines" id="sp-hero-heading-{{ section.id }}">
+        {% for block in section.blocks %}
+          <span class="sp-hero-deck__headline{% if forloop.first %} is-active{% endif %}" data-sp-hero-headline {% unless forloop.first %}aria-hidden="true" hidden{% endunless %}>{{ section.settings.prefix | default: 'Unleashing your creativity starts with' | escape }} <span class="sp-hero-deck__word{% if forloop.first %} is-active{% endif %}" data-sp-hero-word>{{ block.settings.word | default: 'artists' | escape }}</span> {{ section.settings.suffix | default: 'that inspire.' | escape }}</span>
+        {% else %}
+          <span class="sp-hero-deck__headline is-active" data-sp-hero-headline>{{ section.settings.prefix | default: 'Unleashing your creativity starts with' | escape }} <span class="sp-hero-deck__word is-active" data-sp-hero-word>artists</span> {{ section.settings.suffix | default: 'that inspire.' | escape }}</span>
+        {% endfor %}
       </h1>
       <p class="sp-hero-deck__intro">
         {% for block in section.blocks %}
@@ -68,6 +59,8 @@
   "max_blocks": 6,
   "settings": [
     {"type":"text","id":"eyebrow","label":"Studio tagline","default":"The Best Tattoo Shop Vibes Murray Utah"},
+    {"type":"text","id":"prefix","label":"Headline before rotating word","default":"Unleashing your creativity starts with"},
+    {"type":"text","id":"suffix","label":"Headline after rotating word","default":"that inspire."},
     {"type":"text","id":"primary_label","label":"Booking button","default":"Book Now"},
     {"type":"url","id":"primary_link","label":"Booking destination"},
     {"type":"text","id":"secondary_label","label":"Artists button","default":"Meet the Artists"},
@@ -82,7 +75,6 @@
       "name":"Hero scene",
       "settings":[
         {"type":"text","id":"word","label":"Rotating word","default":"artists"},
-        {"type":"text","id":"heading","label":"Scene headline","default":"Meet the crew."},
         {"type":"textarea","id":"description","label":"Scene description","default":"Explore their work and find the right artist for your next piece."},
         {"type":"image_picker","id":"image","label":"Optional uploaded photograph"},
         {"type":"text","id":"asset","label":"Fallback photograph asset","default":"sp-source-storefront.webp"},
@@ -99,9 +91,9 @@
     {
       "name":"Studio hero",
       "blocks":[
-        {"type":"scene","settings":{"word":"artists","heading":"Meet the crew.","description":"Explore their work and find the right artist for your next piece.","asset":"sp-source-storefront.webp","width":1354,"height":759,"media_style":"cover","focus_x":50,"focus_y":50,"video_asset":"#"}},
-        {"type":"scene","settings":{"word":"piercings","heading":"Find your next look.","description":"Your first piercing or your next addition, let’s make it yours.","asset":"sp-original-sonny-heart.webp","width":1440,"height":1800,"media_style":"right","focus_x":50,"focus_y":50,"video_asset":"#"}},
-        {"type":"scene","settings":{"word":"tattoos","heading":"Made for you.","description":"Bring an idea, choose some flash, or start with a conversation.","asset":"sp-welcome-jake-session.webp","width":750,"height":1000,"media_style":"right","focus_x":50,"focus_y":55,"video_asset":"#"}}
+        {"type":"scene","settings":{"word":"artists","description":"Explore their work and find the right artist for your next piece.","asset":"sp-source-storefront.webp","width":1354,"height":759,"media_style":"cover","focus_x":50,"focus_y":50,"video_asset":"#"}},
+        {"type":"scene","settings":{"word":"piercings","description":"Your first piercing or your next addition, let’s make it yours.","asset":"sp-original-sonny-heart.webp","width":1440,"height":1800,"media_style":"right","focus_x":50,"focus_y":50,"video_asset":"#"}},
+        {"type":"scene","settings":{"word":"tattoos","description":"Bring an idea, choose some flash, or start with a conversation.","asset":"sp-welcome-jake-session.webp","width":750,"height":1000,"media_style":"right","focus_x":50,"focus_y":55,"video_asset":"#"}}
       ]
     }
   ]

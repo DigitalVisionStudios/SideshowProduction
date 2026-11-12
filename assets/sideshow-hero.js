@@ -89,9 +89,9 @@
       if (instances.has(element)) return;
       var frames = Array.from(element.querySelectorAll("[data-sp-hero-frame]"));
       var words = Array.from(element.querySelectorAll("[data-sp-hero-word]"));
-      var lines = Array.from(element.querySelectorAll("[data-sp-hero-line]"));
+      var headlines = Array.from(element.querySelectorAll("[data-sp-hero-headline]"));
       var descriptions = Array.from(element.querySelectorAll("[data-sp-hero-description]"));
-      var copyGroups = [words, lines, descriptions];
+      var copyGroups = [words, headlines, descriptions];
       if (!frames.length || copyGroups.some(function (group) { return group.length !== frames.length; })) return;
       var bounds = element.getBoundingClientRect();
       var state = {
