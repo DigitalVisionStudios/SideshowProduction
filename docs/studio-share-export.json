@@ -1,76 +1,54 @@
 {
-  "source_commit": "7b2066fdeb0a67ffcf919ceecc1d72c7a5d09387",
-  "generated_at": "2026-11-12T04:06:30.242Z",
+  "source_commit": "c47ef73f1bc5c244771f83c40e5f90e2bd7c5820",
+  "generated_at": "2026-11-12T04:27:35.901Z",
   "share_url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
   "routes": [
     {
       "route": "/sideshow-productions-v2/",
       "file": "index.html",
-      "bytes": 54289
+      "bytes": 61780
     },
     {
-      "route": "/sideshow-productions-v2/pages/about",
-      "file": "pages/about/index.html",
-      "bytes": 44268
-    },
-    {
-      "route": "/sideshow-productions-v2/pages/aftercare",
-      "file": "pages/aftercare/index.html",
-      "bytes": 25725
-    },
-    {
-      "route": "/sideshow-productions-v2/pages/artists",
-      "file": "pages/artists/index.html",
-      "bytes": 40458
-    },
-    {
-      "route": "/sideshow-productions-v2/pages/book",
-      "file": "pages/book/index.html",
-      "bytes": 27596
-    },
-    {
-      "route": "/sideshow-productions-v2/pages/contact",
-      "file": "pages/contact/index.html",
-      "bytes": 24319
-    },
-    {
-      "route": "/sideshow-productions-v2/pages/flash",
-      "file": "pages/flash/index.html",
-      "bytes": 43225
-    },
-    {
-      "route": "/sideshow-productions-v2/pages/ink-roulette",
-      "file": "pages/ink-roulette/index.html",
-      "bytes": 64885
-    },
-    {
-      "route": "/sideshow-productions-v2/pages/portfolio",
-      "file": "pages/portfolio/index.html",
-      "bytes": 37298
-    },
-    {
-      "route": "/sideshow-productions-v2/pages/services",
-      "file": "pages/services/index.html",
-      "bytes": 34624
-    },
-    {
-      "route": "/sideshow-productions-v2/pages/shop",
-      "file": "pages/shop/index.html",
-      "bytes": 41860
+      "route": "/sideshow-productions-v2/coming-soon/",
+      "file": "coming-soon/index.html",
+      "bytes": 4650
     }
   ],
   "aliases": {
-    "/pages/about-us": "/pages/about",
-    "/pages/our-artists": "/pages/artists",
-    "/pages/artist-portfolio": "/pages/artists",
-    "/pages/gallery": "/pages/portfolio",
-    "/pages/work": "/pages/portfolio",
-    "/pages/flash-tattoos": "/pages/flash",
-    "/pages/after-care": "/pages/aftercare",
-    "/pages/visit": "/pages/contact",
-    "/pages/merch": "/pages/shop",
-    "/pages/merch-shop": "/pages/shop"
+    "/pages/about-us": "/coming-soon/",
+    "/pages/our-artists": "/coming-soon/",
+    "/pages/artist-portfolio": "/coming-soon/",
+    "/pages/gallery": "/coming-soon/",
+    "/pages/work": "/coming-soon/",
+    "/pages/flash-tattoos": "/coming-soon/",
+    "/pages/after-care": "/coming-soon/",
+    "/pages/visit": "/coming-soon/",
+    "/pages/merch": "/coming-soon/",
+    "/pages/merch-shop": "/coming-soon/"
   },
+  "redirects": [
+    "/connection",
+    "/pages/about",
+    "/pages/about-us",
+    "/pages/after-care",
+    "/pages/aftercare",
+    "/pages/artist-portfolio",
+    "/pages/artists",
+    "/pages/book",
+    "/pages/contact",
+    "/pages/flash",
+    "/pages/flash-tattoos",
+    "/pages/gallery",
+    "/pages/ink-roulette",
+    "/pages/merch",
+    "/pages/merch-shop",
+    "/pages/our-artists",
+    "/pages/portfolio",
+    "/pages/services",
+    "/pages/shop",
+    "/pages/visit",
+    "/pages/work"
+  ],
   "assets": [
     {
       "file": "assets/sideshow-appearance.css",
@@ -109,8 +87,8 @@
     },
     {
       "file": "assets/sideshow-hero.css",
-      "bytes": 7463,
-      "sha256": "3da960c22e8cb33d27f74540c70379e8fff21c62156a11147182233e2e0b7726"
+      "bytes": 7808,
+      "sha256": "73a45c224d4fd328ef53bad4a6612b0b6782279b45a380dd91c2b04f617958ee"
     },
     {
       "file": "assets/sideshow-hero.js",
@@ -144,8 +122,8 @@
     },
     {
       "file": "assets/sideshow-original.css",
-      "bytes": 11188,
-      "sha256": "49615af272f1be48cdef3c20855215e636459474f59ae54b5513a75276d6fb09"
+      "bytes": 10934,
+      "sha256": "ef2c4a3ec82e5da8ad512ca324274c90c60437b7c738c96d7d3fccc12eb8f230"
     },
     {
       "file": "assets/sideshow-original.js",
@@ -203,36 +181,6 @@
       "sha256": "02160b231ccee9f5d68a8425fc3a9ce43c30ccb6bbaeeadbdb6fd459fac9e357"
     },
     {
-      "file": "assets/sp-flash-01.webp",
-      "bytes": 23134,
-      "sha256": "7f798dfdc34885e53c461feed35b5d09b1e6df4e3cf262b98775b6da87964f29"
-    },
-    {
-      "file": "assets/sp-flash-02.webp",
-      "bytes": 26318,
-      "sha256": "be40ee8ee13f4a9ec789fc2cf31be8783835c538ab8bffe111fcfcb9eec7a3c5"
-    },
-    {
-      "file": "assets/sp-flash-03.webp",
-      "bytes": 32388,
-      "sha256": "257ecf829819527fbe449bd15e70b94c3a717b1828164ae92e5e2918aa91ad66"
-    },
-    {
-      "file": "assets/sp-flash-04.webp",
-      "bytes": 83844,
-      "sha256": "4b572ae107a7c6e0668a14fca9de80a10d219e838e551cc82a4c7a22e5979b0f"
-    },
-    {
-      "file": "assets/sp-flash-05.webp",
-      "bytes": 90458,
-      "sha256": "46b8c418e023b16e0d7827d508b6bcfe94c0387b8e9bfbead43d7a3e61565e1f"
-    },
-    {
-      "file": "assets/sp-flash-06.webp",
-      "bytes": 105904,
-      "sha256": "e34d53daaf814166f9d6a20c180d26058e2b13d533b64a63d438f4e271167bd1"
-    },
-    {
       "file": "assets/sp-legacy-background.json",
       "bytes": 2644,
       "sha256": "11210f6e49d9390157a85daa4db497cb6b0ebc03ef2cb6e7eead27be28e1ada0"
@@ -253,101 +201,6 @@
       "sha256": "97ff4143eb04843eb4ef32734a5dab35bfb3d02229d1aceaa1f08d28d7e8523c"
     },
     {
-      "file": "assets/sp-original-detail-flash-07.webp",
-      "bytes": 40704,
-      "sha256": "409d74317b34229eaee56e09a6ee3368744d8095c3f8937190c0c76ccb472b75"
-    },
-    {
-      "file": "assets/sp-original-detail-flash-08.webp",
-      "bytes": 43948,
-      "sha256": "72850df86473ef4df10029915996516016a8b3b341ae58d109040cfbad6340ce"
-    },
-    {
-      "file": "assets/sp-original-detail-flash-poster.webp",
-      "bytes": 43214,
-      "sha256": "4ec99173aae7cb3ba6456b9b6a181121d8a363a37a02511e9e3d19304d447ec8"
-    },
-    {
-      "file": "assets/sp-original-detail-flash.mp4",
-      "bytes": 3056103,
-      "sha256": "371a9d0c69f5ec9acc3120861bd747f2f95d295cdb1dc8447be24589dcc1b142"
-    },
-    {
-      "file": "assets/sp-original-detail-journey-community.webp",
-      "bytes": 16442,
-      "sha256": "8864a9312671e335ea97c897edd61833f9f4b00ef2c48c3d4afd99b1ec438ccc"
-    },
-    {
-      "file": "assets/sp-original-detail-journey-piercing.webp",
-      "bytes": 9886,
-      "sha256": "ca277315e0f5a785d51fdb2bc6157484d461f73a06bd6b357773cc186be35bd0"
-    },
-    {
-      "file": "assets/sp-original-detail-journey-storefront.webp",
-      "bytes": 211180,
-      "sha256": "5bf7f649559b85850efa2e514e851f1b478854e493c8fb151464732faf7d5bb5"
-    },
-    {
-      "file": "assets/sp-original-detail-journey-years.webp",
-      "bytes": 17376,
-      "sha256": "23517d4acee882dc709b98f62e459569375eb5bd1eff60b6601c407f492a391c"
-    },
-    {
-      "file": "assets/sp-original-detail-roulette-poster.webp",
-      "bytes": 35844,
-      "sha256": "bbf92357dc0fc0f2cd9018497007e6b5c6dc7f4cc36cf41a1b5612ee7f0440f3"
-    },
-    {
-      "file": "assets/sp-original-detail-roulette.mp4",
-      "bytes": 9280770,
-      "sha256": "96cc0a7438d950b545243e00f79d2312d839a4b79a6f0c6c234f0527b59139a6"
-    },
-    {
-      "file": "assets/sp-original-jake-boot.webp",
-      "bytes": 94062,
-      "sha256": "63bda7dbbf93a9f92d0f370199b1300b606c386036376ba47f93b415323ad062"
-    },
-    {
-      "file": "assets/sp-original-jake-dragon.webp",
-      "bytes": 76814,
-      "sha256": "a6cdc644cdd0d90c57bfa5cabb733c61c430ea9b627408fd3891b26785a81b90"
-    },
-    {
-      "file": "assets/sp-original-jake-figure.webp",
-      "bytes": 75212,
-      "sha256": "48c6118d84b4d5f79e2000f8ba6f7c5370d932987d9e73c6926bac4ebfc29eac"
-    },
-    {
-      "file": "assets/sp-original-jake-reaper.webp",
-      "bytes": 79152,
-      "sha256": "718ef9cc320709f56fdec0ff9ad89c61990f0ff1220eb349e05bb876f5a22394"
-    },
-    {
-      "file": "assets/sp-original-jake-spiders.webp",
-      "bytes": 62208,
-      "sha256": "8afc38c15c7cea5fab9b4867fc3c5b7a97f0f2601739d4890809903321977ad8"
-    },
-    {
-      "file": "assets/sp-original-jake-sunflower.webp",
-      "bytes": 76542,
-      "sha256": "ed201b517a1ef711dd0d48e2adcfbbf3c4b342ac13f231f2d75e66382e05755c"
-    },
-    {
-      "file": "assets/sp-original-jake-swallow.webp",
-      "bytes": 53538,
-      "sha256": "3e8b97dad8cdfce9207bfdbf527dfbb2e700d33532ea009d23d75e601b581f84"
-    },
-    {
-      "file": "assets/sp-original-megan-gem.webp",
-      "bytes": 119228,
-      "sha256": "790796c2099be6e0187fb6dd3d53e4d39b957c1139fe029ca0c53ddfa0c4ca4d"
-    },
-    {
-      "file": "assets/sp-original-megan.webp",
-      "bytes": 29412,
-      "sha256": "106a2b4c7f5c335ee2f2bec16fc206685899dfdf36ec7ae7a18e6d251e0dc1ce"
-    },
-    {
       "file": "assets/sp-original-portrait-jake.webp",
       "bytes": 28582,
       "sha256": "b699984da731cdfd4d2d1e0042c30c88d1133cca7c2af6c08367fdd52bc1529c"
@@ -366,11 +219,6 @@
       "file": "assets/sp-original-portrait-sonny.webp",
       "bytes": 28454,
       "sha256": "58c4ad1a6d55f97134f9eafe9a452f13f510dee631a2695b0352ccc8080dffce"
-    },
-    {
-      "file": "assets/sp-original-rigo-floral.webp",
-      "bytes": 75912,
-      "sha256": "1aed32ea29236348a5b2b0fbf706770ba0454c59566490f2edfc22efc1a051fb"
     },
     {
       "file": "assets/sp-original-roulette-tour-poster.webp",
@@ -413,254 +261,9 @@
       "sha256": "4cec361adb4cc93735427d98909dcd66fbf99f89e664051225143bb3c12cb71b"
     },
     {
-      "file": "assets/sp-original-sonny-ear.webp",
-      "bytes": 42778,
-      "sha256": "7e42a3c3715543815829f975daf62b6809695381181191c284f2d4cf24979575"
-    },
-    {
       "file": "assets/sp-original-sonny-heart.webp",
       "bytes": 342154,
       "sha256": "3a53b105261a4137ac507e695f8eed8249baf7e0adfffc6f58274ab72d1b5127"
-    },
-    {
-      "file": "assets/sp-product-01.webp",
-      "bytes": 43340,
-      "sha256": "945037b43fb687f82b509a505a1e452f45a860d722cef5d4a0794c6df8f561c9"
-    },
-    {
-      "file": "assets/sp-product-02.webp",
-      "bytes": 78612,
-      "sha256": "ff1178784d8bc3c357a7da2f5c4a4089824dd434c7d9ab8439cbbd7ae4a6f63c"
-    },
-    {
-      "file": "assets/sp-product-03.webp",
-      "bytes": 121110,
-      "sha256": "c04ac046f60c5323a77ec5a4f0455ea124cadad3e5926a52d759ef192f838f58"
-    },
-    {
-      "file": "assets/sp-product-04.webp",
-      "bytes": 71572,
-      "sha256": "aa88bbf466a9314878c2d2213a36d04a3ca3628b08dabed112358d21c865a8ab"
-    },
-    {
-      "file": "assets/sp-product-05.webp",
-      "bytes": 143304,
-      "sha256": "cbfc2cd0f33fa530fcc766af6efa65de42fc54c522021d1fab0ca519a4a92ae8"
-    },
-    {
-      "file": "assets/sp-product-06.webp",
-      "bytes": 89814,
-      "sha256": "c7e7259d57589b0bddf919a6f3173544637d28e546cb0bdfed93d404e606fde5"
-    },
-    {
-      "file": "assets/sp-product-07.webp",
-      "bytes": 65736,
-      "sha256": "d8355c2a1144c64d2b8d9cbb62c4ba9e7e1f76a16eecd0e6817da76e88f75b7e"
-    },
-    {
-      "file": "assets/sp-product-08.webp",
-      "bytes": 131608,
-      "sha256": "c6062a6eab30a21d1505cbc91b15f21f4dc1625124e6b6cd853ef14060c24866"
-    },
-    {
-      "file": "assets/sp-product-09.webp",
-      "bytes": 60842,
-      "sha256": "090943abb07f01f774f278830f31bdb29cd24473b2597d2f1d6dc06436255a70"
-    },
-    {
-      "file": "assets/sp-product-10.webp",
-      "bytes": 62676,
-      "sha256": "978d8e877c666f265fc78a27ef0bd841a1373cc3e396c8f3c2b0f43f42beb2dd"
-    },
-    {
-      "file": "assets/sp-product-11.webp",
-      "bytes": 65928,
-      "sha256": "e0b84ec040533547e3294879566f77509001af262bc534995c4aa1194c9319c6"
-    },
-    {
-      "file": "assets/sp-product-12.webp",
-      "bytes": 97506,
-      "sha256": "ee62841b93fd5bf8e60b8e64736f93aecaf703703d843e1ec603a5f6390ac319"
-    },
-    {
-      "file": "assets/sp-product-13.webp",
-      "bytes": 92062,
-      "sha256": "f591b65f72c851e225f92d575f5e9f7f6338ceaf7a7971f322c9d564332645ab"
-    },
-    {
-      "file": "assets/sp-product-14.webp",
-      "bytes": 54636,
-      "sha256": "25482a58051b413a382accb5c35d1bb02f413579fa39f4c80baeb92047b50976"
-    },
-    {
-      "file": "assets/sp-product-15.webp",
-      "bytes": 43382,
-      "sha256": "69eb590bb8410ae0028a47944bdd6429bdf764e717e6dd5660a2a27863fa183e"
-    },
-    {
-      "file": "assets/sp-product-16.webp",
-      "bytes": 88374,
-      "sha256": "f39186cb37b2f7397f4d4b10522666f7c60e1b6a03f8cc11770b56de77b5d6e2"
-    },
-    {
-      "file": "assets/sp-product-base-spray.webp",
-      "bytes": 73754,
-      "sha256": "c03849e81ca4fec9863dda002f76c24b90aff601390eb4294dcbc5fc1c28e62a"
-    },
-    {
-      "file": "assets/sp-product-defend.webp",
-      "bytes": 18040,
-      "sha256": "5bc664314e37d33a4a01f2455ef050c2db95f0bcbd75e3b2509d22a71351b5d1"
-    },
-    {
-      "file": "assets/sp-product-steri-wash.webp",
-      "bytes": 16280,
-      "sha256": "af208c5c8d64507a99a48e26c78d9304f3f67a286101719517cbb6394505de69"
-    },
-    {
-      "file": "assets/sp-roulette-01.webp",
-      "bytes": 61632,
-      "sha256": "e2e147bd7c0e84968d58a13901f20572257062643a456dedee77f71c9c4d10ff"
-    },
-    {
-      "file": "assets/sp-roulette-02.webp",
-      "bytes": 69670,
-      "sha256": "d9cae8a1f4d00b297d44d6479be41a33326ab99c51240284c6c4995274461a80"
-    },
-    {
-      "file": "assets/sp-roulette-03.webp",
-      "bytes": 88042,
-      "sha256": "2443c25c9913d598639e5fecf8acf927d0ce822564a1a2c38d801761e4df0af0"
-    },
-    {
-      "file": "assets/sp-roulette-04.webp",
-      "bytes": 76962,
-      "sha256": "3b426b0d5ed2df805a9eb7c4acfd1b3350bf4811b23acce015a74a1e292c327a"
-    },
-    {
-      "file": "assets/sp-roulette-05.webp",
-      "bytes": 126196,
-      "sha256": "b5671a6070d018fdba2a74a2f1b263a25345d10401b9c847802e49852d659a3c"
-    },
-    {
-      "file": "assets/sp-roulette-06.webp",
-      "bytes": 43284,
-      "sha256": "72899323b522bb4974cdbf85b76d41aa2053a96b36b45a0ff055b77d4541585b"
-    },
-    {
-      "file": "assets/sp-roulette-07.webp",
-      "bytes": 66140,
-      "sha256": "d0c393f8f83015e40d934b1197eab2198117b4ee8d1fc5ce2513a0c39869b9c4"
-    },
-    {
-      "file": "assets/sp-roulette-08.webp",
-      "bytes": 52028,
-      "sha256": "44fe4fbdeb88a1f3e02f6e909c75f2ae3a169d51761417389d4b9d7fe8b9b86f"
-    },
-    {
-      "file": "assets/sp-roulette-09.webp",
-      "bytes": 44474,
-      "sha256": "a185edb8093c9fcc9c17aaf7015430f773a786562ae8f28bbb3e807e7e573c1d"
-    },
-    {
-      "file": "assets/sp-roulette-10.webp",
-      "bytes": 87464,
-      "sha256": "bada1b5aadffb6cdd28ad707ffaefcc299143de907f3564fb2c2628755ee1bf7"
-    },
-    {
-      "file": "assets/sp-roulette-11.webp",
-      "bytes": 61350,
-      "sha256": "02fa31b49b473362b04b0a4e5487bcd6b438dc61b96c25e03e6d78840311af5d"
-    },
-    {
-      "file": "assets/sp-roulette-12.webp",
-      "bytes": 87146,
-      "sha256": "57ed70cea1cc9cdc16150e0189830f7d9ad27c5ceddd4bf7a7c6362087ff220c"
-    },
-    {
-      "file": "assets/sp-roulette-13.webp",
-      "bytes": 59704,
-      "sha256": "96ee7efddf44e150576ed190353c772b704dc1dc130567bbdf324e920d6da5f2"
-    },
-    {
-      "file": "assets/sp-roulette-14.webp",
-      "bytes": 64376,
-      "sha256": "1a058f7f31052cc68f7870bfde33df51615d6c88f9493bae5e824a85992cc0f1"
-    },
-    {
-      "file": "assets/sp-roulette-15.webp",
-      "bytes": 68966,
-      "sha256": "4b226bb7f99c70a4aa652084d4fea5fa5027e365fd7302ee7df2a88e4ee5729f"
-    },
-    {
-      "file": "assets/sp-roulette-16.webp",
-      "bytes": 60922,
-      "sha256": "a910164589116c8419652f8c78b3630c4ec3fc14987e85e55f77581ccf366b06"
-    },
-    {
-      "file": "assets/sp-roulette-17.webp",
-      "bytes": 84496,
-      "sha256": "b351617db1aa039f43d285f725e17849ee79f12c6e10433027fa79277305f1a7"
-    },
-    {
-      "file": "assets/sp-roulette-18.webp",
-      "bytes": 65734,
-      "sha256": "f79263930bd14564adb4831dbb4910d76eec942619a921f484b81e0602b0c833"
-    },
-    {
-      "file": "assets/sp-roulette-19.webp",
-      "bytes": 69586,
-      "sha256": "6b8e08f2262ac721845f64ed8b9c7db7c8c4c9c4d4325cca8e9414ceb23c0a5c"
-    },
-    {
-      "file": "assets/sp-roulette-20.webp",
-      "bytes": 81646,
-      "sha256": "aec61704a1157c496178dadd4ad05ef38de700722b27aa70e1cb551e13a7a5fb"
-    },
-    {
-      "file": "assets/sp-roulette-21.webp",
-      "bytes": 83950,
-      "sha256": "aa31be89ee04881770983fb72bc6e6855a8c1a345f2c0a302676ac0e0462d8b8"
-    },
-    {
-      "file": "assets/sp-roulette-22.webp",
-      "bytes": 106840,
-      "sha256": "1dd80bddce03af5366d688ccd58fe98a1e30a8cd3bfbf26d201f929dbcf825cb"
-    },
-    {
-      "file": "assets/sp-roulette-23.webp",
-      "bytes": 55092,
-      "sha256": "8f1f73b73683d893bba41aac90cecfcda745bcc815b3a035b11557608e206755"
-    },
-    {
-      "file": "assets/sp-roulette-24.webp",
-      "bytes": 85936,
-      "sha256": "1a78a9fc869482c86b1008673cbf92f956a3768f09b03873635af5d6861c3e75"
-    },
-    {
-      "file": "assets/sp-roulette-25.webp",
-      "bytes": 58616,
-      "sha256": "77c0f2cbf14a855d487c9839562a589f9e1c4f75ebef710bb6aa359c33ac7192"
-    },
-    {
-      "file": "assets/sp-roulette-26.webp",
-      "bytes": 71366,
-      "sha256": "a1addc9ca3669fecfe48f32019d2a0b919fb5ef2e6b4b29747355fe87976d3bc"
-    },
-    {
-      "file": "assets/sp-roulette-27.webp",
-      "bytes": 101402,
-      "sha256": "caabcf1183ad099159bcb93392f7eb320c0d48c267932642958d8a09ef24f3f9"
-    },
-    {
-      "file": "assets/sp-service-tooth-gems.webp",
-      "bytes": 67170,
-      "sha256": "5616c8e1a652a9013ff4ed668702fd7425384ccf9fb1239b68cf66c9ffabab5c"
-    },
-    {
-      "file": "assets/sp-service-whitening.webp",
-      "bytes": 106572,
-      "sha256": "f8fa23181880bb3de90b4fe28c3857ff6ce26f2c94548d7ea67291e767c6521e"
     },
     {
       "file": "assets/sp-source-storefront.webp",
@@ -691,26 +294,6 @@
       "file": "assets/sp-welcome-jake-session.webp",
       "bytes": 85728,
       "sha256": "ea07c526554dabe8ca07a335a2b64371de557c1f58d3880993b92106d3f55165"
-    },
-    {
-      "file": "assets/sp-work-07.webp",
-      "bytes": 28804,
-      "sha256": "c04f09c20f0fcb54000ef21d6d4b88c5b3118bfcb9b5a678d29483d1175fb9c8"
-    },
-    {
-      "file": "assets/sp-work-10.webp",
-      "bytes": 21980,
-      "sha256": "6a29c1ebf56120a6933113a1dbfc903b069beaf9de5d4eba54643bc45494f531"
-    },
-    {
-      "file": "assets/sp-work-11.webp",
-      "bytes": 49662,
-      "sha256": "6b21369729f92702392b6404e4093a3f536d46d3c9e230ef666b6dfacf678fe7"
-    },
-    {
-      "file": "assets/sp-work-12.webp",
-      "bytes": 39286,
-      "sha256": "31c739fb968351948e9e7351151944c847db3d47e3bef044b0a9ac31cef0f2d4"
     }
   ],
   "icon_files": [
@@ -726,11 +309,11 @@
     "assets/icons/favicon.ico",
     "assets/icons/site.webmanifest"
   ],
-  "bytes": 24270014,
+  "bytes": 6652664,
   "notes": [
-    "Rendered from the current Shopify studio templates.",
+    "Homepage-only preview rendered from the current Shopify studio templates.",
     "Only used storefront assets are copied; source archives and working files are excluded.",
-    "Form submissions and disconnected Shopify destinations remain preview-only.",
+    "All non-home navigation, forms, prior preview pages, and aliases lead to the branded Coming soon page.",
     "Original logo sharing assets were prepared with the existing HTML Preview generator."
   ]
 }

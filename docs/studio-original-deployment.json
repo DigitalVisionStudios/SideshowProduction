@@ -1,18 +1,18 @@
 {
   "site_id": "d89eb8b7-a74a-4269-8167-fbebfba7493a",
   "site_name": "dvs-html-previews-netlify6",
-  "deploy_id": "6af53b73adce6aca8b476d4d",
+  "deploy_id": "6af5407335fa2bb954cecbca",
   "mode": "draft",
   "alias": "sideshow-original",
   "state": "ready",
   "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
   "v1_url": "https://sideshow-review--dvs-html-previews-netlify6.netlify.app/sideshow-productions/",
-  "source_commit": "7b2066f",
+  "source_commit": "c47ef73",
   "uploaded_with": "C:/Users/jesus/Documents/Work/HTML Preview/deploy_to_netlify.ps1",
   "project": "sideshow-productions-v2",
   "public_verification": {
     "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
-    "checked": 150,
+    "checked": 62,
     "failures": [],
     "homepageStatus": 200,
     "exportMatchesLive": true,
@@ -24,9 +24,10 @@
   },
   "shopify_live_changes": false,
   "latest_changes": [
-    "Logo-only footer branding with accessible home link",
-    "Black-to-transparent background at the top of the services section",
-    "Medium-weight white hero headline"
+    "Dedicated black-to-transparent transition section after the hero",
+    "Hero headline: Your vision. Our artistry.",
+    "All destination links lead to a branded Coming soon page",
+    "Existing supporting-page preview URLs redirect to Coming soon"
   ],
   "visual_verification": {
     "viewports": [
@@ -37,13 +38,17 @@
       "Clean",
       "Studio"
     ],
+    "transition_height_mobile": 80,
+    "transition_height_desktop": 128,
     "hero_white_weight": 500,
     "hero_brush_weight": 400,
     "overflow": false,
     "runtime_errors": []
   },
   "changed_asset_verification": {
-    "checks": [
+    "redirectsChecked": 21,
+    "failed": [],
+    "changed": [
       {
         "file": "assets/sideshow-hero.css",
         "status": 200,
@@ -53,9 +58,21 @@
         "file": "assets/sideshow-original.css",
         "status": 200,
         "matchesExport": true
+      },
+      {
+        "file": "coming-soon/index.html",
+        "status": 200,
+        "matchesExport": true
       }
-    ],
-    "logoOnly": true,
-    "accessibleLogo": true
+    ]
+  },
+  "preview_mode": "homepage-only",
+  "homepage_navigation_verification": {
+    "local_links_audited": 129,
+    "local_click_return_journeys": 12,
+    "public_desktop_and_mobile_passed": true,
+    "home_and_skip_links_preserved": true,
+    "map_overlay_active": true,
+    "shopify_source_destinations_preserved": true
   }
 }
