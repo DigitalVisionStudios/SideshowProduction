@@ -6,6 +6,10 @@
 .sp-original-artist-card{display:flex;flex-direction:column;align-items:center;position:relative;width:100%;min-width:0;height:100%;padding:30px 28px 25px;border:1px solid rgba(155,88,108,.2);border-radius:8px;background:radial-gradient(ellipse at 50% 0,rgba(100,21,45,.12),transparent 62%),linear-gradient(160deg,rgba(25,17,23,.76),rgba(11,10,13,.7));transition:border-color .3s ease,background-color .3s ease}
 .sp-original-artist-card:hover{border-color:rgba(223,66,94,.4);background-color:rgba(56,13,28,.14)}
 .sp-original-artist-card:focus-within{border-color:#bc425d}
+/* Match the saved Splide component without transforming Splide's measuring boxes. */
+[data-artist-reveal="pending"] .sp-original-artist-card{opacity:0;transform:translate3d(0,50px,0) scale(.95)}
+[data-artist-reveal="entering"] .sp-original-artist-card{animation:sp-artist-entrance .8s cubic-bezier(.16,1,.3,1) var(--artist-enter-delay,0ms) both}
+@keyframes sp-artist-entrance{from{opacity:0;transform:translate3d(0,50px,0) scale(.95)}to{opacity:1;transform:translate3d(0,0,0) scale(1)}}
 .sp-original-artist-card .sp-original-portrait{flex:none;width:156px;height:156px;margin:0 0 23px;border:1px solid #68404b;box-shadow:0 0 0 5px rgba(92,29,49,.12),0 12px 30px rgba(0,0,0,.22)}
 .sp-original-artist-card .sp-original-portrait img{transition:transform .55s cubic-bezier(.2,.6,.2,1);-webkit-user-drag:none;user-select:none}
 .sp-original-artist-card .sp-original-portrait:hover img{transform:scale(1.045)}
@@ -34,8 +38,8 @@
   .sp-original-artists [data-artist-splide]:not(.is-initialized) .splide__list{gap:20px}
   .sp-original-artists [data-artist-splide]:not(.is-initialized) .sp-original-artist{flex-basis:calc((100% - 20px)/2);width:calc((100% - 20px)/2)}
 }
-@media(max-width:600px){
-  .sp-original-artists [data-artist-splide] .splide__track{padding-block:8px 14px;mask-image:linear-gradient(90deg,transparent,#000 6px,#000 calc(100% - 22px),transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6px,#000 calc(100% - 22px),transparent)}
+@media(max-width:767px){
+  .sp-original-artists [data-artist-splide] .splide__track{padding-block:8px 14px;mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 12px),transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 12px),transparent)}
   .sp-original-artist-card{padding:27px 21px 23px;border-radius:7px}
   .sp-original-artist-card .sp-original-portrait{width:144px;height:144px;margin-bottom:21px}
   .sp-site .sp-original-artist-card h3{font-size:31px}
@@ -43,7 +47,7 @@
   .sp-original-artist-card .sp-original-artist-bio{max-width:29ch;font-size:14px!important;line-height:1.6!important}
   .sp-original-artist-card .sp-original-socials{margin-top:20px;padding-top:17px}
   .sp-original-artists [data-artist-splide]:not(.is-initialized) .splide__list{gap:16px}
-  .sp-original-artists [data-artist-splide]:not(.is-initialized) .sp-original-artist{flex-basis:calc(100% - 38px);width:calc(100% - 38px)}
+  .sp-original-artists [data-artist-splide]:not(.is-initialized) .sp-original-artist{flex-basis:calc(100% - 64px);width:calc(100% - 64px)}
 }
 @media(max-width:360px){
   .sp-original-artist-card{padding-inline:17px}
@@ -51,6 +55,7 @@
   .sp-original-artist-card .sp-original-artist-bio{font-size:13px!important}
 }
 @media(prefers-reduced-motion:reduce){
+  [data-artist-reveal] .sp-original-artist-card{opacity:1;transform:none;animation:none}
   .sp-original-artist-card,.sp-original-artist-card .sp-original-portrait img,.sp-original-artist-card .sp-original-socials a{transition:none}
   .sp-original-artist-card .sp-original-portrait:hover img,.sp-original-artist-card .sp-original-socials a:hover{transform:none}
 }
