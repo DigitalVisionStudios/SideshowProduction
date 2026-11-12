@@ -1,17 +1,17 @@
 {
-  "source_commit": "fb175b1e598b6fc19ed8ffa66ed8d75d845b2052",
-  "generated_at": "2026-11-12T02:10:18.757Z",
+  "source_commit": "7c1eeaea3a66fd39217bc0cabbe49ead933aca1d",
+  "generated_at": "2026-11-12T03:11:38.365Z",
   "share_url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
   "routes": [
     {
       "route": "/sideshow-productions-v2/",
       "file": "index.html",
-      "bytes": 54348
+      "bytes": 54336
     },
     {
       "route": "/sideshow-productions-v2/pages/about",
       "file": "pages/about/index.html",
-      "bytes": 44327
+      "bytes": 44315
     },
     {
       "route": "/sideshow-productions-v2/pages/aftercare",
@@ -84,13 +84,13 @@
     },
     {
       "file": "assets/sideshow-artists-splide.css",
-      "bytes": 6018,
-      "sha256": "49781544b13d3439089bc1cf0998b9c09c7528e15213f53261ced4326d45a016"
+      "bytes": 6597,
+      "sha256": "467778faf641106c8a35e15b1b92a34526fa6ee92d44a67e1eaa123dff275fc6"
     },
     {
       "file": "assets/sideshow-artists-splide.js",
-      "bytes": 10665,
-      "sha256": "21a3b0d09e9819ab399a42a4307f62bac7fb964a129f66c95317c440c1912108"
+      "bytes": 12258,
+      "sha256": "1757a3b7212ef0a0706f83935796147e8c4f75f2ce3b7b8cf858347fce94c978"
     },
     {
       "file": "assets/sideshow-carousel.css",
@@ -726,7 +726,7 @@
     "assets/icons/favicon.ico",
     "assets/icons/site.webmanifest"
   ],
-  "bytes": 24267588,
+  "bytes": 24269760,
   "notes": [
     "Rendered from the current Shopify studio templates.",
     "Only used storefront assets are copied; source archives and working files are excluded.",
