@@ -1,0 +1,450 @@
+{
+  "source_commit": "fb175b1",
+  "component": "Homepage and About artist sliders",
+  "libraries": {
+    "splide": "4.1.4",
+    "auto_scroll": "0.5.3"
+  },
+  "behavior": {
+    "desktop_tablet": "Continuous loop at 22 pixels per second; 3 desktop cards and 2 tablet cards",
+    "phone": "One complete card, 38px next-card peek, 5600ms reading interval, 800ms transition",
+    "input": "Dragging on desktop and swiping on phones",
+    "controls": "No arrows, pagination, or pause controls",
+    "motion": "No hover pause; respects reduced motion, keyboard focus, overlays, hidden tabs and offscreen sections"
+  },
+  "validator": {
+    "routes": 11,
+    "section_schemas": 31,
+    "liquid_files": 36,
+    "javascript_files": 11,
+    "errors": 0,
+    "warnings": 0
+  },
+  "functional": {
+    "checks": [
+      {
+        "name": "Desktop readable motion speed",
+        "pass": true,
+        "detail": {
+          "distance": 31.009999999999764,
+          "intervalMs": 1400
+        }
+      },
+      {
+        "name": "Continuous autoplay moves",
+        "pass": true,
+        "detail": {
+          "before": {
+            "running": "true",
+            "paused": false,
+            "x": -2748.51,
+            "perPage": 3,
+            "count": 4,
+            "clones": 12,
+            "controls": 0,
+            "width": 1440,
+            "scrollWidth": 1425,
+            "oldEngine": false,
+            "height": 480.46875,
+            "cardHeights": [
+              480,
+              480,
+              480,
+              480
+            ]
+          },
+          "moving": {
+            "running": "true",
+            "paused": false,
+            "x": -2779.52,
+            "perPage": 3,
+            "count": 4,
+            "clones": 12,
+            "controls": 0,
+            "width": 1440,
+            "scrollWidth": 1425,
+            "oldEngine": false,
+            "height": 480.46875,
+            "cardHeights": [
+              480,
+              480,
+              480,
+              480
+            ]
+          }
+        }
+      },
+      {
+        "name": "Three artists on desktop",
+        "pass": true
+      },
+      {
+        "name": "Four source artists",
+        "pass": true
+      },
+      {
+        "name": "Controls absent",
+        "pass": true
+      },
+      {
+        "name": "Old engine removed",
+        "pass": true
+      },
+      {
+        "name": "Even artist card heights",
+        "pass": true,
+        "detail": [
+          480,
+          480,
+          480,
+          480
+        ]
+      },
+      {
+        "name": "Hover keeps moving",
+        "pass": true
+      },
+      {
+        "name": "Overlay suspends motion",
+        "pass": true
+      },
+      {
+        "name": "Overlay close resumes",
+        "pass": true
+      },
+      {
+        "name": "Reduced motion stays still",
+        "pass": true
+      },
+      {
+        "name": "Reduced motion content visible",
+        "pass": true
+      },
+      {
+        "name": "Two artists on tablet",
+        "pass": true
+      },
+      {
+        "name": "Tablet has no page overflow",
+        "pass": true
+      },
+      {
+        "name": "One artist plus mobile peek",
+        "pass": true,
+        "detail": {
+          "left": 0,
+          "right": "38px"
+        }
+      },
+      {
+        "name": "No mobile page overflow",
+        "pass": true
+      },
+      {
+        "name": "Mobile automatically advances after reading interval",
+        "pass": true
+      },
+      {
+        "name": "Touch drag moves artists",
+        "pass": true,
+        "detail": {
+          "before": -1944,
+          "after": -2268
+        }
+      },
+      {
+        "name": "Auto scroll resumes after swipe",
+        "pass": true
+      },
+      {
+        "name": "Offscreen suspends motion",
+        "pass": true
+      },
+      {
+        "name": "Visible resumes motion",
+        "pass": true
+      },
+      {
+        "name": "No duplicate IDs",
+        "pass": true
+      },
+      {
+        "name": "Artist image assets loaded",
+        "pass": true
+      },
+      {
+        "name": "Review carousel still initialized",
+        "pass": true
+      },
+      {
+        "name": "No browser runtime errors",
+        "pass": true,
+        "detail": []
+      }
+    ],
+    "failed": [],
+    "runtimeErrors": []
+  },
+  "resize": {
+    "passed": true,
+    "results": [
+      {
+        "step": "tablet_initial",
+        "before": {
+          "viewport": 768,
+          "client": 753,
+          "scroll": 753,
+          "trackScrollLeft": 0,
+          "index": 0,
+          "position": -1489.8341064453125,
+          "mode": "continuous",
+          "fullyVisible": [
+            "Jake"
+          ],
+          "autoScrollPaused": false,
+          "autoplayPaused": true
+        },
+        "after": {
+          "viewport": 768,
+          "client": 753,
+          "scroll": 753,
+          "trackScrollLeft": 0,
+          "index": 0,
+          "position": -1512.2890625,
+          "mode": "continuous",
+          "fullyVisible": [
+            "Jake"
+          ],
+          "autoScrollPaused": false,
+          "autoplayPaused": true
+        },
+        "movement": 22.4549560546875
+      },
+      {
+        "step": "phone_first",
+        "viewport": 390,
+        "client": 390,
+        "scroll": 390,
+        "trackScrollLeft": 0,
+        "index": 0,
+        "position": -1296,
+        "mode": "slides",
+        "fullyVisible": [
+          "Rigo"
+        ],
+        "autoScrollPaused": true,
+        "autoplayPaused": false
+      },
+      {
+        "step": "tablet_return",
+        "before": {
+          "viewport": 768,
+          "client": 753,
+          "scroll": 753,
+          "trackScrollLeft": 0,
+          "index": 0,
+          "position": -1427.055908203125,
+          "mode": "continuous",
+          "fullyVisible": [
+            "Jake"
+          ],
+          "autoScrollPaused": false,
+          "autoplayPaused": true
+        },
+        "after": {
+          "viewport": 768,
+          "client": 753,
+          "scroll": 753,
+          "trackScrollLeft": 0,
+          "index": 0,
+          "position": -1449.603271484375,
+          "mode": "continuous",
+          "fullyVisible": [
+            "Jake"
+          ],
+          "autoScrollPaused": false,
+          "autoplayPaused": true
+        },
+        "movement": 22.54736328125
+      },
+      {
+        "step": "phone_second",
+        "viewport": 390,
+        "client": 390,
+        "scroll": 390,
+        "trackScrollLeft": 0,
+        "index": 0,
+        "position": -1296,
+        "mode": "slides",
+        "fullyVisible": [
+          "Rigo"
+        ],
+        "autoScrollPaused": true,
+        "autoplayPaused": false
+      },
+      {
+        "step": "phone_advanced",
+        "viewport": 390,
+        "client": 390,
+        "scroll": 390,
+        "trackScrollLeft": 0,
+        "index": 1,
+        "position": -1620,
+        "mode": "slides",
+        "fullyVisible": [
+          "Jake"
+        ],
+        "autoScrollPaused": true,
+        "autoplayPaused": false,
+        "advanced": true
+      }
+    ]
+  },
+  "hosted": {
+    "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
+    "passed": true,
+    "cases": [
+      {
+        "page": "home",
+        "viewport": 1440,
+        "before": {
+          "initialized": true,
+          "index": 0,
+          "position": -2739.11962890625,
+          "mode": "continuous",
+          "client": 1425,
+          "scroll": 1425,
+          "controls": 0,
+          "visibleImages": [
+            {
+              "src": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/sp-original-portrait-rigo.webp",
+              "loaded": true
+            },
+            {
+              "src": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/sp-original-portrait-jake.webp",
+              "loaded": true
+            },
+            {
+              "src": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/sp-original-portrait-megan.webp",
+              "loaded": true
+            }
+          ]
+        },
+        "after": {
+          "initialized": true,
+          "index": 0,
+          "position": -2761.63720703125,
+          "mode": "continuous",
+          "client": 1425,
+          "scroll": 1425,
+          "controls": 0,
+          "visibleImages": [
+            {
+              "src": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/sp-original-portrait-rigo.webp",
+              "loaded": true
+            },
+            {
+              "src": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/sp-original-portrait-jake.webp",
+              "loaded": true
+            },
+            {
+              "src": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/sp-original-portrait-megan.webp",
+              "loaded": true
+            },
+            {
+              "src": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/sp-original-portrait-sonny.webp",
+              "loaded": true
+            }
+          ]
+        },
+        "movement": 22.517578125
+      },
+      {
+        "page": "home",
+        "viewport": 390,
+        "before": {
+          "initialized": true,
+          "index": 0,
+          "position": -1944,
+          "mode": "slides",
+          "client": 390,
+          "scroll": 390,
+          "controls": 0,
+          "visibleImages": [
+            {
+              "src": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/sp-original-portrait-rigo.webp",
+              "loaded": true
+            }
+          ]
+        },
+        "after": {
+          "initialized": true,
+          "index": 1,
+          "position": -2268,
+          "mode": "slides",
+          "client": 390,
+          "scroll": 390,
+          "controls": 0,
+          "visibleImages": [
+            {
+              "src": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/sp-original-portrait-jake.webp",
+              "loaded": true
+            }
+          ]
+        },
+        "advanced": true
+      },
+      {
+        "page": "about",
+        "viewport": 390,
+        "state": {
+          "initialized": true,
+          "index": 0,
+          "position": -648,
+          "mode": "slides",
+          "client": 390,
+          "scroll": 390,
+          "controls": 0,
+          "visibleImages": [
+            {
+              "src": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/sp-original-portrait-sonny.webp",
+              "loaded": true
+            }
+          ]
+        }
+      }
+    ],
+    "uniquePortraits": [
+      {
+        "src": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/sp-original-portrait-jake.webp",
+        "width": 360
+      },
+      {
+        "src": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/sp-original-portrait-rigo.webp",
+        "width": 360
+      },
+      {
+        "src": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/sp-original-portrait-sonny.webp",
+        "width": 360
+      },
+      {
+        "src": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/sp-original-portrait-megan.webp",
+        "width": 360
+      }
+    ],
+    "errors": []
+  },
+  "http": {
+    "url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
+    "checked": 150,
+    "failures": [],
+    "homepageStatus": 200,
+    "exportMatchesLive": true,
+    "v1Status": 200,
+    "v1ExportMatchesLive": true,
+    "canonical": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
+    "sharing": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/assets/icons/sharing-card.png",
+    "map": "https://maps.google.com/maps?q=4973%20S%20State%20St%2C%20Murray%2C%20UT%2084107&amp;t=m&amp;z=13&amp;output=embed&amp;iwloc=near"
+  },
+  "deploy_id": "6af52039b789bfafd715929a"
+}

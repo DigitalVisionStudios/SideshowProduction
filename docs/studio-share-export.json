@@ -1,62 +1,62 @@
 {
-  "source_commit": "33f276317c7368ef0c07e2a06b7c745e03f2781d",
-  "generated_at": "2026-11-12T01:36:32.890Z",
+  "source_commit": "fb175b1e598b6fc19ed8ffa66ed8d75d845b2052",
+  "generated_at": "2026-11-12T02:10:18.757Z",
   "share_url": "https://sideshow-original--dvs-html-previews-netlify6.netlify.app/sideshow-productions-v2/",
   "routes": [
     {
       "route": "/sideshow-productions-v2/",
       "file": "index.html",
-      "bytes": 53545
+      "bytes": 54348
     },
     {
       "route": "/sideshow-productions-v2/pages/about",
       "file": "pages/about/index.html",
-      "bytes": 43536
+      "bytes": 44327
     },
     {
       "route": "/sideshow-productions-v2/pages/aftercare",
       "file": "pages/aftercare/index.html",
-      "bytes": 25308
+      "bytes": 25772
     },
     {
       "route": "/sideshow-productions-v2/pages/artists",
       "file": "pages/artists/index.html",
-      "bytes": 40041
+      "bytes": 40505
     },
     {
       "route": "/sideshow-productions-v2/pages/book",
       "file": "pages/book/index.html",
-      "bytes": 27179
+      "bytes": 27643
     },
     {
       "route": "/sideshow-productions-v2/pages/contact",
       "file": "pages/contact/index.html",
-      "bytes": 23902
+      "bytes": 24366
     },
     {
       "route": "/sideshow-productions-v2/pages/flash",
       "file": "pages/flash/index.html",
-      "bytes": 42808
+      "bytes": 43272
     },
     {
       "route": "/sideshow-productions-v2/pages/ink-roulette",
       "file": "pages/ink-roulette/index.html",
-      "bytes": 64468
+      "bytes": 64932
     },
     {
       "route": "/sideshow-productions-v2/pages/portfolio",
       "file": "pages/portfolio/index.html",
-      "bytes": 36881
+      "bytes": 37345
     },
     {
       "route": "/sideshow-productions-v2/pages/services",
       "file": "pages/services/index.html",
-      "bytes": 34207
+      "bytes": 34671
     },
     {
       "route": "/sideshow-productions-v2/pages/shop",
       "file": "pages/shop/index.html",
-      "bytes": 41443
+      "bytes": 41907
     }
   ],
   "aliases": {
@@ -81,6 +81,16 @@
       "file": "assets/sideshow-appearance.js",
       "bytes": 10508,
       "sha256": "17cb569ea30294839df0257db500026d32cf3e161bc6ea5722658f7bcef39a04"
+    },
+    {
+      "file": "assets/sideshow-artists-splide.css",
+      "bytes": 6018,
+      "sha256": "49781544b13d3439089bc1cf0998b9c09c7528e15213f53261ced4326d45a016"
+    },
+    {
+      "file": "assets/sideshow-artists-splide.js",
+      "bytes": 10665,
+      "sha256": "21a3b0d09e9819ab399a42a4307f62bac7fb964a129f66c95317c440c1912108"
     },
     {
       "file": "assets/sideshow-carousel.css",
@@ -134,8 +144,8 @@
     },
     {
       "file": "assets/sideshow-original.css",
-      "bytes": 10888,
-      "sha256": "a7e7db7deb95a267e54fbd69f935fedddc922ff33777ebac3d13ad37f0112c0c"
+      "bytes": 10934,
+      "sha256": "ef2c4a3ec82e5da8ad512ca324274c90c60437b7c738c96d7d3fccc12eb8f230"
     },
     {
       "file": "assets/sideshow-original.js",
@@ -658,6 +668,21 @@
       "sha256": "9d784297f976367b7f0a9d232f95bdde78ca8ad088399044c5cbb80e8ff324c8"
     },
     {
+      "file": "assets/sp-splide-4.1.4.min.js",
+      "bytes": 30872,
+      "sha256": "933ebf1761c1b0bcbce8827e3dfac7c5273416806c42423f922d082efd0a41d4"
+    },
+    {
+      "file": "assets/sp-splide-auto-scroll-0.5.3.min.js",
+      "bytes": 6695,
+      "sha256": "ea92031e151fe60010e9bceb619ffa3a5caba993277e93e5ea36303fcf04b3fe"
+    },
+    {
+      "file": "assets/sp-splide-core-4.1.4.min.css",
+      "bytes": 3073,
+      "sha256": "203b1091561e7cb720e87a87b72f6f2d54786c72e6c48b89ee5260174e3ebab2"
+    },
+    {
       "file": "assets/sp-storefront.webp",
       "bytes": 105922,
       "sha256": "9d784297f976367b7f0a9d232f95bdde78ca8ad088399044c5cbb80e8ff324c8"
@@ -701,7 +726,7 @@
     "assets/icons/favicon.ico",
     "assets/icons/site.webmanifest"
   ],
-  "bytes": 24210219,
+  "bytes": 24267588,
   "notes": [
     "Rendered from the current Shopify studio templates.",
     "Only used storefront assets are copied; source archives and working files are excluded.",
